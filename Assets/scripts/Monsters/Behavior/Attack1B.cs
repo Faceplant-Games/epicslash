@@ -30,7 +30,7 @@ public class Attack1B : MonoBehaviour
 
 	private void DisplayAttackSign()
 	{
-		Debug.Log(gameObject.name +  " is about to attack");
+		//
 	}
 
 	private void DisplayAttackTrajectory()
@@ -56,9 +56,10 @@ public class Attack1B : MonoBehaviour
 
 	private IEnumerator AttackMove()
 	{
+		GetComponent<GroundMovingB>().MyNavMeshAgent.Stop();
 		float t = 0;
 		Vector3 InitialPosition = transform.position;
-		Vector3 FinalPosition = transform.position + new Vector3(0, 0, _attackDistance);
+		Vector3 FinalPosition = transform.position + transform.forward * _attackDistance;
 		while (t < _attackTravelDuration)
 		{
 			yield return _waitForEndOfFrame;
@@ -71,9 +72,12 @@ public class Attack1B : MonoBehaviour
 	{
 		StartCoroutine(FaceObject(player, 0.5f));
 		yield return new WaitForSeconds(1f);
+		Debug.Log(gameObject.name +  " is about to attack");
 		DisplayAttackSign();
+		Debug.Log("Display Trajectory");
 		DisplayAttackTrajectory();
 		yield return new WaitForSeconds(_attackPendingDuration);
+		Debug.Log("Attack Move");
 		StartCoroutine(AttackMove());
 		//wait for next attack;
 		yield return null;
