@@ -26,6 +26,8 @@ public class Monster1B : AbstractMonster
 	public void Attack(GameObject target)
 	{
 		_attack1B.Attack(target);
+		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+		player.levelDown (1);
 	}
 
 	public override int  Experience(){
@@ -37,6 +39,8 @@ public class Monster1B : AbstractMonster
 	}
 
 	public override void Die(){
+
+		print("je suis une arraignee et je meurs");
 		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 		if ( player != null){
 			player.levelUp (1);
