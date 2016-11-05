@@ -55,18 +55,32 @@ public class Monster2B : AbstractMonster
 		}
 		return NearestBag;
 	}
-	
+
+
+	float timer = 0;
+
 	// Update is called once per frame
 	void Update () 
 	{
-		if (myState == Monster2State.LookingForGold)
+		
+		timer += Time.deltaTime;
+		if (timer > 1)
 		{
-			_groundMovingB.Move(NearestGoldBag().transform.position);
+			timer = 0;
+			if (myState == Monster2State.LookingForGold)
+			{
+				if (NearestGoldBag() == null)
+				{
+					return;
+				}
+				_groundMovingB.Move(NearestGoldBag().transform.position);
+			}
+			else
+			{
+				_groundMovingB.Move(EscapePosition);
+			}
 		}
-		else
-		{
-			_groundMovingB.Move(EscapePosition);
-		}
+
 	}
 
 	void OnTriggerEnter(Collider collision)

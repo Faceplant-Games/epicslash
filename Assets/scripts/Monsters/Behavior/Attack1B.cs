@@ -11,15 +11,21 @@ public class Attack1B : MonoBehaviour
 
 	private IEnumerator _attackCoroutine;
 	private WaitForEndOfFrame _waitForEndOfFrame = new WaitForEndOfFrame();
+	private GameObject player;
+	private GroundMovingB _groundMovingB;
 
+	private bool Attacking = false;
 	// Use this for initialization
 	void Start () 
 	{
+		_groundMovingB = GetComponent<GroundMovingB>();
 		_facePlayerSpeed = StatManager.Attack1B_facePlayerSpeed;
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	public void Attack(GameObject player)
 	{
+		Attacking = true;
 		if (_attackCoroutine != null)
 		{
 			StopCoroutine(_attackCoroutine);
@@ -31,6 +37,19 @@ public class Attack1B : MonoBehaviour
 	private void DisplayAttackSign()
 	{
 		//
+	}
+
+	void Update()
+	{
+		if (Vector3.Distance(player.transform.position, transform.position) > 3f && Attacking == false)
+		{
+			_groundMovingB.Move(player.transform.position);
+		}
+		else if (Attacking == false)
+		{
+			_groundMovingB.MyNavMeshAgent.Stop();
+			Attack(player);
+		}
 	}
 
 	private void DisplayAttackTrajectory()
@@ -56,7 +75,7 @@ public class Attack1B : MonoBehaviour
 
 	private IEnumerator AttackMove(GameObject player)
 	{
-		GetComponent<GroundMovingB>().MyNavMeshAgent.Stop();
+		_groundMovingB.MyNavMeshAgent.Stop();
 		float t = 0;
 		Vector3 InitialPosition = transform.position;
 		Vector3 FinalPosition = transform.position + transform.forward * Vector3.Distance(transform.position, player.transform.position) * 2;
@@ -70,6 +89,7 @@ public class Attack1B : MonoBehaviour
 
 	private IEnumerator AttackCoroutine(GameObject player)
 	{
+		Debug.Log("Face Target");
 		StartCoroutine(FaceObject(player, 0.5f));
 		yield return new WaitForSeconds(1f);
 		Debug.Log(gameObject.name +  " is about to attack");
@@ -79,7 +99,9 @@ public class Attack1B : MonoBehaviour
 		yield return new WaitForSeconds(_attackPendingDuration);
 		Debug.Log("Attack Move");
 		StartCoroutine(AttackMove(player));
-		//wait for next attack;
+		yield return new WaitForSeconds(5f);
+		Attack(player);
 		yield return null;
 	}
 }
+

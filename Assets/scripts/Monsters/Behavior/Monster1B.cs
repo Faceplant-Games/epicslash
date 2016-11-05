@@ -17,12 +17,6 @@ public class Monster1B : AbstractMonster
 		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
-	// Update is called once per frame
-	void Update () 
-	{
-
-	}
-
 	public void Move(Vector3 position)
 	{
 		_groundMovingB.Move(position);
