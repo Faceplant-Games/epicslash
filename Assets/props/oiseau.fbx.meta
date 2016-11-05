@@ -1,15 +1,27 @@
 fileFormatVersion: 2
-guid: 8dc6446ecaab92d439949e9f6c2c512b
-timeCreated: 1478387969
+guid: 6636a0bc48b28e7418b26c91e1b62842
+timeCreated: 1478387367
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: coin
+    100000: corps
+    100002: //RootNode
+    100004: oiseau_aile_d
+    100006: oiseau_aile_g
+    400000: corps
+    400002: //RootNode
+    400004: oiseau_aile_d
+    400006: oiseau_aile_g
+    2300000: corps
+    2300002: oiseau_aile_d
+    2300004: oiseau_aile_g
+    3300000: corps
+    3300002: oiseau_aile_d
+    3300004: oiseau_aile_g
+    4300000: corps
+    4300002: oiseau_aile_d
+    4300004: oiseau_aile_g
     9500000: //RootNode
   materials:
     importMaterials: 1
