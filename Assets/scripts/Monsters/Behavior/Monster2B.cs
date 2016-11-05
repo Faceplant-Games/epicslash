@@ -68,15 +68,15 @@ public class Monster2B : AbstractMonster
 
 	}
 
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider collision)
 	{
-		if (collision.collider.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
+		if (collision.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
 		{
 			Debug.Log("Escape!");
 			StealGold();
 			PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 			player.levelDown (1);
-			Destroy(collision.collider.gameObject);
+			Destroy(collision.gameObject);
 		}
 	}
 
