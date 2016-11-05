@@ -24,9 +24,8 @@ GameObject:
   - 23: {fileID: 23000013803899776}
   - 195: {fileID: 195000010968830156}
   - 114: {fileID: 114000012354931236}
-  - 114: {fileID: 114000010371917584}
   - 54: {fileID: 54000012787581714}
-  - 114: {fileID: 114000010453254218}
+  - 114: {fileID: 114000013218183136}
   m_Layer: 0
   m_Name: Monster1
   m_TagString: Untagged
@@ -110,30 +109,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114000010371917584
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011051426828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf1fe2295d24e747ad34248b2cd6519, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114000010453254218
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011051426828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb8b555cc73f2741ae94fa4a28324de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EscapePosition: {x: 0, y: 0, z: 0}
-  myState: 0
 --- !u!114 &114000012354931236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +121,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MyNavMeshAgent: {fileID: 0}
+--- !u!114 &114000013218183136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011051426828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb8b555cc73f2741ae94fa4a28324de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EscapePosition: {x: 0, y: 0, z: 0}
+  myState: 0
 --- !u!195 &195000010968830156
 NavMeshAgent:
   m_ObjectHideFlags: 1

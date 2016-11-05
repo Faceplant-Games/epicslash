@@ -47,7 +47,7 @@ public class Monster1B : AbstractMonster
 		if ( player != null){
 			player.levelUp (1);
 		}
-
+        Destroy(this);
 		//FIXME AJOUT sac de gold?
 	}
 

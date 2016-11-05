@@ -22,7 +22,8 @@ public class WeaponB : MonoBehaviour {
 		foreach (AbstractMonster monster in monsters) {
 			// Is touching ?
 			float dist = Vector3.Distance(transform.position, monster.gameObject.transform.position);
-			if (dist < 1) { // Touching = under 1 distance unit
+			if (dist < 10) { // Touching = under 1 distance unit
+                print("die die die");
 				monster.Die();
 			}
 		}
