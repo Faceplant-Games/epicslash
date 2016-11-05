@@ -10,8 +10,18 @@ public class MonsterManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ennemies  = new Dictionary<string,int>[5];// nombre de niveaux de jeux
+		for (int i = 0; i < 5; i++) {
+			ennemies[i] =  new Dictionary<string,int>();
+		}
+		ennemies [0].Add ("",100);
 
+		ennemies [1].Add ("",100);
 
+		ennemies [2].Add ("",100);
+
+		ennemies [3].Add ("",100);
+
+		ennemies [4].Add ("",100);
 
 	}
 	
@@ -27,13 +37,8 @@ public class MonsterManager : MonoBehaviour {
 
 	}
 
-	string findEnnemyTag(){
-		return ennemies [0];
-	}
-
-
-	void addEnnemyTag(string tag){
-		ennemies.Add (tag);
+	string findEnnemyTag(){//FIXME
+		return "";
 	}
 
 }

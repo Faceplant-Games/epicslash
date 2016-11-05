@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Monster1B : Monster, MonoBehaviour  {
-
+public class Monster1B : MonoBehaviour , Monster  {
 
 
 	// Use this for initialization
@@ -19,9 +18,18 @@ public class Monster1B : Monster, MonoBehaviour  {
 
 	}
 
-	void  Experience(){
+	public int  Experience(){
+		return 0;
+	}
+
+	public void Spawn(){
 
 	}
+
+	public void Die(){
+
+	}
+
 
 
 }
