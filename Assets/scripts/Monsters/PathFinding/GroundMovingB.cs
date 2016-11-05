@@ -3,6 +3,7 @@ using System.Collections;
 
 public class GroundMovingB : MovingB 
 {
+	[HideInInspector]
 	public NavMeshAgent MyNavMeshAgent;
 
 	// Use this for initialization
