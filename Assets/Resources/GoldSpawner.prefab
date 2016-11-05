@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013456624098}
+  - 114: {fileID: 114000010325813630}
   m_Layer: 0
   m_Name: GoldSpawner
   m_TagString: Untagged
@@ -39,3 +40,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &114000010325813630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012556584104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 232cae71437e5004d94c9af420395a5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldBagPrefab: {fileID: 114000010474214384, guid: 6f06209ea405f4e47915ab72e44676d1,
+    type: 2}
