@@ -16,6 +16,14 @@ public class PlayerB : MonoBehaviour {
 	
 	}
 
+	void levelUp(int levels) {
+		level += levels;
+	}
+
+	void levelDown(int levels) {
+		level -= levels;
+	}
+
 	void equipWeapon (WeaponB weaponB) {
 		this.weaponB = weaponB;
 	}

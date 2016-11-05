@@ -16,10 +16,10 @@ public class WeaponB : MonoBehaviour {
 		Monster[] monsters = GameObject.FindObjectsOfType(typeof(Monster)) as Monster[];
 		foreach (Monster monster in monsters) {
 			// Is touching ?
-			float dist = Vector3.Distance(transform.position, monster.gameObject.transform.position);
+			/*float dist = Vector3.Distance(transform.position, monster.gameObject.transform.position);
 			if (dist < 1) { // Touching = under 1 distance unit
 				monster.die();
-			}
+			}*/
 		}
 			
 
