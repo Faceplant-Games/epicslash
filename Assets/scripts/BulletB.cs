@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : MonoBehaviour {
+public class BulletB : MonoBehaviour {
 
 	float timer = 0;
 	float lifeTime = 10;
@@ -33,6 +33,4 @@ public class Bullet : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
-
-
 }

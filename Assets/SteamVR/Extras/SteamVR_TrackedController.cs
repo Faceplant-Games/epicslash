@@ -41,7 +41,8 @@ public class SteamVR_TrackedController : MonoBehaviour
         {
             gameObject.AddComponent<SteamVR_TrackedObject>();
         }
-
+		// Customized Edit for EpicPaper
+		controllerIndex = (uint) this.GetComponent<SteamVR_TrackedObject>().index;
 		if (controllerIndex != 0)
 		{
 			this.GetComponent<SteamVR_TrackedObject>().index = (SteamVR_TrackedObject.EIndex)controllerIndex;
