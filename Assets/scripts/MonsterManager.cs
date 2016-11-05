@@ -32,7 +32,8 @@ public class MonsterManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (GameObject.FindObjectsOfType (typeof(AbstractMonster)).Length < 200)
+			Spawn ();
 	}
 
 
