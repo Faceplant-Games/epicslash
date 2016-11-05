@@ -5,15 +5,17 @@ public class PlayerB : MonoBehaviour {
 
 	int level;
 	int stage;
-	GameManager gm = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager ;
 	long[] treshs = { 100, 100000, 100000000, 100000000000, 100000000000000 };
-	WeaponB weaponB;
+    GameManager gm;
+
+    WeaponB weaponB;
 
 	// Use this for initialization
 	void Start () {
 		level = 0;
 		stage = 0;
-	}
+        gm = this.gameObject.GetComponent<GameManager>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -22,6 +24,7 @@ public class PlayerB : MonoBehaviour {
 
 	public void levelUp(int levels) {
 		level += levels;
+        print(level);
 		if (level >= treshs [stage]) {
 			stage++;
 			gm.stage = stage;

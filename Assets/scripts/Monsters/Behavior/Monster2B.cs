@@ -114,6 +114,7 @@ public class Monster2B : AbstractMonster
 	{
         print("je meurs");
 		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+        print(player);
 		if ( player != null){
 			player.levelUp (1);
 		}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
   barrelEndTransform: {fileID: 0}
+  trackedController: {fileID: 0}
 --- !u!1 &117492
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,3 +291,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114000013174679328, guid: 7557b54e4326f7845a09bda18fb63e47,
     type: 2}
   barrelEndTransform: {fileID: 4000014162499208}
+  trackedController: {fileID: 0}
