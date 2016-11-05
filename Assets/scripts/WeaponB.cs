@@ -16,16 +16,9 @@ public class WeaponB : MonoBehaviour {
 		PhysicalHit ();
 	}
 
-	void PhysicalHit() {
-		// Get all mobs
-		AbstractMonster[] monsters = GameObject.FindObjectsOfType(typeof(AbstractMonster)) as AbstractMonster[];
-		foreach (AbstractMonster monster in monsters) {
-			// Is touching ?
-			float dist = Vector3.Distance(transform.position, monster.gameObject.transform.position);
-			if (dist < 10) { // Touching = under 1 distance unit
-                print("die die die");
-				monster.Die();
-			}
+	void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.GetComponent<AbstractMonster> () != null) {
+			collision.gameObject.GetComponent<AbstractMonster> ().Die ();
 		}
 	}
 
