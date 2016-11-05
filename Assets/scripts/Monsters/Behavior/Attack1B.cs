@@ -7,7 +7,7 @@ public class Attack1B : MonoBehaviour
 	private float _attackRate = 5f;
 	private float _attackPendingDuration = 2f;
 	private float _attackDistance = 2f;
-	private float _attackTravelDuration = 2f;
+	private float _attackTravelDuration = 0.8f;
 
 	private IEnumerator _attackCoroutine;
 	private WaitForEndOfFrame _waitForEndOfFrame = new WaitForEndOfFrame();
@@ -54,12 +54,12 @@ public class Attack1B : MonoBehaviour
 		yield return null;
 	}
 
-	private IEnumerator AttackMove()
+	private IEnumerator AttackMove(GameObject player)
 	{
 		GetComponent<GroundMovingB>().MyNavMeshAgent.Stop();
 		float t = 0;
 		Vector3 InitialPosition = transform.position;
-		Vector3 FinalPosition = transform.position + transform.forward * _attackDistance;
+		Vector3 FinalPosition = transform.position + transform.forward * Vector3.Distance(transform.position, player.transform.position) * 2;
 		while (t < _attackTravelDuration)
 		{
 			yield return _waitForEndOfFrame;
@@ -78,7 +78,7 @@ public class Attack1B : MonoBehaviour
 		DisplayAttackTrajectory();
 		yield return new WaitForSeconds(_attackPendingDuration);
 		Debug.Log("Attack Move");
-		StartCoroutine(AttackMove());
+		StartCoroutine(AttackMove(player));
 		//wait for next attack;
 		yield return null;
 	}

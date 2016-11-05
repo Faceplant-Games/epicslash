@@ -6,6 +6,7 @@ public class Monster1B : AbstractMonster
 {
 	private GroundMovingB _groundMovingB;
 	private Attack1B _attack1B;
+	private GameObject player;
 
 
 	// Use this for initialization
@@ -13,6 +14,7 @@ public class Monster1B : AbstractMonster
 	{
 		_groundMovingB = GetComponent<GroundMovingB>();
 		_attack1B = GetComponent<Attack1B>();
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	// Update is called once per frame
