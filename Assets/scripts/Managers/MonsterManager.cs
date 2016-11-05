@@ -47,7 +47,7 @@ public class MonsterManager : MonoBehaviour {
 	}
 
 	string findEnnemyTag(){//FIXME ajouter les differents types de monstres
-		return "Monster2";
+		return "Monster1";
 	}
 
 }
