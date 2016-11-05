@@ -4,12 +4,15 @@ using System.Collections.Generic;
 
 public class MonsterManager : MonoBehaviour {
 	private List<SpawnerB> spawns = new List<SpawnerB> ();
-	private List<string> ennemies = new List<string>();//FIXME
+	private Dictionary<string,int>[] ennemies;
 
 
 	// Use this for initialization
 	void Start () {
-	
+		ennemies  = new Dictionary<string,int>[5];// nombre de niveaux de jeux
+
+
+
 	}
 	
 	// Update is called once per frame
