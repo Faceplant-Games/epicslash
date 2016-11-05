@@ -7,22 +7,6 @@ public class Monster2B : AbstractMonster
 	private GroundMovingB _groundMovingB;
 	public Vector3 EscapePosition;
 	private int hp = 1;
-	/*private GameObject _goldTarget;
-	private GameObject goldTarget
-	{
-		get
-		{
-			if (_goldTarget == null)
-			{
-				_goldTarget = NearestGoldBag();
-			}
-			return _goldTarget;
-		}
-		set
-		{
-			_goldTarget = value;
-		}
-	}*/
 
 	public enum Monster2State
 	{
@@ -84,15 +68,15 @@ public class Monster2B : AbstractMonster
 
 	}
 
-	void OnTriggerEnter(Collider collision)
+	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
+		if (collision.collider.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
 		{
 			Debug.Log("Escape!");
 			StealGold();
 			PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 			player.levelDown (1);
-			Destroy(collision.gameObject);
+			Destroy(collision.collider.gameObject);
 		}
 	}
 
