@@ -20,7 +20,7 @@ public class Attack1B : MonoBehaviour
 	{
 		_groundMovingB = GetComponent<GroundMovingB>();
 		_facePlayerSpeed = StatManager.Attack1B_facePlayerSpeed;
-		player = GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.FindGameObjectWithTag("MainCamera");
 	}
 
 	public void Attack(GameObject player)
@@ -70,7 +70,8 @@ public class Attack1B : MonoBehaviour
 			transform.rotation = Quaternion.Lerp(initialRotation, toRotation, timer/duration);
 		}
 		transform.rotation = toRotation;
-		yield return null;
+		transform.LookAt(target.transform)
+;		yield return null;
 	}
 
 	private IEnumerator AttackMove(GameObject player)
@@ -89,15 +90,11 @@ public class Attack1B : MonoBehaviour
 
 	private IEnumerator AttackCoroutine(GameObject player)
 	{
-		Debug.Log("Face Target");
 		StartCoroutine(FaceObject(player, 0.5f));
 		yield return new WaitForSeconds(1f);
-		Debug.Log(gameObject.name +  " is about to attack");
 		DisplayAttackSign();
-		Debug.Log("Display Trajectory");
 		DisplayAttackTrajectory();
 		yield return new WaitForSeconds(_attackPendingDuration);
-		Debug.Log("Attack Move");
 		StartCoroutine(AttackMove(player));
 		yield return new WaitForSeconds(5f);
 		Attack(player);

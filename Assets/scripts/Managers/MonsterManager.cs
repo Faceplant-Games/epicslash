@@ -33,7 +33,7 @@ public class MonsterManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Random.Range (0, 10) < 1) {// changer ça pour modifier le spawn rate
-			if (GameObject.FindObjectsOfType (typeof(AbstractMonster)).Length < 10)
+			if (GameObject.FindObjectsOfType (typeof(AbstractMonster)).Length < 50)
 				Spawn ();
 		}
 	}
@@ -47,7 +47,13 @@ public class MonsterManager : MonoBehaviour {
 	}
 
 	string findEnnemyTag(){//FIXME ajouter les differents types de monstres
-		return "Monster1";
+        float r = Random.Range(0, 10);
+        if (r < 3)
+            return "Monster2";
+        else if (r < 8)
+            return "Monster1";
+        else
+            return "Monster3";
 	}
 
 }

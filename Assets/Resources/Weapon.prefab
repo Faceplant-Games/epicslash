@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 0}
   barrelEndTransform: {fileID: 0}
+  trackedController: {fileID: 0}
 --- !u!1 &117492
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +275,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Size: {x: 0.05, y: 1.2, z: 0.35}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114000012299222704
 MonoBehaviour:
@@ -290,3 +291,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114000013174679328, guid: 7557b54e4326f7845a09bda18fb63e47,
     type: 2}
   barrelEndTransform: {fileID: 4000014162499208}
+  trackedController: {fileID: 0}

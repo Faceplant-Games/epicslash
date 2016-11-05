@@ -4,10 +4,11 @@ using System.Collections;
 public class WeaponB : MonoBehaviour {
 	public BulletB bulletPrefab;
 	public Transform barrelEndTransform;
+    public SteamVR_TrackedController trackedController;
 
-	// Use this for initialization
-	void Start () {
-	//	GetComponent<SteamVR_TrackedController>().TriggerClicked += new ClickedEventHandler(RangeHit);
+    // Use this for initialization
+    void Start () {
+	trackedController.TriggerClicked += new ClickedEventHandler(RangeHit);
 	}
 	
 	// Update is called once per frame
@@ -15,10 +16,8 @@ public class WeaponB : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-		print ("Attack Triggered");
-		if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
+        if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
 			collider.gameObject.GetComponent<AbstractMonster> ().Die ();
-
 		}
 
 	}

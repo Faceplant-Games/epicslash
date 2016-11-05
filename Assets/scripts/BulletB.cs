@@ -5,7 +5,7 @@ public class BulletB : MonoBehaviour {
 
 	float timer = 0;
 	float lifeTime = 10;
-	float speed = 1;
+	float speed = 20;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +20,7 @@ public class BulletB : MonoBehaviour {
 		// At each frame, we cast a ray forward from where we are to where we will be next frame
 		if (Physics.Raycast (transform.position, transform.forward, out hit, distanceThisFrame)) {
 			if (hit.transform.gameObject.GetComponent<AbstractMonster>() != null) {
+                print("Boom");
 				AbstractMonster monster = hit.transform.gameObject.GetComponent<AbstractMonster>();
 				monster.Die ();
 				Destroy (gameObject);
