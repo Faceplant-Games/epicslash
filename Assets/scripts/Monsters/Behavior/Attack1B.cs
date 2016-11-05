@@ -70,7 +70,8 @@ public class Attack1B : MonoBehaviour
 			transform.rotation = Quaternion.Lerp(initialRotation, toRotation, timer/duration);
 		}
 		transform.rotation = toRotation;
-		yield return null;
+		transform.LookAt(target.transform)
+;		yield return null;
 	}
 
 	private IEnumerator AttackMove(GameObject player)
