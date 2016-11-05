@@ -23,6 +23,11 @@ public class MonsterManager : MonoBehaviour {
 
 		ennemies [4].Add ("",100);
 
+		SpawnerB[] spawnerB = GameObject.FindObjectsOfType (typeof(SpawnerB)) as SpawnerB[];
+
+		foreach (SpawnerB spawner in spawnerB) {
+			spawns.Add(spawner);
+		}
 	}
 	
 	// Update is called once per frame
