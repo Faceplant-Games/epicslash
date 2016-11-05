@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 9541c7c592f86bd419f9002990841cbb
+timeCreated: 1478361978
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: araignee_abdomen
+    100004: araignee_corps
+    100006: araignee_crochet_g1
+    100008: araignee_crochet_g2
+    100010: araignee_oeil_d1
+    100012: araignee_oeil_d2
+    100014: araignee_oeil_d3
+    100016: araignee_oeil_g1
+    100018: araignee_oeil_g2
+    100020: araignee_oeil_g3
+    100022: araignee_patte_d
+    100024: araignee_patte_d1
+    100026: araignee_patte_g
+    100028: araignee_patte_g1
+    100030: araignee_tete
+    100032: bottom
+    100034: crochets
+    100036: pattes1
+    100038: pattes2
+    400000: //RootNode
+    400002: araignee_abdomen
+    400004: araignee_corps
+    400006: araignee_crochet_g1
+    400008: araignee_crochet_g2
+    400010: araignee_oeil_d1
+    400012: araignee_oeil_d2
+    400014: araignee_oeil_d3
+    400016: araignee_oeil_g1
+    400018: araignee_oeil_g2
+    400020: araignee_oeil_g3
+    400022: araignee_patte_d
+    400024: araignee_patte_d1
+    400026: araignee_patte_g
+    400028: araignee_patte_g1
+    400030: araignee_tete
+    400032: bottom
+    400034: crochets
+    400036: pattes1
+    400038: pattes2
+    2300000: araignee_abdomen
+    2300002: araignee_corps
+    2300004: araignee_crochet_g1
+    2300006: araignee_crochet_g2
+    2300008: araignee_oeil_d1
+    2300010: araignee_oeil_d2
+    2300012: araignee_oeil_d3
+    2300014: araignee_oeil_g1
+    2300016: araignee_oeil_g2
+    2300018: araignee_oeil_g3
+    2300020: araignee_patte_d
+    2300022: araignee_patte_d1
+    2300024: araignee_patte_g
+    2300026: araignee_patte_g1
+    2300028: araignee_tete
+    3300000: araignee_abdomen
+    3300002: araignee_corps
+    3300004: araignee_crochet_g1
+    3300006: araignee_crochet_g2
+    3300008: araignee_oeil_d1
+    3300010: araignee_oeil_d2
+    3300012: araignee_oeil_d3
+    3300014: araignee_oeil_g1
+    3300016: araignee_oeil_g2
+    3300018: araignee_oeil_g3
+    3300020: araignee_patte_d
+    3300022: araignee_patte_d1
+    3300024: araignee_patte_g
+    3300026: araignee_patte_g1
+    3300028: araignee_tete
+    4300000: araignee_abdomen
+    4300002: araignee_corps
+    4300004: araignee_tete
+    4300006: araignee_oeil_g3
+    4300008: araignee_oeil_d3
+    4300010: araignee_oeil_d1
+    4300012: araignee_oeil_g1
+    4300014: araignee_oeil_g2
+    4300016: araignee_oeil_d2
+    4300018: araignee_patte_d1
+    4300020: araignee_patte_g1
+    4300022: araignee_patte_g
+    4300024: araignee_patte_d
+    4300026: araignee_crochet_g1
+    4300028: araignee_crochet_g2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
