@@ -7,6 +7,7 @@ public class Monster1B : AbstractMonster
 	private GroundMovingB _groundMovingB;
 	private Attack1B _attack1B;
 	private GameObject player;
+	private int hp = 1;
 
 
 	// Use this for initialization
@@ -36,7 +37,12 @@ public class Monster1B : AbstractMonster
 	}
 
 	public override void Die(){
-
+		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+		if ( player != null){
+			player.levelUp (1);
+		}
+        Destroy(this);
+		//FIXME AJOUT sac de gold?
 	}
 
 
