@@ -7,7 +7,7 @@ public class PlayerB : MonoBehaviour {
 	int level;
 	int stage;
 	long[] treshs = { 100, 100000, 100000000, 100000000000, 100000000000000 };
-	public List<GoldSpawnerB> goldSpawners = new List<GoldSpawnerB>();
+	List<GoldSpawnerB> goldSpawners = new List<GoldSpawnerB>();
     GameManager gm;
 
     WeaponB weaponB;
@@ -17,6 +17,10 @@ public class PlayerB : MonoBehaviour {
 		level = 0;
 		stage = 0;
         gm = this.gameObject.GetComponent<GameManager>();
+		GoldSpawnerB[] goldS = GameObject.FindObjectsOfType (typeof(GoldSpawnerB)) as GoldSpawnerB[];
+		foreach (GoldSpawnerB spawner in goldS) {
+			goldSpawners.Add(spawner);
+		}
     }
 	
 	// Update is called once per frame
