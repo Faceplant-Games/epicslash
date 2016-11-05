@@ -16,10 +16,13 @@ public class WeaponB : MonoBehaviour {
 	void Update () {
 	}
 
-	void OnCollisionEnter(Collision collision) {
-		if (collision.gameObject.GetComponent<AbstractMonster> () != null) {
-			collision.gameObject.GetComponent<AbstractMonster> ().Die ();
+	void OnTriggerEnter(Collider collider) {
+		print ("Attack Triggered");
+		if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
+			collider.gameObject.GetComponent<AbstractMonster> ().Die ();
+
 		}
+
 	}
 
 	void RangeHit(object sender, ClickedEventArgs e) 
