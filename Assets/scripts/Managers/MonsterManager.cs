@@ -47,7 +47,10 @@ public class MonsterManager : MonoBehaviour {
 	}
 
 	string findEnnemyTag(){//FIXME ajouter les differents types de monstres
-		return "Monster2";
+		if (Random.Range (0, 10) < 5)
+			return "Monster2";
+		else
+			return "Monster1";
 	}
 
 }
