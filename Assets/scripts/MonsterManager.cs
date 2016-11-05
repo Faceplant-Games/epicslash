@@ -38,7 +38,7 @@ public class MonsterManager : MonoBehaviour {
 	}
 
 	string findEnnemyTag(){//FIXME
-		return "";
+		return "Monster1";
 	}
 
 }
