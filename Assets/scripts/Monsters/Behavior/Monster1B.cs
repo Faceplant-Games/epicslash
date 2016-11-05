@@ -7,6 +7,7 @@ public class Monster1B : AbstractMonster
 	private GroundMovingB _groundMovingB;
 	private Attack1B _attack1B;
 	private GameObject player;
+	private int hp = 1;
 
 
 	// Use this for initialization
@@ -15,12 +16,6 @@ public class Monster1B : AbstractMonster
 		_groundMovingB = GetComponent<GroundMovingB>();
 		_attack1B = GetComponent<Attack1B>();
 		player = GameObject.FindGameObjectWithTag("Player");
-	}
-
-	// Update is called once per frame
-	void Update () 
-	{
-
 	}
 
 	public void Move(Vector3 position)
@@ -42,7 +37,12 @@ public class Monster1B : AbstractMonster
 	}
 
 	public override void Die(){
-
+		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+		if ( player != null){
+			player.levelUp (1);
+		}
+        Destroy(this);
+		//FIXME AJOUT sac de gold?
 	}
 
 

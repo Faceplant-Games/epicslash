@@ -6,6 +6,7 @@ public class Monster2B : AbstractMonster
 {
 	private GroundMovingB _groundMovingB;
 	public Vector3 EscapePosition;
+	private int hp = 1;
 	/*private GameObject _goldTarget;
 	private GameObject goldTarget
 	{
@@ -55,23 +56,36 @@ public class Monster2B : AbstractMonster
 		}
 		return NearestBag;
 	}
-	
+
+
+	float timer = 0;
+
 	// Update is called once per frame
 	void Update () 
 	{
-		if (myState == Monster2State.LookingForGold)
+		
+		timer += Time.deltaTime;
+		if (timer > 1)
 		{
-			_groundMovingB.Move(NearestGoldBag().transform.position);
+			timer = 0;
+			if (myState == Monster2State.LookingForGold)
+			{
+				if (NearestGoldBag() == null)
+				{
+					return;
+				}
+				_groundMovingB.Move(NearestGoldBag().transform.position);
+			}
+			else
+			{
+				_groundMovingB.Move(EscapePosition);
+			}
 		}
-		else
-		{
-			_groundMovingB.Move(EscapePosition);
-		}
+
 	}
 
 	void OnTriggerEnter(Collider collision)
 	{
-		Debug.Log("Hello");
 		if (collision.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
 		{
 			Debug.Log("Escape!");
@@ -98,6 +112,12 @@ public class Monster2B : AbstractMonster
 
 	public override void Die()
 	{
-
+        print("je meurs");
+		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+		if ( player != null){
+			player.levelUp (1);
+		}
+		Destroy (this.gameObject);
+		//FIXME AJOUT sac de gold?
 	}
 }
