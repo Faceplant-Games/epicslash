@@ -33,7 +33,7 @@ public class MonsterManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Random.Range (0, 10) < 1) {// changer ça pour modifier le spawn rate
-			if (GameObject.FindObjectsOfType (typeof(AbstractMonster)).Length < 10)
+			if (GameObject.FindObjectsOfType (typeof(AbstractMonster)).Length < 50)
 				Spawn ();
 		}
 	}

@@ -15,7 +15,6 @@ public class WeaponB : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-		print ("Attack Triggered");
 		if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
 			collider.gameObject.GetComponent<AbstractMonster> ().Die ();
 
