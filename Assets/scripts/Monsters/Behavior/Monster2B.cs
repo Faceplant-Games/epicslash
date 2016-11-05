@@ -86,11 +86,12 @@ public class Monster2B : AbstractMonster
 
 	void OnTriggerEnter(Collider collision)
 	{
-		Debug.Log("Hello");
 		if (collision.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
 		{
 			Debug.Log("Escape!");
 			StealGold();
+			PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+			player.levelDown (1);
 			Destroy(collision.gameObject);
 		}
 	}
@@ -113,11 +114,12 @@ public class Monster2B : AbstractMonster
 
 	public override void Die()
 	{
+        print("je meurs");
 		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 		if ( player != null){
 			player.levelUp (1);
 		}
-		Destroy (this);
+		Destroy (this.gameObject);
 		//FIXME AJOUT sac de gold?
 	}
 }
