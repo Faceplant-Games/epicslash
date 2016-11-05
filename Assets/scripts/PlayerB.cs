@@ -20,7 +20,7 @@ public class PlayerB : MonoBehaviour {
 	
 	}
 
-	void levelUp(int levels) {
+	public void levelUp(int levels) {
 		level += levels;
 		if (level >= treshs [stage]) {
 			stage++;
@@ -33,7 +33,7 @@ public class PlayerB : MonoBehaviour {
 		}
 	}
 
-	void levelDown(int levels) {
+	public void levelDown(int levels) {
 		level -= levels;
 		if (level >0) {
 			if ( level < treshs[stage-1] ) {

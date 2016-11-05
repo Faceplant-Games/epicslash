@@ -6,6 +6,7 @@ public class Monster2B : AbstractMonster
 {
 	private GroundMovingB _groundMovingB;
 	public Vector3 EscapePosition;
+	private int hp = 1;
 	/*private GameObject _goldTarget;
 	private GameObject goldTarget
 	{
@@ -98,6 +99,11 @@ public class Monster2B : AbstractMonster
 
 	public override void Die()
 	{
-
+		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+		if ( player != null){
+			player.levelUp (1);
+		}
+		Destroy (this);
+		//FIXME AJOUT sac de gold?
 	}
 }
