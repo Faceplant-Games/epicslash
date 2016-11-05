@@ -90,6 +90,8 @@ public class Monster2B : AbstractMonster
 		{
 			Debug.Log("Escape!");
 			StealGold();
+			PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+			player.levelDown (1);
 			Destroy(collision.gameObject);
 		}
 	}
@@ -114,7 +116,6 @@ public class Monster2B : AbstractMonster
 	{
         print("je meurs");
 		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
-        print(player);
 		if ( player != null){
 			player.levelUp (1);
 		}
