@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d44f8ca20bedc4080f03fc4cf34a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.01
+  speed: 1
   mooving: 0
 --- !u!114 &114000010660219230
 MonoBehaviour:
@@ -121,8 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06e1c41573f68649975bc4b852c14f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 0}
-  FireInitialPos: {fileID: 0}
+  BulletPrefab: {fileID: 1000012706065184, guid: 5e14384dca007294a8b96ca0f6a8a48e,
+    type: 2}
+  FireInitialPos: {fileID: 4000010055012458}
 --- !u!114 &114000014266331628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d66b0ba3134c9c44aee263cb8d3edeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRange: 2
+  AttackRange: 10
   RateOfFire: 4
 --- !u!136 &136000013938954978
 CapsuleCollider:
