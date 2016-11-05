@@ -50,7 +50,7 @@ public class MonsterManager : MonoBehaviour {
 		if (Random.Range (0, 10) < 5)
 			return "Monster2";
 		else
-			return "Monster1";
+			return "Monster2";
 	}
 
 }

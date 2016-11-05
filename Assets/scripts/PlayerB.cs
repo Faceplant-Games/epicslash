@@ -24,8 +24,9 @@ public class PlayerB : MonoBehaviour {
 
 	public void levelUp(int levels) {
 		level += levels;
-        print(level);
-		if (level >= treshs [stage]) {
+
+        print("level up");
+        if (level >= treshs [stage]) {
 			stage++;
 			gm.stage = stage;
 			gm.change = true;
@@ -38,8 +39,10 @@ public class PlayerB : MonoBehaviour {
 
 	public void levelDown(int levels) {
 		level -= levels;
-		if (level >0) {
-			if ( level < treshs[stage-1] ) {
+        print("level down");
+        if (stage >0)
+        {
+            if ( level < treshs[stage-1] ) {
 				stage--;
 				gm.stage = stage;
 				gm.change = true;
