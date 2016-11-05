@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Monster1B : MonoBehaviour , Monster  {
+public class Monster1B : AbstractMonster  {
 
 
 	// Use this for initialization
@@ -18,15 +18,16 @@ public class Monster1B : MonoBehaviour , Monster  {
 
 	}
 
-	public int  Experience(){
+
+	public override int  Experience(){
 		return 0;
 	}
 
-	public void Spawn(){
+	public override void Spawn(){
 
 	}
 
-	public void Die(){
+	public override void Die(){
 
 	}
 

@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-public interface Monster : MonoBehaviour
+
+public interface Monster
 	{
 		void Spawn();
 		int Experience();
