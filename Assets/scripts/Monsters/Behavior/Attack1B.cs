@@ -20,7 +20,7 @@ public class Attack1B : MonoBehaviour
 	{
 		_groundMovingB = GetComponent<GroundMovingB>();
 		_facePlayerSpeed = StatManager.Attack1B_facePlayerSpeed;
-		player = GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.FindGameObjectWithTag("MainCamera");
 	}
 
 	public void Attack(GameObject player)
