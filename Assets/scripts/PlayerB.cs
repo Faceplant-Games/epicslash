@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerB : MonoBehaviour {
 
 	int level = 0;
+	long [] treshs = {  100, 100000, 100000000, 100 000 000 000, 100 000 000 000 000   }
 	WeaponB weaponB;
 
 	// Use this for initialization
@@ -18,6 +19,7 @@ public class PlayerB : MonoBehaviour {
 
 	void levelUp(int levels) {
 		level += levels;
+
 	}
 
 	void levelDown(int levels) {
@@ -27,4 +29,6 @@ public class PlayerB : MonoBehaviour {
 	void equipWeapon (WeaponB weaponB) {
 		this.weaponB = weaponB;
 	}
+
+
 }
