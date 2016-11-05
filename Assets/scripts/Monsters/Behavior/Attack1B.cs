@@ -90,15 +90,11 @@ public class Attack1B : MonoBehaviour
 
 	private IEnumerator AttackCoroutine(GameObject player)
 	{
-		Debug.Log("Face Target");
 		StartCoroutine(FaceObject(player, 0.5f));
 		yield return new WaitForSeconds(1f);
-		Debug.Log(gameObject.name +  " is about to attack");
 		DisplayAttackSign();
-		Debug.Log("Display Trajectory");
 		DisplayAttackTrajectory();
 		yield return new WaitForSeconds(_attackPendingDuration);
-		Debug.Log("Attack Move");
 		StartCoroutine(AttackMove(player));
 		yield return new WaitForSeconds(5f);
 		Attack(player);

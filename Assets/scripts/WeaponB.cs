@@ -16,12 +16,7 @@ public class WeaponB : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-		if (collider.gameObject.GetComponent<Monster1B> () != null) {
-			print ("SLASH THE SPIDER");
-			collider.gameObject.GetComponent<Monster1B> ().Die ();
-		}
-			
-		else if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
+        if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
 			collider.gameObject.GetComponent<AbstractMonster> ().Die ();
 		}
 
