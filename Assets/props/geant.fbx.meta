@@ -1,15 +1,52 @@
 fileFormatVersion: 2
-guid: 8dc6446ecaab92d439949e9f6c2c512b
-timeCreated: 1478387969
+guid: ab32cce7d1e88934c83509182be07847
+timeCreated: 1478387367
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: geant_bassin
+    100004: geant_bras_d
+    100006: geant_bras_g
+    100008: geant_cvetebrale
+    100010: geant_jambe_g
+    100012: geant_jambes_d
+    100014: geant_tete
+    100016: pCube1
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: coin
+    400002: geant_bassin
+    400004: geant_bras_d
+    400006: geant_bras_g
+    400008: geant_cvetebrale
+    400010: geant_jambe_g
+    400012: geant_jambes_d
+    400014: geant_tete
+    400016: pCube1
+    2300000: geant_bassin
+    2300002: geant_bras_d
+    2300004: geant_bras_g
+    2300006: geant_cvetebrale
+    2300008: geant_jambe_g
+    2300010: geant_jambes_d
+    2300012: geant_tete
+    2300014: pCube1
+    3300000: geant_bassin
+    3300002: geant_bras_d
+    3300004: geant_bras_g
+    3300006: geant_cvetebrale
+    3300008: geant_jambe_g
+    3300010: geant_jambes_d
+    3300012: geant_tete
+    3300014: pCube1
+    4300000: pCube1
+    4300002: geant_tete
+    4300004: geant_cvetebrale
+    4300006: geant_bassin
+    4300008: geant_jambe_g
+    4300010: geant_bras_g
+    4300012: geant_bras_d
+    4300014: geant_jambes_d
     9500000: //RootNode
   materials:
     importMaterials: 1

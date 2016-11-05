@@ -1,15 +1,52 @@
 fileFormatVersion: 2
-guid: 8dc6446ecaab92d439949e9f6c2c512b
-timeCreated: 1478387969
+guid: e797afaede06a144aa7b244e0e254f22
+timeCreated: 1478387368
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: dragon_aile_d
+    100004: dragon_aile_g
+    100006: dragon_corps
+    100008: dragon_jambe_d
+    100010: dragon_patte_d
+    100012: dragon_patte_g
+    100014: dragon_tete
+    100016: drangon_jambe_g
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: coin
+    400002: dragon_aile_d
+    400004: dragon_aile_g
+    400006: dragon_corps
+    400008: dragon_jambe_d
+    400010: dragon_patte_d
+    400012: dragon_patte_g
+    400014: dragon_tete
+    400016: drangon_jambe_g
+    2300000: dragon_aile_d
+    2300002: dragon_aile_g
+    2300004: dragon_corps
+    2300006: dragon_jambe_d
+    2300008: dragon_patte_d
+    2300010: dragon_patte_g
+    2300012: dragon_tete
+    2300014: drangon_jambe_g
+    3300000: dragon_aile_d
+    3300002: dragon_aile_g
+    3300004: dragon_corps
+    3300006: dragon_jambe_d
+    3300008: dragon_patte_d
+    3300010: dragon_patte_g
+    3300012: dragon_tete
+    3300014: drangon_jambe_g
+    4300000: dragon_corps
+    4300002: dragon_tete
+    4300004: dragon_aile_d
+    4300006: dragon_jambe_d
+    4300008: drangon_jambe_g
+    4300010: dragon_aile_g
+    4300012: dragon_patte_g
+    4300014: dragon_patte_d
     9500000: //RootNode
   materials:
     importMaterials: 1
