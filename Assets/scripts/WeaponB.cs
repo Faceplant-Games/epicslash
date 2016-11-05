@@ -7,13 +7,12 @@ public class WeaponB : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<SteamVR_TrackedController>().TriggerClicked += new ClickedEventHandler(RangeHit);
+		//GetComponent<SteamVR_TrackedController>().TriggerClicked += new ClickedEventHandler(RangeHit);
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		PhysicalHit ();
 	}
 
 	void OnCollisionEnter(Collision collision) {
