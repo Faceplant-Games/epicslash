@@ -42,7 +42,7 @@ public class BossFightManager : MonoBehaviour
 			_wingsBrokenStage2 = value;
 			if (_wingsBrokenStage2 == 2)
 			{
-				//StartCoroutine(BossPhase3());
+				StartCoroutine(BossPhase3());
 			}
 		}
 	}

@@ -33,7 +33,10 @@ public class HellFireManager : MonoBehaviour
 		}
 		foreach (ExplosiveWings i in Wings)
 		{
-			i.ExplosionEnabled = true;
+            if (i != null)
+            {
+                i.ExplosionEnabled = true;
+            }
 		}
 		for (int i = 0; i < SpawnPoints.Length; i++)
 		{
