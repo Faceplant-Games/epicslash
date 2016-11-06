@@ -85,6 +85,13 @@ public class BossFightManager : MonoBehaviour
 		StartCoroutine(FindObjectOfType<HellFireManager>().UnleashHellFire());
 	}
 
+	public IEnumerator BossPhase3()
+	{
+		StartCoroutine(RotateBoss(BossPositions[5].rotation, 6));
+		StartCoroutine(MoveBoss(BossPositions[5].position, 6));
+		yield return null;
+	}
+
 	private void TurnWingsWhite()
 	{
 		foreach (MeshRenderer i in BossWings)

@@ -35,6 +35,11 @@ public class BulletB : MonoBehaviour {
 				hit.transform.gameObject.GetComponent<ExplosiveWings>().TriggerExplosion(hit.point);
 				Destroy (gameObject);
 			}
+			else if (hit.transform.gameObject.GetComponent<UltimateExplodingSurface>() != null)
+			{
+				hit.transform.gameObject.GetComponent<UltimateExplodingSurface>().TriggerExplosion(hit.point);
+				Destroy (gameObject);
+			}
 			else if (hit.transform.gameObject != null) {
 
 				Destroy (gameObject);
