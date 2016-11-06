@@ -6,6 +6,11 @@ public class WeaponB : MonoBehaviour {
 	public Transform barrelEndTransform;
     public SteamVR_TrackedController trackedController;
 
+	public AudioClip slash;
+	public AudioClip bang;
+	public AudioSource audio;
+
+
     // Use this for initialization
     void Start () {
 	trackedController.TriggerClicked += new ClickedEventHandler(RangeHit);
