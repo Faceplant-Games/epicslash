@@ -23,7 +23,7 @@ public class ExplosiveSurface : MonoBehaviour
 		}
 	}
 
-	public void TriggerExplosion(Vector3 position = (transform.position + transform.forward))
+	public void TriggerExplosion(Vector3 position)
 	{
 		if (ExplosionEnabled)
 		{
