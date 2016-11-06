@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour {
 	public bool change = false;
 
 
-	public AudioSource ups;
-	public AudioSource downs;
+	public AudioClip ups;
+	public AudioClip downs;
+	public AudioSource audio;
 
 
 
@@ -22,10 +23,10 @@ public class GameManager : MonoBehaviour {
 			change = false;
 			if (stage > previousStage) {
 				print ("on monte de niveau");
-				ups.PlayOneShot ();
+				audio.PlayOneShot (ups);
 			} else if (stage < previousStage) {
 				print ("on baisse de niveau");
-				downs.PlayOneShot ();
+				audio.PlayOneShot (downs);
 			}
 			previousStage = stage;
 		}
