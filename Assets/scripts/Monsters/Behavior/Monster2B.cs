@@ -7,6 +7,7 @@ public class Monster2B : AbstractMonster
 	private GroundMovingB _groundMovingB;
 	public Vector3 EscapePosition;
 	private int hp = 1;
+	Animator anim;
 
 	public enum Monster2State
 	{
@@ -21,6 +22,9 @@ public class Monster2B : AbstractMonster
 		_groundMovingB = GetComponent<GroundMovingB>();
 		EscapePosition = transform.position;
 		myState = Monster2State.LookingForGold;
+		anim = GetComponent<Animator>();
+		anim.SetTrigger ("doitsauter");
+
 	}
 
 	private GameObject NearestGoldBag()
@@ -74,6 +78,8 @@ public class Monster2B : AbstractMonster
 	{
 		if (collision.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
 		{
+
+			anim.SetTrigger ("vavoler");
 			Debug.Log("Escape!");
 			StealGold();
 			PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
@@ -86,6 +92,8 @@ public class Monster2B : AbstractMonster
 	{
 		myState = Monster2State.Escaping;
 		//StealGold
+
+		anim.SetTrigger ("doitsauter");
 	}
 
 	public override int  Experience()

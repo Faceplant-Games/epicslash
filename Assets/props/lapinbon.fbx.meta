@@ -153,7 +153,9 @@ ModelImporter:
     4300042: lapin_bras_d
     4300044: lapin_bras_g
     4300046: lapin_queue
-    7400000: Take 001
+    7400000: content
+    7400002: saut
+    7400004: vole
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -162,7 +164,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -175,7 +177,235 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: content
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: lapin_bassin_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_bras_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_bras_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_corps
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_cuisse_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint/lapin_jambe_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint/lapin_pied_d_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint/lapin_pied_d_joint/lapin_pied_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_cuisse_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint/lapin_jambe_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint/lapin_pied_g_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint/lapin_pied_g_joint/lapin_pied_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_poitrine_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_poitrine_joint/lapin_tete_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_poitrine_joint/lapin_tete_joint/lapin_tete
+        weight: 1
+      - path: lapin_bassin_joint/lapin_queue
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: saut
+      takeName: Take 001
+      firstFrame: 14
+      lastFrame: 28
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: lapin_bassin_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_bras_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_bras_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_corps
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_cuisse_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint/lapin_jambe_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint/lapin_pied_d_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint/lapin_pied_d_joint/lapin_pied_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_cuisse_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint/lapin_jambe_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint/lapin_pied_g_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint/lapin_pied_g_joint/lapin_pied_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_poitrine_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_poitrine_joint/lapin_tete_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_poitrine_joint/lapin_tete_joint/lapin_tete
+        weight: 1
+      - path: lapin_bassin_joint/lapin_queue
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: vole
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 52
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group2
+        weight: 1
+      - path: ikHandle1
+        weight: 1
+      - path: ikHandle2
+        weight: 1
+      - path: lapin_bassin_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_bras_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_bras_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_corps
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_cuisse_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint/lapin_jambe_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint/lapin_pied_d_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_d_joint/lapin_jambe_d_joint/lapin_pied_d_joint/lapin_pied_d
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_cuisse_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint/lapin_jambe_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint/lapin_pied_g_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_cuisse_g_joint/lapin_jambe_g_joint/lapin_pied_g_joint/lapin_pied_g
+        weight: 1
+      - path: lapin_bassin_joint/lapin_poitrine_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_poitrine_joint/lapin_tete_joint
+        weight: 1
+      - path: lapin_bassin_joint/lapin_poitrine_joint/lapin_tete_joint/lapin_tete
+        weight: 1
+      - path: lapin_bassin_joint/lapin_queue
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

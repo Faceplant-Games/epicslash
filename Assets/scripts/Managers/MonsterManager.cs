@@ -25,6 +25,8 @@ public class MonsterManager : MonoBehaviour {
 
 		SpawnerB[] spawnerB = GameObject.FindObjectsOfType (typeof(SpawnerB)) as SpawnerB[];
 
+
+
 		foreach (SpawnerB spawner in spawnerB) {
 			spawns.Add(spawner);
 		}
