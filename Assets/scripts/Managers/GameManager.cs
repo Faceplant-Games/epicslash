@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 	private int previousStage = 0;
@@ -16,7 +17,8 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        audio.PlayOneShot(track);
+		audio.PlayOneShot(track);
+
 	}
 	
 	// Update is called once per frame
@@ -26,10 +28,16 @@ public class GameManager : MonoBehaviour {
 			if (stage > previousStage) {
 				print ("on monte de niveau");
 				audio.PlayOneShot (ups);
-                SceneManager.LoadScene(2);
+                //SceneManager.LoadScene("BossFight");
+				SceneManager.LoadScene(stage + 1);
 			} else if (stage < previousStage) {
 				print ("on baisse de niveau");
 				audio.PlayOneShot (downs);
+				if (stage > 0) 
+				{
+					SceneManager.LoadScene(stage - 1);
+				}
+
 			}
 			previousStage = stage;
 		}
