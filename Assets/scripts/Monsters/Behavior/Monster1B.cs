@@ -15,7 +15,7 @@ public class Monster1B : AbstractMonster
 	{
 		_groundMovingB = GetComponent<GroundMovingB>();
 		_attack1B = GetComponent<Attack1B>();
-		player = GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.FindGameObjectWithTag("MainCamera");
 	}
 
 	public void Move(Vector3 position)
