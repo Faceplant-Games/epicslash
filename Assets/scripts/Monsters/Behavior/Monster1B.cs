@@ -42,7 +42,7 @@ public class Monster1B : AbstractMonster
         
 		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 		if ( player != null){
-			player.levelUp (20);
+			player.levelUp (5);
 		}
         Destroy(this.gameObject);
 		//FIXME AJOUT sac de gold?
