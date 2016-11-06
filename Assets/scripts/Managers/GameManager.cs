@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		theme1.Play ();
 	}
 	
 	// Update is called once per frame
