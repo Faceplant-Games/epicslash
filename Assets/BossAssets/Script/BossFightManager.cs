@@ -75,6 +75,12 @@ public class BossFightManager : MonoBehaviour
 		}
 	}
 
+	public void EndGame()
+	{
+		Destroy(Boss);
+		//LoadCredits
+	}
+
 	public IEnumerator BossPhase2()
 	{
 		StartCoroutine(RotateBoss(BossPositions[2].rotation, 4));
