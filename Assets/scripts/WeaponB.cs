@@ -17,6 +17,7 @@ public class WeaponB : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider) {
         if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
+			SteamVR_Controller.Input(0).TriggerHapticPulse((ushort)Mathf.Lerp(0f, 500f, 0.5f)); // TODO : input 0 or 1
 			collider.gameObject.GetComponent<AbstractMonster> ().Die ();
 		}
 
