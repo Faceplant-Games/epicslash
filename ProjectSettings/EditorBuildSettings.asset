@@ -7,3 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/scenes/stage_one.unity
+  - enabled: 1
+    path: Assets/scenes/stage_two.unity
+  - enabled: 1
+    path: Assets/scenes/stage_three.unity
+  - enabled: 1
+    path: Assets/scenes/BossFight.unity
+  - enabled: 1
+    path: Assets/scenes/Credits.unity

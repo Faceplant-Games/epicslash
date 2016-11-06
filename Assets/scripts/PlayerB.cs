@@ -20,9 +20,9 @@ public class PlayerB : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		level = 0;
-		stage = 0;
         gm = this.gameObject.GetComponent<GameManager>();
-		GoldSpawnerB[] goldS = GameObject.FindObjectsOfType (typeof(GoldSpawnerB)) as GoldSpawnerB[];
+        stage = gm.stage;
+        GoldSpawnerB[] goldS = GameObject.FindObjectsOfType (typeof(GoldSpawnerB)) as GoldSpawnerB[];
 		foreach (GoldSpawnerB spawner in goldS) {
 			goldSpawners.Add(spawner);
 		}
@@ -42,8 +42,9 @@ public class PlayerB : MonoBehaviour {
 			gm.stage = stage;
 			gm.change = true;
             //SceneManager.LoadScene("BossFight");
-			//FIXME PAUSE
-			if (stage > treshs.Length) {
+            SceneManager.LoadScene(stage);
+            //FIXME PAUSE
+            if (stage > treshs.Length) {
 				//stop the game
 			}	
 		}
@@ -55,7 +56,7 @@ public class PlayerB : MonoBehaviour {
 	}
 
 	public void levelDown(int levels) {
-		level -= levels;
+		/*level -= levels;
         print("level down");
         if (stage >0)
         {
@@ -65,7 +66,7 @@ public class PlayerB : MonoBehaviour {
 				gm.change = true;
 				//FIXME PAUSE
 			}
-		}
+		}*/
 	}
 
 	void equipWeapon (WeaponB weaponB) {

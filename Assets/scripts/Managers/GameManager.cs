@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 				print ("on monte de niveau");
 				audio.PlayOneShot (ups);
                 //SceneManager.LoadScene("BossFight");
-				SceneManager.LoadScene(stage + 1);
+				SceneManager.LoadScene(stage ++);
 			} else if (stage < previousStage) {
 				print ("on baisse de niveau");
 				audio.PlayOneShot (downs);
