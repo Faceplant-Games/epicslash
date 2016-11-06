@@ -16,6 +16,13 @@ ModelImporter:
     100016: bearbot_oreille_g
     100018: bearbot_tete
     100020: //RootNode
+    100022: bearbot_aile_d_1
+    100024: bearbot_aile_d_1 1
+    100026: bearbot_aile_g_1
+    100028: bearbot_aile_g_1 1
+    100030: bearbot_corps1
+    100032: bearbot_cou
+    100034: bearbot_tete 1
     400000: bearbot_aile_d
     400002: bearbot_aile_g
     400004: bearbot_antenne
@@ -27,6 +34,13 @@ ModelImporter:
     400016: bearbot_oreille_g
     400018: bearbot_tete
     400020: //RootNode
+    400022: bearbot_aile_d_1
+    400024: bearbot_aile_d_1 1
+    400026: bearbot_aile_g_1
+    400028: bearbot_aile_g_1 1
+    400030: bearbot_corps1
+    400032: bearbot_cou
+    400034: bearbot_tete 1
     2300000: bearbot_aile_d
     2300002: bearbot_aile_g
     2300004: bearbot_antenne
@@ -37,6 +51,8 @@ ModelImporter:
     2300014: bearbot_oreille_d
     2300016: bearbot_oreille_g
     2300018: bearbot_tete
+    2300020: bearbot_corps1
+    2300022: bearbot_tete 1
     3300000: bearbot_aile_d
     3300002: bearbot_aile_g
     3300004: bearbot_antenne
@@ -47,6 +63,8 @@ ModelImporter:
     3300014: bearbot_oreille_d
     3300016: bearbot_oreille_g
     3300018: bearbot_tete
+    3300020: bearbot_corps1
+    3300022: bearbot_tete 1
     4300000: bearbot_tete
     4300002: bearbot_corps
     4300004: bearbot_bras_d
@@ -57,6 +75,8 @@ ModelImporter:
     4300014: bearbot_boule
     4300016: bearbot_aile_d
     4300018: bearbot_aile_g
+    4300020: bearbot_corps1
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1
