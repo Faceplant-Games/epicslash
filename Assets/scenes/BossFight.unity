@@ -169,7 +169,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
---- !u!43 &295145761
+--- !u!43 &334738141
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -563,6 +563,7 @@ GameObject:
   - 33: {fileID: 785283307}
   - 135: {fileID: 785283306}
   - 23: {fileID: 785283305}
+  - 114: {fileID: 785283309}
   m_Layer: 0
   m_Name: EyeL
   m_TagString: Untagged
@@ -631,35 +632,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1026560973}
   m_RootOrder: 10
---- !u!21 &840349860
-Material:
-  serializedVersion: 6
+--- !u!114 &785283309
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  m_SavedProperties:
-    serializedVersion: 2
-    m_TexEnvs:
-    - first:
-        name: _MainTex
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - first:
-        name: PixelSnap
-      second: 0
-    m_Colors:
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+  m_GameObject: {fileID: 785283304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7d381eb2c183140aee6857280a1340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExplosionFX: {fileID: 1000014115027458, guid: 308cc0457813d254ea687764ae0b8917,
+    type: 2}
 --- !u!1 &861462400
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +706,7 @@ GameObject:
   - 33: {fileID: 933966449}
   - 135: {fileID: 933966448}
   - 23: {fileID: 933966447}
+  - 114: {fileID: 933966451}
   m_Layer: 0
   m_Name: EyeR
   m_TagString: Untagged
@@ -789,6 +775,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1026560973}
   m_RootOrder: 11
+--- !u!114 &933966451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 933966446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7d381eb2c183140aee6857280a1340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExplosionFX: {fileID: 1000014115027458, guid: 308cc0457813d254ea687764ae0b8917,
+    type: 2}
 --- !u!1 &955255253
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,6 +996,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1417517356}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!21 &1487495129
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: PixelSnap
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1517607823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,11 +1123,11 @@ Prefab:
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 295145761}
+      objectReference: {fileID: 334738141}
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 840349860}
+      objectReference: {fileID: 1487495129}
     - target: {fileID: 114000010389901020, guid: 4d293c8e162f3874b982baadd71153d2,
         type: 2}
       propertyPath: trackedController
