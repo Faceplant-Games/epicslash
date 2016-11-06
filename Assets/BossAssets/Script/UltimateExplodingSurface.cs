@@ -10,9 +10,10 @@ public class UltimateExplodingSurface : MonoBehaviour
 	{
 		GameObject FX = Instantiate(ExplosionFX, position, Quaternion.identity) as GameObject;
 		HP --;
+		FindObjectOfType<HellFireManager>().PLayRandomSFXExplosion(position);
 		if (HP < 0)
 		{
-            //End The Game
+			FindObjectOfType<BossFightManager>().EndGame();
             Debug.Log("End Of The Game");
 		}
 	}

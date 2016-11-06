@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BossFightManager : MonoBehaviour 
 {
@@ -78,6 +79,7 @@ public class BossFightManager : MonoBehaviour
 	public void EndGame()
 	{
 		Destroy(Boss);
+		SceneManager.LoadScene("Credits");
 		//LoadCredits
 	}
 
