@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BossFightManager : MonoBehaviour 
 {
@@ -42,7 +43,7 @@ public class BossFightManager : MonoBehaviour
 			_wingsBrokenStage2 = value;
 			if (_wingsBrokenStage2 == 2)
 			{
-				//StartCoroutine(BossPhase3());
+				StartCoroutine(BossPhase3());
 			}
 		}
 	}
@@ -73,6 +74,13 @@ public class BossFightManager : MonoBehaviour
 		{
 			StartCoroutine(BossPhase2());
 		}
+	}
+
+	public void EndGame()
+	{
+		Destroy(Boss);
+		SceneManager.LoadScene("Credits");
+		//LoadCredits
 	}
 
 	public IEnumerator BossPhase2()
