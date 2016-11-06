@@ -15,7 +15,7 @@ public class Monster1B : AbstractMonster
 	{
 		_groundMovingB = GetComponent<GroundMovingB>();
 		_attack1B = GetComponent<Attack1B>();
-		player = GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.FindGameObjectWithTag("MainCamera");
 	}
 
 	public void Move(Vector3 position)
@@ -42,7 +42,7 @@ public class Monster1B : AbstractMonster
         
 		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 		if ( player != null){
-			player.levelUp (20);
+			player.levelUp (5);
 		}
         Destroy(this.gameObject);
 		//FIXME AJOUT sac de gold?

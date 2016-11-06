@@ -14,7 +14,7 @@ public class HellFireManager : MonoBehaviour
 
 	public void PLayRandomSFXExplosion(Vector3 position)
 	{
-		AudioSource.PlayClipAtPoint(Explosions[Random.Range(0, Explosions.Length)], position);
+		//AudioSource.PlayClipAtPoint(Explosions[Random.Range(0, Explosions.Length)], position);
 	}
 
 	void Start()
@@ -44,7 +44,7 @@ public class HellFireManager : MonoBehaviour
 				i.ExplosionEnabled = true;
 			}
 		}
-		for (int i = 0; i < SpawnPoints.Length; i++)
+		for (int i = 1; i < SpawnPoints.Length; i++)
 		{
 			GameObject bullet =  Instantiate(HellFireBulletPrefab, SpawnPoints[i].position, Quaternion.identity) as GameObject;
 			bullet.transform.LookAt(Camera.main.transform.position);

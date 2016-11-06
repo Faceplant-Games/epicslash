@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BossFightManager : MonoBehaviour 
 {
@@ -78,6 +79,7 @@ public class BossFightManager : MonoBehaviour
 	public void EndGame()
 	{
 		Destroy(Boss);
+		SceneManager.LoadScene("Credits");
 		//LoadCredits
 	}
 
@@ -93,7 +95,8 @@ public class BossFightManager : MonoBehaviour
 
 	public IEnumerator BossPhase3()
 	{
-		StartCoroutine(RotateBoss(BossPositions[5].rotation, 6));
+        FindObjectOfType<HellFireManager>().Unleash = false;
+        StartCoroutine(RotateBoss(BossPositions[5].rotation, 6));
 		StartCoroutine(MoveBoss(BossPositions[5].position, 6));
 		yield return null;
 	}

@@ -7,13 +7,13 @@ public class WeaponB : MonoBehaviour {
     public SteamVR_TrackedController trackedController;
 
 	public AudioClip slash;
-	public AudioClip bang;
 	public AudioSource audio;
+    public bool isShotEnabled;
 
 
     // Use this for initialization
     void Start () {
-	trackedController.TriggerClicked += new ClickedEventHandler(RangeHit);
+	    trackedController.TriggerClicked += new ClickedEventHandler(RangeHit);
 	}
 	
 	// Update is called once per frame
@@ -21,6 +21,7 @@ public class WeaponB : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
+        audio.PlayOneShot(slash);
         if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
 			SteamVR_Controller.Input((int)trackedController.controllerIndex).TriggerHapticPulse((ushort)Mathf.Lerp(0f, 1500f, 0.7f));
 			collider.gameObject.GetComponent<AbstractMonster> ().Die ();
@@ -30,11 +31,12 @@ public class WeaponB : MonoBehaviour {
 
 	void RangeHit(object sender, ClickedEventArgs e) 
 	{
+        if (!isShotEnabled)
+            return;
 		SteamVR_Controller.Input((int)trackedController.controllerIndex).TriggerHapticPulse((ushort)Mathf.Lerp(0f, 3000f, 0.85f));
-
 		BulletB bullet = Instantiate (bulletPrefab) as BulletB;
 		bullet.transform.rotation = barrelEndTransform.rotation;
 		bullet.transform.position = barrelEndTransform.position;
-		bullet.transform.Rotate(-90, 0, 0);
+		bullet.transform.Rotate(-180, 0, 0);
 	}
 }
