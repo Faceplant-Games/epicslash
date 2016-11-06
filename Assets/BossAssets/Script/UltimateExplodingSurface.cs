@@ -13,7 +13,7 @@ public class UltimateExplodingSurface : MonoBehaviour
         FindObjectOfType<HellFireManager>().PLayRandomSFXExplosion(position);
         if (HP < 0)
 		{
-            //End The Game
+			FindObjectOfType<BossFightManager>().EndGame();
             Debug.Log("End Of The Game");
 		}
 	}
