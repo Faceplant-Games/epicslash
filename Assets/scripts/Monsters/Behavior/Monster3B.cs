@@ -34,7 +34,6 @@ public class Monster3B : AbstractMonster
 				t += Time.deltaTime;
 				if (t > RateOfFire)
 				{
-					Debug.Log("Fire");
 					t = 0;
 					_flyingMovingB.FaceObject(player.transform, 0.5f);
 					Attack(player);
@@ -43,7 +42,6 @@ public class Monster3B : AbstractMonster
 			}
 			else
 			{
-				Debug.Log("Move");
 				Move(player.transform.position - (player.transform.position - transform.position) * 0.2f);
 			}
 		}
