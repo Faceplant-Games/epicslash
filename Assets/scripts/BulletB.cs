@@ -25,6 +25,21 @@ public class BulletB : MonoBehaviour {
 				monster.Die ();
 				Destroy (gameObject);
 			}
+			else if (hit.transform.gameObject.GetComponent<ExplosiveSurface>() != null)
+			{
+				hit.transform.gameObject.GetComponent<ExplosiveSurface>().TriggerExplosion(hit.point);
+				Destroy (gameObject);
+			}
+			else if (hit.transform.gameObject.GetComponent<ExplosiveWings>() != null)
+			{
+				hit.transform.gameObject.GetComponent<ExplosiveWings>().TriggerExplosion(hit.point);
+				Destroy (gameObject);
+			}
+			else if (hit.transform.gameObject.GetComponent<UltimateExplodingSurface>() != null)
+			{
+				hit.transform.gameObject.GetComponent<UltimateExplodingSurface>().TriggerExplosion(hit.point);
+				Destroy (gameObject);
+			}
 			else if (hit.transform.gameObject != null) {
 
 				Destroy (gameObject);

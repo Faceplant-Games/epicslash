@@ -7,6 +7,10 @@ public class PlayerB : MonoBehaviour {
 	int level;
 	int stage;
 	long[] treshs = { 100, 100000, 100000000, 100000000000, 100000000000000 };
+
+
+
+
 	List<GoldSpawnerB> goldSpawners = new List<GoldSpawnerB>();
     GameManager gm;
 
