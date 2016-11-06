@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PlayerB : MonoBehaviour {
 
@@ -34,12 +35,13 @@ public class PlayerB : MonoBehaviour {
 
 	public void levelUp(int levels) {
 		level += levels;
-		spawnGold(levels % 50);
+		spawnGold(levels % 37);
         print(level);
 		if (level >= treshs [stage]) {
 			stage++;
 			gm.stage = stage;
 			gm.change = true;
+            //SceneManager.LoadScene("BossFight");
 			//FIXME PAUSE
 			if (stage > treshs.Length) {
 				//stop the game

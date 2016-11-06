@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 			if (stage > previousStage) {
 				print ("on monte de niveau");
 				audio.PlayOneShot (ups);
-                SceneManager.LoadScene("BossFight");
+                SceneManager.LoadScene(2);
 			} else if (stage < previousStage) {
 				print ("on baisse de niveau");
 				audio.PlayOneShot (downs);

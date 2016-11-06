@@ -311,7 +311,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013007361462}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_Children:
@@ -824,5 +824,5 @@ MonoBehaviour:
   barrelEndTransform: {fileID: 4000013630691550}
   trackedController: {fileID: 0}
   slash: {fileID: 8300000, guid: bf01569e231f21647b1656bc8f232bac, type: 3}
-  bang: {fileID: 8300000, guid: 1f058c27ed8bcef4da16d581c69ca4c2, type: 3}
   audio: {fileID: 82000011169528586}
+  isShotEnabled: 0
