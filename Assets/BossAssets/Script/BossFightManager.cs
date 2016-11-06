@@ -93,7 +93,8 @@ public class BossFightManager : MonoBehaviour
 
 	public IEnumerator BossPhase3()
 	{
-		StartCoroutine(RotateBoss(BossPositions[5].rotation, 6));
+        FindObjectOfType<HellFireManager>().Unleash = false;
+        StartCoroutine(RotateBoss(BossPositions[5].rotation, 6));
 		StartCoroutine(MoveBoss(BossPositions[5].position, 6));
 		yield return null;
 	}

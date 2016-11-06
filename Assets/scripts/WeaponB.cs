@@ -7,7 +7,6 @@ public class WeaponB : MonoBehaviour {
     public SteamVR_TrackedController trackedController;
 
 	public AudioClip slash;
-	public AudioClip bang;
 	public AudioSource audio;
 
 
@@ -32,7 +31,6 @@ public class WeaponB : MonoBehaviour {
 	void RangeHit(object sender, ClickedEventArgs e) 
 	{
 		SteamVR_Controller.Input((int)trackedController.controllerIndex).TriggerHapticPulse((ushort)Mathf.Lerp(0f, 3000f, 0.85f));
-        audio.PlayOneShot(bang);
 		BulletB bullet = Instantiate (bulletPrefab) as BulletB;
 		bullet.transform.rotation = barrelEndTransform.rotation;
 		bullet.transform.position = barrelEndTransform.position;
