@@ -21,13 +21,13 @@ public class Ennemi3BulletB : MonoBehaviour
 		// At each frame, we cast a ray forward from where we are to where we will be next frame
 		if (Physics.Raycast (transform.position, transform.forward, out hit, distanceThisFrame)) 
 		{
-			/*if (hit.transform.gameObject.GetComponent<AbstractMonster>() != null) 
+			if (hit.transform.gameObject.tag == "MainCamera") 
 			{
-				AbstractMonster monster = hit.transform.gameObject.GetComponent<AbstractMonster>();
-				monster.Die ();
-				Destroy (gameObject);
-			}*/
-		} 
+                PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB;
+                player.levelDown(5);
+            }
+            Destroy(gameObject);
+        } 
 		else 
 		{
 			transform.position += transform.forward * distanceThisFrame;

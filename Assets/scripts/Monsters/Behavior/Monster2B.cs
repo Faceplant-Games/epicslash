@@ -63,6 +63,8 @@ public class Monster2B : AbstractMonster
 			else
 			{
 				_groundMovingB.Move(EscapePosition);
+                if (transform.position == EscapePosition && myState == Monster2State.Escaping)
+                    myState = Monster2State.LookingForGold;
 			}
 		}
 
@@ -98,7 +100,6 @@ public class Monster2B : AbstractMonster
 
 	public override void Die()
 	{
-        print("je meurs");
 		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 		if ( player != null){
 			player.levelUp (1);
