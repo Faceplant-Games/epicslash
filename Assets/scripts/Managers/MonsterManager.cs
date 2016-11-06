@@ -16,6 +16,7 @@ public class MonsterManager : MonoBehaviour {
 			ennemies[i] =  new List<string>();
 		}
 		ennemies [0].Add ("Monster1");
+		ennemies [0].Add ("Monster2");
 
 		ennemies [1].Add ("Monster1");
 		ennemies [1].Add ("Monster2");
