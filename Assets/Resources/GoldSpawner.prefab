@@ -51,5 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 232cae71437e5004d94c9af420395a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldBagPrefab: {fileID: 114000014043007512, guid: 6f06209ea405f4e47915ab72e44676d1,
+  goldBagPrefab: {fileID: 114000013025608078, guid: 6f06209ea405f4e47915ab72e44676d1,
     type: 2}
