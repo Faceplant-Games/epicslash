@@ -6,8 +6,8 @@ public class Attack1B : MonoBehaviour
 	private float _facePlayerSpeed;
 	private float _attackRate = 5f;
 	private float _attackPendingDuration = 2f;
-	private float _attackDistance = 2f;
-	private float _attackTravelDuration = 0.8f;
+	private float _attackDistance = 3f;
+	private float _attackTravelDuration = 2f;
 
 	private IEnumerator _attackCoroutine;
 	private WaitForEndOfFrame _waitForEndOfFrame = new WaitForEndOfFrame();

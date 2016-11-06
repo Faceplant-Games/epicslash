@@ -10,8 +10,7 @@ public class Monster3B : AbstractMonster
 	private Attack3B _attack3B;
 	public float RateOfFire = 4;
 	private float t = 0;
-
-	Animator anim;
+    
 
 	private int hp = 3;
 
@@ -20,8 +19,6 @@ public class Monster3B : AbstractMonster
 		player = Camera.main.gameObject;
 		_flyingMovingB = GetComponent<FlyingMovingB>();
 		_attack3B = GetComponent<Attack3B>();
-
-		anim.SetTrigger ("marche");
 	}
 
 	public void Move(Vector3 position)
