@@ -10,6 +10,12 @@ public class HellFireManager : MonoBehaviour
 	public GameObject HellFireBulletPrefab;
 
 	public bool Unleash = false;
+	public AudioClip[] Explosions;
+
+	public void PLayRandomSFXExplosion(Vector3 position)
+	{
+		AudioSource.PlayClipAtPoint(Explosions[Random.Range(0, Explosions.Length)], position);
+	}
 
 	void Start()
 	{
@@ -33,10 +39,10 @@ public class HellFireManager : MonoBehaviour
 		}
 		foreach (ExplosiveWings i in Wings)
 		{
-            if (i != null)
-            {
-                i.ExplosionEnabled = true;
-            }
+			if (i != null)
+			{
+				i.ExplosionEnabled = true;
+			}
 		}
 		for (int i = 0; i < SpawnPoints.Length; i++)
 		{
@@ -46,7 +52,10 @@ public class HellFireManager : MonoBehaviour
 		}
 		foreach (ExplosiveWings i in Wings)
 		{
-			i.ExplosionEnabled = false;
+			if (i != null)
+			{
+				i.ExplosionEnabled = false;
+			}
 		}
 		yield return new WaitForSeconds(RateOfFire);
 		StartCoroutine(UnleashHellFire());

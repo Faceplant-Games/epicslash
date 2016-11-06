@@ -26,7 +26,7 @@ public class ExplosiveWings : MonoBehaviour
 		}
 	}
 
-	private int HP = 30;
+	public int HP = 30;
 
 	public void TriggerExplosion(Vector3 position)
 	{
@@ -34,6 +34,7 @@ public class ExplosiveWings : MonoBehaviour
 		{
 			GameObject FX = Instantiate(ExplosionFX, position, Quaternion.identity) as GameObject;
 			HP --;
+			FindObjectOfType<HellFireManager>().PLayRandomSFXExplosion(position);
 			if (HP < 0)
 			{
 				ExplosionEnabled = false;
