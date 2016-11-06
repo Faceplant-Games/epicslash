@@ -63,20 +63,22 @@ public class Monster2B : AbstractMonster
 			else
 			{
 				_groundMovingB.Move(EscapePosition);
+                if (transform.position == EscapePosition && myState == Monster2State.Escaping)
+                    myState = Monster2State.LookingForGold;
 			}
 		}
 
 	}
 
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider collision)
 	{
-		if (collision.collider.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
+		if (collision.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
 		{
 			Debug.Log("Escape!");
 			StealGold();
 			PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 			player.levelDown (1);
-			Destroy(collision.collider.gameObject);
+			Destroy(collision.gameObject);
 		}
 	}
 
@@ -98,7 +100,6 @@ public class Monster2B : AbstractMonster
 
 	public override void Die()
 	{
-        print("je meurs");
 		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 		if ( player != null){
 			player.levelUp (1);

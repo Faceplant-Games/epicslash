@@ -25,6 +25,10 @@ public class BulletB : MonoBehaviour {
 				monster.Die ();
 				Destroy (gameObject);
 			}
+			else if (hit.transform.gameObject != null) {
+
+				Destroy (gameObject);
+			}
 		} else {
 			transform.position += transform.forward * distanceThisFrame;
 		}
