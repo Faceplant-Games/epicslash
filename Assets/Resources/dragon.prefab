@@ -94,7 +94,7 @@ GameObject:
   - 114: {fileID: 114000012916382528}
   - 114: {fileID: 114000012597563424}
   m_Layer: 0
-  m_Name: Monster4
+  m_Name: dragon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012000282652}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.63922215, y: 0.037625514, z: 0.45565414}
+  m_LocalPosition: {x: 2.4447837, y: 0.75251025, z: -7.6394186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -607,7 +607,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 4.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95000014181419232
 Animator:
