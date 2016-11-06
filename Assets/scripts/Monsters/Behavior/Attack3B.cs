@@ -8,7 +8,6 @@ public class Attack3B : MonoBehaviour
 
 	public void Attack(GameObject target)
 	{
-        print("je suis un putain de dragon et je tire");
 		FireBullet(target);
 	}
 

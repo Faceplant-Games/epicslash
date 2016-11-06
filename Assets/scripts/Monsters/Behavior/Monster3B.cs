@@ -11,6 +11,8 @@ public class Monster3B : AbstractMonster
 	public float RateOfFire = 4;
 	private float t = 0;
 
+	private int hp = 3;
+
 	void Start()
 	{
 		player = Camera.main.gameObject;
@@ -63,11 +65,15 @@ public class Monster3B : AbstractMonster
 	}
 
 	public override void Die(){
+		if (hp > 1) {
+			hp--;
+		}else{
 		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 		if ( player != null){
 			player.levelUp (1);
 		}
 		Destroy(this);
 		//FIXME AJOUT sac de gold?
+		}
 	}
 }
