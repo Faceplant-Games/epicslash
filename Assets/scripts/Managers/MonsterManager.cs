@@ -4,24 +4,31 @@ using System.Collections.Generic;
 
 public class MonsterManager : MonoBehaviour {
 	private List<SpawnerB> spawns = new List<SpawnerB> ();
-	private Dictionary<string,int>[] ennemies;
-
+	private List<string> [] ennemies;
+	private GameManager gm;
 
 	// Use this for initialization
 	void Start () {
-		ennemies  = new Dictionary<string,int>[5];// nombre de niveaux de jeux
+
+		gm = gameObject.GetComponent<GameManager>();
+		ennemies  = new List<string>[5];// nombre de niveaux de jeux
 		for (int i = 0; i < 5; i++) {
-			ennemies[i] =  new Dictionary<string,int>();
+			ennemies[i] =  new List<string>();
 		}
-		ennemies [0].Add ("",100);
+		ennemies [0].Add ("Monster1");
 
-		ennemies [1].Add ("",100);
+		ennemies [1].Add ("Monster1");
+		ennemies [1].Add ("Monster2");
+		ennemies [1].Add ("Monster3");
 
-		ennemies [2].Add ("",100);
+		ennemies [2].Add ("Monster1");
+		ennemies [2].Add ("Monster2");
+		ennemies [2].Add ("Monster3");
+		ennemies [2].Add ("dragon");
 
-		ennemies [3].Add ("",100);
+		ennemies [3].Add ("");
 
-		ennemies [4].Add ("",100);
+		ennemies [4].Add ("");
 
 		SpawnerB[] spawnerB = GameObject.FindObjectsOfType (typeof(SpawnerB)) as SpawnerB[];
 
@@ -35,7 +42,7 @@ public class MonsterManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Random.Range (0, 10) < 1) {// changer ça pour modifier le spawn rate
-			if (GameObject.FindObjectsOfType (typeof(AbstractMonster)).Length < 50)
+			if (GameObject.FindObjectsOfType (typeof(AbstractMonster)).Length < 100)
 				Spawn ();
 		}
 	}
@@ -49,15 +56,11 @@ public class MonsterManager : MonoBehaviour {
 	}
 
 	string findEnnemyTag(){//FIXME ajouter les differents types de monstres
-        float r = Random.Range(0, 12);
-		if (r < 3)
-			return "Monster2";
-		else if (r < 8)
-			return "Monster1";
-		else if (r < 10)
-			return "Monster3";
-		else
-			return "dragon";
+
+		int stage = gm.stage;
+		List<string> spawnsrattttt = ennemies [stage];
+		int r = Random.Range (0, 12);
+		return spawnsrattttt [r % (spawnsrattttt.Count)];
 	}
 
 }

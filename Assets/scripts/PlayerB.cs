@@ -34,7 +34,7 @@ public class PlayerB : MonoBehaviour {
 
 	public void levelUp(int levels) {
 		level += levels;
-		spawnGold(levels*3);
+		spawnGold(levels % 50);
         print(level);
 		if (level >= treshs [stage]) {
 			stage++;

@@ -83,7 +83,7 @@ public class Monster2B : AbstractMonster
 			Debug.Log("Escape!");
 			StealGold();
 			PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
-			player.levelDown (1);
+			player.levelDown (100);
 			Destroy(collision.gameObject);
 		}
 	}
@@ -110,7 +110,7 @@ public class Monster2B : AbstractMonster
 	{
 		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
 		if ( player != null){
-			player.levelUp (30);
+			player.levelUp (1);
 		}
 		Destroy (this.gameObject);
 		//FIXME AJOUT sac de gold?
