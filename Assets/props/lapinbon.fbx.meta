@@ -20,6 +20,29 @@ ModelImporter:
     100024: pCube7
     100026: pCube8
     100028: pCube9
+    100030: group2
+    100032: ikHandle1
+    100034: ikHandle2
+    100036: lapin_bassin_joint
+    100038: lapin_bras_d
+    100040: lapin_bras_g
+    100042: lapin_corps
+    100044: lapin_cuisse_d
+    100046: lapin_cuisse_d_joint
+    100048: lapin_cuisse_g
+    100050: lapin_cuisse_g_joint
+    100052: lapin_jambe_d
+    100054: lapin_jambe_d_joint
+    100056: lapin_jambe_g
+    100058: lapin_jambe_g_joint
+    100060: lapin_pied_d
+    100062: lapin_pied_d_joint
+    100064: lapin_pied_g
+    100066: lapin_pied_g_joint
+    100068: lapin_poitrine_joint
+    100070: lapin_queue
+    100072: lapin_tete
+    100074: lapin_tete_joint
     400000: group1
     400002: //RootNode
     400004: pCube1
@@ -35,6 +58,29 @@ ModelImporter:
     400024: pCube7
     400026: pCube8
     400028: pCube9
+    400030: group2
+    400032: ikHandle1
+    400034: ikHandle2
+    400036: lapin_bassin_joint
+    400038: lapin_bras_d
+    400040: lapin_bras_g
+    400042: lapin_corps
+    400044: lapin_cuisse_d
+    400046: lapin_cuisse_d_joint
+    400048: lapin_cuisse_g
+    400050: lapin_cuisse_g_joint
+    400052: lapin_jambe_d
+    400054: lapin_jambe_d_joint
+    400056: lapin_jambe_g
+    400058: lapin_jambe_g_joint
+    400060: lapin_pied_d
+    400062: lapin_pied_d_joint
+    400064: lapin_pied_g
+    400066: lapin_pied_g_joint
+    400068: lapin_poitrine_joint
+    400070: lapin_queue
+    400072: lapin_tete
+    400074: lapin_tete_joint
     2300000: pCube1
     2300002: pCube10
     2300004: pCube11
@@ -48,6 +94,17 @@ ModelImporter:
     2300020: pCube7
     2300022: pCube8
     2300024: pCube9
+    2300026: lapin_bras_d
+    2300028: lapin_bras_g
+    2300030: lapin_corps
+    2300032: lapin_cuisse_d
+    2300034: lapin_cuisse_g
+    2300036: lapin_jambe_d
+    2300038: lapin_jambe_g
+    2300040: lapin_pied_d
+    2300042: lapin_pied_g
+    2300044: lapin_queue
+    2300046: lapin_tete
     3300000: pCube1
     3300002: pCube10
     3300004: pCube11
@@ -61,6 +118,17 @@ ModelImporter:
     3300020: pCube7
     3300022: pCube8
     3300024: pCube9
+    3300026: lapin_bras_d
+    3300028: lapin_bras_g
+    3300030: lapin_corps
+    3300032: lapin_cuisse_d
+    3300034: lapin_cuisse_g
+    3300036: lapin_jambe_d
+    3300038: lapin_jambe_g
+    3300040: lapin_pied_d
+    3300042: lapin_pied_g
+    3300044: lapin_queue
+    3300046: lapin_tete
     4300000: pCube1
     4300002: pCube2
     4300004: pCube3
@@ -74,6 +142,18 @@ ModelImporter:
     4300020: pCube11
     4300022: pCube12
     4300024: pCube13
+    4300026: lapin_tete
+    4300028: lapin_pied_g
+    4300030: lapin_jambe_g
+    4300032: lapin_cuisse_g
+    4300034: lapin_pied_d
+    4300036: lapin_jambe_d
+    4300038: lapin_cuisse_d
+    4300040: lapin_corps
+    4300042: lapin_bras_d
+    4300044: lapin_bras_g
+    4300046: lapin_queue
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1
