@@ -1,26 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletB : MonoBehaviour {
-
+public class HellFireBullet : MonoBehaviour 
+{
+	private float speed = 0;
 	float timer = 0;
 	float lifeTime = 10;
-	float speed = 20;
-
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		StartCoroutine(qszdefrgtujiklop());
 	}
-	
-	// Update is called once per frame
+
+	private IEnumerator qszdefrgtujiklop()
+	{
+		yield return new WaitForSeconds(2f);
+		speed = 10;
+	}
+
 	void FixedUpdate () {
 		float distanceThisFrame = speed * Time.fixedDeltaTime;
 		RaycastHit hit = new RaycastHit ();
 
-		// At each frame, we cast a ray forward from where we are to where we will be next frame
+		/*// At each frame, we cast a ray forward from where we are to where we will be next frame
 		if (Physics.Raycast (transform.position, transform.forward, out hit, distanceThisFrame)) {
 			if (hit.transform.gameObject.GetComponent<AbstractMonster>() != null) {
-                print("Boom");
+				print("Boom");
 				AbstractMonster monster = hit.transform.gameObject.GetComponent<AbstractMonster>();
 				monster.Die ();
 				Destroy (gameObject);
@@ -38,10 +43,10 @@ public class BulletB : MonoBehaviour {
 			else if (hit.transform.gameObject != null) {
 
 				Destroy (gameObject);
-			}
-		} else {
+			}*
+		} else {*/
 			transform.position += transform.forward * distanceThisFrame;
-		}
+		//}
 
 		timer += Time.fixedDeltaTime;
 		if (timer > lifeTime) {

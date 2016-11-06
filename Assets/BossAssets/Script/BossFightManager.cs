@@ -8,29 +8,49 @@ public class BossFightManager : MonoBehaviour
 
 	public Transform[] BossPositions;
 	public MeshRenderer[] BossEyes;
+	public MeshRenderer[] BossWings;
 	public Material RedEyeMaterial;
 	public Material WhiteEyeMaterial;
+	public Material BlueWingsMaterial;
 
 	private int _eyesBrokenStage1;
 	public int EyesBrokenStage1
 	{
 		get
 		{
-			if (_eyesBrokenStage1 == 2)
-			{
-				StartCoroutine(BossPhase2());
-			}
 			return _eyesBrokenStage1;
 		}
 		set
 		{
 			_eyesBrokenStage1 = value;
+			if (_eyesBrokenStage1 == 2)
+			{
+				StartCoroutine(BossPhase2());
+			}
+		}
+	}
+
+	private int _wingsBrokenStage2;
+	public int WingsBrokenStage2
+	{
+		get
+		{
+			return _wingsBrokenStage2;
+		}
+		set
+		{
+			_wingsBrokenStage2 = value;
+			if (_wingsBrokenStage2 == 2)
+			{
+				//StartCoroutine(BossPhase3());
+			}
 		}
 	}
 
 	// Use this for initialization
 	void Start () 
 	{
+		Boss.transform.position = BossPositions[0].position;
 		StartCoroutine(StartBossFight());
 	}
 
@@ -47,10 +67,30 @@ public class BossFightManager : MonoBehaviour
 		StartCoroutine(RotateBoss(BossPositions[3].rotation, 5));
 	}
 
+	void Update()
+	{
+		if (Input.GetKey(KeyCode.A))
+		{
+			StartCoroutine(BossPhase2());
+		}
+	}
+
 	public IEnumerator BossPhase2()
 	{
 		StartCoroutine(RotateBoss(BossPositions[2].rotation, 4));
 		yield return new WaitForSeconds(5f);
+		StartCoroutine(MoveBoss(BossPositions[4].position, 8));
+		yield return new WaitForSeconds(8f);
+		FindObjectOfType<HellFireManager>().Unleash = true;
+		StartCoroutine(FindObjectOfType<HellFireManager>().UnleashHellFire());
+	}
+
+	private void TurnWingsWhite()
+	{
+		foreach (MeshRenderer i in BossWings)
+		{
+			i.material = RedEyeMaterial;
+		}
 	}
 
 	private void TurnOnEyesRED()

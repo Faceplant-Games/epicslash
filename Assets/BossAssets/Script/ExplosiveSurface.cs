@@ -8,21 +8,6 @@ public class ExplosiveSurface : MonoBehaviour
 
 	private int HP = 10;
 
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			TriggerExplosion(transform.position);
-		}
-	}
-
 	public void TriggerExplosion(Vector3 position)
 	{
 		if (ExplosionEnabled)
