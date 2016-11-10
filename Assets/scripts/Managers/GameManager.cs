@@ -47,7 +47,8 @@ public class GameManager : MonoBehaviour {
 
     private void InitializeTrack()
     {
-        audioSource.PlayOneShot(track);
+        audioSource.clip = track;
+        audioSource.Play();
         if (loopTrack == null)
         {
             audioSource.loop = true;
