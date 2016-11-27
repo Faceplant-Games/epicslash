@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour {
 	private int previousStage = 0;
@@ -23,25 +24,43 @@ public class GameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		if (change) {
-			change = false;
-			if (stage > previousStage) {
-				print ("on monte de niveau");
-				audioSource.PlayOneShot (ups);
-                //SceneManager.LoadScene("BossFight");
-				SceneManager.LoadScene(stage ++);
-			} else if (stage < previousStage) {
-				print ("on baisse de niveau");
-				audioSource.PlayOneShot (downs);
-				if (stage > 0) 
-				{
-					SceneManager.LoadScene(stage - 1);
-				}
+		if (change)
+        {
+            changeStage();
+        }
 
-			}
-			previousStage = stage;
-		}
-	}
+        // Cheat Codes
+        if (Input.GetKeyDown("b"))
+        {
+            print("Boom, every mobs die");
+            AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
+
+            Array.ForEach(monsters, m => m.Die());
+        }
+    }
+
+    private void changeStage()
+    {
+        change = false;
+        if (stage > previousStage)
+        {
+            print("on monte de niveau");
+            audioSource.PlayOneShot(ups);
+            //SceneManager.LoadScene("BossFight");
+            SceneManager.LoadScene(stage++);
+        }
+        else if (stage < previousStage)
+        {
+            print("on baisse de niveau");
+            audioSource.PlayOneShot(downs);
+            if (stage > 0)
+            {
+                SceneManager.LoadScene(stage - 1);
+            }
+
+        }
+        previousStage = stage;
+    }
 
     //catch events change of stage
 
