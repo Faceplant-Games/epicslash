@@ -67,20 +67,19 @@ public class GameManager : MonoBehaviour {
     private void InitializeTrack()
     {
         audioSource.clip = track;
-        audioSource.Play();
         if (loopTrack == null)
         {
             audioSource.loop = true;
+            audioSource.Play();
             return;
         }
         audioSource.loop = false;
 
-        AudioSource loopAudio = new AudioSource();
-        loopAudio.transform.position = audioSource.transform.position;
-        GameObject.Instantiate(loopAudio);
-        loopAudio.PlayScheduled(track.length);
-        loopAudio.PlayOneShot(loopTrack);
+        AudioSource loopAudio = gameObject.AddComponent<AudioSource>();
         loopAudio.loop = true;
+        loopAudio.clip = loopTrack;
+        audioSource.Play();
+        loopAudio.PlayDelayed(track.length);
     }
 
 

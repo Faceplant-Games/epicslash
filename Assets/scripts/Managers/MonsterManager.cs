@@ -11,7 +11,7 @@ public class MonsterManager : MonoBehaviour {
 	void Start () {
 
 		gm = gameObject.GetComponent<GameManager>();
-		ennemies  = new List<string>[5];// nombre de niveaux de jeux
+		ennemies  = new List<string>[5]; // nombre de niveaux de jeux
 		for (int i = 0; i < 5; i++) {
 			ennemies[i] =  new List<string>();
 		}
