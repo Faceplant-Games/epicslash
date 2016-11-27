@@ -22,7 +22,7 @@ public class Monster2B : AbstractMonster
 		_groundMovingB = GetComponent<GroundMovingB>();
 		EscapePosition = transform.position;
 		myState = Monster2State.LookingForGold;
-		anim = GetComponent<Animator>();
+		anim = this.GetComponentInChildren<Animator>();
 		anim.SetTrigger ("doitsauter");
 
 	}

@@ -1,0 +1,2 @@
+1-16 : marche
+17-46 : attaque
