@@ -1020,8 +1020,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06e1c41573f68649975bc4b852c14f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 0}
-  FireInitialPos: {fileID: 0}
+  BulletPrefab: {fileID: 1000012706065184, guid: 5e14384dca007294a8b96ca0f6a8a48e,
+    type: 2}
+  FireInitialPos: {fileID: 4000010484237072}
 --- !u!114 &114000012396494808
 MonoBehaviour:
   m_ObjectHideFlags: 1
