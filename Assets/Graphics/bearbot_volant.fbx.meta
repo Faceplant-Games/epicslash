@@ -98,7 +98,75 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bearbot_tete
+        weight: 1
+      - path: bearbot_tete/bearbot_antenne
+        weight: 1
+      - path: bearbot_tete/bearbot_boule
+        weight: 1
+      - path: bearbot_tete/bearbot_cou
+        weight: 1
+      - path: bearbot_tete/bearbot_cou/bearbot_bras_d
+        weight: 1
+      - path: bearbot_tete/bearbot_cou/bearbot_bras_g
+        weight: 1
+      - path: bearbot_tete/bearbot_cou/bearbot_corps
+        weight: 1
+      - path: bearbot_tete/bearbot_cou/bearbot_corps/bearbot_aile_d_1
+        weight: 1
+      - path: bearbot_tete/bearbot_cou/bearbot_corps/bearbot_aile_d_1/bearbot_aile_d_1
+          1
+        weight: 1
+      - path: bearbot_tete/bearbot_cou/bearbot_corps/bearbot_aile_d_1/bearbot_aile_d_1
+          1/bearbot_aile_d
+        weight: 1
+      - path: bearbot_tete/bearbot_cou/bearbot_corps/bearbot_aile_g_1
+        weight: 1
+      - path: bearbot_tete/bearbot_cou/bearbot_corps/bearbot_aile_g_1/bearbot_aile_g_1
+          1
+        weight: 1
+      - path: bearbot_tete/bearbot_cou/bearbot_corps/bearbot_aile_g_1/bearbot_aile_g_1
+          1/bearbot_aile_g
+        weight: 1
+      - path: bearbot_tete/bearbot_cou/bearbot_corps1
+        weight: 1
+      - path: bearbot_tete/bearbot_oreille_d
+        weight: 1
+      - path: bearbot_tete/bearbot_oreille_g
+        weight: 1
+      - path: bearbot_tete/bearbot_tete 1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
