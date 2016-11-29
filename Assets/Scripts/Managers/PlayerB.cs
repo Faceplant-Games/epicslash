@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayerB : MonoBehaviour {
 
-	int level;
+    public Fading fading;
+
+    int level;
 	int stage;
 	long[] treshs = { 100, 100000, 100000000, 100000000000, 100000000000000 };
 
 
 
-
-	List<GoldSpawnerB> goldSpawners = new List<GoldSpawnerB>();
+    List<GoldSpawnerB> goldSpawners = new List<GoldSpawnerB>();
     GameManager gm;
 
     WeaponB weaponB;
@@ -36,21 +37,36 @@ public class PlayerB : MonoBehaviour {
 	public void levelUp(int levels) {
 		level += levels;
 		spawnGold(levels % 37);
-        print(level);
-		if (level >= treshs [stage]) {
-			stage++;
-			gm.stage = stage;
-			gm.change = true;
-            //SceneManager.LoadScene("BossFight");
-            SceneManager.LoadScene(stage);
-            //FIXME PAUSE
-            if (stage > treshs.Length) {
-				//stop the game
-			}	
-		}
-	}
+        print("Level: "+level);
+		if (level >= treshs [stage])
+        {
+            StartCoroutine(stageUp());
+        }
+    }
 
-	public void spawnGold(int levels) {
+    private IEnumerator stageUp()
+    {
+        stage++;
+        gm.stage = stage;
+        gm.change = true;
+
+        if (fading != null)
+        {
+            float fadeTime = fading.BeginFade(1);
+            gm.playLevelUpSound();
+            yield return new WaitForSeconds(fadeTime*7);
+        }
+
+        SceneManager.LoadScene(stage);
+
+        if (stage > treshs.Length)
+        {
+            //stop the game
+        }
+    }
+
+
+    public void spawnGold(int levels) {
 		// random on goldSpawners.length, to pop some gold bags
 		goldSpawners[Random.Range (0, goldSpawners.Count)].Spawn(levels);
 	}

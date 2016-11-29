@@ -42,3 +42,4 @@ Assets/scenes/[Do Not Commit]*.unity.meta
 *.exe
 Build.zip
 Build_Data/
+ProjectSettings/GraphicsSettings.asset

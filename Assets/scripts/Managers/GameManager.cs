@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
     public AudioClip ups;
 	public AudioClip downs;
 	public AudioSource audioSource;
+    public Fading fading;
 
 
 
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void changeStage()
+    private IEnumerator changeStage() // TODO : remove this or use this. This method is never called. PlayerB.levelup is used instead.
     {
         change = false;
         if (stage > previousStage)
@@ -47,6 +48,11 @@ public class GameManager : MonoBehaviour {
             print("on monte de niveau");
             audioSource.PlayOneShot(ups);
             //SceneManager.LoadScene("BossFight");
+            if (fading != null)
+            {
+                float fadeTime = fading.BeginFade(1);
+                yield return new WaitForSeconds(fadeTime);
+            }
             SceneManager.LoadScene(stage++);
         }
         else if (stage < previousStage)
@@ -57,7 +63,6 @@ public class GameManager : MonoBehaviour {
             {
                 SceneManager.LoadScene(stage - 1);
             }
-
         }
         previousStage = stage;
     }
@@ -82,5 +87,9 @@ public class GameManager : MonoBehaviour {
         loopAudio.PlayDelayed(track.length);
     }
 
+    public void playLevelUpSound()
+    {
+        audioSource.PlayOneShot(ups);
+    }
 
 }
