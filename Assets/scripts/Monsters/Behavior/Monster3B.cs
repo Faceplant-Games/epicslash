@@ -12,7 +12,7 @@ public class Monster3B : AbstractMonster
 	private float t = 0;
     
 
-	private int hp = 3;
+	private int hp = 1;
 
 	void Start()
 	{

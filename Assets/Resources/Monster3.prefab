@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d66b0ba3134c9c44aee263cb8d3edeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackRange: 20
+  AttackRange: 10
   RateOfFire: 3
 --- !u!136 &136000012601725282
 CapsuleCollider:
