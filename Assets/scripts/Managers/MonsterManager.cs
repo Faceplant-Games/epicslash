@@ -12,7 +12,7 @@ public class MonsterManager : MonoBehaviour {
 
 		gm = gameObject.GetComponent<GameManager>();
 		ennemies  = new List<string>[5]; // nombre de niveaux de jeux
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 4; i++) {
 			ennemies[i] =  new List<string>();
 		}
 		ennemies [0].Add ("Monster1");
@@ -26,9 +26,12 @@ public class MonsterManager : MonoBehaviour {
 		ennemies [2].Add ("Monster3");
 		ennemies [2].Add ("dragon");
 
-		ennemies [3].Add ("");
+        ennemies[3].Add("Monster1");
+        ennemies[3].Add("Monster2");
+        ennemies[3].Add("Monster3");
+        ennemies[3].Add("dragon");
 
-		ennemies [4].Add ("");
+      //  ennemies [4].Add ("");
 
 		SpawnerB[] spawnerB = GameObject.FindObjectsOfType (typeof(SpawnerB)) as SpawnerB[];
 

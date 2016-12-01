@@ -12,14 +12,15 @@ public class Monster3B : AbstractMonster
 	private float t = 0;
     
 
-	private int hp = 1;
+	private int hp;
 
 	void Start()
 	{
 		player = Camera.main.gameObject;
 		_flyingMovingB = GetComponent<FlyingMovingB>();
 		_attack3B = GetComponent<Attack3B>();
-	}
+        hp = 3;
+    }
 
 	public void Move(Vector3 position)
 	{
@@ -65,18 +66,19 @@ public class Monster3B : AbstractMonster
 	}
 
 	public override void Die(){
-		if (hp > 1) {
-			hp--;
-		}else{
-		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
-		if ( player != null){
-				if (this.tag == "DRAGON")
-					player.levelUp (10000000);
-				else
-					player.levelUp (20000);
-		}
-		Destroy(gameObject);
-		//FIXME AJOUT sac de gold?
-		}
+        if (hp > 1)
+        {
+            hp--;
+        }
+        else
+        {
+            PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB;
+            if (player != null)
+            {
+                player.levelUp(20000);
+            }
+            DestroyImmediate(this.gameObject);
+        }
+       
 	}
 }

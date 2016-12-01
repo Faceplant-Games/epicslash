@@ -33,9 +33,8 @@ public class GameManager : MonoBehaviour {
         // Cheat Codes
         if (Input.GetKeyDown("b"))
         {
-            print("Boom, every mobs die");
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
-
+            System.IO.File.AppendAllText("C:\\tmp\\logUnityGame.txt", "monstres : " + monsters.Length+"\n");
             Array.ForEach(monsters, m => m.Die());
         }
     }
