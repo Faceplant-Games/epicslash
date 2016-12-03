@@ -5,8 +5,8 @@ using System;
 
 public class GameManager : MonoBehaviour {
 	private int previousStage = 0;
-	public int stage = 0;
-	public bool change = false;
+	public int stage = 0; // TODO Can we keep it in a global variable ?
+	public bool change = false; // TODO rename this with a clearer name
 
     public AudioClip track;
     public AudioClip loopTrack;
@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour {
         }
 
         // Cheat Codes
+		// TODO put this in a loadCheatCodes method
+		// TODO add a "no controller mode" cheatcode
+		// TODO add a "rotate view" cheatcode
         if (Input.GetKeyDown("b"))
         {
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
@@ -65,8 +68,6 @@ public class GameManager : MonoBehaviour {
         }
         previousStage = stage;
     }
-
-    //catch events change of stage
 
     private void InitializeTrack()
     {

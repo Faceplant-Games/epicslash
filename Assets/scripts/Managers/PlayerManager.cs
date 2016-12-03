@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerManager : MonoBehaviour {
+public class PlayerManager : MonoBehaviour { // TODO remove this class?
 
 
 	// Use this for initialization
