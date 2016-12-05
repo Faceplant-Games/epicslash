@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private IEnumerator changeStage() // TODO : remove this or use this. This method is never called. PlayerB.levelup is used instead.
+    private IEnumerator changeStage() // TODO : remove this or use this. This method is never called. PlayerManager.levelup is used instead.
     {
         change = false;
         if (stage > previousStage)
