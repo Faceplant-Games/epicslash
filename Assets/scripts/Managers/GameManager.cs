@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown("b"))
         {
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
-            System.IO.File.AppendAllText("C:\\tmp\\logUnityGame.txt", "monstres : " + monsters.Length+"\n");
             Array.ForEach(monsters, m => m.Die());
         }
     }

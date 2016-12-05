@@ -36,7 +36,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public void levelUp(int levels) { // TODO GameManager should call levelUp() and spawnGold()
 		level += levels;
-		spawnGold(levels % 37); // TODO make a better system (e.g. goldbag, treasure, diamonds...)
+		spawnGold(1); // TODO make a better system (e.g. goldbag, treasure, diamonds...)
         print("Level: "+level); // TODO make an ingame display instead
 		if (level >= treshs [stage])
         {
@@ -66,7 +66,7 @@ public class PlayerManager : MonoBehaviour {
     }
 
 
-    public void spawnGold(int levels) { // TODO GameManager should manage this
+    public void spawnGold(int levels) { 
 		// random on goldSpawners.length, to pop some gold bags
 		goldSpawners[Random.Range (0, goldSpawners.Count)].Spawn(levels);
 	}

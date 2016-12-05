@@ -15,7 +15,7 @@ public class GoldSpawnerB : MonoBehaviour {
 
 	public void Spawn(int nbGoldBags) {
 		for (int i = 0; i < nbGoldBags; i++) {
-			Vector3 random1 = new Vector3 (Random.Range (0, 2), Random.Range (0, 2), Random.Range (0, 2));
+			Vector3 random1 = new Vector3 (Random.Range (0, 2f), Random.Range (0, 2f), Random.Range (0, 2f));
 			Vector3 pos = this.gameObject.transform.position + random1;
 			Instantiate (goldBagPrefab, pos, this.gameObject.transform.rotation);
 		}
