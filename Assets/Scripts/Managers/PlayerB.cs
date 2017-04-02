@@ -37,7 +37,7 @@ public class PlayerB : MonoBehaviour {
 	public void levelUp(int levels) {
 		level += levels;
 		spawnGold(levels % 37);
-        print("Level: "+level);
+       //print("Level: "+level);
 		if (level >= treshs [stage])
         {
             StartCoroutine(stageUp());

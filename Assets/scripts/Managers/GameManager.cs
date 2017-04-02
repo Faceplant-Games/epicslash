@@ -33,11 +33,11 @@ public class GameManager : MonoBehaviour {
         // Cheat Codes
         if (Input.GetKeyDown("b"))
         {
-            print("Boom, every mobs die");
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
-
+			print ("monstres : " +  monsters.Length);
             Array.ForEach(monsters, m => m.Die());
-        }
+			monsters = GameObject.FindObjectsOfType<AbstractMonster>();
+		}
     }
 
     private IEnumerator changeStage() // TODO : remove this or use this. This method is never called. PlayerB.levelup is used instead.
