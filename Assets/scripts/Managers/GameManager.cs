@@ -23,10 +23,13 @@ using System.Collections.Generic;
 ///     - loopTrack: original sound track of the stage, played in loop after "track" is played once.
 /// </summary>
 /// <seealso cref="MonsterManager"/>
+/// <seealso cref="WeaponB"/>
+/// <seealso cref="Fading"/>
+/// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
 	private int previousStage = 0;
 	public int stage = 0;
-	public bool change = false;
+	bool change = false;
     public Fading fading;
 
     // old playerB

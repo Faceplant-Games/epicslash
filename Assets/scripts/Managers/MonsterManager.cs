@@ -1,7 +1,16 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Manages Monsters of the stage, including:
+///     - Fetching Monster Spawners.
+///     - Getting the specific monsters of this stage.
+///     - Regularly spawning monsters
+/// 
+/// Link it to the same Empty Game Object as GameManager.
+/// </summary>
+/// <seealso cref="GameManager"/>
+/// <seealso cref="SpawnerB"/>
 public class MonsterManager : MonoBehaviour {
 	private List<SpawnerB> spawns = new List<SpawnerB> ();
 	private List<string> [] ennemies;
