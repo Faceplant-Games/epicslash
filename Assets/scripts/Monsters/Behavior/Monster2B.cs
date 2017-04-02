@@ -82,7 +82,7 @@ public class Monster2B : AbstractMonster
 			anim.SetTrigger ("vavoler");
 			Debug.Log("Escape!");
 			StealGold();
-            PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB;
+            GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
             player.levelDown (100);
 			Destroy(collision.gameObject);
 		}
@@ -109,7 +109,7 @@ public class Monster2B : AbstractMonster
 	public override void Die()
 	{
 
-        PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB;
+        GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
         if ( player != null){
 			player.levelUp (1);
 		}

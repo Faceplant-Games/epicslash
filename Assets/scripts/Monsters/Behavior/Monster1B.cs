@@ -26,7 +26,7 @@ public class Monster1B : AbstractMonster
 	public void Attack(GameObject target)
 	{
 		_attack1B.Attack(target);
-        PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB;
+        GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
         player.levelDown (1);
 	}
 
@@ -40,7 +40,7 @@ public class Monster1B : AbstractMonster
 
 	public override void Die(){
 
-        PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB;
+        GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
         if ( player != null){
 			player.levelUp (100);
 		}

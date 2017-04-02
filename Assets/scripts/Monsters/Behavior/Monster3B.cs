@@ -68,7 +68,7 @@ public class Monster3B : AbstractMonster
 		if (hp > 1) {
 			hp--;
 		}else{
-		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+		GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager ;
 		if ( player != null){
 				if (this.tag == "DRAGON")
 					player.levelUp (10000000);

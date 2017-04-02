@@ -2,25 +2,37 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 	private int previousStage = 0;
 	public int stage = 0;
 	public bool change = false;
+    public Fading fading;
+
+    // old playerB
+    int level;
+    long[] treshs = { 100, 100000, 100000000, 100000000000, 100000000000000 };
+    List<GoldSpawnerB> goldSpawners = new List<GoldSpawnerB>();
+    WeaponB weaponB;
 
     public AudioClip track;
     public AudioClip loopTrack;
     public AudioClip ups;
 	public AudioClip downs;
 	public AudioSource audioSource;
-    public Fading fading;
-
 
 
 	// Use this for initialization
 	void Start ()
     {
         InitializeTrack();
+        
+        GoldSpawnerB[] goldS = GameObject.FindObjectsOfType(typeof(GoldSpawnerB)) as GoldSpawnerB[];
+        foreach (GoldSpawnerB spawner in goldS)
+        {
+            goldSpawners.Add(spawner);
+        }
     }
 
     // Update is called once per frame
@@ -92,4 +104,63 @@ public class GameManager : MonoBehaviour {
         audioSource.PlayOneShot(ups);
     }
 
+        
+
+    public void levelUp(int levels)
+    {
+        level += levels;
+        spawnGold(levels % 37);
+        print("Level: " + level);
+        if (level >= treshs[stage])
+        {
+            StartCoroutine(stageUp());
+        }
+    }
+
+    private IEnumerator stageUp()
+    {
+        stage++;
+        change = true;
+
+        if (fading != null)
+        {
+            float fadeTime = fading.BeginFade(1);
+            playLevelUpSound();
+            yield return new WaitForSeconds(fadeTime * 7);
+        }
+
+        SceneManager.LoadScene(stage);
+
+        if (stage > treshs.Length)
+        {
+            //stop the game
+        }
+    }
+
+
+    public void spawnGold(int levels)
+    {
+        // random on goldSpawners.length, to pop some gold bags
+        goldSpawners[UnityEngine.Random.Range(0, goldSpawners.Count)].Spawn(levels);
+    }
+
+    public void levelDown(int levels)
+    {
+        /*level -= levels;
+        print("level down");
+        if (stage >0)
+        {
+            if ( level < treshs[stage-1] ) {
+				stage--;
+				gm.stage = stage;
+				gm.change = true;
+				//FIXME PAUSE
+			}
+		}*/
+    }
+
+    void equipWeapon(WeaponB weaponB)
+    {
+        this.weaponB = weaponB;
+    }
 }
