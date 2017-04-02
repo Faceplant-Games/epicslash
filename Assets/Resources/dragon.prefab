@@ -54,7 +54,7 @@ GameObject:
   - 65: {fileID: 65000010111705324}
   - 114: {fileID: 114000011012313514}
   - 114: {fileID: 114000013753424758}
-  - 114: {fileID: 114000012273383288}
+  - 114: {fileID: 114000011572249352}
   m_Layer: 0
   m_Name: dragon
   m_TagString: DRAGON
@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   mooving: 0
---- !u!114 &114000012273383288
+--- !u!114 &114000011572249352
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010194064148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d66b0ba3134c9c44aee263cb8d3edeb, type: 3}
+  m_Script: {fileID: 11500000, guid: 34bcc6aa362b8d74b96d2c1717b3c69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AttackRange: 8

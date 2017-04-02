@@ -26,7 +26,7 @@ public class Monster1B : AbstractMonster
 	public void Attack(GameObject target)
 	{
 		_attack1B.Attack(target);
-		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+		PlayerManager player = GameObject.FindObjectOfType(typeof(PlayerManager)) as PlayerManager ;
 		player.levelDown (1);
 	}
 
@@ -40,11 +40,11 @@ public class Monster1B : AbstractMonster
 
 	public override void Die(){
         
-		PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB ;
+		PlayerManager player = GameObject.FindObjectOfType(typeof(PlayerManager)) as PlayerManager ;
 		if ( player != null){
 			player.levelUp (100);
 		}
-        Destroy(this.gameObject);
+        DestroyImmediate(this.gameObject);
 		//FIXME AJOUT sac de gold?
 	}
 

@@ -23,7 +23,7 @@ public class Ennemi3BulletB : MonoBehaviour
 		{
 			if (hit.transform.gameObject.tag == "MainCamera") 
 			{
-              //  PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB;
+              //  PlayerManager player = GameObject.FindObjectOfType(typeof(PlayerManager)) as PlayerManager;
                // player.levelDown(5);
             }
             Destroy(gameObject);
