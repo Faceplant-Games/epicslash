@@ -35,7 +35,7 @@ public class Fading : MonoBehaviour {
     }
 
     // OnLevelWasLoaded is called when a level is loaded. It takes loaded level index (int) as a parameter so you can limit the fade in to certain scenes
-    void OnLevelWasLoaded()
+    void OnLevelWasLoaded() // FIXME deprecated method, use OnLevelFinishedLoading instead.
     {
         // alpha = 1; use this if the alpha ois not set to 1 by default
         BeginFade(-1);
