@@ -4,6 +4,25 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// This class manages the game rules. It includes:
+///     - stages initialization,
+///     - player state (level up, weapons, audio, ...),
+///     - monsters
+///     - loot spawning
+///     
+/// Link this script to an Empty Game Object in each stage.
+/// 
+/// Mandatory fields:
+///     - stage: the stage id, from 0 to the last stage.
+///     - fading: a Fading Game object, used as a transition screen during stage transitions.
+///     - track: original sound track of the stage. If there's no loopTrack specified, it will loop. Otherwise, it will be played once.
+///     - ups: stage up sound.
+///     - downs: stage down sound.
+/// Optional fields:
+///     - loopTrack: original sound track of the stage, played in loop after "track" is played once.
+/// </summary>
+/// <seealso cref="MonsterManager"/>
 public class GameManager : MonoBehaviour {
 	private int previousStage = 0;
 	public int stage = 0;
