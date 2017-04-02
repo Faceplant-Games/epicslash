@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
 			print ("monstres : " +  monsters.Length);
             Array.ForEach(monsters, m => m.Die());
-			monsters = GameObject.FindObjectsOfType<AbstractMonster>();
+			//monsters = GameObject.FindObjectsOfType<AbstractMonster>();
 		}
     }
 

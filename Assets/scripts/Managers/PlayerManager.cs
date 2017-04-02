@@ -42,6 +42,7 @@ public class PlayerManager : MonoBehaviour {
         {
             StartCoroutine(stageUp()); // TODO GameManager should manage this
         }
+        print(level);
     }
 
     private IEnumerator stageUp() // TODO GameManager should manage this

@@ -26,8 +26,8 @@ public class Monster1B : AbstractMonster
 	public void Attack(GameObject target)
 	{
 		_attack1B.Attack(target);
-		PlayerManager player = GameObject.FindObjectOfType(typeof(PlayerManager)) as PlayerManager ;
-		player.levelDown (1);
+        PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB;
+        player.levelDown (1);
 	}
 
 	public override int  Experience(){
@@ -39,9 +39,9 @@ public class Monster1B : AbstractMonster
 	}
 
 	public override void Die(){
-        
-		PlayerManager player = GameObject.FindObjectOfType(typeof(PlayerManager)) as PlayerManager ;
-		if ( player != null){
+
+        PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB;
+        if ( player != null){
 			player.levelUp (100);
 		}
         DestroyImmediate(this.gameObject);

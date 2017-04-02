@@ -74,7 +74,7 @@ public class Monster4B : AbstractMonster
         }
         else
         {
-            PlayerManager player = GameObject.FindObjectOfType(typeof(PlayerManager)) as PlayerManager;
+            PlayerB player = GameObject.FindObjectOfType(typeof(PlayerB)) as PlayerB;
             if (player != null)
             {
                 player.levelUp(10000000);
