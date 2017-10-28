@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour {
         {
             float fadeTime = fading.BeginFade(1);
             PlayStageUpSound();
-            yield return new WaitForSeconds(fadeTime * 7);
+            yield return new WaitForSeconds(fadeTime);
         }
 
         SceneManager.LoadScene(stage);
