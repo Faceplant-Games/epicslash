@@ -28,6 +28,7 @@ public class Monster2B : AbstractMonster
 		anim.SetTrigger ("doitsauter");
         base.hp = 2;
         base.experience = 1;
+        base.malus = 100;
 	}
 
 	private GameObject NearestGoldBag()
@@ -85,7 +86,7 @@ public class Monster2B : AbstractMonster
 			anim.SetTrigger ("vavoler");
 			StealGold();
             GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-            player.LevelDown (100);
+            player.LevelDown (base.malus);
 			Destroy(collision.gameObject);
 		}
 	}

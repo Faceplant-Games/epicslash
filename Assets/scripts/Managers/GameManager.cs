@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour {
         loopAudio.PlayDelayed(track.length);
     }   
 
-    public void LevelUp(int levels)
+    public void EarnExperienceAndGold(int levels)
     {
         level += levels;
         spawnGold(levels % 37);

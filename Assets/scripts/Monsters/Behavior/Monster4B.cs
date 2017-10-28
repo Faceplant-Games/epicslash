@@ -22,6 +22,7 @@ public class Monster4B : AbstractMonster
         _attack3B = GetComponent<Attack3B>();
         base.hp = 5;
         base.experience = 10000000;
+        base.malus = 0;
     }
 
     public void Move(Vector3 position)

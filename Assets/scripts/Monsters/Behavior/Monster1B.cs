@@ -21,6 +21,7 @@ public class Monster1B : AbstractMonster
 		player = GameObject.FindGameObjectWithTag("MainCamera");
         base.hp = 1;
         base.experience = 100;
+        base.malus = 1;
 	}
 
 	public void Move(Vector3 position)
@@ -32,7 +33,7 @@ public class Monster1B : AbstractMonster
 	{
 		_attack1B.Attack(target);
         GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-        player.LevelDown (1);
+        player.LevelDown (base.malus);
 	}
 }
 
