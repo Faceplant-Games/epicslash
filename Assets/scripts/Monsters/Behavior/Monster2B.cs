@@ -9,7 +9,6 @@ public class Monster2B : AbstractMonster
 {
 	private GroundMovingB _groundMovingB;
 	public Vector3 EscapePosition;
-	private int hp = 1;
 	Animator anim;
 
 	public enum Monster2State
@@ -27,7 +26,8 @@ public class Monster2B : AbstractMonster
 		myState = Monster2State.LookingForGold;
 		anim = this.GetComponentInChildren<Animator>();
 		anim.SetTrigger ("doitsauter");
-
+        base.hp = 2;
+        base.experience = 1;
 	}
 
 	private GameObject NearestGoldBag()
@@ -90,32 +90,12 @@ public class Monster2B : AbstractMonster
 		}
 	}
 
-	public void StealGold()
-	{
-		myState = Monster2State.Escaping;
-		//StealGold
+    public void StealGold()
+    {
+        myState = Monster2State.Escaping;
+        //StealGold
 
-		anim.SetTrigger ("doitsauter");
-	}
-
-	public override int  GetExperience()
-	{
-		return 0;
-	}
-
-	public override void Spawn()
-	{
-
-	}
-
-	public override void BeingHit()
-	{
-
-        GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-        if ( player != null){
-			player.LevelUp (1);
-		}
-		DestroyImmediate (this.gameObject);
-		//FIXME AJOUT sac de gold?
-	}
+        anim.SetTrigger("doitsauter");
+    }
+    
 }

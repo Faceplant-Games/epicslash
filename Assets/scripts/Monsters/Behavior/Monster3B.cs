@@ -15,14 +15,14 @@ public class Monster3B : AbstractMonster
 	public float RateOfFire = 4;
 	private float t = 0;
     
-
-	private int hp = 3;
-
+    
 	void Start()
 	{
 		player = Camera.main.gameObject;
 		_flyingMovingB = GetComponent<FlyingMovingB>();
 		_attack3B = GetComponent<Attack3B>();
+        base.hp= 3;
+        base.experience = 20000;
 	}
 
 	public void Move(Vector3 position)
@@ -58,29 +58,5 @@ public class Monster3B : AbstractMonster
 
 		_attack3B.Attack(target);
 	}
-
-	public override int  GetExperience()
-	{
-		return 0;
-	}
-
-	public override void Spawn(){
-
-	}
-
-	public override void BeingHit(){
-		if (hp > 1) {
-			hp--;
-		}else{
-		GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager ;
-		if ( player != null){
-				if (this.tag == "DRAGON")
-					player.LevelUp (10000000);
-				else
-					player.LevelUp (20000);
-		}
-		Destroy(gameObject);
-		//FIXME AJOUT sac de gold?
-		}
-	}
+   
 }

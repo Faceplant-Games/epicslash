@@ -15,15 +15,13 @@ public class Monster4B : AbstractMonster
     public float RateOfFire = 4;
     private float t = 0;
 
-
-    private int hp;
-
     void Start()
     {
         player = Camera.main.gameObject;
         _flyingMovingB = GetComponent<FlyingMovingB>();
         _attack3B = GetComponent<Attack3B>();
-        hp = 5;
+        base.hp = 5;
+        base.experience = 10000000;
     }
 
     public void Move(Vector3 position)
@@ -60,31 +58,4 @@ public class Monster4B : AbstractMonster
         _attack3B.Attack(target);
     }
 
-    public override int GetExperience()
-    {
-        return 0;
-    }
-
-    public override void Spawn()
-    {
-
-    }
-
-    public override void BeingHit()
-    {
-        if (hp > 1)
-        {
-            hp--;
-        }
-        else
-        {
-            GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-            if (player != null)
-            {
-                player.LevelUp(10000000);
-            }
-            DestroyImmediate(this.gameObject);
-        }
-       
-    }
 }

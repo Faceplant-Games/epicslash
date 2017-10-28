@@ -10,15 +10,17 @@ public class Monster1B : AbstractMonster
 	private GroundMovingB _groundMovingB;
 	private Attack1B _attack1B;
 	private GameObject player;
-	private int hp = 1;
 
 
-	// Use this for initialization
-	void Start () 
+
+    // Use this for initialization
+    void Start () 
 	{
 		_groundMovingB = GetComponent<GroundMovingB>();
 		_attack1B = GetComponent<Attack1B>();
 		player = GameObject.FindGameObjectWithTag("MainCamera");
+        base.hp = 1;
+        base.experience = 100;
 	}
 
 	public void Move(Vector3 position)
@@ -32,26 +34,5 @@ public class Monster1B : AbstractMonster
         GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
         player.LevelDown (1);
 	}
-
-	public override int  GetExperience(){
-		return 100;
-	}
-
-	public override void Spawn(){
-
-	}
-
-	public override void BeingHit(){
-
-        GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-        if ( player != null){
-
-			player.LevelUp (GetExperience());
-		}
-        DestroyImmediate(this.gameObject);
-		//FIXME AJOUT sac de gold?
-	}
-
-
 }
 
