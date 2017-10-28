@@ -7,7 +7,7 @@ public class WeaponB : MonoBehaviour {
     public SteamVR_TrackedController trackedController;
 
 	public AudioClip slash;
-	public AudioSource audio;
+	public AudioSource audioSource;
     public bool isShotEnabled;
 
 
@@ -21,7 +21,7 @@ public class WeaponB : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-        audio.PlayOneShot(slash);
+        audioSource.PlayOneShot(slash);
         if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
 			SteamVR_Controller.Input((int)trackedController.controllerIndex).TriggerHapticPulse((ushort)Mathf.Lerp(0f, 1500f, 0.7f));
 			collider.gameObject.GetComponent<AbstractMonster> ().BeingHit ();
