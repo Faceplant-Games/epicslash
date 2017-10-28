@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour {
     public Fading fading;
 
     int level;
-    long[] treshs = { 100, 100000, 100000000, 100000000000, 100000000000000 };
     List<GoldSpawnerB> goldSpawners = new List<GoldSpawnerB>();
     WeaponB weaponB;
     
@@ -46,7 +45,6 @@ public class GameManager : MonoBehaviour {
 
     private string gameDataFileName = "data.json";
     public GameData gameData;
-
 
     void Start ()
     {
@@ -71,7 +69,6 @@ public class GameManager : MonoBehaviour {
             Array.ForEach(monsters, m => m.BeingHit());
             
 		}
-
         if (Input.GetKeyDown("a"))
         {
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
@@ -101,14 +98,15 @@ public class GameManager : MonoBehaviour {
     public void EarnExperienceAndGold(int levels)
     {
         level += levels;
-        spawnGold(levels % 37);
+        SpawnGold(levels % 37);
         print("Level: " + level);
-        if (level >= treshs[stage])
+        if (level >= gameData.stageThresholds[stage])
         {
             StartCoroutine(StageUp());
         }
     }
 
+    // TODO rename and code this method
     public void LevelDown(int levels)
     {
         /*level -= levels;
@@ -138,9 +136,9 @@ public class GameManager : MonoBehaviour {
 
         SceneManager.LoadScene(stage);
 
-        if (stage > treshs.Length)
+        if (stage > gameData.stageThresholds.Length)
         {
-            //stop the game
+            //TODO stop the game
         }
     }
 
@@ -149,9 +147,9 @@ public class GameManager : MonoBehaviour {
         audioSource.PlayOneShot(ups);
     }
 
-    public void spawnGold(int levels)
+    public void SpawnGold(int levels)
     {
-        // random on goldSpawners.length, to pop some gold bags
+        // TODO random on goldSpawners.length, to pop some gold bags
         goldSpawners[UnityEngine.Random.Range(0, goldSpawners.Count)].Spawn(levels);
     }
 
@@ -166,10 +164,7 @@ public class GameManager : MonoBehaviour {
         if (File.Exists(filePath))
         {
             string dataAsJson = File.ReadAllText(filePath);
-            print(dataAsJson);
             gameData = JsonUtility.FromJson<GameData>(dataAsJson);
-            
-            print(gameData.test);
         }
         else
         {
