@@ -22,7 +22,7 @@ public class BulletB : MonoBehaviour {
 			if (hit.transform.gameObject.GetComponent<AbstractMonster>() != null) {
                 print("Boom");
 				AbstractMonster monster = hit.transform.gameObject.GetComponent<AbstractMonster>();
-				monster.Die ();
+				monster.BeingHit ();
 				Destroy (gameObject);
 			}
 			else if (hit.transform.gameObject.GetComponent<ExplosiveSurface>() != null)
