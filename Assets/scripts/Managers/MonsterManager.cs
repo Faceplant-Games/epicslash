@@ -12,7 +12,7 @@ using System.Collections.Generic;
 /// <seealso cref="GameManager"/>
 /// <seealso cref="SpawnerB"/>
 public class MonsterManager : MonoBehaviour {
-	private List<SpawnerB> spawners = new List<SpawnerB> ();
+	private SpawnerB[] spawners;
 	private List<string> [] mobTypesByStage; // TODO Revrieve it from config file
 	private GameManager gm;
     private int numberOfStages = 5;
@@ -22,16 +22,12 @@ public class MonsterManager : MonoBehaviour {
 
         InitializeMobTypesByStage();
 
-        SpawnerB[] spawners = GameObject.FindObjectsOfType(typeof(SpawnerB)) as SpawnerB[];
-
-        foreach (SpawnerB spawner in spawners) { // TODO use lambdas, it's sexier : Array.ForEach(spawners, s => spawns.Add(s));
-            this.spawners.Add(spawner); // TODO And... is it really useful?
-        }
+        spawners = GameObject.FindObjectsOfType(typeof(SpawnerB)) as SpawnerB[];
     }
 
     // Update is called once per frame
     void Update () {
-        if (spawners.Count == 0) {
+        if (spawners.Length == 0) {
             return;
         }
 		if (Random.Range (0, 10) < 1) { // This is the frame rate. (0,10) < 1 means 10%
@@ -66,7 +62,7 @@ public class MonsterManager : MonoBehaviour {
 
     // Spawn 1 mob at a random spawner
     void SpawnMob() {
-		spawners[Random.Range (0, spawners.Count)].Spawn(this.ChooseRandomMobType());
+		spawners[Random.Range (0, spawners.Length)].Spawn(this.ChooseRandomMobType());
 	}
 
 
