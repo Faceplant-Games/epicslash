@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
     long[] treshs = { 100, 100000, 100000000, 100000000000, 100000000000000 };
     List<GoldSpawnerB> goldSpawners = new List<GoldSpawnerB>();
     WeaponB weaponB;
-
+    
     public AudioClip track;
     public AudioClip loopTrack;
     public AudioClip ups;
