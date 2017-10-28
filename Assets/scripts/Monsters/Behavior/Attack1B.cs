@@ -6,7 +6,6 @@ using System.Collections;
  */
 public class Attack1B : MonoBehaviour 
 {
-	private float _facePlayerSpeed;
 	private float _attackRate = 5f;
 	private float _attackPendingDuration = 2f;
 	private float _attackDistance = 3f;
@@ -22,7 +21,6 @@ public class Attack1B : MonoBehaviour
 	void Start () 
 	{
 		_groundMovingB = GetComponent<GroundMovingB>();
-		_facePlayerSpeed = StatManager.Attack1B_facePlayerSpeed;
 		player = GameObject.FindGameObjectWithTag("MainCamera");
 	}
 
