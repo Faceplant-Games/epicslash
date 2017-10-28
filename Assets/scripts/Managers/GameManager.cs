@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
-using System.Collections.Generic;
 using System.IO;
 
 /// <summary>
@@ -28,13 +27,11 @@ using System.IO;
 /// <seealso cref="Fading"/>
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
-	private int previousStage = 0;
 	public int stage = 0;
 	bool change = false;
     public Fading fading;
 
     int level;
-    List<GoldSpawnerB> goldSpawners = new List<GoldSpawnerB>();
     WeaponB weaponB;
     
     public AudioClip track;
@@ -49,13 +46,7 @@ public class GameManager : MonoBehaviour {
     void Start ()
     {
         LoadGameData();
-        InitializeTrack();
-        
-        GoldSpawnerB[] goldS = GameObject.FindObjectsOfType(typeof(GoldSpawnerB)) as GoldSpawnerB[];
-        foreach (GoldSpawnerB spawner in goldS)
-        {
-            goldSpawners.Add(spawner);
-        }
+        InitializeTrack();        
     }
 
     void Update () {
@@ -95,10 +86,10 @@ public class GameManager : MonoBehaviour {
         loopAudio.PlayDelayed(track.length);
     }   
 
-    public void EarnExperienceAndGold(int levels)
+    public void EarnExperienceAndGold(int experience)
     {
-        level += levels;
-        SpawnGold(levels % 37);
+        level += experience;
+        SpawnGold(experience);
         print("Level: " + level);
         if (level >= gameData.stageThresholds[stage])
         {
@@ -147,11 +138,25 @@ public class GameManager : MonoBehaviour {
         audioSource.PlayOneShot(ups);
     }
 
-    public void SpawnGold(int levels)
+    public void SpawnGold(int experience)
     {
-        // TODO random on goldSpawners.length, to pop some gold bags
-        goldSpawners[UnityEngine.Random.Range(0, goldSpawners.Count)].Spawn(levels);
+        ArrayList coinsToSpawn = getCoinsToSpawn(experience);
+
+        foreach (String coin in coinsToSpawn)
+        {
+            Vector3 random1 = new Vector3(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-2f, 2f));
+            Vector3 pos = this.gameObject.transform.position + random1;
+            Instantiate(Resources.Load(coin), pos, this.gameObject.transform.rotation);
+        }        
     }
+
+    private ArrayList getCoinsToSpawn (int experience)
+    {
+        ArrayList coins = new ArrayList();
+        coins.Add("BiggerCoin");
+        return coins ;
+    }
+
 
     void EquipWeapon(WeaponB weaponB)
     {
