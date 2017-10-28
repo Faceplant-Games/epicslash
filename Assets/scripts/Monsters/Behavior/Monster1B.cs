@@ -30,7 +30,7 @@ public class Monster1B : AbstractMonster
 	{
 		_attack1B.Attack(target);
         GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-        player.levelDown (1);
+        player.LevelDown (1);
 	}
 
 	public override int  GetExperience(){
@@ -45,7 +45,8 @@ public class Monster1B : AbstractMonster
 
         GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
         if ( player != null){
-			player.levelUp (GetExperience());
+
+			player.LevelUp (GetExperience());
 		}
         DestroyImmediate(this.gameObject);
 		//FIXME AJOUT sac de gold?

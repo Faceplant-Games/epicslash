@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour {
 	bool change = false;
     public Fading fading;
 
-    // old playerB
     int level;
     long[] treshs = { 100, 100000, 100000000, 100000000000, 100000000000000 };
     List<GoldSpawnerB> goldSpawners = new List<GoldSpawnerB>();
@@ -45,7 +44,6 @@ public class GameManager : MonoBehaviour {
 	public AudioSource audioSource;
 
 
-	// Use this for initialization
 	void Start ()
     {
         InitializeTrack();
@@ -57,20 +55,16 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
     void Update () {
-		if (change)
-        {
-            changeStage();
-        }
 
         // Cheat Codes
         if (Input.GetKeyDown("b"))
         {
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
+
 			print ("monstres : " +  monsters.Length);
             Array.ForEach(monsters, m => m.BeingHit());
-			//monsters = GameObject.FindObjectsOfType<AbstractMonster>();
+            
 		}
 
         if (Input.GetKeyDown("a"))
@@ -80,35 +74,6 @@ public class GameManager : MonoBehaviour {
             monsters[0].BeingHit();
         }
     }
-
-    private IEnumerator changeStage() // TODO : remove this or use this. This method is never called. PlayerB.levelup is used instead.
-    {
-        change = false;
-        if (stage > previousStage)
-        {
-            print("on monte de niveau");
-            audioSource.PlayOneShot(ups);
-            //SceneManager.LoadScene("BossFight");
-            if (fading != null)
-            {
-                float fadeTime = fading.BeginFade(1);
-                yield return new WaitForSeconds(fadeTime);
-            }
-            SceneManager.LoadScene(stage++);
-        }
-        else if (stage < previousStage)
-        {
-            print("on baisse de niveau");
-            audioSource.PlayOneShot(downs);
-            if (stage > 0)
-            {
-                SceneManager.LoadScene(stage - 1);
-            }
-        }
-        previousStage = stage;
-    }
-
-    //catch events change of stage
 
     private void InitializeTrack()
     {
@@ -126,54 +91,20 @@ public class GameManager : MonoBehaviour {
         loopAudio.clip = loopTrack;
         audioSource.Play();
         loopAudio.PlayDelayed(track.length);
-    }
+    }   
 
-    public void playLevelUpSound()
-    {
-        audioSource.PlayOneShot(ups);
-    }
-
-        
-
-    public void levelUp(int levels)
+    public void LevelUp(int levels)
     {
         level += levels;
         spawnGold(levels % 37);
         print("Level: " + level);
         if (level >= treshs[stage])
         {
-            StartCoroutine(stageUp());
+            StartCoroutine(StageUp());
         }
     }
 
-    private IEnumerator stageUp()
-    {
-        stage++;
-        change = true;
-
-        if (fading != null)
-        {
-            float fadeTime = fading.BeginFade(1);
-            playLevelUpSound();
-            yield return new WaitForSeconds(fadeTime * 7);
-        }
-
-        SceneManager.LoadScene(stage);
-
-        if (stage > treshs.Length)
-        {
-            //stop the game
-        }
-    }
-
-
-    public void spawnGold(int levels)
-    {
-        // random on goldSpawners.length, to pop some gold bags
-        goldSpawners[UnityEngine.Random.Range(0, goldSpawners.Count)].Spawn(levels);
-    }
-
-    public void levelDown(int levels)
+    public void LevelDown(int levels)
     {
         /*level -= levels;
         print("level down");
@@ -188,7 +119,38 @@ public class GameManager : MonoBehaviour {
 		}*/
     }
 
-    void equipWeapon(WeaponB weaponB)
+    private IEnumerator StageUp()
+    {
+        stage++;
+        change = true;
+
+        if (fading != null)
+        {
+            float fadeTime = fading.BeginFade(1);
+            PlayStageUpSound();
+            yield return new WaitForSeconds(fadeTime * 7);
+        }
+
+        SceneManager.LoadScene(stage);
+
+        if (stage > treshs.Length)
+        {
+            //stop the game
+        }
+    }
+
+    public void PlayStageUpSound()
+    {
+        audioSource.PlayOneShot(ups);
+    }
+
+    public void spawnGold(int levels)
+    {
+        // random on goldSpawners.length, to pop some gold bags
+        goldSpawners[UnityEngine.Random.Range(0, goldSpawners.Count)].Spawn(levels);
+    }
+
+    void EquipWeapon(WeaponB weaponB)
     {
         this.weaponB = weaponB;
     }
