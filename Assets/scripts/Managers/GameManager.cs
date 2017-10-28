@@ -72,6 +72,13 @@ public class GameManager : MonoBehaviour {
             Array.ForEach(monsters, m => m.Die());
 			//monsters = GameObject.FindObjectsOfType<AbstractMonster>();
 		}
+
+        if (Input.GetKeyDown("a"))
+        {
+            AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
+            print("monstres : " + monsters.Length);
+            monsters[0].Die();
+        }
     }
 
     private IEnumerator changeStage() // TODO : remove this or use this. This method is never called. PlayerB.levelup is used instead.
