@@ -13,7 +13,7 @@ public class GoldBag : MonoBehaviour
 	void FixedUpdate() {
 		timeEllapsed += Time.fixedDeltaTime;
 
-		if (timeEllapsed >= 3f) {
+		if (timeEllapsed >= 5f) {
 			Destroy (gameObject);
 		}
 	}
