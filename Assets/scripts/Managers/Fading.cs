@@ -27,11 +27,7 @@ public class Fading : MonoBehaviour {
     // sets fadeDir to the direction parameter making the scene fade in if -1 and out if 1
     public float BeginFade(int direction)
     {
-        if (direction == 1)
-        {
-            print("fading out");
-        }
-        fadeDir = direction;
+        fadeDir = direction; // direction = 1 means fading out, otherwise, direction = -1
         return fadeSpeed; // return the fadeSpeed variable so it's easy to time the Application.LoadLevel()
     }
 
