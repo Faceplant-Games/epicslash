@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 /// <summary>
 /// This class manages the game rules. It includes:
@@ -43,9 +44,13 @@ public class GameManager : MonoBehaviour {
 	public AudioClip downs;
 	public AudioSource audioSource;
 
+    private string gameDataFileName = "data.json";
+    public GameData gameData;
 
-	void Start ()
+
+    void Start ()
     {
+        LoadGameData();
         InitializeTrack();
         
         GoldSpawnerB[] goldS = GameObject.FindObjectsOfType(typeof(GoldSpawnerB)) as GoldSpawnerB[];
@@ -153,5 +158,29 @@ public class GameManager : MonoBehaviour {
     void EquipWeapon(WeaponB weaponB)
     {
         this.weaponB = weaponB;
+    }
+
+    private void LoadGameData()
+    {
+        string filePath = Path.Combine(Application.streamingAssetsPath, gameDataFileName);
+        if (File.Exists(filePath))
+        {
+            string dataAsJson = File.ReadAllText(filePath);
+            print(dataAsJson);
+            gameData = JsonUtility.FromJson<GameData>(dataAsJson);
+            
+            print(gameData.test);
+        }
+        else
+        {
+            Debug.LogError("Cannot load game data!");
+        }
+    }
+
+    [System.Serializable]
+    public class GameData
+    {
+        public long[] stageThresholds;
+        public string test;
     }
 }
