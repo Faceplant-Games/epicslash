@@ -28,7 +28,6 @@ using System.IO;
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
 	public int stage = 0;
-	bool change = false;
     public Fading fading;
 
     int level;
@@ -91,6 +90,7 @@ public class GameManager : MonoBehaviour {
         level += experience;
         SpawnGold(experience);
         print("Level: " + level);
+
         if (level >= gameData.stageThresholds[stage])
         {
             StartCoroutine(StageUp());
@@ -100,29 +100,18 @@ public class GameManager : MonoBehaviour {
     // TODO rename and code this method
     public void LevelDown(int levels)
     {
-        /*level -= levels;
-        print("level down");
-        if (stage >0)
-        {
-            if ( level < treshs[stage-1] ) {
-				stage--;
-				gm.stage = stage;
-				gm.change = true;
-				//FIXME PAUSE
-			}
-		}*/
+ 
     }
 
     private IEnumerator StageUp()
     {
         stage++;
-        change = true;
 
         if (fading != null)
         {
             float fadeTime = fading.BeginFade(1);
             PlayStageUpSound();
-            yield return new WaitForSeconds(fadeTime);
+            yield return new WaitForSeconds(1+fadeTime);
         }
 
         SceneManager.LoadScene(stage);
