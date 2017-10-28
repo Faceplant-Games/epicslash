@@ -71,9 +71,9 @@ public class Monster3B : AbstractMonster
 		GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager ;
 		if ( player != null){
 				if (this.tag == "DRAGON")
-					player.levelUp (10000000);
+					player.LevelUp (10000000);
 				else
-					player.levelUp (20000);
+					player.LevelUp (20000);
 		}
 		Destroy(gameObject);
 		//FIXME AJOUT sac de gold?

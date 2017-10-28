@@ -77,7 +77,7 @@ public class Monster4B : AbstractMonster
             GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
             if (player != null)
             {
-                player.levelUp(10000000);
+                player.LevelUp(10000000);
             }
             DestroyImmediate(this.gameObject);
         }

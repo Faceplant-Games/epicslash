@@ -82,7 +82,7 @@ public class Monster2B : AbstractMonster
 			anim.SetTrigger ("vavoler");
 			StealGold();
             GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-            player.levelDown (100);
+            player.LevelDown (100);
 			Destroy(collision.gameObject);
 		}
 	}
@@ -110,7 +110,7 @@ public class Monster2B : AbstractMonster
 
         GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
         if ( player != null){
-			player.levelUp (1);
+			player.LevelUp (1);
 		}
 		DestroyImmediate (this.gameObject);
 		//FIXME AJOUT sac de gold?
