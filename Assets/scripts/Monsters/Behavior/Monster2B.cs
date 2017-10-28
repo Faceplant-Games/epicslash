@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+/**
+ * lapin
+ * */
 
 [RequireComponent(typeof(GroundMovingB), typeof(Collider), typeof(Rigidbody))]
 public class Monster2B : AbstractMonster 
@@ -95,7 +98,7 @@ public class Monster2B : AbstractMonster
 		anim.SetTrigger ("doitsauter");
 	}
 
-	public override int  Experience()
+	public override int  GetExperience()
 	{
 		return 0;
 	}
@@ -105,7 +108,7 @@ public class Monster2B : AbstractMonster
 
 	}
 
-	public override void Die()
+	public override void BeingHit()
 	{
 
         GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;

@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/**
+ *Bearbot 
+ */
 [RequireComponent(typeof(FlyingMovingB), typeof(Attack3B))]
 public class Monster3B : AbstractMonster 
 {
@@ -55,7 +59,7 @@ public class Monster3B : AbstractMonster
 		_attack3B.Attack(target);
 	}
 
-	public override int  Experience()
+	public override int  GetExperience()
 	{
 		return 0;
 	}
@@ -64,7 +68,7 @@ public class Monster3B : AbstractMonster
 
 	}
 
-	public override void Die(){
+	public override void BeingHit(){
 		if (hp > 1) {
 			hp--;
 		}else{

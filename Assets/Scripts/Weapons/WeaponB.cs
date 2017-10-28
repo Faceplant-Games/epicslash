@@ -24,7 +24,7 @@ public class WeaponB : MonoBehaviour {
         audio.PlayOneShot(slash);
         if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
 			SteamVR_Controller.Input((int)trackedController.controllerIndex).TriggerHapticPulse((ushort)Mathf.Lerp(0f, 1500f, 0.7f));
-			collider.gameObject.GetComponent<AbstractMonster> ().Die ();
+			collider.gameObject.GetComponent<AbstractMonster> ().BeingHit ();
 		}
 
 	}

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Bearbot / dragon 
+ */
 public class Attack3B : MonoBehaviour 
 {
 	public GameObject BulletPrefab;

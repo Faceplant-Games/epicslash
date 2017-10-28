@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * spiders 
+ */
 public class Attack1B : MonoBehaviour 
 {
 	private float _facePlayerSpeed;

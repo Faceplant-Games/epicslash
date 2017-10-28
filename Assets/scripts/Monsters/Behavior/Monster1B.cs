@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ *spiders 
+ */
 [RequireComponent(typeof(GroundMovingB), typeof(Attack1B))]
 public class Monster1B : AbstractMonster 
 {
@@ -30,19 +33,19 @@ public class Monster1B : AbstractMonster
         player.levelDown (1);
 	}
 
-	public override int  Experience(){
-		return 0;
+	public override int  GetExperience(){
+		return 100;
 	}
 
 	public override void Spawn(){
 
 	}
 
-	public override void Die(){
+	public override void BeingHit(){
 
         GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
         if ( player != null){
-			player.levelUp (100);
+			player.levelUp (GetExperience());
 		}
         DestroyImmediate(this.gameObject);
 		//FIXME AJOUT sac de gold?
