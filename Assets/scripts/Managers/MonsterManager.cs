@@ -11,9 +11,11 @@ using System.Collections.Generic;
 /// </summary>
 /// <seealso cref="GameManager"/>
 /// <seealso cref="SpawnerB"/>
+
+[RequireComponent(typeof(GameManager))]
 public class MonsterManager : MonoBehaviour {
 	private SpawnerB[] spawners;
-	private List<string> [] mobTypesByStage; // TODO Retrieve it from config file
+	private List<string> [] mobTypesByStage;
 	private GameManager gm;
     private int spawnPeriodByFrame;
 
@@ -25,11 +27,8 @@ public class MonsterManager : MonoBehaviour {
         spawners = GameObject.FindObjectsOfType(typeof(SpawnerB)) as SpawnerB[];
 
         spawnPeriodByFrame = Mathf.RoundToInt(gm.gameData.spawnPeriod * 30);
-
-        print("spawnPeriodByFrame: " + spawnPeriodByFrame);
     }
 
-    // Update is called once per frame
     void Update () {
         if (spawners.Length == 0) {
             return;
@@ -40,7 +39,6 @@ public class MonsterManager : MonoBehaviour {
                 SpawnMob();
             }
 		}
-        
     }
     
     private void InitializeMobTypesByStage() {
