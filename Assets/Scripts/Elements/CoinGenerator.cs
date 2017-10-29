@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 
-public class CoinGenerator 
+public class CoinGenerator : MonoBehaviour
 {
     public const string SMALLCOIN = "SmallCoin";
     public const string BIGGERCOIN = "BiggerCoin";
@@ -14,11 +14,14 @@ public class CoinGenerator
     public ObjectPool PoolBiggerCoin { get; set; }
     public ObjectPool PoolBigCoin { get; set; }
     
-    public void build()
+    void Start()
     {
-        PoolSmallCoin = new ObjectPool(20, (GameObject)Resources.Load(SMALLCOIN, typeof(GameObject)));
-        PoolBiggerCoin = new ObjectPool(20, (GameObject)Resources.Load(BIGGERCOIN, typeof(GameObject)));
-        PoolBigCoin = new ObjectPool(20, (GameObject)Resources.Load(BIGCOIN, typeof(GameObject)));
+        PoolSmallCoin = gameObject.AddComponent<ObjectPool>();
+        PoolBiggerCoin = gameObject.AddComponent<ObjectPool>();
+        PoolBigCoin = gameObject.AddComponent<ObjectPool>();
+        PoolSmallCoin.Initialize(20, (GameObject)Resources.Load(SMALLCOIN, typeof(GameObject)));
+        PoolBiggerCoin.Initialize(20, (GameObject)Resources.Load(BIGGERCOIN, typeof(GameObject)));
+        PoolBigCoin.Initialize(20, (GameObject)Resources.Load(BIGCOIN, typeof(GameObject)));
     }
 
 

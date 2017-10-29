@@ -5,10 +5,8 @@ public class ObjectPool : MonoBehaviour
 {
     List<GameObject> pooledStuff;
     private GameObject prefabGen;
-
-
-
-    public ObjectPool(int size, GameObject prefab)
+    
+    public void Initialize(int size, GameObject prefab)
     {
         prefabGen = prefab;
         pooledStuff = new List<GameObject>();
@@ -19,6 +17,7 @@ public class ObjectPool : MonoBehaviour
             pooledStuff.Add(obj);
         }
     }
+    
 
     public GameObject GetObject()
     {

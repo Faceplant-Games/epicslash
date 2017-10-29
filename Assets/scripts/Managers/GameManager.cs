@@ -41,13 +41,13 @@ public class GameManager : MonoBehaviour {
 
     private string gameDataFileName = "data.json";
     public GameData gameData;
-    private CoinGenerator coinGenerator = new CoinGenerator();
+    private CoinGenerator coinGenerator;
 
     void Start ()
     {
         LoadGameData();
         InitializeTrack();
-        coinGenerator.build();
+        coinGenerator = gameObject.AddComponent<CoinGenerator>();
     }
 
     void Update () {
