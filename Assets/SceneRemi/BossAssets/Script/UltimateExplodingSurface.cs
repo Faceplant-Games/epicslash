@@ -8,7 +8,7 @@ public class UltimateExplodingSurface : MonoBehaviour
 
 	public void TriggerExplosion(Vector3 position)
 	{
-		GameObject FX = Instantiate(ExplosionFX, position, Quaternion.identity) as GameObject;
+		//GameObject FX = Instantiate(ExplosionFX, position, Quaternion.identity) as GameObject;
 		HP --;
         FindObjectOfType<HellFireManager>().PLayRandomSFXExplosion(position);
         if (HP < 0)

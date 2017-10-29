@@ -23,16 +23,13 @@ using System.IO;
 ///     - loopTrack: original sound track of the stage, played in loop after "track" is played once.
 /// </summary>
 /// <seealso cref="MonsterManager"/>
-/// <seealso cref="WeaponB"/>
 /// <seealso cref="Fading"/>
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
-	public int stage = 0;
+	public int currentStage = 0;
     public Fading fading;
 
-    int level;
-    WeaponB weaponB;
-    
+    int level;    
     public AudioClip track;
     public AudioClip loopTrack;
     public AudioClip ups;
@@ -92,10 +89,7 @@ public class GameManager : MonoBehaviour {
         level += experience;
         coinGenerator.SpawnGold(experience, this.gameObject.transform.position, this.gameObject.transform.rotation);
 
-
-        print("Level: " + level);
-
-        if (level >= gameData.stageThresholds[stage])
+        if (level >= gameData.stageThresholds[currentStage])
         {
             StartCoroutine(StageUp());
         }
@@ -115,7 +109,7 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator StageUp()
     {
-        stage++;
+        currentStage++;
 
         if (fading != null)
         {
@@ -124,9 +118,9 @@ public class GameManager : MonoBehaviour {
             yield return new WaitForSeconds(1+fadeTime);
         }
 
-        SceneManager.LoadScene(stage);
+        SceneManager.LoadScene(currentStage);
 
-        if (stage > gameData.stageThresholds.Length)
+        if (currentStage >= gameData.numberOfStages)
         {
             //TODO stop the game
         }
@@ -137,12 +131,6 @@ public class GameManager : MonoBehaviour {
         audioSource.PlayOneShot(ups);
     }
 
-
-
-    void EquipWeapon(WeaponB weaponB)
-    {
-        this.weaponB = weaponB;
-    }
 
     private void LoadGameData()
     {
@@ -162,7 +150,9 @@ public class GameManager : MonoBehaviour {
     public class GameData
     {
         public long[] stageThresholds;
-        public string test;
+        public int numberOfStages;
+        public float spawnPeriod;
+        public int maxAmountMonsters;
     }
 
 }

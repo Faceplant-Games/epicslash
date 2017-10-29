@@ -20,7 +20,7 @@ public class HellFireBullet : MonoBehaviour
 
 	void FixedUpdate () {
 		float distanceThisFrame = speed * Time.fixedDeltaTime;
-		RaycastHit hit = new RaycastHit ();
+		//RaycastHit hit = new RaycastHit ();
 
 		/*// At each frame, we cast a ray forward from where we are to where we will be next frame
 		if (Physics.Raycast (transform.position, transform.forward, out hit, distanceThisFrame)) {

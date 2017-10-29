@@ -48,8 +48,10 @@ public class Attack1B : MonoBehaviour
 		}
 		else if (Attacking == false)
 		{
-			_groundMovingB.MyNavMeshAgent.Stop();
-			Attack(player);
+//            _groundMovingB.MyNavMeshAgent.Stop(); VH: Deprecated
+            _groundMovingB.MyNavMeshAgent.isStopped = true;
+
+            Attack(player);
 		}
 	}
 
@@ -77,8 +79,9 @@ public class Attack1B : MonoBehaviour
 
 	private IEnumerator AttackMove(GameObject player)
 	{
-		_groundMovingB.MyNavMeshAgent.Stop();
-		float t = 0;
+        //_groundMovingB.MyNavMeshAgent.Stop(); VH: Deprecated
+        _groundMovingB.MyNavMeshAgent.isStopped = true;
+        float t = 0;
 		Vector3 InitialPosition = transform.position;
 		Vector3 FinalPosition = transform.position + transform.forward * Vector3.Distance(transform.position, player.transform.position) * 2;
 		while (t < _attackTravelDuration)

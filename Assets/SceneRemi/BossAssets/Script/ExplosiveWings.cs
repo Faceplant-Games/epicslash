@@ -32,7 +32,7 @@ public class ExplosiveWings : MonoBehaviour
 	{
 		if (ExplosionEnabled)
 		{
-			GameObject FX = Instantiate(ExplosionFX, position, Quaternion.identity) as GameObject;
+			//GameObject FX = Instantiate(ExplosionFX, position, Quaternion.identity) as GameObject;
 			HP --;
 			FindObjectOfType<HellFireManager>().PLayRandomSFXExplosion(position);
 			if (HP < 0)
