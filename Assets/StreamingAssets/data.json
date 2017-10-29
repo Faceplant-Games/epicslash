@@ -1,4 +1,6 @@
 ﻿{
 	"stageThresholds": [100, 100000, 100000000, 100000000000, 100000000000000],
-	"test": "This is a test"
+	"numberOfStages": 5,
+	"spawnPeriod": 0.33,
+	"maxAmountMonsters": 100
 }

@@ -13,9 +13,9 @@ using System.Collections.Generic;
 /// <seealso cref="SpawnerB"/>
 public class MonsterManager : MonoBehaviour {
 	private SpawnerB[] spawners;
-	private List<string> [] mobTypesByStage; // TODO Revrieve it from config file
+	private List<string> [] mobTypesByStage; // TODO Retrieve it from config file
 	private GameManager gm;
-    private int numberOfStages = 5;
+    private int spawnPeriodByFrame;
 
 	void Start () {
         gm = gameObject.GetComponent<GameManager>();
@@ -23,6 +23,10 @@ public class MonsterManager : MonoBehaviour {
         InitializeMobTypesByStage();
 
         spawners = GameObject.FindObjectsOfType(typeof(SpawnerB)) as SpawnerB[];
+
+        spawnPeriodByFrame = Mathf.RoundToInt(gm.gameData.spawnPeriod * 30);
+
+        print("spawnPeriodByFrame: " + spawnPeriodByFrame);
     }
 
     // Update is called once per frame
@@ -30,17 +34,19 @@ public class MonsterManager : MonoBehaviour {
         if (spawners.Length == 0) {
             return;
         }
-		if (Random.Range (0, 10) < 1) { // This is the frame rate. (0,10) < 1 means 10%
-            if (GameObject.FindObjectsOfType(typeof(AbstractMonster)).Length < 100) {
+
+        if (Time.frameCount%spawnPeriodByFrame == 0) { // Framerate
+            if (GameObject.FindObjectsOfType(typeof(AbstractMonster)).Length < gm.gameData.maxAmountMonsters) { // Max amount of monsters
                 SpawnMob();
             }
 		}
-	}
+        
+    }
     
     private void InitializeMobTypesByStage() {
-        mobTypesByStage = new List<string>[numberOfStages];
+        mobTypesByStage = new List<string>[gm.gameData.numberOfStages];
 
-        for (int i = 0; i < numberOfStages; i++) {
+        for (int i = 0; i < gm.gameData.numberOfStages; i++) {
             mobTypesByStage[i] = new List<string>();
         }
         mobTypesByStage[0].Add("Monster1"); // TODO Retrieve it from config file
@@ -62,14 +68,14 @@ public class MonsterManager : MonoBehaviour {
 
     // Spawn 1 mob at a random spawner
     void SpawnMob() {
-		spawners[Random.Range (0, spawners.Length)].Spawn(this.ChooseRandomMobType());
+		spawners[UnityEngine.Random.Range (0, spawners.Length)].Spawn(ChooseRandomMobType());
 	}
 
 
     string ChooseRandomMobType() {
-		int stage = gm.stage;
+		int stage = gm.currentStage;
 		List<string> mobTypes = mobTypesByStage [stage];
-		int r = Random.Range (0, mobTypes.Count);
+		int r = UnityEngine.Random.Range (0, mobTypes.Count);
 		return mobTypes [r % (mobTypes.Count)];
 	}
 

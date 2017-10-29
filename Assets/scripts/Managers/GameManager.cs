@@ -27,7 +27,7 @@ using System.IO;
 /// <seealso cref="Fading"/>
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
-	public int stage = 0;
+	public int currentStage = 0;
     public Fading fading;
 
     int level;
@@ -89,9 +89,8 @@ public class GameManager : MonoBehaviour {
     {
         level += experience;
         SpawnGold(experience);
-        print("Level: " + level);
 
-        if (level >= gameData.stageThresholds[stage])
+        if (level >= gameData.stageThresholds[currentStage])
         {
             StartCoroutine(StageUp());
         }
@@ -105,7 +104,7 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator StageUp()
     {
-        stage++;
+        currentStage++;
 
         if (fading != null)
         {
@@ -114,9 +113,9 @@ public class GameManager : MonoBehaviour {
             yield return new WaitForSeconds(1+fadeTime);
         }
 
-        SceneManager.LoadScene(stage);
+        SceneManager.LoadScene(currentStage);
 
-        if (stage > gameData.stageThresholds.Length)
+        if (currentStage >= gameData.numberOfStages)
         {
             //TODO stop the game
         }
@@ -170,6 +169,8 @@ public class GameManager : MonoBehaviour {
     public class GameData
     {
         public long[] stageThresholds;
-        public string test;
+        public int numberOfStages;
+        public float spawnPeriod;
+        public int maxAmountMonsters;
     }
 }
