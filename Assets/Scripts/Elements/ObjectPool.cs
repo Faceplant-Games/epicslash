@@ -17,7 +17,6 @@ public class ObjectPool : MonoBehaviour
             pooledStuff.Add(obj);
         }
     }
-    
 
     public GameObject GetObject()
     {

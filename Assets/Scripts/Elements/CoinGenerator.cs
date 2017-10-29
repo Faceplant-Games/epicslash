@@ -43,7 +43,7 @@ public class CoinGenerator : MonoBehaviour
             {
                 coins.Add(SMALLCOIN);
             }
-
+            compteur = compteur * 10;
         } while (compteur < experience);
         return coins;
     }
