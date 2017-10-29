@@ -55,7 +55,7 @@ public class CoinGenerator : MonoBehaviour
         foreach (String coin in coinsToSpawn)
         {
             GameObject objectToSpawn = getCoinObjectFromName(coin);
-            Vector3 random1 = new Vector3(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-2f, 2f));
+            Vector3 random1 = new Vector3(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(2.5f, 5f), UnityEngine.Random.Range(-2f, 2f));
             Vector3 pos = position + random1;
             objectToSpawn.transform.position = pos;
             objectToSpawn.transform.rotation = rotation;
