@@ -41,11 +41,13 @@ public class GameManager : MonoBehaviour {
 
     private string gameDataFileName = "data.json";
     public GameData gameData;
+    private CoinGenerator coinGenerator = new CoinGenerator();
 
     void Start ()
     {
         LoadGameData();
-        InitializeTrack();        
+        InitializeTrack();
+        coinGenerator.build();
     }
 
     void Update () {
@@ -88,13 +90,21 @@ public class GameManager : MonoBehaviour {
     public void EarnExperienceAndGold(int experience)
     {
         level += experience;
-        SpawnGold(experience);
+        coinGenerator.SpawnGold(experience, this.gameObject.transform.position, this.gameObject.transform.rotation);
+
+
         print("Level: " + level);
 
         if (level >= gameData.stageThresholds[stage])
         {
             StartCoroutine(StageUp());
         }
+    }
+
+
+    public CoinGenerator getCoinGenerator()
+    {
+        return coinGenerator; 
     }
 
     // TODO rename and code this method
@@ -127,24 +137,6 @@ public class GameManager : MonoBehaviour {
         audioSource.PlayOneShot(ups);
     }
 
-    public void SpawnGold(int experience)
-    {
-        ArrayList coinsToSpawn = getCoinsToSpawn(experience);
-
-        foreach (String coin in coinsToSpawn)
-        {
-            Vector3 random1 = new Vector3(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(-2f, 2f));
-            Vector3 pos = this.gameObject.transform.position + random1;
-            Instantiate(Resources.Load(coin), pos, this.gameObject.transform.rotation);
-        }        
-    }
-
-    private ArrayList getCoinsToSpawn (int experience)
-    {
-        ArrayList coins = new ArrayList();
-        coins.Add("BiggerCoin");
-        return coins ;
-    }
 
 
     void EquipWeapon(WeaponB weaponB)
@@ -172,4 +164,5 @@ public class GameManager : MonoBehaviour {
         public long[] stageThresholds;
         public string test;
     }
+
 }
