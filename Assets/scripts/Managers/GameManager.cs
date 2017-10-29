@@ -23,16 +23,13 @@ using System.IO;
 ///     - loopTrack: original sound track of the stage, played in loop after "track" is played once.
 /// </summary>
 /// <seealso cref="MonsterManager"/>
-/// <seealso cref="WeaponB"/>
 /// <seealso cref="Fading"/>
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
 	public int currentStage = 0;
     public Fading fading;
 
-    int level;
-    WeaponB weaponB;
-    
+    int level;    
     public AudioClip track;
     public AudioClip loopTrack;
     public AudioClip ups;
@@ -143,12 +140,6 @@ public class GameManager : MonoBehaviour {
         ArrayList coins = new ArrayList();
         coins.Add("BiggerCoin");
         return coins ;
-    }
-
-
-    void EquipWeapon(WeaponB weaponB)
-    {
-        this.weaponB = weaponB;
     }
 
     private void LoadGameData()

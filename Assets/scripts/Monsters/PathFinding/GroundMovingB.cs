@@ -16,7 +16,8 @@ public class GroundMovingB : MovingB
 	public override void Move (Vector3 position)
 	{
 		base.Move (position);
-		MyNavMeshAgent.Resume();
-		MyNavMeshAgent.destination = position;
+        //MyNavMeshAgent.Resume(); VH: deprecated
+        MyNavMeshAgent.isStopped = false;
+        MyNavMeshAgent.destination = position;
 	}
 }
