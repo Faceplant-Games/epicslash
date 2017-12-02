@@ -27,6 +27,7 @@ using System.IO;
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
 	public int currentStage = 0;
+    public bool started;
     public Fading fading;
 
     int level;    
@@ -45,20 +46,31 @@ public class GameManager : MonoBehaviour {
         LoadGameData();
         InitializeTrack();
         coinGenerator = gameObject.AddComponent<CoinGenerator>();
+
+        started = currentStage != 0;
     }
 
-    void Update () {
+    void Update ()
+    {
+        ManageButtons();
+    }
+
+    private void ManageButtons()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !started) // Start game
+        {
+            started = true;
+        }
 
         // Cheat Codes
-        if (Input.GetKeyDown("b"))
+        if (Input.GetKeyDown(KeyCode.B)) // Hit each monsters once
         {
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
 
-			print ("monstres : " +  monsters.Length);
+            print("monstres : " + monsters.Length);
             Array.ForEach(monsters, m => m.BeingHit());
-            
-		}
-        if (Input.GetKeyDown("a"))
+        }
+        if (Input.GetKeyDown(KeyCode.A)) // Hit one monster
         {
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
             print("monstres : " + monsters.Length);

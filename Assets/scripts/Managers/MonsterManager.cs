@@ -42,6 +42,9 @@ public class MonsterManager : MonoBehaviour {
     /// Spawn 1 mob at a random spawner
     /// </summary>
     void SpawnMob() {
+        if (!gm.started) {
+            return;
+        }
 		spawners[UnityEngine.Random.Range (0, spawners.Length)].Spawn(ChooseRandomMobType());
 	}
 
