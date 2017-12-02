@@ -15,14 +15,11 @@ using System.Collections.Generic;
 [RequireComponent(typeof(GameManager))]
 public class MonsterManager : MonoBehaviour {
 	private SpawnerB[] spawners;
-	private List<string> [] mobTypesByStage;
 	private GameManager gm;
     private int spawnPeriodByFrame;
 
 	void Start () {
         gm = gameObject.GetComponent<GameManager>();
-
-        InitializeMobTypesByStage();
 
         spawners = GameObject.FindObjectsOfType(typeof(SpawnerB)) as SpawnerB[];
 
@@ -40,41 +37,19 @@ public class MonsterManager : MonoBehaviour {
             }
 		}
     }
-    
-    private void InitializeMobTypesByStage() {
-        mobTypesByStage = new List<string>[gm.gameData.numberOfStages];
 
-        for (int i = 0; i < gm.gameData.numberOfStages; i++) {
-            mobTypesByStage[i] = new List<string>();
-        }
-        mobTypesByStage[0].Add("Monster1"); // TODO Retrieve it from config file
-
-        mobTypesByStage[1].Add("Monster1");
-        mobTypesByStage[1].Add("Monster2");
-        mobTypesByStage[1].Add("Monster3");
-
-        mobTypesByStage[2].Add("Monster1");
-        mobTypesByStage[2].Add("Monster2");
-        mobTypesByStage[2].Add("Monster3");
-        mobTypesByStage[2].Add("dragon");
-
-        mobTypesByStage[3].Add("Monster1");
-        mobTypesByStage[3].Add("Monster2");
-        mobTypesByStage[3].Add("Monster3");
-        mobTypesByStage[3].Add("dragon");
-    }
-
-    // Spawn 1 mob at a random spawner
+    /// <summary>
+    /// Spawn 1 mob at a random spawner
+    /// </summary>
     void SpawnMob() {
 		spawners[UnityEngine.Random.Range (0, spawners.Length)].Spawn(ChooseRandomMobType());
 	}
 
 
     string ChooseRandomMobType() {
-		int stage = gm.currentStage;
-		List<string> mobTypes = mobTypesByStage [stage];
-		int r = UnityEngine.Random.Range (0, mobTypes.Count);
-		return mobTypes [r % (mobTypes.Count)];
+        string[] mobTypes = gm.gameData.stages[gm.currentStage].monsters;
+        int mobIndex = UnityEngine.Random.Range(0, mobTypes.Length);
+        return mobTypes[mobIndex];
 	}
 
 }

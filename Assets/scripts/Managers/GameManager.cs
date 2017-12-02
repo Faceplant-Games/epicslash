@@ -135,15 +135,14 @@ public class GameManager : MonoBehaviour {
     private void LoadGameData()
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, gameDataFileName);
-        if (File.Exists(filePath))
-        {
-            string dataAsJson = File.ReadAllText(filePath);
-            gameData = JsonUtility.FromJson<GameData>(dataAsJson);
-        }
-        else
+        if (!File.Exists(filePath))
         {
             Debug.LogError("Cannot load game data!");
+            return;
         }
+
+        string dataAsJson = File.ReadAllText(filePath);
+        gameData = JsonUtility.FromJson<GameData>(dataAsJson);
     }
 
     [System.Serializable]
@@ -153,6 +152,14 @@ public class GameManager : MonoBehaviour {
         public int numberOfStages;
         public float spawnPeriod;
         public int maxAmountMonsters;
+        public Stage[] stages;
+
+        [System.Serializable]
+        public class Stage
+        {
+            public string name;
+            public string[] monsters;
+        }
     }
 
 }
