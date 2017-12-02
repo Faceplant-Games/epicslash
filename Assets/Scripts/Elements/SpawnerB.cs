@@ -15,7 +15,7 @@ public class SpawnerB : MonoBehaviour {
 	}
 
 	public void Spawn(string prefabName){
-		Vector3 random1 = new Vector3 (Random.Range (-5, 5),0, Random.Range (-5, 5));
+		Vector3 random1 = new Vector3 (Random.Range (-25, 25),0, Random.Range (-25, 25));
 		Vector3 pos = this.gameObject.transform.position + random1;
         if ( prefabName!=null &&prefabName != "")
 		    Instantiate (Resources.Load (prefabName), pos, this.gameObject.transform.rotation);
