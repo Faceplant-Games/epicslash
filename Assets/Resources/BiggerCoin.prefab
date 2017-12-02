@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 54812432893175416}
   m_Layer: 0
   m_Name: BiggerCoin
-  m_TagString: Untagged
+  m_TagString: BiggerCoin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
