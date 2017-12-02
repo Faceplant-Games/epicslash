@@ -61,9 +61,15 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && !started) // Start game
         {
             started = true;
-            if (instructions != null) {
+            if (instructions != null)
+            {
                 instructions.SetActive(false);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) // Exit game
+        {
+            Application.Quit();
         }
 
         // Cheat Codes
