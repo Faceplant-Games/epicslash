@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
 	public int currentStage = 0;
     public bool started;
     public Fading fading;
+    public GameObject instructions;
 
     int level;    
     public AudioClip track;
@@ -60,6 +61,9 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && !started) // Start game
         {
             started = true;
+            if (instructions != null) {
+                instructions.SetActive(false);
+            }
         }
 
         // Cheat Codes
