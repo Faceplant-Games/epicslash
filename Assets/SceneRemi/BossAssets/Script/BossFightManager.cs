@@ -70,13 +70,18 @@ public class BossFightManager : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.A))
-		{
-			StartCoroutine(BossPhase2());
-		}
-	}
+        if (Input.GetKey(KeyCode.A))
+        {
+            StartCoroutine(BossPhase2());
+        }
+        if (Input.GetKey(KeyCode.B))
+        {
+            EndGame();
+        }
 
-	public void EndGame()
+    }
+
+    public void EndGame()
 	{
 		Destroy(Boss);
 		SceneManager.LoadScene("Credits");
