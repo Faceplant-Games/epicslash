@@ -42,6 +42,10 @@ public class GameManager : MonoBehaviour {
     public GameData gameData;
     private CoinGenerator coinGenerator;
 
+    public GameObject leftController; // Optional
+    public GameObject rightController; // Optional
+    public GameObject userVision; // Optional
+
     void Start ()
     {
         LoadGameData();
@@ -54,6 +58,10 @@ public class GameManager : MonoBehaviour {
     void Update ()
     {
         ManageButtons();
+    }
+
+    private bool HasControllersAndVision() {
+        return leftController != null && rightController != null && userVision != null;
     }
 
     private void ManageButtons()
@@ -85,6 +93,20 @@ public class GameManager : MonoBehaviour {
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
             print("monstres : " + monsters.Length);
             monsters[0].BeingHit();
+        }
+        if (Input.GetKeyDown(KeyCode.P)) // Positionate controllers
+        {
+            if (HasControllersAndVision()) {
+                leftController.SetActive(true);
+                rightController.SetActive(true);
+                leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
+                rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
+                userVision.transform.position += new Vector3(0, 1.8f, 0);
+            }
+            else
+            {
+                print("Controllers not attached");
+            }
         }
     }
 
