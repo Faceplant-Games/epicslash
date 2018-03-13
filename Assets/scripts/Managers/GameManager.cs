@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour {
                 leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
                 rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
                 userVision.transform.position += new Vector3(0, 1.8f, 0);
+                print("Controllers and user vision positionned");
             }
             else
             {
