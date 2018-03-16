@@ -38,18 +38,23 @@ public class GameManager : MonoBehaviour {
 	public AudioClip downs;
 	public AudioSource audioSource;
 
-    private string gameDataFileName = "data.json";
     public GameData gameData;
     private CoinGenerator coinGenerator;
+    private string gameDataFileName = "data.json";
 
-    public GameObject leftController; // Optional
-    public GameObject rightController; // Optional
-    public GameObject userVision; // Optional
+    private GameObject player;
+    private Transform leftController;
+    private Transform rightController;
+    private GameObject leftWeapon;
+    private GameObject rightWeapon;
+    private bool positionated = false;
+    private GameObject weapon;
 
     void Start ()
     {
         LoadGameData();
         InitializeTrack();
+        InitializePlayer();
         coinGenerator = gameObject.AddComponent<CoinGenerator>();
 
         started = currentStage != 0;
@@ -60,11 +65,38 @@ public class GameManager : MonoBehaviour {
         ManageButtons();
     }
 
-    private bool HasControllersAndVision() {
-        return leftController != null && rightController != null && userVision != null;
+    private void InitializePlayer()
+    {
+        if (player != null)
+        {
+            print("Player found");
+            return;
+        }
+        print("Initializing player");
+        Vector3 pos = new Vector3(0, 0, 0);
+        Quaternion rotation = Quaternion.Euler(0, 45, 0);
+        player = Instantiate<GameObject>(Resources.Load<GameObject>("Player"), pos, rotation);
+        player.name = "Player";
+        // Get controllers
+        foreach (Transform childTransform in player.transform) {
+            switch (childTransform.tag) {
+                case "LeftController":
+                    leftController = childTransform;
+                    break;
+                case "RightController":
+                    rightController = childTransform;
+                    break;
+            }
+        }
+
+        // TODO Add weapon from config file
+        leftWeapon = Instantiate<GameObject>(Resources.Load<GameObject>("Weapon1"), pos, rotation);
+        leftWeapon.transform.parent = leftController;
+        rightWeapon = Instantiate<GameObject>(Resources.Load<GameObject>("Weapon2"), pos, rotation);
+        rightWeapon.transform.parent = rightController;
     }
 
-    private void ManageButtons()
+    private void ManageButtons() // TODO Split into multiple methods
     {
         if (Input.GetKeyDown(KeyCode.Space) && !started) // Start game
         {
@@ -94,20 +126,15 @@ public class GameManager : MonoBehaviour {
             print("monstres : " + monsters.Length);
             monsters[0].BeingHit();
         }
-        if (Input.GetKeyDown(KeyCode.P)) // Positionate controllers
-        {
-            if (HasControllersAndVision()) {
-                leftController.SetActive(true);
-                rightController.SetActive(true);
-                leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
-                rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
-                userVision.transform.position += new Vector3(0, 1.8f, 0);
-                print("Controllers and user vision positionned");
-            }
-            else
-            {
-                print("Controllers not attached");
-            }
+        if (Input.GetKeyDown(KeyCode.P) && !positionated) // Positionate controllers
+        { // TODO enable this only once
+            positionated = true;
+            leftController.gameObject.SetActive(true);
+            rightController.gameObject.SetActive(true);
+            leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
+            rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
+            player.transform.position += new Vector3(0, 1.8f, 0);
+            print("Controllers and user vision positionned");
         }
     }
 

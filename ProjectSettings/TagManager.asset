@@ -7,6 +7,8 @@ TagManager:
   - SmallCoin
   - BigCoin
   - BiggerCoin
+  - LeftController
+  - RightController
   layers:
   - Default
   - TransparentFX
