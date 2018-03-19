@@ -89,11 +89,16 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        // TODO Add weapon from config file
-        leftWeapon = Instantiate<GameObject>(Resources.Load<GameObject>("Weapon1"), pos, rotation);
+        leftWeapon = Instantiate<GameObject>(Resources.Load<GameObject>(gameData.stages[currentStage].leftWeapon), pos, rotation);
+        leftWeapon.name = "CurrentWeapon";
         leftWeapon.transform.parent = leftController;
-        rightWeapon = Instantiate<GameObject>(Resources.Load<GameObject>("Weapon2"), pos, rotation);
+        leftWeapon.GetComponent<WeaponB>().trackedController = leftController.GetComponent<SteamVR_TrackedController>();
+        leftWeapon.GetComponent<WeaponB>().audioSource = audioSource;
+        rightWeapon = Instantiate<GameObject>(Resources.Load<GameObject>(gameData.stages[currentStage].rightWeapon), pos, rotation);
+        rightWeapon.name = "CurrentWeapon";
         rightWeapon.transform.parent = rightController;
+        rightWeapon.GetComponent<WeaponB>().trackedController = rightController.GetComponent<SteamVR_TrackedController>();
+        rightWeapon.GetComponent<WeaponB>().audioSource = audioSource;
     }
 
     private void ManageButtons() // TODO Split into multiple methods
@@ -231,6 +236,8 @@ public class GameManager : MonoBehaviour {
         {
             public string name;
             public string[] monsters;
+            public string leftWeapon;
+            public string rightWeapon;
         }
     }
 

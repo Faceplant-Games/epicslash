@@ -5,18 +5,28 @@
 	"maxAmountMonsters": 100,
 	"stages": [{
 		"name": "Miniworld",
-		"monsters": ["Monster1"]
+		"monsters": ["Monster1"],
+		"leftWeapon": "Weapon1",
+		"rightWeapon": "Weapon1"
 	}, {
 		"name": "Forest",
-		"monsters": ["Monster1","Monster2","Monster3"]
+		"monsters": ["Monster1","Monster2","Monster3"],
+		"leftWeapon": "Weapon2",
+		"rightWeapon": "Weapon2"
 	}, {
 		"name": "Mountains",
-		"monsters": ["Monster1","Monster2","Monster3", "dragon"]
+		"monsters": ["Monster1","Monster2","Monster3", "dragon"],
+		"leftWeapon": "Weapon3",
+		"rightWeapon": "Weapon3"
 	}, {
 		"name": "ToBeImplemented",
-		"monsters": ["Monster1","Monster2","Monster3", "dragon"]
+		"monsters": ["Monster1","Monster2","Monster3", "dragon"],
+		"leftWeapon": "Weapon",
+		"rightWeapon": "Weapon"
 	}, {
 		"name": "World Boss Stage",
-		"monsters": ["MegaBearBot"]
+		"monsters": ["MegaBearBot"],
+		"leftWeapon": "Weapon3",
+		"rightWeapon": "Weapon3"
 	}]
 }
