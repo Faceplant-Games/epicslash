@@ -9,9 +9,8 @@ Epic Slash
 # Installation Guide
 
 - Install Unity3D
-- In the Asset Store, install SteamVR
-- Git Clone this project
-- Import the git project in Unity3D
+- Clone this project
+- Open it with Unity3D
 
 # Run Guide
 
@@ -21,6 +20,16 @@ Just "Run" on Unity.
 
 In Unity: File > Build & Run.
 
+# Project Structure
+```
+/Assets
+        /Managers : C# Game managers
+        /Resources : Prefab resources
+        /SFX : Sounds effects and Background Music
+        /Scenes
+        /Scripts : C# Scripts
+        /StreamingAssets : Config file
+```
 # Project Status
 
 The project is still under development. A scrum board is shared between team members. We're open to new collaborators.
