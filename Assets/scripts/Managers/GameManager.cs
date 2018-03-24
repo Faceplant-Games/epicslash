@@ -89,16 +89,8 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        leftWeapon = Instantiate<GameObject>(Resources.Load<GameObject>(gameData.stages[currentStage].leftWeapon), pos, rotation);
-        leftWeapon.name = "CurrentWeapon";
-        leftWeapon.transform.parent = leftController;
-        leftWeapon.GetComponent<WeaponB>().trackedController = leftController.GetComponent<SteamVR_TrackedController>();
-        leftWeapon.GetComponent<WeaponB>().audioSource = audioSource;
-        rightWeapon = Instantiate<GameObject>(Resources.Load<GameObject>(gameData.stages[currentStage].rightWeapon), pos, rotation);
-        rightWeapon.name = "CurrentWeapon";
-        rightWeapon.transform.parent = rightController;
-        rightWeapon.GetComponent<WeaponB>().trackedController = rightController.GetComponent<SteamVR_TrackedController>();
-        rightWeapon.GetComponent<WeaponB>().audioSource = audioSource;
+        leftWeapon = WeaponB.createWeapon(Resources.Load<GameObject>(gameData.stages[currentStage].leftWeapon), pos, rotation, leftController, audioSource);
+        rightWeapon = WeaponB.createWeapon(Resources.Load<GameObject>(gameData.stages[currentStage].rightWeapon), pos, rotation, rightController, audioSource);
 
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), pos, rotation);
         gameInfoUI.transform.parent = rightWeapon.transform;
