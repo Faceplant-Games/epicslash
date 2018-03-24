@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
     public Fading fading;
     public GameObject instructions;
 
-    int level;    
+    long level;
     public AudioClip track;
     public AudioClip loopTrack;
     public AudioClip ups;
@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour {
     private Transform rightController;
     private GameObject leftWeapon;
     private GameObject rightWeapon;
+    private ProgressBar gameInfoHUD;
     private bool positionated = false;
     private GameObject weapon;
 
@@ -89,23 +90,17 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        leftWeapon = Instantiate<GameObject>(Resources.Load<GameObject>(gameData.stages[currentStage].leftWeapon), pos, rotation);
-        leftWeapon.name = "CurrentWeapon";
-        leftWeapon.transform.parent = leftController;
-        leftWeapon.GetComponent<WeaponB>().trackedController = leftController.GetComponent<SteamVR_TrackedController>();
-        leftWeapon.GetComponent<WeaponB>().audioSource = audioSource;
-        rightWeapon = Instantiate<GameObject>(Resources.Load<GameObject>(gameData.stages[currentStage].rightWeapon), pos, rotation);
-        rightWeapon.name = "CurrentWeapon";
-        rightWeapon.transform.parent = rightController;
-        rightWeapon.GetComponent<WeaponB>().trackedController = rightController.GetComponent<SteamVR_TrackedController>();
-        rightWeapon.GetComponent<WeaponB>().audioSource = audioSource;
+        leftWeapon = WeaponB.CreateWeapon(gameData.stages[currentStage].leftWeapon, pos, rotation, leftController, audioSource);
+        rightWeapon = WeaponB.CreateWeapon(gameData.stages[currentStage].rightWeapon, pos, rotation, rightController, audioSource);
 
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), pos, rotation);
         gameInfoUI.transform.parent = rightWeapon.transform;
         gameInfoUI.transform.localPosition = new Vector3(-0.03f,0,-0.1f);
         Quaternion gameInfoUIRotation = Quaternion.Euler(0, 90, 0);
         gameInfoUI.transform.rotation = gameInfoUIRotation;
-
+        gameInfoHUD = gameInfoUI.GetComponentInChildren<ProgressBar>();
+        gameInfoHUD.currentExperience = level;
+        gameInfoHUD.experienceGoal = gameData.stageThresholds[currentStage];
     }
 
     private void ManageButtons() // TODO Split into multiple methods
@@ -129,24 +124,23 @@ public class GameManager : MonoBehaviour {
         {
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
 
-            print("monstres : " + monsters.Length);
+            print("Current monsters amount: " + monsters.Length);
             Array.ForEach(monsters, m => m.BeingHit());
         }
         if (Input.GetKeyDown(KeyCode.A)) // Hit one monster
         {
             AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
-            print("monstres : " + monsters.Length);
+            print("Current monsters amount: " + monsters.Length);
             monsters[0].BeingHit();
         }
         if (Input.GetKeyDown(KeyCode.P) && !positionated) // Positionate controllers
-        { // TODO enable this only once
+        {
             positionated = true;
             leftController.gameObject.SetActive(true);
             rightController.gameObject.SetActive(true);
             leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
             rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
             player.transform.position += new Vector3(0, 1.8f, 0);
-            print("Controllers and user vision positionned");
         }
     }
 
@@ -171,6 +165,8 @@ public class GameManager : MonoBehaviour {
     public void EarnExperienceAndGold(int experience)
     {
         level += experience;
+        gameInfoHUD.currentExperience = level;
+
         coinGenerator.SpawnGold(experience, this.gameObject.transform.position, this.gameObject.transform.rotation);
 
         if (level >= gameData.stageThresholds[currentStage])
