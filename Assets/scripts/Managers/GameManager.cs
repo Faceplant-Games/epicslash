@@ -99,6 +99,13 @@ public class GameManager : MonoBehaviour {
         rightWeapon.transform.parent = rightController;
         rightWeapon.GetComponent<WeaponB>().trackedController = rightController.GetComponent<SteamVR_TrackedController>();
         rightWeapon.GetComponent<WeaponB>().audioSource = audioSource;
+
+        GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), pos, rotation);
+        gameInfoUI.transform.parent = rightWeapon.transform;
+        gameInfoUI.transform.localPosition = new Vector3(-0.03f,0,-0.1f);
+        Quaternion gameInfoUIRotation = Quaternion.Euler(0, 90, 0);
+        gameInfoUI.transform.rotation = gameInfoUIRotation;
+
     }
 
     private void ManageButtons() // TODO Split into multiple methods

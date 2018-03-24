@@ -64717,9 +64717,6 @@ MonoBehaviour:
     spawnPeriod: 0
     maxAmountMonsters: 0
     stages: []
-  leftController: {fileID: 0}
-  rightController: {fileID: 0}
-  player: {fileID: 0}
 --- !u!114 &1552812141
 MonoBehaviour:
   m_ObjectHideFlags: 0
