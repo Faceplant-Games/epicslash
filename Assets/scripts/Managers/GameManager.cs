@@ -26,7 +26,8 @@ using System.IO;
 /// <seealso cref="Fading"/>
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
-	public int currentStage = 0;
+    private const float LEVEL_DOWN_THRESH_OLD_FACTOR = 0.9f;
+    public int currentStage = 0;
     public bool started;
     public Fading fading;
     public GameObject instructions;
@@ -66,6 +67,11 @@ public class GameManager : MonoBehaviour {
         ManageButtons();
     }
 
+    public CoinGenerator getCoinGenerator()
+    {
+        return coinGenerator;
+    }
+
     private void InitializePlayer()
     {
         if (player != null)
@@ -99,6 +105,14 @@ public class GameManager : MonoBehaviour {
         Quaternion gameInfoUIRotation = Quaternion.Euler(0, 90, 0);
         gameInfoUI.transform.rotation = gameInfoUIRotation;
         gameInfoHUD = gameInfoUI.GetComponentInChildren<ProgressBar>();
+        if (currentStage == 0)
+        {
+            level = 0;
+        }
+        else
+        {
+            level = gameData.stageThresholds[currentStage - 1];
+        }
         gameInfoHUD.currentExperience = level;
         gameInfoHUD.experienceGoal = gameData.stageThresholds[currentStage];
     }
@@ -142,6 +156,11 @@ public class GameManager : MonoBehaviour {
             rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
             player.transform.position += new Vector3(0, 1.8f, 0);
         }
+        if (Input.GetKeyDown(KeyCode.H)) // Lose some experience 
+        {
+            LoseExperience(10);
+        }
+
     }
 
     private void InitializeTrack()
@@ -162,7 +181,7 @@ public class GameManager : MonoBehaviour {
         loopAudio.PlayDelayed(track.length);
     }   
 
-    public void EarnExperienceAndGold(int experience)
+    public void EarnExperience(int experience)
     {
         level += experience;
         gameInfoHUD.currentExperience = level;
@@ -175,16 +194,40 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-
-    public CoinGenerator getCoinGenerator()
+    public void LoseExperience(int experience)
     {
-        return coinGenerator; 
+        print("Enter level down " + experience);
+        if (level < experience)
+        {
+            level = 0;
+        } else
+        {
+            level -= experience;
+        }
+        gameInfoHUD.currentExperience = level;
+
+        if (currentStage == 0)
+        {
+            return;
+        }
+
+        if (level <= gameData.stageThresholds[currentStage-1] * LEVEL_DOWN_THRESH_OLD_FACTOR)
+        {
+            StartCoroutine(StageDown());
+        }
     }
 
-    // TODO rename and code this method
-    public void LevelDown(int levels)
+    private IEnumerator StageDown()
     {
- 
+        currentStage--;
+
+        if (fading != null)
+        {
+            float fadeTime = fading.BeginFade(1);
+            // PlayStageDownSound();
+            yield return new WaitForSeconds(1 + fadeTime);
+        }
+        SceneManager.LoadScene(currentStage);
     }
 
     private IEnumerator StageUp()
@@ -199,11 +242,6 @@ public class GameManager : MonoBehaviour {
         }
 
         SceneManager.LoadScene(currentStage);
-
-        if (currentStage >= gameData.numberOfStages)
-        {
-            //TODO stop the game
-        }
     }
 
     public void PlayStageUpSound()

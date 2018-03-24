@@ -86,7 +86,7 @@ public class Monster2B : AbstractMonster
 			anim.SetTrigger ("vavoler");
 			StealGold();
             GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-            player.LevelDown (base.malus);
+            player.LoseExperience (base.malus);
 			Destroy(collision.gameObject);
 		}
 	}

@@ -33,7 +33,7 @@ public class Monster1B : AbstractMonster
 	{
 		_attack1B.Attack(target);
         GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-        player.LevelDown (base.malus);
+        player.LoseExperience (base.malus);
 	}
 }
 

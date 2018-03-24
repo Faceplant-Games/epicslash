@@ -18,7 +18,7 @@ public abstract class AbstractMonster : MonoBehaviour, Monster {
             GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
             if (player != null)
             {
-                player.EarnExperienceAndGold(experience);
+                player.EarnExperience(experience);
             }
             DestroyImmediate(this.gameObject);
         }
