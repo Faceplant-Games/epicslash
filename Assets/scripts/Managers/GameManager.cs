@@ -129,9 +129,18 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) // Exit game
+        if (Input.GetKeyDown(KeyCode.Escape)) // Exit or return main menu game
         {
-            Application.Quit();
+            if (started)
+            {
+                started = false;
+                currentStage = 0;
+                StartCoroutine(ChangeStage());
+
+            } else
+            {
+                Application.Quit();
+            }
         }
 
         if (gameData.profile != "Test")
@@ -222,30 +231,27 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private IEnumerator StageDown()
-    {
-        currentStage--;
-
-        if (fading != null)
-        {
-            float fadeTime = fading.BeginFade(1);
-            // PlayStageDownSound();
-            yield return new WaitForSeconds(1 + fadeTime);
-        }
-        SceneManager.LoadScene(currentStage);
-    }
-
     private IEnumerator StageUp()
     {
         currentStage++;
+        PlayStageUpSound();
+        return ChangeStage();
+    }
 
+    private IEnumerator StageDown()
+    {
+        currentStage--;
+        PlayStageDownSound();
+        return ChangeStage();
+    }
+
+    private IEnumerator ChangeStage()
+    {
         if (fading != null)
         {
             float fadeTime = fading.BeginFade(1);
-            PlayStageUpSound();
-            yield return new WaitForSeconds(1+fadeTime);
+            yield return new WaitForSeconds(1 + fadeTime);
         }
-
         SceneManager.LoadScene(currentStage);
     }
 
@@ -254,6 +260,10 @@ public class GameManager : MonoBehaviour {
         audioSource.PlayOneShot(ups);
     }
 
+    public void PlayStageDownSound()
+    {
+        audioSource.PlayOneShot(downs);
+    }
 
     private void LoadGameData()
     {
