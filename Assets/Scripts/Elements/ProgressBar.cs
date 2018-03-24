@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour {
     public Transform LoadingBar;
     public Transform TextIndicator;
-    [SerializeField] public int currentXP = 0;
-    [SerializeField] public int XPGoal = 3000000;
+    [SerializeField] public long currentExperience;
+    [SerializeField] public long experienceGoal;
 
 	// Use this for initialization
 	void Start () {
@@ -17,28 +17,28 @@ public class ProgressBar : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         TextIndicator.GetComponent<Text>().text = HumanizeXPAmount() + " XP";
-        LoadingBar.GetComponent<Image>().fillAmount = (float)currentXP / (float)XPGoal;
+        LoadingBar.GetComponent<Image>().fillAmount = (float)currentExperience / (float)experienceGoal;
 	}
 
-    private string HumanizeXPAmount()
+    private string HumanizeXPAmount() // TODO Smooth it
     {
         string amountString;
         string unit;
 
-        if (currentXP > 2000000)
+        if (currentExperience > 2000000)
         {
-            amountString = (currentXP / 1000000).ToString();
+            amountString = (currentExperience / 1000000).ToString();
             unit = "m";
             return amountString + unit;
         }
 
-        if (currentXP > 2000)
+        if (currentExperience > 2000)
         {
-            amountString = (currentXP / 1000).ToString();
+            amountString = (currentExperience / 1000).ToString();
             unit = "k";
             return amountString + unit;
         }
 
-        return currentXP.ToString();
+        return currentExperience.ToString();
     }
 }

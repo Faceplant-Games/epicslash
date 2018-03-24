@@ -22,9 +22,9 @@ public class WeaponB : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider) {
         audioSource.PlayOneShot(slash);
-        if (collider.gameObject.GetComponent<AbstractMonster> () != null) {
+        if (collider.gameObject.GetComponent<AbstractMonster>() != null) {
 			SteamVR_Controller.Input((int)trackedController.controllerIndex).TriggerHapticPulse((ushort)Mathf.Lerp(0f, 1500f, 0.7f));
-			collider.gameObject.GetComponent<AbstractMonster> ().BeingHit ();
+			collider.gameObject.GetComponent<AbstractMonster>().BeingHit();
 		}
 
 	}
@@ -40,9 +40,9 @@ public class WeaponB : MonoBehaviour {
 		bullet.transform.Rotate(-180, 0, 0);
 	}
 
-    public static GameObject createWeapon(GameObject weapon, Vector3 pos, Quaternion rotation, Transform controller, AudioSource audioSource)
+    public static GameObject CreateWeapon(string weapon, Vector3 pos, Quaternion rotation, Transform controller, AudioSource audioSource)
     {
-        GameObject current = Instantiate<GameObject>(weapon, pos, rotation);
+        GameObject current = Instantiate<GameObject>(Resources.Load<GameObject>(weapon), pos, rotation);
         current.name = "CurrentWeapon";
         current.transform.parent = controller;
         current.GetComponent<WeaponB>().trackedController = controller.GetComponent<SteamVR_TrackedController>();
