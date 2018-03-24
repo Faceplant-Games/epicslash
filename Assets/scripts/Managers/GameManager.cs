@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour {
 
     private void ManageButtons() // TODO Split into multiple methods
     {
+
         if (Input.GetKeyDown(KeyCode.Space) && !started) // Start game
         {
             started = true;
@@ -133,6 +134,10 @@ public class GameManager : MonoBehaviour {
             Application.Quit();
         }
 
+        if (gameData.profile != "Test")
+        {
+            return;
+        }
         // Cheat Codes
         if (Input.GetKeyDown(KeyCode.B)) // Hit each monsters once
         {
@@ -271,6 +276,7 @@ public class GameManager : MonoBehaviour {
         public float spawnPeriod;
         public int maxAmountMonsters;
         public Stage[] stages;
+        public String profile;
 
         [System.Serializable]
         public class Stage

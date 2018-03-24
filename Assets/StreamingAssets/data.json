@@ -28,5 +28,6 @@
 		"monsters": ["MegaBearBot"],
 		"leftWeapon": "Weapon3",
 		"rightWeapon": "Weapon3"
-	}]
+	}],
+	"profile": "Test"
 }
