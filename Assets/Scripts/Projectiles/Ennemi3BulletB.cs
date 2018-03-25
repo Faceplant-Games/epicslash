@@ -7,14 +7,15 @@ public class Ennemi3BulletB : MonoBehaviour
 	float timer = 0;
 	float lifeTime = 60;
 	float speed = 2;
+    private GameManager gameManager;
 
 	// Use this for initialization
 	void Start () {
+        gameManager = GameObject.FindObjectOfType<GameManager>(); // TODO Optimize this
+    }
 
-	}
-
-	// Update is called once per frame
-	void FixedUpdate () {
+    // Update is called once per frame
+    void FixedUpdate () {
 		float distanceThisFrame = speed * Time.fixedDeltaTime;
 		RaycastHit hit = new RaycastHit ();
 
@@ -23,8 +24,7 @@ public class Ennemi3BulletB : MonoBehaviour
 		{
 			if (hit.transform.gameObject.tag == "MainCamera") 
 			{
-              //  PlayerManager player = GameObject.FindObjectOfType(typeof(PlayerManager)) as PlayerManager;
-               // player.levelDown(5);
+                gameManager.LoseExperience(5);
             }
             Destroy(gameObject);
         } 

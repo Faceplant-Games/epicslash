@@ -96,13 +96,14 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        leftWeapon = WeaponB.CreateWeapon(gameData.stages[currentStage].leftWeapon, pos, rotation, leftController, audioSource);
-        rightWeapon = WeaponB.CreateWeapon(gameData.stages[currentStage].rightWeapon, pos, rotation, rightController, audioSource);
+        Quaternion weaponRotation = Quaternion.Euler(0, 225, 0);
+        leftWeapon = WeaponB.CreateWeapon(gameData.stages[currentStage].leftWeapon, pos, weaponRotation, leftController, audioSource);
+        rightWeapon = WeaponB.CreateWeapon(gameData.stages[currentStage].rightWeapon, pos, weaponRotation, rightController, audioSource);
 
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), pos, rotation);
         gameInfoUI.transform.parent = rightWeapon.transform;
-        gameInfoUI.transform.localPosition = new Vector3(-0.03f,0,-0.1f);
-        Quaternion gameInfoUIRotation = Quaternion.Euler(0, 90, 0);
+        gameInfoUI.transform.localPosition = new Vector3(0.035f, 0, 0f);
+        Quaternion gameInfoUIRotation = Quaternion.Euler(0, 135, 0);
         gameInfoUI.transform.rotation = gameInfoUIRotation;
         gameInfoHUD = gameInfoUI.GetComponentInChildren<ProgressBar>();
         if (currentStage == 0)
@@ -194,6 +195,7 @@ public class GameManager : MonoBehaviour {
         loopAudio.clip = loopTrack;
         audioSource.Play();
         loopAudio.PlayDelayed(track.length);
+        loopAudio.mute = gameData.muteAudio;
     }   
 
     public void EarnExperience(int experience)
