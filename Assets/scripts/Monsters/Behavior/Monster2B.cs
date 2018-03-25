@@ -5,11 +5,12 @@ using System.Collections;
  * */
 
 [RequireComponent(typeof(GroundMovingB), typeof(Collider), typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 public class Monster2B : AbstractMonster 
 {
 	private GroundMovingB _groundMovingB;
 	public Vector3 EscapePosition;
-	Animator anim;
+	Animator animator;
 
 	public enum Monster2State
 	{
@@ -24,8 +25,8 @@ public class Monster2B : AbstractMonster
 		_groundMovingB = GetComponent<GroundMovingB>();
 		EscapePosition = transform.position;
 		myState = Monster2State.LookingForGold;
-		anim = this.GetComponentInChildren<Animator>();
-		anim.SetTrigger ("doitsauter");
+		animator = this.GetComponentInChildren<Animator>();
+		animator.SetBool ("shouldMove", true);
         base.hp = 2;
         base.experience = 1;
         base.malus = 100;
@@ -83,7 +84,8 @@ public class Monster2B : AbstractMonster
 		if (collision.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
 		{
 
-			anim.SetTrigger ("vavoler");
+            animator.SetBool("shouldMove", false);
+            animator.SetTrigger ("steal");
 			StealGold();
             GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
             player.LoseExperience (base.malus);
@@ -96,7 +98,7 @@ public class Monster2B : AbstractMonster
         myState = Monster2State.Escaping;
         //StealGold
 
-        anim.SetTrigger("doitsauter");
+        animator.SetBool("shouldMove", true);
     }
     
 }
