@@ -29,5 +29,6 @@
 		"leftWeapon": "Weapon3",
 		"rightWeapon": "Weapon3"
 	}],
-	"profile": "Test"
+	"profile": "Test",
+	"muteAudio": true
 }

@@ -179,6 +179,7 @@ public class GameManager : MonoBehaviour {
 
     private void InitializeTrack()
     {
+        audioSource.mute = gameData.muteAudio;
         audioSource.clip = track;
         if (loopTrack == null)
         {
@@ -287,6 +288,7 @@ public class GameManager : MonoBehaviour {
         public int maxAmountMonsters;
         public Stage[] stages;
         public String profile;
+        public bool muteAudio;
 
         [System.Serializable]
         public class Stage
