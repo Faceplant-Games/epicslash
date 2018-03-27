@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour {
 
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), pos, rotation);
         gameInfoUI.transform.parent = rightWeapon.transform;
-        gameInfoUI.transform.localPosition = new Vector3(0.035f, 0, 0f);
+        gameInfoUI.transform.localPosition = new Vector3(0.037f, 0, 0.07f);
         Quaternion gameInfoUIRotation = Quaternion.Euler(0, 135, 0);
         gameInfoUI.transform.rotation = gameInfoUIRotation;
         gameInfoHUD = gameInfoUI.GetComponentInChildren<ProgressBar>();
