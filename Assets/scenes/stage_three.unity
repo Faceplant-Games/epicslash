@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4562983, g: 0.2944266, b: 0.20180613, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3394,7 +3394,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.4
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -33884,7 +33884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &760631650
 Light:
   m_ObjectHideFlags: 0
@@ -69373,9 +69373,8 @@ MonoBehaviour:
     spawnPeriod: 0
     maxAmountMonsters: 0
     stages: []
-  leftController: {fileID: 0}
-  rightController: {fileID: 0}
-  player: {fileID: 0}
+    profile: 
+    muteAudio: 0
 --- !u!114 &1552812141
 MonoBehaviour:
   m_ObjectHideFlags: 0
