@@ -50,7 +50,7 @@ MonoBehaviour:
       ambientOnly: 1
       highPrecision: 0
   screenSpaceReflection:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       reflection:
         blendType: 0
@@ -120,12 +120,12 @@ MonoBehaviour:
         neutralWhiteLevel: 2.9
         neutralWhiteClip: 10
       basic:
-        postExposure: 0
+        postExposure: -0.2
         temperature: 0
         tint: 0
         hueShift: 0
-        saturation: 1.5
-        contrast: 1.22
+        saturation: 1.34
+        contrast: 1.26
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}

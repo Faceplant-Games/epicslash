@@ -14,23 +14,24 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(GameManager))]
 public class MonsterManager : MonoBehaviour {
-	private SpawnerB[] spawners;
 	private GameManager gm;
     private int spawnPeriodByFrame;
+    [Range(-360, 360)]
+    public int angleMin;
+    [Range(-360, 360)]
+    public int angleMax; 
+    [Range(0, 150)]
+    public int magnitudeMin;
+    [Range(0, 150)]
+    public int magnitudeMax;
 
-	void Start () {
+    void Start () {
         gm = gameObject.GetComponent<GameManager>();
-
-        spawners = GameObject.FindObjectsOfType(typeof(SpawnerB)) as SpawnerB[];
 
         spawnPeriodByFrame = Mathf.RoundToInt(gm.gameData.spawnPeriod * 30);
     }
 
     void Update () {
-        if (spawners.Length == 0) {
-            return;
-        }
-
         if (Time.frameCount%spawnPeriodByFrame == 0) { // Framerate
             if (GameObject.FindObjectsOfType(typeof(AbstractMonster)).Length < gm.gameData.maxAmountMonsters) { // Max amount of monsters
                 SpawnMob();
@@ -45,13 +46,21 @@ public class MonsterManager : MonoBehaviour {
         if (!gm.started) {
             return;
         }
-		spawners[UnityEngine.Random.Range (0, spawners.Length)].Spawn(ChooseRandomMobType());
+        
+        string prefabName = ChooseRandomMobType();
+        if (prefabName != null && prefabName != "")
+        {
+            float random = Random.Range(angleMin, angleMax);
+            float magnitude = Random.Range(magnitudeMin, magnitudeMax);
+            Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * random) * magnitude, 0, Mathf.Sin(Mathf.Deg2Rad * random) * magnitude);
+            Instantiate(Resources.Load(prefabName), pos, this.gameObject.transform.rotation);
+        }
 	}
 
 
     string ChooseRandomMobType() {
         string[] mobTypes = gm.gameData.stages[gm.currentStage].monsters;
-        int mobIndex = UnityEngine.Random.Range(0, mobTypes.Length);
+        int mobIndex = Random.Range(0, mobTypes.Length);
         return mobTypes[mobIndex];
 	}
 
