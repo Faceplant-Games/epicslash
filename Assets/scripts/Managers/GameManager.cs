@@ -24,12 +24,12 @@ using System.IO;
 /// </summary>
 /// <seealso cref="MonsterManager"/>
 /// <seealso cref="Fading"/>
+/// <seealso cref="Damage"/>
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
     private const float LEVEL_DOWN_THRESH_OLD_FACTOR = 0.9f;
     public int currentStage = 0;
     public bool started;
-    public Fading fading;
     public GameObject instructions;
 
     long level;
@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour {
     private CoinGenerator coinGenerator;
     private string gameDataFileName = "data.json";
 
+    private Fading fading;
+    private Damage damage;
     private GameObject player;
     private Transform leftController;
     private Transform rightController;
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour {
         LoadGameData();
         InitializeTrack();
         InitializePlayer();
+        InitializeScreen();
         coinGenerator = gameObject.AddComponent<CoinGenerator>();
 
         started = currentStage != 0;
@@ -70,6 +73,15 @@ public class GameManager : MonoBehaviour {
     public CoinGenerator getCoinGenerator()
     {
         return coinGenerator;
+    }
+    
+    private void InitializeScreen()
+    {
+        print("Initializing screens (Fading, Damage...)");
+        Vector3 pos = new Vector3(0, 0, 0);
+        Quaternion rotation = Quaternion.Euler(0, 45, 0);
+        fading = Instantiate(Resources.Load<GameObject>("FadingScreen"), pos, rotation).GetComponent<Fading>();
+        damage = Instantiate(Resources.Load<GameObject>("DamageScreen"), pos, rotation).GetComponent<Damage>();
     }
 
     private void InitializePlayer()
