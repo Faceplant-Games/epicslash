@@ -18632,7 +18632,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStage: 4
   started: 0
-  fading: {fileID: 0}
   instructions: {fileID: 0}
   track: {fileID: 8300000, guid: 5560b410a8e91a44f973167ad974b2b1, type: 3}
   loopTrack: {fileID: 0}
@@ -18658,6 +18657,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc40f2af0e648ca4d8aa02e2f2a6dd55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angleMin: 0
+  angleMax: 0
+  magnitudeMin: 0
+  magnitudeMax: 0
 --- !u!4 &410428682
 Transform:
   m_ObjectHideFlags: 0
@@ -36891,7 +36894,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -36905,6 +36908,8 @@ MonoBehaviour:
   m_Text: 'Yaso
 
     Fox
+
+    Manegan
 
     RLeblanc'
 --- !u!222 &849570735
