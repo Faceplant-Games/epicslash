@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 1000012706065184, guid: 5e14384dca007294a8b96ca0f6a8a48e,
     type: 2}
-  FireMobile: {fileID: 100000, guid: b99a0a5998b2736429fd2a2fd1d01c5e, type: 2}
+  FireMobile: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 2}
   FireInitialPos: {fileID: 4000010484237072}
 --- !u!114 &114000012396494808
 MonoBehaviour:

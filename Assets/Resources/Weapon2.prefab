@@ -512,7 +512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 114000013174679328, guid: 7557b54e4326f7845a09bda18fb63e47,
     type: 2}
-  fireMobile: {fileID: 100000, guid: b99a0a5998b2736429fd2a2fd1d01c5e, type: 2}
+  fireMobile: {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 2}
   barrelEndTransform: {fileID: 4000010956390714}
   trackedController: {fileID: 0}
   slash: {fileID: 8300000, guid: bf01569e231f21647b1656bc8f232bac, type: 3}

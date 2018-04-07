@@ -37,8 +37,8 @@ public class WeaponB : MonoBehaviour {
 		SteamVR_Controller.Input((int)trackedController.controllerIndex).TriggerHapticPulse((ushort)Mathf.Lerp(0f, 3000f, 0.85f));
 		BulletB bullet = Instantiate (bulletPrefab) as BulletB;
         GameObject fire = Instantiate(fireMobile);
-        fire.transform.position = bullet.transform.position;
-        fire.transform.parent = bullet.transform;
+        fire.transform.position = Vector3.zero;
+        fire.transform.SetParent(bullet.transform, false);
 		bullet.transform.rotation = barrelEndTransform.rotation;
 		bullet.transform.position = barrelEndTransform.position;
 		bullet.transform.Rotate(-180, 0, 0);

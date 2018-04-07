@@ -20,8 +20,8 @@ public class Attack3B : MonoBehaviour
 		GameObject bullet = Instantiate<GameObject>(BulletPrefab);
         GameObject fire = Instantiate<GameObject>(FireMobile);
 		bullet.transform.position = FireInitialPos.position;
-        fire.transform.position = FireInitialPos.position;
-        fire.transform.parent = bullet.transform;
+        fire.transform.position = Vector3.zero;
+        fire.transform.SetParent(bullet.transform, false);
 		bullet.transform.LookAt(target.transform.position);
 	}
 }
