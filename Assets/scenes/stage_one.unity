@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9852941, g: 0.80272484, b: 0.5288711, a: 1}
+  m_AmbientSkyColor: {r: 0.9852941, g: 0.91284597, b: 0.8041739, a: 1}
   m_AmbientEquatorColor: {r: 1, g: 0.91034484, b: 0.61764705, a: 1}
   m_AmbientGroundColor: {r: 0.97794116, g: 0.84987986, b: 0.53930575, a: 1}
   m_AmbientIntensity: 1.09
   m_AmbientMode: 3
-  m_SubtractiveShadowColor: {r: 0.40916955, g: 0.47582456, b: 0.64705884, a: 1}
+  m_SubtractiveShadowColor: {r: 0.7942258, g: 0.8395209, b: 0.9558824, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 6b91414a8f242b34096c2d43f16e94f0, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.690489, g: 0.56244344, b: 0.4603091, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -55,18 +55,18 @@ LightmapSettings:
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 9
-    m_Resolution: 10
-    m_BakeResolution: 100
-    m_TextureWidth: 1024
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_TextureWidth: 512
     m_TextureHeight: 1024
-    m_AO: 1
+    m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
-    m_TextureCompression: 1
+    m_TextureCompression: 0
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
@@ -3080,7 +3080,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.4
+  m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -3099,7 +3099,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -3113,7 +3113,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 84867226}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -0.03535533, y: 1.1936855, z: -0.2474874}
+  m_LocalPosition: {x: -0.03535533, y: 6.38, z: -3.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2139448299}
@@ -6339,6 +6339,11 @@ Prefab:
     - target: {fileID: 1000010489700110, guid: c994811d557c89a4393bc0a592d0f3bd, type: 2}
       propertyPath: m_Name
       value: arbre1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000011840538578, guid: c994811d557c89a4393bc0a592d0f3bd,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c994811d557c89a4393bc0a592d0f3bd, type: 2}

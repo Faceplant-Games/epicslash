@@ -16,12 +16,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000014278486348}
-  - 33: {fileID: 33000011208026148}
-  - 23: {fileID: 23000014223345960}
-  - 95: {fileID: 95000012657232482}
+  - component: {fileID: 4000014278486348}
+  - component: {fileID: 33000011208026148}
+  - component: {fileID: 23000014223345960}
+  - component: {fileID: 95000012657232482}
   m_Layer: 0
   m_Name: nuage1
   m_TagString: Untagged
@@ -38,10 +38,10 @@ Transform:
   m_LocalRotation: {x: -0.62386185, y: -0.3328611, z: 0.33286116, w: -0.6238617}
   m_LocalPosition: {x: -161, y: 107.5, z: -143}
   m_LocalScale: {x: 6805.6216, y: 375.95178, z: 2496.2131}
-  m_LocalEulerAnglesHint: {x: 89.981, y: 0, z: 304.00598}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 89.981, y: 0, z: 304.00598}
 --- !u!23 &23000014223345960
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -51,12 +51,15 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: f7cb2d7e32a88f448bc949ff766fe9df, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -64,12 +67,14 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33000011208026148
 MeshFilter:
