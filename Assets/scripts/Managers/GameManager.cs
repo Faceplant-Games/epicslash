@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour {
     private string gameDataFileName = "data.json";
 
     private Fading fading;
-    private Damage damage;
+    private DamageScript damage;
     private GameObject player;
     private Transform leftController;
     private Transform rightController;
@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour {
     private GameObject rightWeapon;
     private ProgressBar gameInfoHUD;
     private bool positionated = false;
-    private GameObject weapon;
 
     void Start ()
     {
@@ -81,7 +80,7 @@ public class GameManager : MonoBehaviour {
         Vector3 pos = new Vector3(0, 0, 0);
         Quaternion rotation = Quaternion.Euler(0, 45, 0);
         fading = Instantiate(Resources.Load<GameObject>("FadingScreen"), pos, rotation).GetComponent<Fading>();
-        damage = Instantiate(Resources.Load<GameObject>("DamageScreen"), pos, rotation).GetComponent<Damage>();
+        damage = Instantiate(Resources.Load<GameObject>("DamageScreen"), pos, rotation).GetComponent<DamageScript>();
     }
 
     private void InitializePlayer()
@@ -233,6 +232,7 @@ public class GameManager : MonoBehaviour {
         {
             level -= experience;
         }
+        damage.TakeDamage(experience);
         gameInfoHUD.currentExperience = level;
 
         if (currentStage == 0)
