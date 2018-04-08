@@ -9,6 +9,8 @@ TagManager:
   - BiggerCoin
   - LeftController
   - RightController
+  - DRAGON
+  - MovableMap
   layers:
   - Default
   - TransparentFX

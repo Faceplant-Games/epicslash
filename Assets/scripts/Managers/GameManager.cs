@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
 using System.IO;
+using UnityEngine.Playables;
 
 /// <summary>
 /// This class manages the game rules. It includes:
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour {
     private GameObject rightWeapon;
     private ProgressBar gameInfoHUD;
     private bool positionated = false;
+    private bool isIntroductionRunning = false;
 
     void Start ()
     {
@@ -59,9 +61,8 @@ public class GameManager : MonoBehaviour {
         InitializeTrack();
         InitializePlayer();
         InitializeScreen();
+        InitializeIntroduction();
         coinGenerator = gameObject.AddComponent<CoinGenerator>();
-
-        started = currentStage != 0;
     }
 
     void Update ()
@@ -73,7 +74,19 @@ public class GameManager : MonoBehaviour {
     {
         return coinGenerator;
     }
-    
+
+    private void InitializeIntroduction()
+    {
+        if (currentStage != 0)
+        {
+            started = true;
+            return;
+        }
+        started = false;
+        GameObject movableMap = GameObject.FindGameObjectWithTag("MovableMap");
+        movableMap.transform.position = new Vector3(0, 300, 0);
+    }
+
     private void InitializeScreen()
     {
         print("Initializing screens (Fading, Damage...)");
@@ -129,16 +142,24 @@ public class GameManager : MonoBehaviour {
         gameInfoHUD.experienceGoal = gameData.stageThresholds[currentStage];
     }
 
+    private void StartGame()
+    {
+        started = true;
+        if (instructions != null)
+        {
+            instructions.SetActive(false);
+        }
+        isIntroductionRunning = true;
+        GameObject movableMap = GameObject.FindGameObjectWithTag("MovableMap");
+        movableMap.GetComponent<PlayableDirector>().Play();
+
+    }
+
     private void ManageButtons() // TODO Split into multiple methods
     {
-
         if (Input.GetKeyDown(KeyCode.Space) && !started) // Start game
         {
-            started = true;
-            if (instructions != null)
-            {
-                instructions.SetActive(false);
-            }
+            StartGame();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) // Exit or return main menu game
