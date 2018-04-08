@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
 
 public class CoinGenerator : MonoBehaviour
@@ -52,19 +51,22 @@ public class CoinGenerator : MonoBehaviour
     public void SpawnGold(int experience, Vector3 position, Quaternion rotation)
     {
         ArrayList coinsToSpawn = GenerateCoins(experience);
-        foreach (String coin in coinsToSpawn)
+        foreach (string coin in coinsToSpawn)
         {
             GameObject objectToSpawn = getCoinObjectFromName(coin);
             Vector3 random1 = new Vector3(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(2.5f, 5f), UnityEngine.Random.Range(-2f, 2f));
             Vector3 pos = position + random1;
             objectToSpawn.transform.position = pos;
             objectToSpawn.transform.rotation = rotation;
+            Rigidbody rbd = objectToSpawn.GetComponent<Rigidbody>();
+            rbd.velocity = new Vector3(Random.Range(-2, 2), Random.Range(1, 2), Random.Range(-2, 2));
+            rbd.angularVelocity = new Vector3(Random.Range(-20, 20), Random.Range(-20, 20), Random.Range(-20, 20));
             objectToSpawn.SetActive(true);
         }
     }
 
 
-    private GameObject getCoinObjectFromName(String name)
+    private GameObject getCoinObjectFromName(string name)
     {
         switch (name)
         {

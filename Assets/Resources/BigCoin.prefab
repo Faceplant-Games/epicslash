@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 23093670265245914}
   - component: {fileID: 95585492136181874}
   - component: {fileID: 114497278093263124}
-  - component: {fileID: 135812990384682936}
   - component: {fileID: 54681837919632874}
+  - component: {fileID: 64532278329010836}
   m_Layer: 0
   m_Name: BigCoin
   m_TagString: BigCoin
@@ -101,7 +101,21 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!64 &64532278329010836
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814367421125604}
+  m_Material: {fileID: 13400000, guid: 5d12b6c88a59ac04593d65b33fb0085a, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 8dc6446ecaab92d439949e9f6c2c512b, type: 3}
 --- !u!95 &95585492136181874
 Animator:
   serializedVersion: 3
@@ -131,15 +145,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GoldValue: 0
---- !u!135 &135812990384682936
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1814367421125604}
-  m_Material: {fileID: 13400000, guid: 5d12b6c88a59ac04593d65b33fb0085a, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.10315119
-  m_Center: {x: -0.0000000037252903, y: 0, z: 0}
