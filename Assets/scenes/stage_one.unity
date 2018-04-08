@@ -33938,7 +33938,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -33949,7 +33949,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press Space to start game
+  m_Text: 'Brace yourself, the evilest big bad guy is coming for us...
+
+    You have to earn much much  much XP to be up to the challenge.
+
+    Your XP is written on your right weapon (sorry if you are left-handed).
+
+    Oh and by the way, press Space to start game'
 --- !u!222 &806154122
 CanvasRenderer:
   m_ObjectHideFlags: 0
