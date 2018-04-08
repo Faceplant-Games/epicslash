@@ -26,7 +26,6 @@ public class Monster2B : AbstractMonster
 		EscapePosition = transform.position;
 		myState = Monster2State.LookingForGold;
 		animator = this.GetComponentInChildren<Animator>();
-		animator.SetBool ("shouldMove", true);
         base.hp = 2;
         base.experience = 1;
         base.malus = 100;
@@ -83,22 +82,29 @@ public class Monster2B : AbstractMonster
 	{
 		if (collision.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
 		{
-
-            animator.SetBool("shouldMove", false);
             animator.SetTrigger ("steal");
-			StealGold();
-            GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-            player.LoseExperience (base.malus);
-			Destroy(collision.gameObject);
+            StartCoroutine(Steal(collision));
 		}
 	}
+
+    IEnumerator Steal(Collider collision)
+    {
+        AnimatorStateInfo asi = animator.GetCurrentAnimatorStateInfo(0);
+        yield return new WaitForSeconds(asi.length + asi.normalizedTime);
+        StealGold();
+        GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
+        player.LoseExperience(base.malus);
+        if (collision != null)
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 
     public void StealGold()
     {
         myState = Monster2State.Escaping;
         //StealGold
-
-        animator.SetBool("shouldMove", true);
+        
     }
     
 }

@@ -1300,7 +1300,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 7471cbce19a8d354983f4fc696950dbc, type: 3}
   m_Controller: {fileID: 9100000, guid: 8fce28ca84a99e342978bac1ce66ddaf, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 1
+  m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
