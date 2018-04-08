@@ -245,7 +245,6 @@ public class GameManager : MonoBehaviour {
 
     public void LoseExperience(int experience)
     {
-        print("Enter level down " + experience);
         if (level < experience)
         {
             level = 0;
