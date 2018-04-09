@@ -1,254 +1,154 @@
 fileFormatVersion: 2
-guid: e797afaede06a144aa7b244e0e254f22
-timeCreated: 1480260759
+guid: 16f3d7755c3095a41b81da8001bb5b74
+timeCreated: 1523263336
 licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: dragon_aile_d
-    100004: dragon_aile_g
-    100006: dragon_corps
-    100008: dragon_jambe_d
-    100010: dragon_patte_d
-    100012: dragon_patte_g
-    100014: dragon_tete
-    100016: drangon_jambe_g
-    100018: dragon_aile_d_1
-    100020: dragon_aile_d_2
-    100022: dragon_aile_d_3
-    100024: dragon_aile_d_4
-    100026: dragon_aile_g_1
-    100028: dragon_aile_g_2
-    100030: dragon_aile_g_3
-    100032: dragon_aile_g_4
-    100034: dragon_center
-    100036: dragon_jambe_d_1
-    100038: dragon_jambe_d_2
-    100040: dragon_jambe_g_1
-    100042: dragon_jambe_g_2
-    100044: dragon_neck_1
-    100046: dragon_neck_2
-    100048: dragon_tail_01
-    100050: dragon_tail_02
-    100052: dragon_tail_03
-    100054: dragon_tail_04
-    100056: dragon_tail_05
-    100058: dragon
-    100060: dragon_patte_d1
-    100062: pCube1
-    100064: pCube2
-    100066: polySurface1
-    100068: polySurface3
-    100070: polySurface5
-    100072: polySurface6
-    100074: polySurface7
-    100076: polySurface8
-    100078: polySurface9
-    100080: transform1
+    100000: dragon
+    100002: //RootNode
+    100004: dragon_aile_d
+    100006: dragon_aile_d_1
+    100008: dragon_aile_d_2
+    100010: dragon_aile_d_3
+    100012: dragon_aile_d_4
+    100014: dragon_aile_g
+    100016: dragon_aile_g_1
+    100018: dragon_aile_g_2
+    100020: dragon_aile_g_3
+    100022: dragon_aile_g_4
+    100024: dragon_center
+    100026: dragon_corps
+    100028: dragon_jambe_d_1
+    100030: dragon_jambe_d_2
+    100032: dragon_jambe_g_1
+    100034: dragon_jambe_g_2
+    100036: dragon_neck_1
+    100038: dragon_neck_2
+    100040: dragon_patte_d1
+    100042: dragon_tail_01
+    100044: dragon_tail_02
+    100046: dragon_tail_03
+    100048: dragon_tail_04
+    100050: dragon_tail_05
+    100052: dragon_tete
+    100054: pCube1
+    100056: pCube2
+    100058: polySurface1
+    100060: polySurface3
+    100062: polySurface5
+    100064: polySurface6
+    100066: polySurface7
+    100068: polySurface8
+    100070: polySurface9
+    100072: transform1
     400000: //RootNode
-    400002: dragon_aile_d
-    400004: dragon_aile_g
-    400006: dragon_corps
-    400008: dragon_jambe_d
-    400010: dragon_patte_d
-    400012: dragon_patte_g
-    400014: dragon_tete
-    400016: drangon_jambe_g
-    400018: dragon_aile_d_1
-    400020: dragon_aile_d_2
-    400022: dragon_aile_d_3
-    400024: dragon_aile_d_4
-    400026: dragon_aile_g_1
-    400028: dragon_aile_g_2
-    400030: dragon_aile_g_3
-    400032: dragon_aile_g_4
-    400034: dragon_center
-    400036: dragon_jambe_d_1
-    400038: dragon_jambe_d_2
-    400040: dragon_jambe_g_1
-    400042: dragon_jambe_g_2
-    400044: dragon_neck_1
-    400046: dragon_neck_2
-    400048: dragon_tail_01
-    400050: dragon_tail_02
-    400052: dragon_tail_03
-    400054: dragon_tail_04
-    400056: dragon_tail_05
-    400058: dragon
-    400060: dragon_patte_d1
-    400062: pCube1
-    400064: pCube2
-    400066: polySurface1
-    400068: polySurface3
-    400070: polySurface5
-    400072: polySurface6
-    400074: polySurface7
-    400076: polySurface8
-    400078: polySurface9
-    400080: transform1
-    2300000: dragon_aile_d
-    2300002: dragon_aile_g
-    2300004: dragon_corps
-    2300006: dragon_jambe_d
-    2300008: dragon_patte_d
-    2300010: dragon_patte_g
-    2300012: dragon_tete
-    2300014: drangon_jambe_g
-    2300016: polySurface7
-    2300018: polySurface8
-    2300020: polySurface9
-    3300000: dragon_aile_d
-    3300002: dragon_aile_g
-    3300004: dragon_corps
-    3300006: dragon_jambe_d
-    3300008: dragon_patte_d
-    3300010: dragon_patte_g
-    3300012: dragon_tete
-    3300014: drangon_jambe_g
-    3300016: polySurface7
-    3300018: polySurface8
-    3300020: polySurface9
+    400002: dragon
+    400004: dragon_aile_d
+    400006: dragon_aile_d_1
+    400008: dragon_aile_d_2
+    400010: dragon_aile_d_3
+    400012: dragon_aile_d_4
+    400014: dragon_aile_g
+    400016: dragon_aile_g_1
+    400018: dragon_aile_g_2
+    400020: dragon_aile_g_3
+    400022: dragon_aile_g_4
+    400024: dragon_center
+    400026: dragon_corps
+    400028: dragon_jambe_d_1
+    400030: dragon_jambe_d_2
+    400032: dragon_jambe_g_1
+    400034: dragon_jambe_g_2
+    400036: dragon_neck_1
+    400038: dragon_neck_2
+    400040: dragon_patte_d1
+    400042: dragon_tail_01
+    400044: dragon_tail_02
+    400046: dragon_tail_03
+    400048: dragon_tail_04
+    400050: dragon_tail_05
+    400052: dragon_tete
+    400054: pCube1
+    400056: pCube2
+    400058: polySurface1
+    400060: polySurface3
+    400062: polySurface5
+    400064: polySurface6
+    400066: polySurface7
+    400068: polySurface8
+    400070: polySurface9
+    400072: transform1
+    2100000: dragon_corps_mat
+    2100002: dragon_cornes
+    2100004: dragon_yeux_mat
+    2300000: dragon_tete
+    2300002: polySurface7
+    2300004: polySurface8
+    2300006: polySurface9
+    3300000: dragon_tete
+    3300002: polySurface7
+    3300004: polySurface8
+    3300006: polySurface9
     4300000: dragon_corps
-    4300002: dragon_tete
-    4300004: dragon_aile_d
-    4300006: dragon_jambe_d
-    4300008: drangon_jambe_g
-    4300010: dragon_aile_g
-    4300012: dragon_patte_g
-    4300014: dragon_patte_d
-    4300016: polySurface7
-    4300018: polySurface8
-    4300020: polySurface9
-    4300022: polySurface6
-    7400000: dradonmove
+    4300002: dragon_aile_d
+    4300004: dragon_aile_g
+    4300006: polySurface7
+    4300008: polySurface9
+    4300010: polySurface8
+    4300012: dragon_tete
+    4300014: polySurface6
+    7400000: Take 001
     9500000: //RootNode
     13700000: dragon_aile_d
     13700002: dragon_aile_g
     13700004: dragon_corps
     13700006: polySurface6
-    13700008: polySurface8
-    13700010: polySurface9
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: dradonmove
-      takeName: Take 001
-      firstFrame: 1
-      lastFrame: 70
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: dragon_aile_d
-        weight: 1
-      - path: dragon_aile_g
-        weight: 1
-      - path: dragon_center
-        weight: 1
-      - path: dragon_center/dragon_aile_d_1
-        weight: 1
-      - path: dragon_center/dragon_aile_d_1/dragon_aile_d_2
-        weight: 1
-      - path: dragon_center/dragon_aile_d_1/dragon_aile_d_2/dragon_aile_d_3
-        weight: 1
-      - path: dragon_center/dragon_aile_d_1/dragon_aile_d_2/dragon_aile_d_3/dragon_aile_d_4
-        weight: 1
-      - path: dragon_center/dragon_aile_g_1
-        weight: 1
-      - path: dragon_center/dragon_aile_g_1/dragon_aile_g_2
-        weight: 1
-      - path: dragon_center/dragon_aile_g_1/dragon_aile_g_2/dragon_aile_g_3
-        weight: 1
-      - path: dragon_center/dragon_aile_g_1/dragon_aile_g_2/dragon_aile_g_3/dragon_aile_g_4
-        weight: 1
-      - path: dragon_center/dragon_neck_1
-        weight: 1
-      - path: dragon_center/dragon_neck_1/dragon_neck_2
-        weight: 1
-      - path: dragon_center/dragon_neck_1/dragon_neck_2/dragon_tete
-        weight: 1
-      - path: dragon_center/dragon_patte_d
-        weight: 1
-      - path: dragon_center/dragon_patte_g
-        weight: 1
-      - path: dragon_center/dragon_tail_01
-        weight: 1
-      - path: dragon_center/dragon_tail_01/dragon_jambe_d_1
-        weight: 1
-      - path: dragon_center/dragon_tail_01/dragon_jambe_d_1/dragon_jambe_d_2
-        weight: 1
-      - path: dragon_center/dragon_tail_01/dragon_jambe_d_1/dragon_jambe_d_2/dragon_jambe_d
-        weight: 1
-      - path: dragon_center/dragon_tail_01/dragon_jambe_g_1
-        weight: 1
-      - path: dragon_center/dragon_tail_01/dragon_jambe_g_1/dragon_jambe_g_2
-        weight: 1
-      - path: dragon_center/dragon_tail_01/dragon_jambe_g_1/dragon_jambe_g_2/drangon_jambe_g
-        weight: 1
-      - path: dragon_center/dragon_tail_01/dragon_tail_02
-        weight: 1
-      - path: dragon_center/dragon_tail_01/dragon_tail_02/dragon_tail_03
-        weight: 1
-      - path: dragon_center/dragon_tail_01/dragon_tail_02/dragon_tail_03/dragon_tail_04
-        weight: 1
-      - path: dragon_center/dragon_tail_01/dragon_tail_02/dragon_tail_03/dragon_tail_04/dragon_tail_05
-        weight: 1
-      - path: dragon_corps
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    extraUserProperties: []
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 1
     importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -258,9 +158,11 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -271,7 +173,10 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
