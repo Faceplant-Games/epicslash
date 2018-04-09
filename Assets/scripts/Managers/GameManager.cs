@@ -146,6 +146,8 @@ public class GameManager : MonoBehaviour {
             rightController.gameObject.SetActive(true);
             leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
             rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
+            leftController.transform.Rotate(new Vector3(-60f, 5, 10));
+            rightController.transform.Rotate(new Vector3(-20f, 0, 0));
             player.transform.position += new Vector3(0, 1.8f, 0);
         }
     }
