@@ -22,9 +22,9 @@ public class Ennemi3BulletB : MonoBehaviour
 		// At each frame, we cast a ray forward from where we are to where we will be next frame
 		if (Physics.Raycast (transform.position, transform.forward, out hit, distanceThisFrame)) 
 		{
-			if (hit.transform.gameObject.tag == "MainCamera") 
+			if (hit.transform.gameObject.tag == "Player") 
 			{
-                gameManager.LoseExperience(5);
+                gameManager.LoseExperience(5); // TODO : Move it to config file
             }
             Destroy(gameObject);
         } 

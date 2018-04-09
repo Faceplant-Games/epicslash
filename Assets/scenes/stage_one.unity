@@ -64620,6 +64620,7 @@ MonoBehaviour:
     maxAmountMonsters: 0
     stages: []
     profile: 
+    hasController: 0
     muteAudio: 0
 --- !u!114 &1552812141
 MonoBehaviour:

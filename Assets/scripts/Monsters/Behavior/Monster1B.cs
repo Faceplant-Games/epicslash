@@ -66,20 +66,5 @@ public class Monster1B : AbstractMonster
             _groundMovingB.Move(player.transform.position);
         }
     }
-
-    /*
-    void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            GameManager playerM = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-            playerM.LoseExperience(base.malus);
-
-            
-            animator.SetBool("shouldMove", false);
-            GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-            player.LevelDown(base.malus);
-        }
-    }*/
 }
 
