@@ -52,8 +52,6 @@ public class GameManager : MonoBehaviour {
     private GameObject leftWeapon;
     private GameObject rightWeapon;
     private ProgressBar gameInfoHUD;
-    private bool positionated = false;
-    private bool isIntroductionRunning = false;
 
     void Start ()
     {
@@ -140,6 +138,16 @@ public class GameManager : MonoBehaviour {
         }
         gameInfoHUD.currentExperience = level;
         gameInfoHUD.experienceGoal = gameData.stageThresholds[currentStage];
+
+        // Debug
+        if (gameData.profile == "Test" && !gameData.hasController)
+        {
+            leftController.gameObject.SetActive(true);
+            rightController.gameObject.SetActive(true);
+            leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
+            rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
+            player.transform.position += new Vector3(0, 1.8f, 0);
+        }
     }
 
     private void StartGame()
@@ -149,10 +157,8 @@ public class GameManager : MonoBehaviour {
         {
             instructions.SetActive(false);
         }
-        isIntroductionRunning = true;
         GameObject movableMap = GameObject.FindGameObjectWithTag("MovableMap");
         movableMap.GetComponent<PlayableDirector>().Play();
-
     }
 
     private void ManageButtons() // TODO Split into multiple methods
@@ -194,20 +200,10 @@ public class GameManager : MonoBehaviour {
             print("Current monsters amount: " + monsters.Length);
             monsters[0].BeingHit();
         }
-        if (Input.GetKeyDown(KeyCode.P) && !positionated) // Positionate controllers
-        {
-            positionated = true;
-            leftController.gameObject.SetActive(true);
-            rightController.gameObject.SetActive(true);
-            leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
-            rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
-            player.transform.position += new Vector3(0, 1.8f, 0);
-        }
         if (Input.GetKeyDown(KeyCode.H)) // Lose some experience 
         {
             LoseExperience(10);
         }
-
     }
 
     private void InitializeTrack()
@@ -322,6 +318,7 @@ public class GameManager : MonoBehaviour {
         public int maxAmountMonsters;
         public Stage[] stages;
         public String profile;
+        public bool hasController;
         public bool muteAudio;
 
         [System.Serializable]

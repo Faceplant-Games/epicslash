@@ -30,5 +30,6 @@
 		"rightWeapon": "Weapon3"
 	}],
 	"profile": "Test",
+	"hasController": false,
 	"muteAudio": true
 }
