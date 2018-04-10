@@ -65,9 +65,24 @@ public class GameManager : MonoBehaviour {
         ManageButtons();
     }
 
-    public CoinGenerator getCoinGenerator()
+    private void InitializeTrack()
     {
-        return coinGenerator;
+        audioSource.mute = gameData.muteAudio;
+        audioSource.clip = track;
+        if (loopTrack == null)
+        {
+            audioSource.loop = true;
+            audioSource.Play();
+            return;
+        }
+        audioSource.loop = false;
+
+        AudioSource loopAudio = gameObject.AddComponent<AudioSource>();
+        loopAudio.loop = true;
+        loopAudio.clip = loopTrack;
+        audioSource.Play();
+        loopAudio.PlayDelayed(track.length);
+        loopAudio.mute = gameData.muteAudio;
     }
 
     private void InitializeIntroduction()
@@ -145,6 +160,62 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    private void ManageButtons()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) // Start game
+        {
+            StartGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) // Exit or return main menu game
+        {
+            if (Game.started)
+            {
+                Game.InitializeDefaultValues();
+                StartCoroutine(ChangeStage());
+            } else
+            {
+                Application.Quit();
+            }
+        }
+
+        if (gameData.profile == "Test")
+        {
+            ManageCheatCodes();
+        }
+    }
+
+    private void ManageCheatCodes()
+    {
+        if (Input.GetKeyDown(KeyCode.B)) // Hit each monsters once
+        {
+            AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
+
+            print("Current monsters amount: " + monsters.Length);
+            Array.ForEach(monsters, m => m.BeingHit());
+        }
+        if (Input.GetKeyDown(KeyCode.A)) // Hit one monster
+        {
+            AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
+            print("Current monsters amount: " + monsters.Length);
+            if (monsters.Length == 0)
+            {
+                return;
+            }
+            monsters[0].BeingHit();
+        }
+        if (Input.GetKeyDown(KeyCode.H)) // Lose some experience 
+        {
+            LoseExperience(10);
+        }
+        if (Input.GetKeyDown(KeyCode.I)) // Debug Game Info
+        {
+            Debug.Log("Started: " + Game.started);
+            Debug.Log("CurrentStage: " + Game.currentStage);
+            Debug.Log("Level: " + Game.level);
+        }
+    }
+
     private void StartGame()
     {
         if (Game.started)
@@ -160,76 +231,6 @@ public class GameManager : MonoBehaviour {
         GameObject movableMap = GameObject.FindGameObjectWithTag("MovableMap");
         movableMap.GetComponent<PlayableDirector>().Play();
     }
-
-    private void ManageButtons() // TODO Split into multiple methods
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) // Start game
-        {
-            StartGame();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape)) // Exit or return main menu game
-        {
-            if (Game.started)
-            {
-                Game.InitializeDefaultValues();
-                StartCoroutine(ChangeStage());
-
-            } else
-            {
-                Application.Quit();
-            }
-        }
-
-        if (gameData.profile != "Test")
-        {
-            return;
-        }
-        // Cheat Codes
-        if (Input.GetKeyDown(KeyCode.B)) // Hit each monsters once
-        {
-            AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
-
-            print("Current monsters amount: " + monsters.Length);
-            Array.ForEach(monsters, m => m.BeingHit());
-        }
-        if (Input.GetKeyDown(KeyCode.A)) // Hit one monster
-        {
-            AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
-            print("Current monsters amount: " + monsters.Length);
-            monsters[0].BeingHit();
-        }
-        if (Input.GetKeyDown(KeyCode.H)) // Lose some experience 
-        {
-            LoseExperience(10);
-        }
-        if (Input.GetKeyDown(KeyCode.I)) // Debug Game Info
-        {
-            Debug.Log("Started: " + Game.started);
-            Debug.Log("CurrentStage: " + Game.currentStage);
-            Debug.Log("Level: " + Game.level);
-        }
-    }
-
-    private void InitializeTrack()
-    {
-        audioSource.mute = gameData.muteAudio;
-        audioSource.clip = track;
-        if (loopTrack == null)
-        {
-            audioSource.loop = true;
-            audioSource.Play();
-            return;
-        }
-        audioSource.loop = false;
-
-        AudioSource loopAudio = gameObject.AddComponent<AudioSource>();
-        loopAudio.loop = true;
-        loopAudio.clip = loopTrack;
-        audioSource.Play();
-        loopAudio.PlayDelayed(track.length);
-        loopAudio.mute = gameData.muteAudio;
-    }   
 
     public void EarnExperience(int experience)
     {
@@ -312,6 +313,11 @@ public class GameManager : MonoBehaviour {
 
         string dataAsJson = File.ReadAllText(filePath);
         gameData = JsonUtility.FromJson<GameData>(dataAsJson);
+    }
+
+    public CoinGenerator getCoinGenerator()
+    {
+        return coinGenerator;
     }
 
     [System.Serializable]
