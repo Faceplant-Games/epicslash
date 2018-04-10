@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour {
         InitializePlayer();
         InitializeScreen();
         InitializeIntroduction();
+        Game.isTransitioning = false;
         coinGenerator = gameObject.AddComponent<CoinGenerator>();
     }
 
@@ -263,6 +264,10 @@ public class GameManager : MonoBehaviour {
 
     public void LoseExperience(int experience)
     {
+        if (Game.isTransitioning)
+        {
+            return;
+        }
         if (Game.level < experience)
         {
             Game.level = 0;
@@ -300,6 +305,7 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator ChangeStage()
     {
+        Game.isTransitioning = true;
         if (fading != null)
         {
             float fadeTime = fading.BeginFade(1);

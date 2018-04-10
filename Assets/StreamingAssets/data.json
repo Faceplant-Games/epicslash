@@ -19,15 +19,10 @@
 		"leftWeapon": "Weapon3",
 		"rightWeapon": "Weapon3"
 	}, {
-		"name": "ToBeImplemented",
-		"monsters": ["Monster1","Monster2","Monster3", "dragon"],
-		"leftWeapon": "Weapon",
-		"rightWeapon": "Weapon"
-	}, {
-		"name": "World Boss Stage",
-		"monsters": ["MegaBearBot"],
-		"leftWeapon": "Weapon3",
-		"rightWeapon": "Weapon3"
+		"name": "Credits",
+		"monsters": [],
+		"leftWeapon": "Weapon1",
+		"rightWeapon": "Weapon1"
 	}],
 	"profile": "Test",
 	"hasController": false,

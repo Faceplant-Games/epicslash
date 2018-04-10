@@ -40,7 +40,7 @@ public class MonsterManager : MonoBehaviour {
     }
 
     /// <summary>
-    /// Spawn 1 mob at a random spawner
+    /// Spawn a random mob in front of the player (distance and magnitude of spawn are customizable)
     /// </summary>
     void SpawnMob() {
         if (!Game.started) {
@@ -48,7 +48,7 @@ public class MonsterManager : MonoBehaviour {
         }
         
         string prefabName = ChooseRandomMobType();
-        if (prefabName != null && prefabName != "")
+        if (prefabName != "")
         {
             float random = Random.Range(angleMin, angleMax);
             float magnitude = Random.Range(magnitudeMin, magnitudeMax);
@@ -60,6 +60,10 @@ public class MonsterManager : MonoBehaviour {
 
     string ChooseRandomMobType() {
         string[] mobTypes = gm.gameData.stages[Game.currentStage].monsters;
+        if (mobTypes.Length == 0)
+        {
+            return "";
+        }
         int mobIndex = Random.Range(0, mobTypes.Length);
         return mobTypes[mobIndex];
 	}
