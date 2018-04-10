@@ -28,12 +28,9 @@ using UnityEngine.Playables;
 /// <seealso cref="Damage"/>
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
-    private const float LEVEL_DOWN_THRESH_OLD_FACTOR = 0.9f;
-    public int currentStage = 0;
-    public bool started;
+    private const float LEVEL_DOWN_THRESH_OLD_FACTOR = 0.9f; // TODO put it in the config file
     public GameObject instructions;
 
-    long level;
     public AudioClip track;
     public AudioClip loopTrack;
     public AudioClip ups;
@@ -75,12 +72,10 @@ public class GameManager : MonoBehaviour {
 
     private void InitializeIntroduction()
     {
-        if (currentStage != 0)
+        if (Game.currentStage != 0)
         {
-            started = true;
             return;
         }
-        started = false;
         GameObject movableMap = GameObject.FindGameObjectWithTag("MovableMap");
         movableMap.transform.position = new Vector3(0, 300, 0);
     }
@@ -119,8 +114,8 @@ public class GameManager : MonoBehaviour {
         }
 
         Quaternion weaponRotation = Quaternion.Euler(0, 225, 0);
-        leftWeapon = WeaponB.CreateWeapon(gameData.stages[currentStage].leftWeapon, pos, weaponRotation, leftController, audioSource);
-        rightWeapon = WeaponB.CreateWeapon(gameData.stages[currentStage].rightWeapon, pos, weaponRotation, rightController, audioSource);
+        leftWeapon = WeaponB.CreateWeapon(gameData.stages[Game.currentStage].leftWeapon, pos, weaponRotation, leftController, audioSource);
+        rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.currentStage].rightWeapon, pos, weaponRotation, rightController, audioSource);
 
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), pos, rotation);
         gameInfoUI.transform.parent = rightWeapon.transform;
@@ -128,16 +123,8 @@ public class GameManager : MonoBehaviour {
         Quaternion gameInfoUIRotation = Quaternion.Euler(0, 135, 0);
         gameInfoUI.transform.rotation = gameInfoUIRotation;
         gameInfoHUD = gameInfoUI.GetComponentInChildren<ProgressBar>();
-        if (currentStage == 0)
-        {
-            level = 0;
-        }
-        else
-        {
-            level = gameData.stageThresholds[currentStage - 1];
-        }
-        gameInfoHUD.currentExperience = level;
-        gameInfoHUD.experienceGoal = gameData.stageThresholds[currentStage];
+        gameInfoHUD.currentExperience = Game.level;
+        gameInfoHUD.experienceGoal = gameData.stageThresholds[Game.currentStage];
 
         // Debug
         if (gameData.profile == "Test" && !gameData.hasController)
@@ -154,28 +141,32 @@ public class GameManager : MonoBehaviour {
 
     private void StartGame()
     {
-        started = true;
-        if (instructions != null)
+        if (Game.started)
+        {
+            return;
+        }
+        Game.started = true;
+        if (instructions != null) // Hide instructions
         {
             instructions.SetActive(false);
         }
+        // Start introduction timeline
         GameObject movableMap = GameObject.FindGameObjectWithTag("MovableMap");
         movableMap.GetComponent<PlayableDirector>().Play();
     }
 
     private void ManageButtons() // TODO Split into multiple methods
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !started) // Start game
+        if (Input.GetKeyDown(KeyCode.Space)) // Start game
         {
             StartGame();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) // Exit or return main menu game
         {
-            if (started)
+            if (Game.started)
             {
-                started = false;
-                currentStage = 0;
+                Game.InitializeDefaultValues();
                 StartCoroutine(ChangeStage());
 
             } else
@@ -206,6 +197,12 @@ public class GameManager : MonoBehaviour {
         {
             LoseExperience(10);
         }
+        if (Input.GetKeyDown(KeyCode.I)) // Debug Game Info
+        {
+            Debug.Log("Started: " + Game.started);
+            Debug.Log("CurrentStage: " + Game.currentStage);
+            Debug.Log("Level: " + Game.level);
+        }
     }
 
     private void InitializeTrack()
@@ -230,12 +227,12 @@ public class GameManager : MonoBehaviour {
 
     public void EarnExperience(int experience)
     {
-        level += experience;
-        gameInfoHUD.currentExperience = level;
+        Game.level += experience;
+        gameInfoHUD.currentExperience = Game.level;
 
         coinGenerator.SpawnGold(experience, this.gameObject.transform.position, this.gameObject.transform.rotation);
 
-        if (level >= gameData.stageThresholds[currentStage])
+        if (Game.level >= gameData.stageThresholds[Game.currentStage])
         {
             StartCoroutine(StageUp());
         }
@@ -243,22 +240,22 @@ public class GameManager : MonoBehaviour {
 
     public void LoseExperience(int experience)
     {
-        if (level < experience)
+        if (Game.level < experience)
         {
-            level = 0;
+            Game.level = 0;
         } else
         {
-            level -= experience;
+            Game.level -= experience;
         }
         damage.TakeDamage(experience);
-        gameInfoHUD.currentExperience = level;
+        gameInfoHUD.currentExperience = Game.level;
 
-        if (currentStage == 0)
+        if (Game.currentStage == 0)
         {
             return;
         }
 
-        if (level <= gameData.stageThresholds[currentStage-1] * LEVEL_DOWN_THRESH_OLD_FACTOR)
+        if (Game.level <= gameData.stageThresholds[Game.currentStage-1] * LEVEL_DOWN_THRESH_OLD_FACTOR)
         {
             StartCoroutine(StageDown());
         }
@@ -266,14 +263,14 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator StageUp()
     {
-        currentStage++;
+        Game.currentStage++;
         PlayStageUpSound();
         return ChangeStage();
     }
 
     private IEnumerator StageDown()
     {
-        currentStage--;
+        Game.currentStage--;
         PlayStageDownSound();
         return ChangeStage();
     }
@@ -285,7 +282,7 @@ public class GameManager : MonoBehaviour {
             float fadeTime = fading.BeginFade(1);
             yield return new WaitForSeconds(1 + fadeTime);
         }
-        SceneManager.LoadScene(currentStage);
+        SceneManager.LoadScene(Game.currentStage);
     }
 
     public void PlayStageUpSound()

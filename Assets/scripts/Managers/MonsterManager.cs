@@ -43,7 +43,7 @@ public class MonsterManager : MonoBehaviour {
     /// Spawn 1 mob at a random spawner
     /// </summary>
     void SpawnMob() {
-        if (!gm.started) {
+        if (!Game.started) {
             return;
         }
         
@@ -59,7 +59,7 @@ public class MonsterManager : MonoBehaviour {
 
 
     string ChooseRandomMobType() {
-        string[] mobTypes = gm.gameData.stages[gm.currentStage].monsters;
+        string[] mobTypes = gm.gameData.stages[Game.currentStage].monsters;
         int mobIndex = Random.Range(0, mobTypes.Length);
         return mobTypes[mobIndex];
 	}
