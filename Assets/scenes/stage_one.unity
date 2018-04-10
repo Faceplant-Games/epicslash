@@ -33949,9 +33949,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Brace yourself, the evilest big bad guy is coming for us...
+  m_Text: 'Brace yourself, the most evil big bad guy is coming for us...
 
-    You have to earn much much  much XP to be up to the challenge.
+    You have to earn many many many XP to be up to the challenge.
 
     Your XP is written on your right weapon (sorry if you are left-handed).
 
@@ -64605,8 +64605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d130e28c69c999e429f0b8d8d2c94000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStage: 0
-  started: 0
   instructions: {fileID: 1684181233}
   track: {fileID: 8300000, guid: 5560b410a8e91a44f973167ad974b2b1, type: 3}
   loopTrack: {fileID: 0}
