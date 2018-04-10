@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour {
             }
             monsters[0].BeingHit();
         }
-        if (Input.GetKeyDown(KeyCode.H)) // Lose some experience 
+        if (Input.GetKeyDown(KeyCode.Z)) // Lose some experience 
         {
             LoseExperience(10);
         }
@@ -213,6 +213,22 @@ public class GameManager : MonoBehaviour {
             Debug.Log("Started: " + Game.started);
             Debug.Log("CurrentStage: " + Game.currentStage);
             Debug.Log("Level: " + Game.level);
+        }
+        if (Input.GetKey(KeyCode.H))
+        {
+            player.transform.Rotate(new Vector3(0, -1, 0));
+        }
+        if (Input.GetKey(KeyCode.J))
+        {
+            player.transform.Rotate(new Vector3(1, 0, 0));
+        }
+        if (Input.GetKey(KeyCode.K))
+        {
+            player.transform.Rotate(new Vector3(-1, 0, 0));
+        }
+        if (Input.GetKey(KeyCode.L))
+        {
+            player.transform.Rotate(new Vector3(0, 1, 0));
         }
     }
 
