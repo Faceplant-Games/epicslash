@@ -8207,7 +8207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &199497166
 Transform:
   m_ObjectHideFlags: 0
@@ -8215,8 +8215,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199497165}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3367233, y: -66.32403, z: 23.722082}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.1, y: -59.4, z: -5}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 1551213839}
   - {fileID: 1120091466}
@@ -33821,71 +33821,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000012039322040, guid: b7c5cbb7eebb2184e81cd1f2caa3240d,
     type: 2}
   m_PrefabInternal: {fileID: 759274556}
---- !u!1 &760631649
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 760631651}
-  - component: {fileID: 760631650}
-  m_Layer: 0
-  m_Name: Directional light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!108 &760631650
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 760631649}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &760631651
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 760631649}
-  m_LocalRotation: {x: 0.115285665, y: -0.52186507, z: 0.18257502, w: 0.82524693}
-  m_LocalPosition: {x: 72.4, y: -41.321632, z: -39.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 912949103}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 22.35, y: -62.454002, z: 11.015}
 --- !u!1001 &761600391
 Prefab:
   m_ObjectHideFlags: 0
@@ -37532,7 +37467,7 @@ Transform:
   - {fileID: 1918095469}
   - {fileID: 469479073}
   m_Father: {fileID: 912949103}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -72.828, z: 0}
 --- !u!1001 &828337986
 Prefab:
@@ -40152,7 +40087,6 @@ Transform:
   - {fileID: 199497166}
   - {fileID: 1416552038}
   - {fileID: 1883085247}
-  - {fileID: 760631651}
   - {fileID: 826803632}
   - {fileID: 1095657440}
   - {fileID: 1531305888}
@@ -47561,7 +47495,7 @@ Transform:
   - {fileID: 804543246}
   - {fileID: 2124804039}
   m_Father: {fileID: 912949103}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -72.828, z: 0}
 --- !u!1001 &1098313709
 Prefab:
@@ -62857,8 +62791,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1416552037}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8350983, y: -52.366238, z: -3.609169}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.8350983, y: -66.1, z: -3.609169}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1848192694}
   - {fileID: 1212986760}
@@ -68217,7 +68151,7 @@ Transform:
   - {fileID: 828337987}
   - {fileID: 1183688832}
   m_Father: {fileID: 912949103}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -0.003, y: -147.42201, z: 0.016}
 --- !u!1001 &1532849882
 Prefab:
@@ -69220,8 +69154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d130e28c69c999e429f0b8d8d2c94000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStage: 2
-  started: 0
   instructions: {fileID: 0}
   track: {fileID: 8300000, guid: 58d36ba0fce638b48b70411310eb7555, type: 3}
   loopTrack: {fileID: 8300000, guid: 3a70a4f93d029f041940e79daf76a869, type: 3}
@@ -69235,6 +69167,7 @@ MonoBehaviour:
     maxAmountMonsters: 0
     stages: []
     profile: 
+    hasController: 0
     muteAudio: 0
 --- !u!114 &1552812141
 MonoBehaviour:
