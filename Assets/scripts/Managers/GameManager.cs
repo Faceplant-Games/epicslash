@@ -76,8 +76,14 @@ public class GameManager : MonoBehaviour {
         {
             return;
         }
-        GameObject movableMap = GameObject.FindGameObjectWithTag("MovableMap");
-        movableMap.transform.position = new Vector3(0, 300, 0);
+        if (Game.started)
+        {
+            instructions.SetActive(false);
+        }
+        else {
+            GameObject movableMap = GameObject.FindGameObjectWithTag("MovableMap");
+            movableMap.transform.position = new Vector3(0, 300, 0);
+        }
     }
 
     private void InitializeScreen()
