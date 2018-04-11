@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour {
     private GameObject player;
     private Transform leftController;
     private Transform rightController;
-    private GameObject leftWeapon;
     private GameObject rightWeapon;
     private ProgressBar gameInfoHUD;
 
@@ -137,7 +136,7 @@ public class GameManager : MonoBehaviour {
         }
 
         Quaternion weaponRotation = Quaternion.Euler(0, 225, 0);
-        leftWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].leftWeapon, pos, weaponRotation, leftController, audioSource);
+        WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].leftWeapon, pos, weaponRotation, leftController, audioSource);
         rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].rightWeapon, pos, weaponRotation, rightController, audioSource);
 
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), pos, rotation);

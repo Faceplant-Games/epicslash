@@ -11,13 +11,7 @@ public class Monster1B : AbstractMonster
     private GameObject player;
     private Animator animator;
 
-    private float _attackRate = 5f;
-    private float _attackPendingDuration = 2f;
-    private float _attackDistance = 3f;
-    private float _attackTravelDuration = 2f;
-
     private IEnumerator _attackCoroutine;
-    private WaitForEndOfFrame _waitForEndOfFrame = new WaitForEndOfFrame();
 
     // Use this for initialization
     void Start()
