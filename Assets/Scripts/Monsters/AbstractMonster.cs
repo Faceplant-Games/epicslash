@@ -20,7 +20,8 @@ public abstract class AbstractMonster : MonoBehaviour, Monster {
             {
                 player.EarnExperience(experience);
             }
-            DestroyImmediate(this.gameObject);
+            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
 
     }
