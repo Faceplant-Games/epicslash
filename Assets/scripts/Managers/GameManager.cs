@@ -28,7 +28,7 @@ using UnityEngine.Playables;
 /// <seealso cref="Damage"/>
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
-    private const float LEVEL_DOWN_THRESH_OLD_FACTOR = 0.9f; // TODO put it in the config file
+    private const float LEVEL_DOWN_THRESH_OLD_FACTOR = 0.8f; // TODO put it in the config file
     public GameObject instructions;
 
     public AudioClip track;
@@ -53,11 +53,12 @@ public class GameManager : MonoBehaviour {
     void Start ()
     {
         LoadGameData();
+        Game.isTransitioning = false;
+        Game.gameManager = this;
         InitializeTrack();
         InitializePlayer();
         InitializeScreen();
         InitializeIntroduction();
-        Game.isTransitioning = false;
         coinGenerator = gameObject.AddComponent<CoinGenerator>();
     }
 
@@ -361,6 +362,7 @@ public class GameManager : MonoBehaviour {
             public string[] monsters;
             public string leftWeapon;
             public string rightWeapon;
+            public bool isShotEnabled;
         }
     }
 

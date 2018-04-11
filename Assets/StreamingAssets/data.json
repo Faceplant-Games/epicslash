@@ -7,22 +7,26 @@
 		"name": "Miniworld",
 		"monsters": ["Monster1"],
 		"leftWeapon": "Weapon1",
-		"rightWeapon": "Weapon1"
+		"rightWeapon": "Weapon1",
+		"isShotEnabled": false
 	}, {
 		"name": "Forest",
 		"monsters": ["Monster1","Monster2","Monster3"],
 		"leftWeapon": "Weapon2",
-		"rightWeapon": "Weapon2"
+		"rightWeapon": "Weapon2",
+		"isShotEnabled": true
 	}, {
 		"name": "Mountains",
 		"monsters": ["Monster1","Monster2","Monster3", "dragon"],
 		"leftWeapon": "Weapon3",
-		"rightWeapon": "Weapon3"
+		"rightWeapon": "Weapon3",
+		"isShotEnabled": true
 	}, {
 		"name": "Credits",
 		"monsters": [],
 		"leftWeapon": "Weapon1",
-		"rightWeapon": "Weapon1"
+		"rightWeapon": "Weapon1",
+		"isShotEnabled": true
 	}],
 	"profile": "Test",
 	"hasController": false,

@@ -7,6 +7,7 @@ public class Game {
     public static bool started = false;
     public static long level = 0;
     public static bool isTransitioning = false;
+    public static GameManager gameManager;
 
     public static void InitializeDefaultValues()
     {

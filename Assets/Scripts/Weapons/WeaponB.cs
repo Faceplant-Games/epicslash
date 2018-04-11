@@ -48,6 +48,7 @@ public class WeaponB : MonoBehaviour {
     {
         GameObject current = Instantiate<GameObject>(Resources.Load<GameObject>(weapon), pos, rotation);
         current.name = "CurrentWeapon";
+        current.GetComponent<WeaponB>().isShotEnabled = Game.gameManager.gameData.stages[Game.currentStage].isShotEnabled;
         current.transform.parent = controller;
         current.GetComponent<WeaponB>().trackedController = controller.GetComponent<SteamVR_TrackedController>();
         current.GetComponent<WeaponB>().audioSource = audioSource;
