@@ -119,9 +119,7 @@ public class GameManager : MonoBehaviour {
             return;
         }
         print("Initializing player");
-        Vector3 pos = new Vector3(0, 0, 0);
         player = Instantiate<GameObject>(Resources.Load<GameObject>("Player"));
-        player.transform.position = pos;
         player.name = "Player";
         // Get controllers
         foreach (Transform childTransform in player.transform) {
@@ -135,8 +133,8 @@ public class GameManager : MonoBehaviour {
             }
         }
         
-        WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].leftWeapon, pos, leftController, audioSource);
-        rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].rightWeapon, pos, rightController, audioSource);
+        WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].leftWeapon, leftController, audioSource);
+        rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].rightWeapon, rightController, audioSource);
 
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), rightWeapon.transform);
         gameInfoUI.transform.localPosition = new Vector3(0.037f, 0, 0.07f);
