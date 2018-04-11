@@ -59,12 +59,12 @@ public class WeaponB : MonoBehaviour {
 		bullet.transform.Rotate(-180, 0, 0);
 	}
 
-    public static GameObject CreateWeapon(string weapon, Vector3 pos, Quaternion rotation, Transform controller, AudioSource audioSource)
+    public static GameObject CreateWeapon(string weapon, Vector3 pos, Transform controller, AudioSource audioSource)
     {
-        GameObject current = Instantiate<GameObject>(Resources.Load<GameObject>(weapon), pos, rotation);
+
+        GameObject current = Instantiate<GameObject>(Resources.Load<GameObject>(weapon), controller);
         current.name = "CurrentWeapon";
         current.GetComponent<WeaponB>().isShotEnabled = Game.gameManager.gameData.stages[Game.GetCurrentStage()].isShotEnabled;
-        current.transform.parent = controller;
         current.GetComponent<WeaponB>().trackedController = controller.GetComponent<SteamVR_TrackedController>();
         current.GetComponent<WeaponB>().audioSource = audioSource;
         return current;

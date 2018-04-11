@@ -1,5 +1,5 @@
 ﻿{
-	"stageThresholds": [100, 100000, 100000000, 100000000000, 100000000000000],
+	"stageThresholds": [1000, 100000, 100000000, 100000000000, 100000000000000],
 	"numberOfStages": 5,
 	"spawnPeriod": 1,
 	"maxAmountMonsters": 100,

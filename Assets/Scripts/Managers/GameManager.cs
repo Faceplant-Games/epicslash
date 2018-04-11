@@ -134,10 +134,9 @@ public class GameManager : MonoBehaviour {
                     break;
             }
         }
-
-        Quaternion weaponRotation = Quaternion.Euler(0, 225, 0);
-        WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].leftWeapon, pos, weaponRotation, leftController, audioSource);
-        rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].rightWeapon, pos, weaponRotation, rightController, audioSource);
+        
+        WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].leftWeapon, pos, leftController, audioSource);
+        rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].rightWeapon, pos, rightController, audioSource);
 
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), pos, rotation);
         gameInfoUI.transform.parent = rightWeapon.transform;
