@@ -59,7 +59,7 @@ public class MonsterManager : MonoBehaviour {
 
 
     string ChooseRandomMobType() {
-        string[] mobTypes = gm.gameData.stages[Game.currentStage].monsters;
+        string[] mobTypes = gm.gameData.stages[Game.GetCurrentStage()].monsters;
         if (mobTypes.Length == 0)
         {
             return "";

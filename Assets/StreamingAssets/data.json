@@ -22,6 +22,12 @@
 		"rightWeapon": "Weapon3",
 		"isShotEnabled": true
 	}, {
+		"name": "BossFight",
+		"monsters": [],
+		"leftWeapon": "Weapon3",
+		"rightWeapon": "Weapon3",
+		"isShotEnabled": true
+	}, {
 		"name": "Credits",
 		"monsters": [],
 		"leftWeapon": "Weapon1",

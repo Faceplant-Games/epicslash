@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour {
 
     private void InitializeIntroduction()
     {
-        if (Game.currentStage != 0)
+        if (Game.GetCurrentStage() != 0)
         {
             return;
         }
@@ -137,8 +137,8 @@ public class GameManager : MonoBehaviour {
         }
 
         Quaternion weaponRotation = Quaternion.Euler(0, 225, 0);
-        leftWeapon = WeaponB.CreateWeapon(gameData.stages[Game.currentStage].leftWeapon, pos, weaponRotation, leftController, audioSource);
-        rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.currentStage].rightWeapon, pos, weaponRotation, rightController, audioSource);
+        leftWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].leftWeapon, pos, weaponRotation, leftController, audioSource);
+        rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].rightWeapon, pos, weaponRotation, rightController, audioSource);
 
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), pos, rotation);
         gameInfoUI.transform.parent = rightWeapon.transform;
@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour {
         gameInfoUI.transform.rotation = gameInfoUIRotation;
         gameInfoHUD = gameInfoUI.GetComponentInChildren<ProgressBar>();
         gameInfoHUD.currentExperience = Game.level;
-        gameInfoHUD.experienceGoal = gameData.stageThresholds[Game.currentStage];
+        gameInfoHUD.experienceGoal = gameData.stageThresholds[Game.GetCurrentStage()];
 
         // Debug
         if (gameData.profile == "Test" && !gameData.hasController)
@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour {
             if (Game.started)
             {
                 Game.InitializeDefaultValues();
-                StartCoroutine(ChangeStage());
+                StartCoroutine(ChangeStage(0));
             } else
             {
                 Application.Quit();
@@ -213,7 +213,7 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.I)) // Debug Game Info
         {
             Debug.Log("Started: " + Game.started);
-            Debug.Log("CurrentStage: " + Game.currentStage);
+            Debug.Log("CurrentStage: " + Game.GetCurrentStage());
             Debug.Log("Level: " + Game.level);
         }
         if (Input.GetKey(KeyCode.H))
@@ -257,7 +257,7 @@ public class GameManager : MonoBehaviour {
 
         coinGenerator.SpawnGold(experience, this.gameObject.transform.position, this.gameObject.transform.rotation);
 
-        if (Game.level >= gameData.stageThresholds[Game.currentStage])
+        if (Game.level >= gameData.stageThresholds[Game.GetCurrentStage()])
         {
             StartCoroutine(StageUp());
         }
@@ -279,12 +279,12 @@ public class GameManager : MonoBehaviour {
         damage.TakeDamage(experience);
         gameInfoHUD.currentExperience = Game.level;
 
-        if (Game.currentStage == 0)
+        if (Game.GetCurrentStage() == 0)
         {
             return;
         }
 
-        if (Game.level <= gameData.stageThresholds[Game.currentStage-1] * LEVEL_DOWN_THRESH_OLD_FACTOR)
+        if (Game.level <= gameData.stageThresholds[Game.GetCurrentStage() - 1] * LEVEL_DOWN_THRESH_OLD_FACTOR)
         {
             StartCoroutine(StageDown());
         }
@@ -292,19 +292,17 @@ public class GameManager : MonoBehaviour {
 
     private IEnumerator StageUp()
     {
-        Game.currentStage++;
         PlayStageUpSound();
-        return ChangeStage();
+        return ChangeStage(Game.GetCurrentStage()+1);
     }
 
     private IEnumerator StageDown()
     {
-        Game.currentStage--;
         PlayStageDownSound();
-        return ChangeStage();
+        return ChangeStage(Game.GetCurrentStage()-1);
     }
 
-    private IEnumerator ChangeStage()
+    private IEnumerator ChangeStage(int targetStage)
     {
         Game.isTransitioning = true;
         if (fading != null)
@@ -312,7 +310,7 @@ public class GameManager : MonoBehaviour {
             float fadeTime = fading.BeginFade(1);
             yield return new WaitForSeconds(1 + fadeTime);
         }
-        SceneManager.LoadScene(Game.currentStage);
+        SceneManager.LoadScene(targetStage);
     }
 
     public void PlayStageUpSound()
