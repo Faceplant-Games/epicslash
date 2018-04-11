@@ -120,8 +120,8 @@ public class GameManager : MonoBehaviour {
         }
         print("Initializing player");
         Vector3 pos = new Vector3(0, 0, 0);
-        Quaternion rotation = Quaternion.Euler(0, 45, 0);
-        player = Instantiate<GameObject>(Resources.Load<GameObject>("Player"), pos, rotation);
+        player = Instantiate<GameObject>(Resources.Load<GameObject>("Player"));
+        player.transform.position = pos;
         player.name = "Player";
         // Get controllers
         foreach (Transform childTransform in player.transform) {
@@ -138,11 +138,10 @@ public class GameManager : MonoBehaviour {
         WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].leftWeapon, pos, leftController, audioSource);
         rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].rightWeapon, pos, rightController, audioSource);
 
-        GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), pos, rotation);
-        gameInfoUI.transform.parent = rightWeapon.transform;
+        GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), rightWeapon.transform);
         gameInfoUI.transform.localPosition = new Vector3(0.037f, 0, 0.07f);
-        Quaternion gameInfoUIRotation = Quaternion.Euler(0, 135, 0);
-        gameInfoUI.transform.rotation = gameInfoUIRotation;
+        Vector3 gameInfoUIRotation = new Vector3(0, 180, 0);
+        gameInfoUI.transform.Rotate(gameInfoUIRotation);
         gameInfoHUD = gameInfoUI.GetComponentInChildren<ProgressBar>();
         gameInfoHUD.currentExperience = Game.level;
         gameInfoHUD.experienceGoal = gameData.stageThresholds[Game.GetCurrentStage()];
@@ -250,6 +249,11 @@ public class GameManager : MonoBehaviour {
 
     public void EarnExperience(int experience)
     {
+        if (Game.isTransitioning)
+        {
+            return;
+        }
+
         Game.level += experience;
         gameInfoHUD.currentExperience = Game.level;
 
