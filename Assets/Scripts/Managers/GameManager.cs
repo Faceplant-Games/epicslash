@@ -147,12 +147,12 @@ public class GameManager : MonoBehaviour {
         gameInfoHUD = gameInfoUI.GetComponentInChildren<ProgressBar>();
         gameInfoHUD.currentExperience = Game.level;
         gameInfoHUD.experienceGoal = gameData.stageThresholds[Game.GetCurrentStage()];
+        leftController.gameObject.SetActive(true);
+        rightController.gameObject.SetActive(true);
 
         // Debug
         if (gameData.profile == "Test" && !gameData.hasController)
         {
-            leftController.gameObject.SetActive(true);
-            rightController.gameObject.SetActive(true);
             leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
             rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
             leftController.transform.Rotate(new Vector3(-60f, 5, 10));
