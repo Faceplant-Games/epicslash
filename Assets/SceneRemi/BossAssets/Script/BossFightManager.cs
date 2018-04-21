@@ -74,6 +74,11 @@ public class BossFightManager : MonoBehaviour
         {
             StartCoroutine(BossPhase2());
         }
+        if (Input.GetKey(KeyCode.E))
+        {
+            StartCoroutine(BossPhase3());
+        }
+
         if (Input.GetKey(KeyCode.B))
         {
             EndGame();

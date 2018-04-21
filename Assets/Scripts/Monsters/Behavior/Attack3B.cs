@@ -7,7 +7,6 @@ using System.Collections;
 public class Attack3B : MonoBehaviour 
 {
 	public GameObject BulletPrefab;
-    public GameObject FireMobile;
 	public Transform FireInitialPos;
 
 	public void Attack(GameObject target)
@@ -18,10 +17,7 @@ public class Attack3B : MonoBehaviour
 	private void FireBullet(GameObject target)
 	{
 		GameObject bullet = Instantiate<GameObject>(BulletPrefab);
-        GameObject fire = Instantiate<GameObject>(FireMobile);
 		bullet.transform.position = FireInitialPos.position + new Vector3(0, 2.8f, 0);
-        fire.transform.position = Vector3.zero;
-        fire.transform.SetParent(bullet.transform, false);
 		bullet.transform.LookAt(target.transform.position);
 	}
 }

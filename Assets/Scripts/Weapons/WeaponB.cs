@@ -3,7 +3,6 @@ using System.Collections;
 
 public class WeaponB : MonoBehaviour {
 	public BulletB bulletPrefab;
-    public GameObject fireMobile;
 	public Transform barrelEndTransform;
     public SteamVR_TrackedController trackedController;
 
@@ -51,9 +50,6 @@ public class WeaponB : MonoBehaviour {
         Debug.Log("Player Shot fired");
         StartCoroutine(LongVibration(0.85f, 3000));
         BulletB bullet = Instantiate (bulletPrefab) as BulletB;
-        GameObject fire = Instantiate(fireMobile);
-        fire.transform.position = Vector3.zero;
-        fire.transform.SetParent(bullet.transform, false);
 		bullet.transform.rotation = barrelEndTransform.rotation;
 		bullet.transform.position = barrelEndTransform.position;
 		bullet.transform.Rotate(-180, 0, 0);
