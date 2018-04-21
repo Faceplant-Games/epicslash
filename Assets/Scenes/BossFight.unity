@@ -171,12 +171,12 @@ MonoBehaviour:
     type: 2}
   Unleash: 0
   Explosions:
-  - {fileID: 8300000, guid: 870e64b4f5ad0e74eb6acdd4513a4232, type: 3}
-  - {fileID: 8300000, guid: 7b746b4b4362407428a261152ac342a2, type: 3}
-  - {fileID: 8300000, guid: 041517b5ce5eca343b218f8656aa1556, type: 3}
-  - {fileID: 8300000, guid: 2935806adc91b17428fb6a530f8647ca, type: 3}
-  - {fileID: 8300000, guid: 4638b003a4da867488100be4dd134b1b, type: 3}
-  - {fileID: 8300000, guid: 914893e92ab3e88458ab3bba9716abb1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &167930668 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000010958568150, guid: 2b622dcbab6853048b08943be4a6d8c1,

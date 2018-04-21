@@ -47,7 +47,6 @@ public class WeaponB : MonoBehaviour {
 	{
         if (!isShotEnabled)
             return;
-        Debug.Log("Player Shot fired");
         StartCoroutine(LongVibration(0.85f, 3000));
         BulletB bullet = Instantiate (bulletPrefab) as BulletB;
 		bullet.transform.rotation = barrelEndTransform.rotation;

@@ -32,7 +32,7 @@ public class MonsterManager : MonoBehaviour {
     }
 
     void Update () {
-        if (Time.frameCount%spawnPeriodByFrame == 0) { // Framerate
+        if (spawnPeriodByFrame != 0 && Time.frameCount%spawnPeriodByFrame == 0) { // Framerate
             if (GameObject.FindObjectsOfType(typeof(AbstractMonster)).Length < gm.gameData.maxAmountMonsters) { // Max amount of monsters
                 SpawnMob();
             }
