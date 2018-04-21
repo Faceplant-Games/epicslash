@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour {
 
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), rightWeapon.transform);
         gameInfoUI.transform.localPosition = new Vector3(0.037f, 0, 0.07f);
-        Vector3 gameInfoUIRotation = new Vector3(0, 180, 0);
+        Vector3 gameInfoUIRotation = new Vector3(0, 180, 90);
         gameInfoUI.transform.Rotate(gameInfoUIRotation);
         gameInfoHUD = gameInfoUI.GetComponentInChildren<ProgressBar>();
         gameInfoHUD.currentExperience = Game.level;
