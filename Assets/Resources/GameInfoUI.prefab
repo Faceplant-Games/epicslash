@@ -275,7 +275,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: NaN
   m_FillClockwise: 1
   m_FillOrigin: 2
 --- !u!114 &114664153876070196
@@ -289,8 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d3aa6d121907947af26d37c8877f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoadingBar: {fileID: 224788261061724528}
-  TextIndicator: {fileID: 224053776080132636}
+  loadingBar: {fileID: 224788261061724528}
+  textIndicator: {fileID: 224053776080132636}
   currentExperience: 0
   experienceGoal: 0
 --- !u!114 &114745427603057006
@@ -352,7 +352,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0 XP
+  m_Text: 
 --- !u!222 &222639115798565458
 CanvasRenderer:
   m_ObjectHideFlags: 1

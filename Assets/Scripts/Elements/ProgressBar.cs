@@ -4,20 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour {
-    public Transform LoadingBar;
-    public Transform TextIndicator;
+    public Transform loadingBar;
+    public Transform textIndicator;
     [SerializeField] public long currentExperience;
     [SerializeField] public long experienceGoal;
 
+    private string experienceNameString = "";
+
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        TextIndicator.GetComponent<Text>().text = HumanizeXPAmount() + " XP";
-        LoadingBar.GetComponent<Image>().fillAmount = (float)currentExperience / (float)experienceGoal;
+        textIndicator.GetComponent<Text>().text = HumanizeXPAmount() + experienceNameString;
+        loadingBar.GetComponent<Image>().fillAmount = (float)currentExperience / (float)experienceGoal;
 	}
 
     private string HumanizeXPAmount() // TODO Smooth it
