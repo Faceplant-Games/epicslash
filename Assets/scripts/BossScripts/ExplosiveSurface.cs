@@ -12,8 +12,10 @@ public class ExplosiveSurface : MonoBehaviour
 	{
 		if (ExplosionEnabled)
 		{
-			//GameObject FX = Instantiate(ExplosionFX, position, Quaternion.identity) as GameObject;
-			HP --;
+            GameObject FX = Instantiate<GameObject>(ExplosionFX);
+            FX.transform.position = position;
+            
+            HP--;
 			if (HP < 0)
 			{
 				ExplosionEnabled = false;
