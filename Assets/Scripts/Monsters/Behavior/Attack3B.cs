@@ -17,7 +17,7 @@ public class Attack3B : MonoBehaviour
 	private void FireBullet(GameObject target)
 	{
 		GameObject bullet = Instantiate<GameObject>(BulletPrefab);
-		bullet.transform.position = FireInitialPos.position + new Vector3(0, 2.8f, 0);
+		bullet.transform.position = FireInitialPos.position;
 		bullet.transform.LookAt(target.transform.position);
 	}
 }
