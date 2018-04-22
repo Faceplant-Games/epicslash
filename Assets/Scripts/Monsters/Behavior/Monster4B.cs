@@ -9,7 +9,7 @@ using System.Collections;
 public class Monster4B : AbstractMonster
 {
     private GameObject player;
-    public float AttackRange = 2;
+    public float AttackRange = 10;
     private FlyingMovingB _flyingMovingB;
     private Attack3B _attack3B;
     public float RateOfFire = 4;
