@@ -20,7 +20,7 @@ public class Monster1B : AbstractMonster
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("MainCamera");
         base.hp = 1;
-        base.experience = 100;
+        base.experience = 30;
         base.malus = 1;
     }
 

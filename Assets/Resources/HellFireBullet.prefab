@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135000013543747148}
   - component: {fileID: 23000010021763908}
   - component: {fileID: 114000013561160106}
-  - component: {fileID: 114841373727834606}
+  - component: {fileID: 114105541471381038}
   m_Layer: 0
   m_Name: HellFireBullet
   m_TagString: Untagged
@@ -189,7 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b29d778f400e67449b2246150e5ffbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114841373727834606
+  speed: 0
+--- !u!114 &114105541471381038
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -197,10 +198,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013249785250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ed93d3ad1fb23b4690b934b47619bd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b29d778f400e67449b2246150e5ffbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0
 --- !u!135 &135000013543747148
 SphereCollider:
   m_ObjectHideFlags: 1

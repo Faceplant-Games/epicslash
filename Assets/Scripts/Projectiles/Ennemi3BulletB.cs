@@ -6,7 +6,8 @@ public class Ennemi3BulletB : MonoBehaviour
 
 	private float timer = 0;
 	private float lifeTime = 60;
-	public float speed = 2;
+	public float speed = 2f;
+    public int damage = 5;
     private GameManager gameManager;
 
 	// Use this for initialization
@@ -24,7 +25,7 @@ public class Ennemi3BulletB : MonoBehaviour
 		{
 			if (hit.transform.gameObject.tag == "MainCamera") 
 			{
-                gameManager.LoseExperience(5); // TODO : Move it to config file
+                gameManager.LoseExperience(damage); // TODO : Move it to config file
             }
             Destroy(gameObject);
         } 

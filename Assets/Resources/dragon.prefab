@@ -1411,6 +1411,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 1000012706065184, guid: 5e14384dca007294a8b96ca0f6a8a48e,
     type: 2}
   FireInitialPos: {fileID: 4490311851229098}
+  damage: 1000
 --- !u!136 &136017609777998628
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -21,8 +21,8 @@ public class Monster3B : AbstractMonster
 		player = Camera.main.gameObject;
 		_flyingMovingB = GetComponent<FlyingMovingB>();
 		_attack3B = GetComponent<Attack3B>();
-        base.hp= 3;
-        base.experience = 20000;
+        base.hp = 5;
+        base.experience = 2500;
         base.malus = 0;
 	}
 

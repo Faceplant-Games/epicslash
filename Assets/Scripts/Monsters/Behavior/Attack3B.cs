@@ -8,6 +8,7 @@ public class Attack3B : MonoBehaviour
 {
 	public GameObject BulletPrefab;
 	public Transform FireInitialPos;
+    public int damage = 5;
 
 	public void Attack(GameObject target)
 	{
@@ -19,5 +20,6 @@ public class Attack3B : MonoBehaviour
 		GameObject bullet = Instantiate<GameObject>(BulletPrefab);
 		bullet.transform.position = FireInitialPos.position;
 		bullet.transform.LookAt(target.transform.position);
+        bullet.GetComponent<Ennemi3BulletB>().damage = damage;
 	}
 }

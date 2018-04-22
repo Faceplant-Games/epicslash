@@ -1,7 +1,7 @@
 ﻿{
-	"stageThresholds": [1000, 100000, 100000000, 100000000000, 100000000000000],
+	"stageThresholds": [1000, 50000, 250000, 100000000000, 100000000000000],
 	"numberOfStages": 5,
-	"spawnPeriod": 1,
+	"spawnPeriod": 0.5,
 	"maxAmountMonsters": 100,
 	"stages": [{
 		"name": "Miniworld",
@@ -35,6 +35,6 @@
 		"isShotEnabled": true
 	}],
 	"profile": "Test",
-	"hasController": false,
+	"hasController": true,
 	"muteAudio": false
 }

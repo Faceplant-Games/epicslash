@@ -20,15 +20,15 @@ public class Monster2B : AbstractMonster
 	public Monster2State myState;
 
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
 		_groundMovingB = GetComponent<GroundMovingB>();
 		EscapePosition = transform.position;
 		myState = Monster2State.LookingForGold;
 		animator = this.GetComponentInChildren<Animator>();
         base.hp = 2;
-        base.experience = 1;
-        base.malus = 100;
+        base.experience = 600;
+        base.malus = 15;
 	}
 
 	private GameObject NearestGoldBag()
