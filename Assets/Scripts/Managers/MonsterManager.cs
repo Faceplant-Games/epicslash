@@ -53,7 +53,10 @@ public class MonsterManager : MonoBehaviour {
             float random = Random.Range(angleMin, angleMax);
             float magnitude = Random.Range(magnitudeMin, magnitudeMax);
             Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * random) * magnitude, 0, Mathf.Sin(Mathf.Deg2Rad * random) * magnitude);
-            Instantiate(Resources.Load(prefabName), pos, this.gameObject.transform.rotation);
+            GameObject monster = Instantiate(Resources.Load<GameObject>(prefabName));
+            monster.transform.position += pos;
+            //this.gameObject.transform.rotation
+
         }
 	}
 
