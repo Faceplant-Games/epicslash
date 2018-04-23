@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4980303978093074}
   - component: {fileID: 114264254451232426}
   - component: {fileID: 114725607368383194}
+  - component: {fileID: 114373851364687044}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: RightController
@@ -55,6 +56,7 @@ GameObject:
   - component: {fileID: 4565308398416282}
   - component: {fileID: 114745147249024776}
   - component: {fileID: 114488483216850080}
+  - component: {fileID: 114505172663355324}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: LeftController
@@ -381,6 +383,24 @@ MonoBehaviour:
   right: {fileID: 1006424193760034}
   objects: []
   assignAllBeforeIdentified: 0
+--- !u!114 &114373851364687044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1006424193760034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81bfa45e8caeb43469e3fee6d2c0d6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 1
+  triggerPressed: 0
+  steamPressed: 0
+  menuPressed: 0
+  padPressed: 0
+  padTouched: 0
+  gripped: 0
 --- !u!114 &114488483216850080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,6 +413,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerIndex: 1
+  triggerPressed: 0
+  steamPressed: 0
+  menuPressed: 0
+  padPressed: 0
+  padTouched: 0
+  gripped: 0
+--- !u!114 &114505172663355324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1302538823602262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81bfa45e8caeb43469e3fee6d2c0d6c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 0
   triggerPressed: 0
   steamPressed: 0
   menuPressed: 0
