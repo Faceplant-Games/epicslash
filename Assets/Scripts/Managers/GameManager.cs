@@ -352,7 +352,6 @@ public class GameManager : MonoBehaviour {
     {
         public long[] stageThresholds;
         public int numberOfStages;
-        public float spawnPeriod;
         public int maxAmountMonsters;
         public Stage[] stages;
         public String profile;
@@ -363,11 +362,17 @@ public class GameManager : MonoBehaviour {
         public class Stage
         {
             public string name;
-            public string[] monsters;
+            public MonsterData[] monsters;
             public string leftWeapon;
             public string rightWeapon;
             public bool isShotEnabled;
+
+            [System.Serializable]
+            public class MonsterData
+            {
+                public string name;
+                public float spawnPeriod;
+            }
         }
     }
-
 }

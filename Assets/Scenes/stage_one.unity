@@ -64613,7 +64613,6 @@ MonoBehaviour:
   gameData:
     stageThresholds: 
     numberOfStages: 0
-    spawnPeriod: 0
     maxAmountMonsters: 0
     stages: []
     profile: 
