@@ -136,6 +136,12 @@ public class GameManager : MonoBehaviour {
         WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].leftWeapon, leftController, audioSource);
         rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].rightWeapon, rightController, audioSource);
 
+
+        // Debug
+        if (gameData.profile == "Test" && Game.GetCurrentStage() != 0 && Game.level == 0)
+        {
+            Game.level = gameData.stageThresholds[Game.GetCurrentStage()-1];
+        }
         GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), rightWeapon.transform);
         gameInfoUI.transform.localPosition = new Vector3(0.037f, 0, 0.07f);
         Vector3 gameInfoUIRotation = new Vector3(0, 180, 90);

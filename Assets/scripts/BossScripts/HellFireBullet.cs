@@ -6,7 +6,7 @@ public class HellFireBullet : MonoBehaviour
 
     private float timer = 0;
     private float lifeTime = 60;
-    public float speed = 2;
+    public float speed = 2f;
     private GameManager gameManager;
 
     // Use this for initialization
