@@ -28,7 +28,6 @@ using UnityEngine.Playables;
 /// <seealso cref="Damage"/>
 /// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
-    private const float LEVEL_DOWN_THRESH_OLD_FACTOR = 0.8f; // TODO put it in the config file
     public GameObject instructions;
 
     public AudioClip track;
@@ -290,7 +289,7 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
-        if (Game.level <= gameData.stageThresholds[Game.GetCurrentStage() - 1] * LEVEL_DOWN_THRESH_OLD_FACTOR)
+        if (Game.level <= gameData.stageThresholds[Game.GetCurrentStage() - 1] * gameData.levelDownThresholdFactor)
         {
             StartCoroutine(StageDown());
         }
@@ -351,6 +350,7 @@ public class GameManager : MonoBehaviour {
     public class GameData
     {
         public long[] stageThresholds;
+        public float levelDownThresholdFactor;
         public int numberOfStages;
         public int maxAmountMonsters;
         public Stage[] stages;

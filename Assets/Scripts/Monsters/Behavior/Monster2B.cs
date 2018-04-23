@@ -27,7 +27,7 @@ public class Monster2B : AbstractMonster
 		myState = Monster2State.LookingForGold;
 		animator = this.GetComponentInChildren<Animator>();
         base.hp = 2;
-        base.experience = 600;
+        base.experience = 612;
         base.malus = 15;
 	}
 

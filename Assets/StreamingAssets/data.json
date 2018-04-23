@@ -1,23 +1,47 @@
 ﻿{
 	"stageThresholds": [1000, 50000, 250000, 100000000000, 100000000000000],
+	"levelDownThresholdFactor": 0.8
 	"numberOfStages": 5,
-	"spawnPeriod": 0.5,
 	"maxAmountMonsters": 100,
 	"stages": [{
 		"name": "Miniworld",
-		"monsters": ["Monster1"],
+		"monsters": [{
+			"name": "Monster1",
+			"spawnPeriod": 0.5
+		}],
 		"leftWeapon": "Weapon1",
 		"rightWeapon": "Weapon1",
 		"isShotEnabled": false
 	}, {
 		"name": "Forest",
-		"monsters": ["Monster1","Monster2","Monster3"],
+		"monsters": [{ 
+		"name": "Monster1",
+		"spawnPeriod": 0.625
+		},{ 
+		"name": "Monster2",
+		"spawnPeriod": 1.875
+		},{ 
+		"name": "Monster3",
+		"spawnPeriod": 3
+		}],
 		"leftWeapon": "Weapon2",
 		"rightWeapon": "Weapon2",
 		"isShotEnabled": true
 	}, {
 		"name": "Mountains",
-		"monsters": ["Monster1","Monster2","Monster3", "dragon"],
+		"monsters": [{ 
+		"name": "Monster1",
+		"spawnPeriod": 0.8
+		},{ 
+		"name": "Monster2",
+		"spawnPeriod": 1
+		},{ 
+		"name": "Monster3",
+		"spawnPeriod": 1
+		},{ 
+		"name": "Dragon",
+		"spawnPeriod": 4
+		}],
 		"leftWeapon": "Weapon3",
 		"rightWeapon": "Weapon3",
 		"isShotEnabled": true
@@ -35,6 +59,6 @@
 		"isShotEnabled": true
 	}],
 	"profile": "Test",
-	"hasController": true,
+	"hasController": false,
 	"muteAudio": false
 }

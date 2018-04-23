@@ -22,7 +22,7 @@ public class Monster3B : AbstractMonster
 		_flyingMovingB = GetComponent<FlyingMovingB>();
 		_attack3B = GetComponent<Attack3B>();
         base.hp = 5;
-        base.experience = 2500;
+        base.experience = 2539;
         base.malus = 0;
 	}
 

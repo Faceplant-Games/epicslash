@@ -10,7 +10,7 @@ public class GoldBag : MonoBehaviour
 	private float timeEllapsed = 0;
 
 	void Start() {
-        gameManager = GameObject.FindObjectsOfType(typeof(GameManager))[0] as GameManager;
+        gameManager = Game.gameManager;
     }
 
     void FixedUpdate() {
