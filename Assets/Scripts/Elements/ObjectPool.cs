@@ -12,7 +12,7 @@ public class ObjectPool : MonoBehaviour
         pooledStuff = new List<GameObject>();
         for (int i = 0; i < size; i++)
         {
-            GameObject obj = (GameObject)Instantiate(prefabGen);
+            GameObject obj = Instantiate<GameObject>(prefabGen);
             obj.SetActive(false);
             pooledStuff.Add(obj);
         }
@@ -26,7 +26,7 @@ public class ObjectPool : MonoBehaviour
             pooledStuff.RemoveAt(0);
             return obj;
         }
-        return (GameObject)Instantiate(prefabGen); 
+        return Instantiate<GameObject>(prefabGen); 
     }
 
     public void DestroyObjectPool(GameObject obj)
