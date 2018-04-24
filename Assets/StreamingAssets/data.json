@@ -1,6 +1,6 @@
 ﻿{
 	"stageThresholds": [1000, 50000, 250000, 100000000000, 100000000000000],
-	"levelDownThresholdFactor": 0.8
+	"levelDownThresholdFactor": 0.8,
 	"numberOfStages": 5,
 	"maxAmountMonsters": 100,
 	"stages": [{
