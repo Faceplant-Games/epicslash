@@ -15,18 +15,22 @@ public class ObjectPool : MonoBehaviour
             GameObject obj = Instantiate<GameObject>(prefabGen);
             obj.SetActive(false);
             pooledStuff.Add(obj);
+            obj.transform.SetParent(gameObject.transform);
         }
     }
 
     public GameObject GetObject()
     {
+        GameObject obj;
         if (pooledStuff.Count > 0)
         {
-            GameObject obj = pooledStuff[0];
+            obj = pooledStuff[0];
             pooledStuff.RemoveAt(0);
             return obj;
         }
-        return Instantiate<GameObject>(prefabGen); 
+        obj = Instantiate<GameObject>(prefabGen);
+        obj.transform.SetParent(gameObject.transform);
+        return obj; 
     }
 
     public void DestroyObjectPool(GameObject obj)

@@ -2,11 +2,10 @@
 using System.Collections;
 
 /**
- * Bearbot / dragon 
+ * Bearbot and Dragon attack
  */
 public class Attack3B : MonoBehaviour 
 {
-	public GameObject BulletPrefab;
 	public Transform FireInitialPos;
     public int damage = 5;
 
@@ -17,9 +16,10 @@ public class Attack3B : MonoBehaviour
 
 	private void FireBullet(GameObject target)
 	{
-		GameObject bullet = Instantiate<GameObject>(BulletPrefab);
+		GameObject bullet = Game.gameManager.GetBulletGenerator().PoolEnemyBullet.GetObject();
 		bullet.transform.position = FireInitialPos.position;
 		bullet.transform.LookAt(target.transform.position);
         bullet.GetComponent<Ennemi3BulletB>().damage = damage;
+        bullet.SetActive(true);
 	}
 }

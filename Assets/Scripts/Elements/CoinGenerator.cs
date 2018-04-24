@@ -18,9 +18,9 @@ public class CoinGenerator : MonoBehaviour
         PoolSmallCoin = gameObject.AddComponent<ObjectPool>();
         PoolBiggerCoin = gameObject.AddComponent<ObjectPool>();
         PoolBigCoin = gameObject.AddComponent<ObjectPool>();
-        PoolSmallCoin.Initialize(20, (GameObject)Resources.Load<GameObject>(SMALLCOIN));
-        PoolBiggerCoin.Initialize(20, (GameObject)Resources.Load<GameObject>(BIGGERCOIN));
-        PoolBigCoin.Initialize(20, (GameObject)Resources.Load<GameObject>(BIGCOIN));
+        PoolSmallCoin.Initialize(20, Resources.Load<GameObject>(SMALLCOIN));
+        PoolBiggerCoin.Initialize(20, Resources.Load<GameObject>(BIGGERCOIN));
+        PoolBigCoin.Initialize(20, Resources.Load<GameObject>(BIGCOIN));
     }
 
 

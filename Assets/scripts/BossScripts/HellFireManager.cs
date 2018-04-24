@@ -46,8 +46,11 @@ public class HellFireManager : MonoBehaviour
 		}
 		for (int i = 1; i < SpawnPoints.Length; i++)
 		{
-			GameObject bullet =  Instantiate(HellFireBulletPrefab, SpawnPoints[i].position, Quaternion.identity) as GameObject;
-			bullet.transform.LookAt(Camera.main.transform.position);
+//			GameObject bullet =  Instantiate(HellFireBulletPrefab, SpawnPoints[i].position, Quaternion.identity) as GameObject;
+            GameObject bullet = Game.gameManager.GetBulletGenerator().PoolHellFireBullet.GetObject();
+            bullet.transform.position = SpawnPoints[i].position;
+            bullet.transform.LookAt(Camera.main.transform.position);
+            bullet.SetActive(true);
 			yield return new WaitForSeconds(RateOfSpawn);
 		}
 		foreach (ExplosiveWings i in Wings)

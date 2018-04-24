@@ -14,7 +14,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(GameManager))]
 public class MonsterManager : MonoBehaviour {
-	private GameManager gm;
     private int[] spawnPeriodsByFrame;
     [Range(-360, 360)]
     public int angleMin;
@@ -25,13 +24,13 @@ public class MonsterManager : MonoBehaviour {
     [Range(0, 150)]
     public int magnitudeMax;
 
-    void Start () {
-        gm = Game.gameManager;
-        InitializeSpawnPeriodByFrame();
-    }
-
     void Update () {
-        if (GameObject.FindObjectsOfType(typeof(AbstractMonster)).Length < gm.gameData.maxAmountMonsters) // Max amount of monsters
+        if (spawnPeriodsByFrame == null)
+        {
+            InitializeSpawnPeriodByFrame();
+        }
+
+        if (GameObject.FindObjectsOfType(typeof(AbstractMonster)).Length < Game.gameManager.gameData.maxAmountMonsters) // Max amount of monsters
         { 
             for (int i = 0; i < GetCurrentStageMonsters().Length; i++)
             {
@@ -45,8 +44,8 @@ public class MonsterManager : MonoBehaviour {
 
     private void InitializeSpawnPeriodByFrame()
     {
-        spawnPeriodsByFrame = new int[gm.gameData.stages[Game.GetCurrentStage()].monsters.Length];
-        for (int i = 0; i < gm.gameData.stages[Game.GetCurrentStage()].monsters.Length; i++)
+        spawnPeriodsByFrame = new int[Game.gameManager.gameData.stages[Game.GetCurrentStage()].monsters.Length];
+        for (int i = 0; i < Game.gameManager.gameData.stages[Game.GetCurrentStage()].monsters.Length; i++)
         {
             spawnPeriodsByFrame[i] = ConvertToFramePeriod(GetCurrentStageMonsters()[i].spawnPeriod);
         }
@@ -59,7 +58,7 @@ public class MonsterManager : MonoBehaviour {
 
     private GameManager.GameData.Stage.MonsterData[] GetCurrentStageMonsters()
     {
-        return gm.gameData.stages[Game.GetCurrentStage()].monsters;
+        return Game.gameManager.gameData.stages[Game.GetCurrentStage()].monsters;
     }
 
     /// <summary>

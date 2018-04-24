@@ -3,17 +3,9 @@ using System.Collections;
 
 public class HellFireBullet : MonoBehaviour 
 {
-
     private float timer = 0;
     private float lifeTime = 60;
     public float speed = 2f;
-    private GameManager gameManager;
-
-    // Use this for initialization
-    void Start()
-    {
-        gameManager = GameObject.FindObjectOfType<GameManager>(); // TODO Optimize this
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -26,9 +18,10 @@ public class HellFireBullet : MonoBehaviour
         {
             if (hit.transform.gameObject.tag == "MainCamera")
             {
-                gameManager.LoseExperience(5000); // TODO : Move it to config file
+                Game.gameManager.LoseExperience(5000);
             }
-            Destroy(gameObject);
+            DestroyBullet();
+            return;
         }
         else
         {
@@ -38,7 +31,13 @@ public class HellFireBullet : MonoBehaviour
         timer += Time.fixedDeltaTime;
         if (timer > lifeTime)
         {
-            Destroy(gameObject);
+            DestroyBullet();
+            return;
         }
+    }
+
+    void DestroyBullet()
+    {
+        Game.gameManager.GetBulletGenerator().PoolHellFireBullet.DestroyObjectPool(gameObject);
     }
 }

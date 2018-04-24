@@ -3,17 +3,10 @@ using System.Collections;
 
 public class Ennemi3BulletB : MonoBehaviour 
 {
-
 	private float timer = 0;
 	private float lifeTime = 60;
 	public float speed = 2f;
     public int damage = 5;
-    private GameManager gameManager;
-
-	// Use this for initialization
-	void Start () {
-        gameManager = GameObject.FindObjectOfType<GameManager>(); // TODO Optimize this
-    }
 
     // Update is called once per frame
     void FixedUpdate () {
@@ -25,9 +18,10 @@ public class Ennemi3BulletB : MonoBehaviour
 		{
 			if (hit.transform.gameObject.tag == "MainCamera") 
 			{
-                gameManager.LoseExperience(damage); // TODO : Move it to config file
+                Game.gameManager.LoseExperience(damage);
             }
-            Destroy(gameObject);
+            DestroyBullet();
+            return;
         } 
 		else 
 		{
@@ -36,7 +30,13 @@ public class Ennemi3BulletB : MonoBehaviour
 
 		timer += Time.fixedDeltaTime;
 		if (timer > lifeTime) {
-			Destroy(gameObject);
+            DestroyBullet();
+            return;
 		}
 	}
+
+    void DestroyBullet()
+    {
+        Game.gameManager.GetBulletGenerator().PoolEnemyBullet.DestroyObjectPool(gameObject);
+    }
 }

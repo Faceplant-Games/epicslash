@@ -23,14 +23,14 @@ public class GoldBag : MonoBehaviour
             switch (gameObject.tag)
             {
                 case CoinGenerator.SMALLCOIN:
-                    pool = gameManager.getCoinGenerator().PoolSmallCoin;
+                    pool = gameManager.GetCoinGenerator().PoolSmallCoin;
                     break;
                 case CoinGenerator.BIGGERCOIN:
-                    pool = gameManager.getCoinGenerator().PoolBiggerCoin;
+                    pool = gameManager.GetCoinGenerator().PoolBiggerCoin;
                     break;
 
                 case CoinGenerator.BIGCOIN:
-                    pool = gameManager.getCoinGenerator().PoolBigCoin;
+                    pool = gameManager.GetCoinGenerator().PoolBigCoin;
                     break;
             }
             if (pool != null)
