@@ -64612,6 +64612,7 @@ MonoBehaviour:
   audioSource: {fileID: 1139865374}
   gameData:
     stageThresholds: 
+    levelDownThresholdFactor: 0
     numberOfStages: 0
     maxAmountMonsters: 0
     stages: []
