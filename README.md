@@ -33,7 +33,7 @@ In Unity: File > Build & Run.
 # Project Status
 
 The project is still under development. A scrum board is shared between team members. We're open to new collaborators.
-A first version is planned for the 1st January 2018.
+The game is available with its minimal features. A first complete version is planned for 07/25/18.
 
 # Developer's Notes
 
