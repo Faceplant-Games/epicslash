@@ -28,20 +28,20 @@ public class Monster3B : AbstractMonster
 
 	public void Move(Vector3 position)
 	{
-		_flyingMovingB.MoveTo(position);		
+		_flyingMovingB.Move(position);
 	}
 
 	void Update()
 	{
-		if (_flyingMovingB.mooving == false)
+		if (_flyingMovingB.MyNavMeshAgent.isStopped)
 		{
 			if (Vector3.Distance(player.transform.position, transform.position) < AttackRange)
 			{
-				t += Time.deltaTime;
+                t += Time.deltaTime;
 				if (t > RateOfFire)
 				{
 					t = 0;
-					_flyingMovingB.FaceObject(player.transform, 0.5f);
+					//_flyingMovingB.FaceObject(player.transform, 0.5f);
 					Attack(player);
 				}
 
@@ -51,6 +51,17 @@ public class Monster3B : AbstractMonster
 				Move(player.transform.position - (player.transform.position - transform.position) * 0.2f);
 			}
 		}
+        else
+        {
+            if (Vector3.Distance(player.transform.position, transform.position) < AttackRange)
+            {
+                _flyingMovingB.MyNavMeshAgent.isStopped = true;
+            }
+            else
+            {
+                Move(player.transform.position - (player.transform.position - transform.position) * 0.2f);
+            }
+        }
 
 	}
 

@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114000011572249352}
   - component: {fileID: 136702029894909542}
   - component: {fileID: 136017609777998628}
+  - component: {fileID: 195638318655922956}
   m_Layer: 0
   m_Name: dragon
   m_TagString: DRAGON
@@ -1382,8 +1383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d44f8ca20bedc4080f03fc4cf34a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  mooving: 0
+  MyNavMeshAgent: {fileID: 0}
 --- !u!114 &114000011572249352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1408,8 +1408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06e1c41573f68649975bc4b852c14f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1000012706065184, guid: 5e14384dca007294a8b96ca0f6a8a48e,
-    type: 2}
   FireInitialPos: {fileID: 4490311851229098}
   damage: 1000
 --- !u!136 &136017609777998628
@@ -1664,3 +1662,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.038732465, y: 0.041720085, z: -0.0021500587}
     m_Extent: {x: 0.08973682, y: 0.075126246, z: 0.031923138}
   m_DirtyAABB: 0
+--- !u!195 &195638318655922956
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010194064148}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

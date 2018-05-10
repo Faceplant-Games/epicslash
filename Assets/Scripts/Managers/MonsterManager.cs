@@ -72,7 +72,8 @@ public class MonsterManager : MonoBehaviour {
         float random = Random.Range(angleMin, angleMax);
         float magnitude = Random.Range(magnitudeMin, magnitudeMax);
         Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * random) * magnitude, 0, Mathf.Sin(Mathf.Deg2Rad * random) * magnitude);
-        GameObject monster = Instantiate(Resources.Load<GameObject>(monsterName));
+        // GameObject monster = Instantiate(Resources.Load<GameObject>(monsterName));
+        GameObject monster = GetComponent<GameManager>().GetMonsterGenerator().GetMonsterFromName(monsterName);
         monster.transform.position += pos;
 	}
 }

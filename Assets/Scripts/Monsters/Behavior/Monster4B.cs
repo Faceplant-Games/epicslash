@@ -27,12 +27,12 @@ public class Monster4B : AbstractMonster
 
     public void Move(Vector3 position)
     {
-        _flyingMovingB.MoveTo(position);
+        _flyingMovingB.Move(position);
     }
 
     void Update()
     {
-        if (_flyingMovingB.mooving == false)
+        if (_flyingMovingB.MyNavMeshAgent.isStopped)
         {
             if (Vector3.Distance(player.transform.position, transform.position) < AttackRange)
             {
@@ -40,10 +40,21 @@ public class Monster4B : AbstractMonster
                 if (t > RateOfFire)
                 {
                     t = 0;
-                    _flyingMovingB.FaceObject(player.transform, 0.5f);
+                    //_flyingMovingB.FaceObject(player.transform, 0.5f);
                     Attack(player);
                 }
 
+            }
+            else
+            {
+                Move(player.transform.position - (player.transform.position - transform.position) * 0.2f);
+            }
+        }
+        else
+        {
+            if (Vector3.Distance(player.transform.position, transform.position) < AttackRange)
+            {
+                _flyingMovingB.MyNavMeshAgent.isStopped = true;
             }
             else
             {

@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 114000012396494808}
   - component: {fileID: 114000010077494640}
   - component: {fileID: 114000013642066938}
+  - component: {fileID: 195830781142282780}
   m_Layer: 0
   m_Name: Monster3
   m_TagString: Untagged
@@ -1070,8 +1071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06e1c41573f68649975bc4b852c14f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 1000012706065184, guid: 5e14384dca007294a8b96ca0f6a8a48e,
-    type: 2}
   FireInitialPos: {fileID: 4000010440136398}
   damage: 20
 --- !u!114 &114000012396494808
@@ -1085,8 +1084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d44f8ca20bedc4080f03fc4cf34a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  mooving: 0
+  MyNavMeshAgent: {fileID: 0}
 --- !u!114 &114000013642066938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1113,3 +1111,24 @@ CapsuleCollider:
   m_Height: 0.75
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &195830781142282780
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011452974198}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

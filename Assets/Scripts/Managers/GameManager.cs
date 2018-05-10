@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour {
     public GameData gameData;
     private CoinGenerator coinGenerator;
     private BulletGenerator bulletGenerator;
+    private MonsterGenerator monsterGenerator;
     private string gameDataFileName = "data.json";
 
     private Fading fading;
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour {
         InitializeIntroduction();
         coinGenerator = gameObject.AddComponent<CoinGenerator>();
         bulletGenerator = gameObject.AddComponent<BulletGenerator>();
+        monsterGenerator = gameObject.AddComponent<MonsterGenerator>();
     }
 
     void Update ()
@@ -352,6 +354,11 @@ public class GameManager : MonoBehaviour {
     public BulletGenerator GetBulletGenerator()
     {
         return bulletGenerator;
+    }
+
+    public MonsterGenerator GetMonsterGenerator()
+    {
+        return monsterGenerator;
     }
 
     [System.Serializable]

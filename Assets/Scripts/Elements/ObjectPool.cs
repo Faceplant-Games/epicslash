@@ -3,13 +3,12 @@ using System.Collections.Generic;
 
 public class ObjectPool : MonoBehaviour
 {
-    List<GameObject> pooledStuff;
+    List<GameObject> pooledStuff = new List<GameObject>();
     private GameObject prefabGen;
     
     public void Initialize(int size, GameObject prefab)
     {
         prefabGen = prefab;
-        pooledStuff = new List<GameObject>();
         for (int i = 0; i < size; i++)
         {
             GameObject obj = Instantiate<GameObject>(prefabGen);

@@ -4,8 +4,8 @@ using System.Collections;
 [RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
 public class GroundMovingB : MovingB 
 {
-	[HideInInspector]
-	public UnityEngine.AI.NavMeshAgent MyNavMeshAgent;
+    //[HideInInspector]
+    public UnityEngine.AI.NavMeshAgent MyNavMeshAgent;
 
 
     private Animator animator;
