@@ -34,7 +34,7 @@ File > Build & Run
 ```
 # Contributing
 
-Every contribution is welcome. Please check the [Trello board](https://trello.com/b/clnb9JpQ/epicslash-development) to see the incoming features to develop. Then, make pull requests.
+Every contribution is welcome. Please check the [Trello board](https://trello.com/b/clnb9JpQ/epicslash-development) to see the incoming features. Then, make pull requests.
 
 Also, feel free to add new issues on Github for bug report, feedback and suggestions.
 
