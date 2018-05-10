@@ -32,7 +32,8 @@ File > Build & Run
         /Scripts : C# Scripts
         /StreamingAssets : Config file
 ```
-# Project Status
+# Contributing
 
-The project is still under development. A scrum board is shared between team members. We're open to new collaborators.
-The game is available with its minimal features. A first complete version is planned for 07/25/18.
+Every contribution is welcome. Please check the [Trello board](https://trello.com/b/clnb9JpQ/epicslash-development) to see the incoming features to develop. Then, make pull requests.
+Also, feel free to add new issues on Github for bug report, feedback and suggestions.
+A first complete version is planned for 07/25/18.
