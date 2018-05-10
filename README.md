@@ -1,6 +1,3 @@
-Epic Slash
-=====================
-
 # Introduction
 
 *Epic Slash* is a VR Beat 'em all developped during the Virtual Game Jam 2016. It runs on HTC Vive.
