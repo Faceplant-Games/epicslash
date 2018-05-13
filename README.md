@@ -32,6 +32,24 @@ File > Build & Run
         /Scripts : C# Scripts
         /StreamingAssets : Config file
 ```
+
+# Team members
+
+## Original Team
+
+- [Aurélien](https://www.aurelienmontero.com/), Sound Designer
+- [Fox](https://github.com/vincent-heng), Game Developer
+- Maxime, 3D Animator
+- megal000l, Game Developer
+- Oshina, 3D Animator
+- rLeblanc, Game Developer
+
+## Current Team
+
+- [Fox](https://github.com/vincent-heng), Game Developer
+- [Manegan](https://github.com/Manegan), Game Developer
+- megal000l, Game Developer
+
 # Contributing
 
 Every contribution is welcome. Please check the [Trello board](https://trello.com/b/clnb9JpQ/epicslash-development) to see the incoming features. Then, make pull requests.
