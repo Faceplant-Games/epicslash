@@ -39,9 +39,9 @@ File > Build & Run
 
 - [Aurélien Montero](https://www.aurelienmontero.com/), Composer and Sound Designer
 - [Fox](https://github.com/vincent-heng), Game Developer
-- [Skero](http://mapleclerc.wixsite.com/portfolio), 3D Animator
+- [Skero](http://mapleclerc.wixsite.com/portfolio), 3D Graphics Designer and 3D Animator
 - megal000l, Game Developer
-- Oshina, 3D Animator
+- Laura Martin-Wortham, 3D Graphics Designer and 3D Animator
 - rLeblanc, Game Developer
 
 ## Current Team
