@@ -1,24 +1,26 @@
-Epic Slash
-=====================
-
 # Introduction
 
 *Epic Slash* is a VR Beat 'em all developped during the Virtual Game Jam 2016. It runs on HTC Vive.
 
 
-# Installation Guide
+# Installation
 
-- Install Unity3D
+## From binaries
+
+The installer will be released soon.
+
+## From sources
+
 - Clone this project
-- Open it with Unity3D
+```
+git clone https://github.com/Faceplant-Games/epicslash.git
+```
 
-# Run Guide
+- Run it on Unity3D
+```
+File > Build & Run
+```
 
-Just "Run" on Unity.
-
-# Deploy
-
-In Unity: File > Build & Run.
 
 # Project Structure
 ```
@@ -30,11 +32,28 @@ In Unity: File > Build & Run.
         /Scripts : C# Scripts
         /StreamingAssets : Config file
 ```
-# Project Status
 
-The project is still under development. A scrum board is shared between team members. We're open to new collaborators.
-The game is available with its minimal features. A first complete version is planned for 07/25/18.
+# Team members
 
-# Developer's Notes
+## Original Team
 
-It's an open source project under development, so feel free to contribute with pull requests.
+- [Aurélien Montero](https://www.aurelienmontero.com/), Composer and Sound Designer
+- [Fox](https://github.com/vincent-heng), Game Developer
+- [Skero](http://mapleclerc.wixsite.com/portfolio), 3D Graphics Designer and 3D Animator
+- megal000l, Game Developer
+- Laura Martin-Wortham, 3D Graphics Designer and 3D Animator
+- rLeblanc, Game Developer
+
+## Current Team
+
+- [Fox](https://github.com/vincent-heng), Game Developer
+- [Manegan](https://github.com/Manegan), Game Developer
+- megal000l, Game Developer
+
+# Contributing
+
+Every contribution is welcome. Please check the [Trello board](https://trello.com/b/clnb9JpQ/epicslash-development) to see the incoming features. Then, make pull requests.
+
+Also, feel free to add new issues on Github for bug report, feedback and suggestions.
+
+A first complete version is planned for 07/25/18.
