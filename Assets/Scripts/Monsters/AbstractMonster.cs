@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class AbstractMonster : MonoBehaviour, Monster {
+public abstract class AbstractMonster : MonoBehaviour {
     public int hp { get; set; }
     public int experience { get; set; }
     public int malus { get; set; }
 
 
-	public  void BeingHit()
+	public void BeingHit()
     {
         if (hp > 1)
         {
