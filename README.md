@@ -37,9 +37,9 @@ File > Build & Run
 
 ## Original Team
 
-- [Aurélien](https://www.aurelienmontero.com/), Sound Designer
+- [Aurélien Montero](https://www.aurelienmontero.com/), Composer and Sound Designer
 - [Fox](https://github.com/vincent-heng), Game Developer
-- Maxime, 3D Animator
+- [Skero](http://mapleclerc.wixsite.com/portfolio), 3D Animator
 - megal000l, Game Developer
 - Oshina, 3D Animator
 - rLeblanc, Game Developer
