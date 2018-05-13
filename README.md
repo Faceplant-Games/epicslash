@@ -42,7 +42,7 @@ File > Build & Run
 - [Skero](http://mapleclerc.wixsite.com/portfolio), 3D Graphics Designer and 3D Animator
 - megal000l, Game Developer
 - Laura Martin-Wortham, 3D Graphics Designer and 3D Animator
-- rLeblanc, Game Developer
+- Rémi Leblanc, Game Developer
 
 ## Current Team
 
