@@ -7,7 +7,7 @@
 
 ## From binaries
 
-The installer will be released soon.
+The installer for Windows can be downloaded on [itch.io](https://cartesianfox.itch.io/epic-slash).
 
 ## From sources
 
@@ -21,16 +21,16 @@ git clone https://github.com/Faceplant-Games/epicslash.git
 File > Build & Run
 ```
 
-
 # Project Structure
 ```
 /Assets
-        /Managers : C# Game managers
+        /Graphics : Graphic Elements
         /Resources : Prefab resources
         /SFX : Sounds effects and Background Music
-        /Scenes
+        /Scenes : Level design
         /Scripts : C# Scripts
         /StreamingAssets : Config file
+/docs : Github Webpage sources
 ```
 
 # Team members
@@ -39,21 +39,20 @@ File > Build & Run
 
 - [Aurélien Montero](https://www.aurelienmontero.com/), Composer and Sound Designer
 - [Fox](https://github.com/vincent-heng), Game Developer
-- [Skero](http://mapleclerc.wixsite.com/portfolio), 3D Graphics Designer and 3D Animator
-- megal000l, Game Developer
-- Laura Martin-Wortham, 3D Graphics Designer and 3D Animator
+- François Vanderperre, Game Developer
+- Laura Martin-Wortham, 3D Graphic Designer and 3D Animator
 - Rémi Leblanc, Game Developer
+- [Skero](http://mapleclerc.wixsite.com/portfolio), 3D Graphic Designer and 3D Animator
 
 ## Current Team
 
 - [Fox](https://github.com/vincent-heng), Game Developer
+- François Vanderperre, Game Developer
 - [Manegan](https://github.com/Manegan), Game Developer
-- megal000l, Game Developer
 
 # Contributing
 
-Every contribution is welcome. Please check the [Trello board](https://trello.com/b/clnb9JpQ/epicslash-development) to see the incoming features. Then, make pull requests.
-
-Also, feel free to add new issues on Github for bug report, feedback and suggestions.
+Read the [Contribution Guideline](CONTRIBUTING.md)
 
 A first complete version is planned for 07/25/18.
+
