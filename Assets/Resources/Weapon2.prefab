@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 95000010145211094}
   - component: {fileID: 114000013246807044}
   - component: {fileID: 65000010049307242}
+  - component: {fileID: 54399953092170354}
   m_Layer: 0
   m_Name: Weapon2
   m_TagString: Untagged
@@ -360,6 +361,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010780131628}
   m_Mesh: {fileID: 4300000, guid: 331e89e0d161fd94aa7cbe1b5727ae64, type: 3}
+--- !u!54 &54399953092170354
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010826265646}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65000010049307242
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -405,5 +421,31 @@ MonoBehaviour:
   barrelEndTransform: {fileID: 4000010956390714}
   trackedController: {fileID: 0}
   slash: {fileID: 8300000, guid: bf01569e231f21647b1656bc8f232bac, type: 3}
+  shoot:
+  - {fileID: 8300000, guid: 1d56a9089ee32e447a8cb7d46a3b270b, type: 3}
+  - {fileID: 8300000, guid: e30827e8c0e87254d887297ff009c3bf, type: 3}
+  - {fileID: 8300000, guid: 10b6016a090700541b6f220a9fe5054d, type: 3}
+  - {fileID: 8300000, guid: 1f058c27ed8bcef4da16d581c69ca4c2, type: 3}
+  - {fileID: 8300000, guid: b24ad61b248877f4fb5280e1ba5be1a5, type: 3}
+  - {fileID: 8300000, guid: 25b867f3e1ba0ef40b6c4fb5383486fd, type: 3}
+  - {fileID: 8300000, guid: fcdc38a8e6885f24d86f1d73d79275de, type: 3}
+  - {fileID: 8300000, guid: ae40b00297d457148abcfad286f6b5f3, type: 3}
+  - {fileID: 8300000, guid: 7998db7ed8ceb104a9e03192af094445, type: 3}
+  - {fileID: 8300000, guid: 182a58500a7231b47af497be424674b7, type: 3}
+  - {fileID: 8300000, guid: 0d2c760e4ac8fa3458e6b2af3c176d38, type: 3}
+  - {fileID: 8300000, guid: 185ebaf3abf8ac2479ddfe81011a5db6, type: 3}
+  - {fileID: 8300000, guid: 08946130e80d7ea40ba3b4cc3a1c0724, type: 3}
+  - {fileID: 8300000, guid: 0debab20076993d4cb327eb341b4ddb8, type: 3}
+  - {fileID: 8300000, guid: d4ed57a864b52fe47abb8e45ec83175c, type: 3}
+  - {fileID: 8300000, guid: 5dfedb76decf89e47b093873ef67a295, type: 3}
+  - {fileID: 8300000, guid: 0141529e61437bd4294b1e60756f0088, type: 3}
+  - {fileID: 8300000, guid: 14526e519ca735648bca24e20f5294a8, type: 3}
+  - {fileID: 8300000, guid: 5b5651dcbb931fb47b04dda85bada453, type: 3}
+  - {fileID: 8300000, guid: 1a76a4a2c8307884cb64d31f20f38391, type: 3}
+  - {fileID: 8300000, guid: bc21f455dc255c446ae5512944875222, type: 3}
+  - {fileID: 8300000, guid: 145ada591ad074745a6da15651e075ab, type: 3}
+  - {fileID: 8300000, guid: 1bcc919a88705d14a94fec58b9d5573e, type: 3}
+  - {fileID: 8300000, guid: 53da361a2ce08484cb0ff1a1e8f24c49, type: 3}
+  - {fileID: 8300000, guid: 879472174081693489773bd9eab80f0e, type: 3}
   audioSource: {fileID: 0}
   isShotEnabled: 0

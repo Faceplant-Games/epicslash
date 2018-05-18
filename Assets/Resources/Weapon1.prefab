@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 95000012293351580}
   - component: {fileID: 114000014165979824}
   - component: {fileID: 65000013328870326}
+  - component: {fileID: 54505858930687698}
   m_Layer: 0
   m_Name: Weapon1
   m_TagString: Untagged
@@ -216,6 +217,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011239448376}
   m_Mesh: {fileID: 4300002, guid: 37f3bc9569dff064bbbbb98a895706e7, type: 3}
+--- !u!54 &54505858930687698
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013442640030}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65000013328870326
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -261,5 +277,6 @@ MonoBehaviour:
   barrelEndTransform: {fileID: 4000010138465936}
   trackedController: {fileID: 0}
   slash: {fileID: 8300000, guid: bf01569e231f21647b1656bc8f232bac, type: 3}
+  shoot: []
   audioSource: {fileID: 0}
   isShotEnabled: 0

@@ -200,6 +200,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c88f151b6757654dabc9a68ca3e10ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  impact:
+  - {fileID: 8300000, guid: 73b00b7ab19a0134ead9005b5dc87ffe, type: 3}
+  - {fileID: 8300000, guid: 81d19b6ae8e704d408ddef249d228023, type: 3}
+  - {fileID: 8300000, guid: c33214288a8f701499ccc1c2b9d22799, type: 3}
+  - {fileID: 8300000, guid: 7e1dc92766ea84d49947523995ff95cc, type: 3}
+  - {fileID: 8300000, guid: 211f4429d0c4586408296b00d482bc80, type: 3}
+  - {fileID: 8300000, guid: 015ade111b41d1c4c948798d39fce8e4, type: 3}
 --- !u!198 &198282566951369872
 ParticleSystem:
   m_ObjectHideFlags: 1

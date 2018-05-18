@@ -7,6 +7,10 @@ public class BulletB : MonoBehaviour {
 	float lifeTime = 10;
 	float speed = 20;
 
+    public AudioSource audioSource;
+    public AudioClip[] impact;
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -19,6 +23,7 @@ public class BulletB : MonoBehaviour {
 
 		// At each frame, we cast a ray forward from where we are to where we will be next frame
 		if (Physics.Raycast (transform.position, transform.forward, out hit, distanceThisFrame)) {
+            audioSource.PlayOneShot(impact[(int) Random.Range(0, impact.Length) % impact.Length]);
 			if (hit.transform.gameObject.GetComponent<AbstractMonster>() != null) {
                 print("Boom");
 				AbstractMonster monster = hit.transform.gameObject.GetComponent<AbstractMonster>();

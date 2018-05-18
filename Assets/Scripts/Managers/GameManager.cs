@@ -237,6 +237,10 @@ public class GameManager : MonoBehaviour {
         {
             player.transform.Rotate(new Vector3(0, 1, 0));
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            rightWeapon.GetComponent<WeaponB>().RangeHitTest();
+        }
     }
 
     private void StartGame()
