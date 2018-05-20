@@ -55,12 +55,13 @@ public class WeaponB : MonoBehaviour {
     {
         if (!isShotEnabled)
             return;
-        audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)]);
+        if (shoot.Length > 0)
+            audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)]);
         StartCoroutine(LongVibration(0.85f, 3000));
         BulletB bullet = Instantiate(bulletPrefab) as BulletB;
         bullet.audioSource = audioSource;
         bullet.transform.rotation = barrelEndTransform.rotation;
-        bullet.transform.position = barrelEndTransform.position;
+        bullet.transform.position = barrelEndTransform.position + bullet.transform.forward * -0.1f;
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
         bullet.transform.Rotate(-180, 0, 0);
     }
@@ -69,12 +70,13 @@ public class WeaponB : MonoBehaviour {
     {
         if (!isShotEnabled)
             return;
-        audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)]);
+        if (shoot.Length > 0)
+            audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)]);
         StartCoroutine(LongVibration(0.85f, 3000));
         BulletB bullet = Instantiate(bulletPrefab) as BulletB;
         bullet.audioSource = audioSource;
         bullet.transform.rotation = barrelEndTransform.rotation;
-        bullet.transform.position = barrelEndTransform.position;
+        bullet.transform.position = barrelEndTransform.position + bullet.transform.forward * -0.1f;
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20 * -1;
         bullet.transform.Rotate(-180, 0, 0);
     }
