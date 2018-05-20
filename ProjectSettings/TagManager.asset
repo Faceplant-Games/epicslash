@@ -11,6 +11,7 @@ TagManager:
   - RightController
   - DRAGON
   - MovableMap
+  - Ground
   layers:
   - Default
   - TransparentFX

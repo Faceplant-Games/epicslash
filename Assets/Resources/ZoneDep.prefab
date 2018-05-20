@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23000011988548134}
   m_Layer: 0
   m_Name: ZoneDep
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011442100602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.9646444, y: -1.8063145, z: 4.7525125}
+  m_LocalPosition: {x: 0, y: -59.221634, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: de83245369da3ab4da90265ffd3f1789, type: 2}
+  - {fileID: 2100000, guid: 2de7d70c82b296b4eb1787d8d898a0cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

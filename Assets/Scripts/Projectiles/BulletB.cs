@@ -11,7 +11,9 @@ public class BulletB : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<WeaponB>() != null || other.GetComponent<Camera>() != null)
+        if (other.GetComponent<WeaponB>() != null 
+            || other.GetComponent<Camera>() != null
+            || other.tag.Equals("Ground"))
         {
             return;
         }

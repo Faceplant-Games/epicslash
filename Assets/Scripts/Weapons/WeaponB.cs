@@ -6,24 +6,22 @@ public class WeaponB : MonoBehaviour {
 	public BulletB bulletPrefab;
 	public Transform barrelEndTransform;
     public SteamVR_TrackedController trackedController;
+    public SteamVR_Controller.Device device;
 
 	public AudioClip slash;
     public AudioClip[] shoot;
 	public AudioSource audioSource;
     public bool isShotEnabled;
 
-    private Rigidbody _rigidbody;
-
     // Use this for initialization
     void Start () {
-        _rigidbody = GetComponent<Rigidbody>();
-
         trackedController.TriggerClicked += new ClickedEventHandler(RangeHit);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	}            
+    }
+
+    void FixedUpdate()
+    {
+        device = SteamVR_Controller.Input((int)trackedController.controllerIndex);
+    }
 
     IEnumerator LongVibration(float length, ushort strength)
     {
@@ -38,7 +36,7 @@ public class WeaponB : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider collider) {
-        if (_rigidbody.velocity.magnitude > 5) { 
+        if (device.velocity.magnitude > 1.5) { 
             audioSource.PlayOneShot(slash);
             if (collider.gameObject.GetComponent<AbstractMonster>() != null)
             {
@@ -57,12 +55,12 @@ public class WeaponB : MonoBehaviour {
             return;
         if (shoot.Length > 0)
             audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)]);
-        StartCoroutine(LongVibration(0.85f, 3000));
+        StartCoroutine(LongVibration(0.7f, 1500));
         BulletB bullet = Instantiate(bulletPrefab) as BulletB;
         bullet.audioSource = audioSource;
         bullet.transform.rotation = barrelEndTransform.rotation;
         bullet.transform.position = barrelEndTransform.position + bullet.transform.forward * -0.1f;
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * -20;
         bullet.transform.Rotate(-180, 0, 0);
     }
 
