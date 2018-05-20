@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 114000012880509016}
   - component: {fileID: 95313458624562108}
   m_Layer: 0
-  m_Name: Monster2
+  m_Name: Bunny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1317,8 +1317,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb8b555cc73f2741ae94fa4a28324de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <hp>k__BackingField: 0
+  <experience>k__BackingField: 0
+  <malus>k__BackingField: 0
+  _groundMovingB: {fileID: 0}
   EscapePosition: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
   myState: 0
+  timer: 0
 --- !u!114 &114000013511990688
 MonoBehaviour:
   m_ObjectHideFlags: 1

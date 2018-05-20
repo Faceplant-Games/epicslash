@@ -6,7 +6,7 @@
 	"stages": [{
 		"name": "Miniworld",
 		"monsters": [{
-			"name": "Monster1",
+			"name": "Spider",
 			"spawnPeriod": 0.5
 		}],
 		"leftWeapon": "Weapon1",
@@ -15,13 +15,13 @@
 	}, {
 		"name": "Forest",
 		"monsters": [{ 
-		"name": "Monster1",
+		"name": "Spider",
 		"spawnPeriod": 0.625
 		},{ 
-		"name": "Monster2",
+		"name": "Bunny",
 		"spawnPeriod": 1.875
 		},{ 
-		"name": "Monster3",
+		"name": "Bearbot",
 		"spawnPeriod": 3
 		}],
 		"leftWeapon": "Weapon2",
@@ -30,13 +30,13 @@
 	}, {
 		"name": "Mountains",
 		"monsters": [{ 
-		"name": "Monster1",
+		"name": "Spider",
 		"spawnPeriod": 0.8
 		},{ 
-		"name": "Monster2",
+		"name": "Bunny",
 		"spawnPeriod": 1
 		},{ 
-		"name": "Monster3",
+		"name": "Bearbot",
 		"spawnPeriod": 1
 		},{ 
 		"name": "Dragon",

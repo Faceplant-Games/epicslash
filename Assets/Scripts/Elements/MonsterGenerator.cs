@@ -18,9 +18,9 @@ public class MonsterGenerator : MonoBehaviour
         BunnyPool = gameObject.AddComponent<ObjectPool>();
         BearbotPool = gameObject.AddComponent<ObjectPool>();
         DragonPool = gameObject.AddComponent<ObjectPool>();
-        monstersPools.Add("Monster1", SpiderPool);
-        monstersPools.Add("Monster2", BunnyPool);
-        monstersPools.Add("Monster3", BearbotPool);
+        monstersPools.Add("Spider", SpiderPool);
+        monstersPools.Add("Bunny", BunnyPool);
+        monstersPools.Add("Bearbot", BearbotPool);
         monstersPools.Add("Dragon", DragonPool);
         GameManager gameManager = GetComponent<GameManager>();
         ObjectPool currentPool;

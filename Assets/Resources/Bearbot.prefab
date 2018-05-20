@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 114000013642066938}
   - component: {fileID: 195830781142282780}
   m_Layer: 0
-  m_Name: Monster3
+  m_Name: Bearbot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1096,8 +1096,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d66b0ba3134c9c44aee263cb8d3edeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <hp>k__BackingField: 0
+  <experience>k__BackingField: 0
+  <malus>k__BackingField: 0
+  player: {fileID: 0}
   AttackRange: 10
+  _flyingMovingB: {fileID: 0}
+  _attack3B: {fileID: 0}
   RateOfFire: 3
+  t: 0
 --- !u!136 &136000012601725282
 CapsuleCollider:
   m_ObjectHideFlags: 1

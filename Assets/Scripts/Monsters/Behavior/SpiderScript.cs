@@ -5,7 +5,7 @@ using System.Collections;
  *spiders 
  */
 [RequireComponent(typeof(GroundMovingB), typeof(Animator))]
-public class Monster1B : AbstractMonster
+public class SpiderScript : AbstractMonster
 {
     private GroundMovingB _groundMovingB;
     private GameObject player;

@@ -6,7 +6,7 @@ using System.Collections;
  *  Dragon
  * */
 [RequireComponent(typeof(FlyingMovingB), typeof(Attack3B))]
-public class Monster4B : AbstractMonster
+public class DragonScript : AbstractMonster
 {
     private GameObject player;
     public float AttackRange = 10;

@@ -6,7 +6,7 @@ using System.Collections;
  *Bearbot 
  */
 [RequireComponent(typeof(FlyingMovingB), typeof(Attack3B))]
-public class Monster3B : AbstractMonster 
+public class BearbotScript : AbstractMonster 
 {
 	private GameObject player;
 	public float AttackRange = 2;

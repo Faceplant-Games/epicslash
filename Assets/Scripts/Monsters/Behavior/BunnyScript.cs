@@ -6,7 +6,7 @@ using System.Collections;
 
 [RequireComponent(typeof(GroundMovingB), typeof(Collider), typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
-public class Monster2B : AbstractMonster 
+public class BunnyScript : AbstractMonster 
 {
 	private GroundMovingB _groundMovingB;
 	public Vector3 EscapePosition;

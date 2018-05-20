@@ -148,10 +148,9 @@ GameObject:
   - component: {fileID: 54000013448656932}
   - component: {fileID: 195000010463046358}
   - component: {fileID: 114000013422751834}
-  - component: {fileID: 114000012592502764}
   - component: {fileID: 95657489963907216}
   m_Layer: 0
-  m_Name: Monster1
+  m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1680,17 +1679,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000012592502764
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011607229730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ebd5fb7d792694c85284a9d18a7c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000013422751834
 MonoBehaviour:
   m_ObjectHideFlags: 1
