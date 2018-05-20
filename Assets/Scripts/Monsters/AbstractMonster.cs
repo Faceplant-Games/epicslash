@@ -6,8 +6,14 @@ public abstract class AbstractMonster : MonoBehaviour {
     public int experience { get; set; }
     public int malus { get; set; }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent(typeof(BulletB)) as BulletB) {
+            BeingHit();
+        } 
+    }
 
-	public void BeingHit()
+    public void BeingHit()
     {
         if (hp > 1)
         {

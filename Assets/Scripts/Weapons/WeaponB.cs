@@ -61,6 +61,7 @@ public class WeaponB : MonoBehaviour {
         bullet.audioSource = audioSource;
         bullet.transform.rotation = barrelEndTransform.rotation;
         bullet.transform.position = barrelEndTransform.position;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20;
         bullet.transform.Rotate(-180, 0, 0);
     }
 
@@ -74,6 +75,7 @@ public class WeaponB : MonoBehaviour {
         bullet.audioSource = audioSource;
         bullet.transform.rotation = barrelEndTransform.rotation;
         bullet.transform.position = barrelEndTransform.position;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20 * -1;
         bullet.transform.Rotate(-180, 0, 0);
     }
 

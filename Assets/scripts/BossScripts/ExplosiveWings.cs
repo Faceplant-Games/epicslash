@@ -28,7 +28,15 @@ public class ExplosiveWings : MonoBehaviour
 
 	public int HP = 30;
 
-	public void TriggerExplosion(Vector3 position)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent(typeof(BulletB)) as BulletB)
+        {
+            TriggerExplosion(other.transform.position);
+        }
+    }
+
+    public void TriggerExplosion(Vector3 position)
 	{
 		if (ExplosionEnabled)
 		{

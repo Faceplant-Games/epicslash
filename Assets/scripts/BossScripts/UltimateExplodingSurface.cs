@@ -20,7 +20,7 @@ public class UltimateExplodingSurface : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.GetComponent<WeaponB>() != null)
+        if (col.GetComponent<WeaponB>() != null || col.GetComponent(typeof(BulletB)) as BulletB)
         {
             TriggerExplosion(transform.position);
         }

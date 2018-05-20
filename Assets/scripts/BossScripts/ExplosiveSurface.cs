@@ -8,7 +8,15 @@ public class ExplosiveSurface : MonoBehaviour
 
 	private int HP = 10;
 
-	public void TriggerExplosion(Vector3 position)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent(typeof(BulletB)) as BulletB)
+        {
+            TriggerExplosion(other.transform.position);
+        }
+    }
+
+    public void TriggerExplosion(Vector3 position)
 	{
 		if (ExplosionEnabled)
 		{
