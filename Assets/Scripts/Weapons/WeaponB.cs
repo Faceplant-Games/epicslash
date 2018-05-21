@@ -20,7 +20,9 @@ public class WeaponB : MonoBehaviour {
 
     void FixedUpdate()
     {
-        device = SteamVR_Controller.Input((int)trackedController.controllerIndex);
+        int index = (int)trackedController.controllerIndex;
+        if (index >= 0)
+            device = SteamVR_Controller.Input(index);
     }
 
     IEnumerator LongVibration(float length, ushort strength)
@@ -35,11 +37,13 @@ public class WeaponB : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter(Collider collider) {
-        if (device.velocity.magnitude > 1.5) { 
-            audioSource.PlayOneShot(slash);
+    void OnTriggerEnter(Collider collider)
+    {
+        if (device.velocity.magnitude > 1.5)
+        { 
             if (collider.gameObject.GetComponent<AbstractMonster>() != null)
             {
+                audioSource.PlayOneShot(slash);
                 if (Game.gameManager.gameData.hasController)
                 {
                     StartCoroutine(LongVibration(0.7f, 1500));
@@ -54,7 +58,7 @@ public class WeaponB : MonoBehaviour {
         if (!isShotEnabled)
             return;
         if (shoot.Length > 0)
-            audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)]);
+            audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)], .5f);
         StartCoroutine(LongVibration(0.7f, 1500));
         BulletB bullet = Instantiate(bulletPrefab) as BulletB;
         bullet.audioSource = audioSource;
@@ -69,7 +73,7 @@ public class WeaponB : MonoBehaviour {
         if (!isShotEnabled)
             return;
         if (shoot.Length > 0)
-            audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)]);
+            audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)], .75f);
         StartCoroutine(LongVibration(0.85f, 3000));
         BulletB bullet = Instantiate(bulletPrefab) as BulletB;
         bullet.audioSource = audioSource;

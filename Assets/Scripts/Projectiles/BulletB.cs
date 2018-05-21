@@ -17,6 +17,7 @@ public class BulletB : MonoBehaviour {
         {
             return;
         }
+        audioSource.PlayOneShot(impact[Random.Range(0, impact.Length) % impact.Length], .5f);
         Destroy(gameObject);
     }
 	

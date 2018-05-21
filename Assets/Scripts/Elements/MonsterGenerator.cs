@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 [RequireComponent(typeof(GameManager))]
 public class MonsterGenerator : MonoBehaviour
@@ -30,6 +31,14 @@ public class MonsterGenerator : MonoBehaviour
             {
                 currentPool.Initialize((int) (1 / data.spawnPeriod * 60), Resources.Load<GameObject>(data.name));
             }
+        }
+    }
+
+    internal void DestroyObjectPool(GameObject gameObject)
+    {
+        ObjectPool pool;
+        if (monstersPools.TryGetValue((gameObject.GetComponent(typeof(AbstractMonster)) as AbstractMonster).Name, out pool)) {
+            pool.DestroyObjectPool(gameObject);
         }
     }
 

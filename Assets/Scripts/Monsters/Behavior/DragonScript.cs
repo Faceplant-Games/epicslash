@@ -15,6 +15,8 @@ public class DragonScript : AbstractMonster
     public float RateOfFire = 4;
     private float t = 0;
 
+    public override string Name { get { return "Dragon"; } }
+
     void Start()
     {
         player = Camera.main.gameObject;

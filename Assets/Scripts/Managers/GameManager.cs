@@ -324,7 +324,8 @@ public class GameManager : MonoBehaviour {
             float fadeTime = fading.BeginFade(1);
             yield return new WaitForSeconds(1 + fadeTime);
         }
-        SceneManager.LoadScene(targetStage);
+        AsyncOperation Loading = SceneManager.LoadSceneAsync(targetStage);
+        Loading.allowSceneActivation = true;
     }
 
     public void PlayStageUpSound()
