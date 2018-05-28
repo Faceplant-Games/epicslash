@@ -13,6 +13,8 @@ public class SpiderScript : AbstractMonster
 
     private IEnumerator _attackCoroutine;
 
+    public override string Name { get { return "Spider"; } }
+
     // Use this for initialization
     void Start()
     {

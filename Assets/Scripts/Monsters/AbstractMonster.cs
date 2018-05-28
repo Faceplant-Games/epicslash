@@ -6,7 +6,9 @@ public abstract class AbstractMonster : MonoBehaviour {
     public int experience { get; set; }
     public int malus { get; set; }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual string Name { get; set; }
+
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent(typeof(BulletB)) as BulletB) {
             BeingHit();
@@ -26,11 +28,8 @@ public abstract class AbstractMonster : MonoBehaviour {
             {
                 player.EarnExperience(experience);
             }
-            this.gameObject.SetActive(false);
-            Destroy(this.gameObject);
+            Game.gameManager.GetMonsterGenerator().DestroyObjectPool(gameObject);
         }
 
     }
-
-
 }

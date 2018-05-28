@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireInitialPos: {fileID: 4000010440136398}
-  damage: 20
+  damage: 60
 --- !u!114 &114000012396494808
 MonoBehaviour:
   m_ObjectHideFlags: 1

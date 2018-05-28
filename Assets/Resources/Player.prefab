@@ -91,7 +91,8 @@ GameObject:
   - component: {fileID: 4858529907068184}
   - component: {fileID: 20523333838572134}
   - component: {fileID: 124210205176300762}
-  - component: {fileID: 114083368467670166}
+  - component: {fileID: 135256680372933498}
+  - component: {fileID: 114488525470575382}
   m_Layer: 0
   m_Name: Camera (eye)
   m_TagString: MainCamera
@@ -359,20 +360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrcam: {fileID: 0}
---- !u!114 &114083368467670166
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1628019004347008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _head: {fileID: 4300547745590420}
-  _ears: {fileID: 4627738296406702}
-  wireframe: 0
 --- !u!114 &114100433372819132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -450,6 +437,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   origin: {fileID: 0}
+--- !u!114 &114488525470575382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628019004347008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 4300547745590420}
+  _ears: {fileID: 4627738296406702}
+  wireframe: 0
 --- !u!114 &114579874582121022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -490,6 +491,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1628019004347008}
   m_Enabled: 1
+--- !u!135 &135256680372933498
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628019004347008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135782622902748578
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -12,6 +12,8 @@ public class BunnyScript : AbstractMonster
 	public Vector3 EscapePosition;
 	Animator animator;
 
+    public override string Name { get { return "Bunny"; } }
+
 	public enum Monster2State
 	{
 		LookingForGold,
@@ -78,8 +80,9 @@ public class BunnyScript : AbstractMonster
 
 	}
 
-	void OnTriggerEnter(Collider collision)
+    public override void OnTriggerEnter(Collider collision) 
 	{
+        base.OnTriggerEnter(collision);
 		if (collision.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
 		{
             animator.SetTrigger ("steal");
