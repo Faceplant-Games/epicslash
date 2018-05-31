@@ -1,45 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour {
-    public Transform loadingBar;
-    public Transform textIndicator;
-    [SerializeField] public long currentExperience;
-    [SerializeField] public long experienceGoal;
+    public Transform LoadingBar;
+    public Transform TextIndicator;
+    [SerializeField] public long CurrentExperience;
+    [SerializeField] public long ExperienceGoal;
 
-    private string experienceNameString = "";
+    private const string ExperienceNameString = " xp";
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        textIndicator.GetComponent<Text>().text = HumanizeXPAmount() + experienceNameString;
-        loadingBar.GetComponent<Image>().fillAmount = (float)currentExperience / (float)experienceGoal;
+    // Update is called once per frame
+    private void Update () {
+        TextIndicator.GetComponent<Text>().text = HumanizeXpAmount() + ExperienceNameString;
+        LoadingBar.GetComponent<Image>().fillAmount = CurrentExperience / (float)ExperienceGoal;
 	}
 
-    private string HumanizeXPAmount() // TODO Smooth it
+    private string HumanizeXpAmount() // TODO Smooth it
     {
         string amountString;
         string unit;
 
-        if (currentExperience > 2000000)
+        if (CurrentExperience > 2000000)
         {
-            amountString = (currentExperience / 1000000).ToString();
+            amountString = (CurrentExperience / 1000000).ToString();
             unit = "m";
             return amountString + unit;
         }
 
-        if (currentExperience > 2000)
+        if (CurrentExperience > 2000)
         {
-            amountString = (currentExperience / 1000).ToString();
+            amountString = (CurrentExperience / 1000).ToString();
             unit = "k";
             return amountString + unit;
         }
 
-        return currentExperience.ToString();
+        return CurrentExperience.ToString();
     }
 }

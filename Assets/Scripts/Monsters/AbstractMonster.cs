@@ -28,7 +28,7 @@ public abstract class AbstractMonster : MonoBehaviour {
             {
                 player.EarnExperience(experience);
             }
-            Game.gameManager.GetMonsterGenerator().DestroyObjectPool(gameObject);
+            Game.GameManager.GetMonsterGenerator().DestroyObjectPool(gameObject);
         }
 
     }

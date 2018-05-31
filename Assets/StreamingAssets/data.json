@@ -11,7 +11,8 @@
 		}],
 		"leftWeapon": "Weapon1",
 		"rightWeapon": "Weapon1",
-		"isShotEnabled": false
+		"isShotEnabled": false,
+		"audioTrack": "M_Segment_01_Loop_01"
 	}, {
 		"name": "Forest",
 		"monsters": [{ 
@@ -26,7 +27,9 @@
 		}],
 		"leftWeapon": "Weapon2",
 		"rightWeapon": "Weapon2",
-		"isShotEnabled": true
+		"isShotEnabled": true,
+		"audioTrack": "M_Segment_02_with_transition_01",
+		"audioTrackLoop": "M_Segment_02_Loop_01"
 	}, {
 		"name": "Mountains",
 		"monsters": [{ 
@@ -44,19 +47,25 @@
 		}],
 		"leftWeapon": "Weapon3",
 		"rightWeapon": "Weapon3",
-		"isShotEnabled": true
+		"isShotEnabled": true,
+		"audioTrack": "M_Segment_03_with_transition_01",
+		"audioTrackLoop": "M_Segment_03_Loop_01"
 	}, {
 		"name": "BossFight",
 		"monsters": [],
 		"leftWeapon": "Weapon3",
 		"rightWeapon": "Weapon3",
-		"isShotEnabled": true
+		"isShotEnabled": true,
+		"audioTrack": "M_Segment_05_with_transition_01",
+		"audioTrackLoop": "M_Segment_05_Loop_01"
 	}, {
 		"name": "Credits",
 		"monsters": [],
-		"leftWeapon": "Weapon1",
-		"rightWeapon": "Weapon1",
-		"isShotEnabled": true
+		"leftWeapon": "Weapon3",
+		"rightWeapon": "Weapon3",
+		"isShotEnabled": true,
+		"audioTrack": "M_Segment_04_with_transition_01",
+		"audioTrackLoop": "M_Segment_04_Loop_01"
 	}],
 	"profile": "Test",
 	"hasController": false,

@@ -289,10 +289,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d3aa6d121907947af26d37c8877f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingBar: {fileID: 224788261061724528}
-  textIndicator: {fileID: 224053776080132636}
-  currentExperience: 0
-  experienceGoal: 0
+  LoadingBar: {fileID: 224788261061724528}
+  TextIndicator: {fileID: 224053776080132636}
+  CurrentExperience: 0
+  ExperienceGoal: 0
 --- !u!114 &114745427603057006
 MonoBehaviour:
   m_ObjectHideFlags: 1

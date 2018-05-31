@@ -10,7 +10,7 @@ public class GoldBag : MonoBehaviour
 	private float timeEllapsed = 0;
 
 	void Start() {
-        gameManager = Game.gameManager;
+        gameManager = Game.GameManager;
     }
 
     void FixedUpdate() {
@@ -22,14 +22,14 @@ public class GoldBag : MonoBehaviour
 
             switch (gameObject.tag)
             {
-                case CoinGenerator.SMALLCOIN:
+                case CoinGenerator.SmallCoin:
                     pool = gameManager.GetCoinGenerator().PoolSmallCoin;
                     break;
-                case CoinGenerator.BIGGERCOIN:
+                case CoinGenerator.BiggerCoin:
                     pool = gameManager.GetCoinGenerator().PoolBiggerCoin;
                     break;
 
-                case CoinGenerator.BIGCOIN:
+                case CoinGenerator.BigCoin:
                     pool = gameManager.GetCoinGenerator().PoolBigCoin;
                     break;
             }

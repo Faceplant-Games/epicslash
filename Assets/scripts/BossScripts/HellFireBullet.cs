@@ -18,7 +18,7 @@ public class HellFireBullet : MonoBehaviour
         {
             if (hit.transform.gameObject.tag == "MainCamera")
             {
-                Game.gameManager.LoseExperience(5000);
+                Game.GameManager.LoseExperience(5000);
             }
             DestroyBullet();
             return;
@@ -38,6 +38,6 @@ public class HellFireBullet : MonoBehaviour
 
     void DestroyBullet()
     {
-        Game.gameManager.GetBulletGenerator().PoolHellFireBullet.DestroyObjectPool(gameObject);
+        Game.GameManager.GetBulletGenerator().PoolHellFireBullet.DestroyObjectPool(gameObject);
     }
 }

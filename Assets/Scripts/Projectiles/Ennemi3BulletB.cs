@@ -18,7 +18,7 @@ public class Ennemi3BulletB : MonoBehaviour
 		{
 			if (hit.transform.gameObject.tag == "MainCamera") 
 			{
-                Game.gameManager.LoseExperience(damage);
+                Game.GameManager.LoseExperience(damage);
             }
             DestroyBullet();
             return;
@@ -37,6 +37,6 @@ public class Ennemi3BulletB : MonoBehaviour
 
     void DestroyBullet()
     {
-        Game.gameManager.GetBulletGenerator().PoolEnemyBullet.DestroyObjectPool(gameObject);
+        Game.GameManager.GetBulletGenerator().PoolEnemyBullet.DestroyObjectPool(gameObject);
     }
 }

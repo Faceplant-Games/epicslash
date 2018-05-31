@@ -1,78 +1,79 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Manages Monsters of the stage, including:
-///     - Fetching Monster Spawners.
 ///     - Getting the specific monsters of this stage.
 ///     - Regularly spawning monsters
 /// 
 /// Link it to the same Empty Game Object as GameManager.
 /// </summary>
 /// <seealso cref="GameManager"/>
-/// <seealso cref="SpawnerB"/>
+/// <seealso cref="MonsterGenerator"/>
 
 [RequireComponent(typeof(GameManager))]
 public class MonsterManager : MonoBehaviour {
-    private int[] spawnPeriodsByFrame;
+    private int[] _spawnPeriodsByFrame;
     [Range(-360, 360)]
-    public int angleMin;
+    public int AngleMin = -45;
     [Range(-360, 360)]
-    public int angleMax; 
+    public int AngleMax = 135; 
     [Range(0, 150)]
-    public int magnitudeMin;
+    public int MagnitudeMin = 50;
     [Range(0, 150)]
-    public int magnitudeMax;
+    public int MagnitudeMax = 80;
 
-    void Update () {
-        if (spawnPeriodsByFrame == null)
+    private void Update () {
+        if (_spawnPeriodsByFrame == null)
         {
             InitializeSpawnPeriodByFrame();
         }
 
-        if (GameObject.FindObjectsOfType(typeof(AbstractMonster)).Length < Game.gameManager.gameData.maxAmountMonsters) // Max amount of monsters
-        { 
-            for (int i = 0; i < GetCurrentStageMonsters().Length; i++)
+        if (!IsMaxAmountMonstersReached()) return;
+        for (var i = 0; i < GetCurrentStageMonsters().Length; i++)
+        {
+            if (_spawnPeriodsByFrame[i] != 0 && Time.frameCount % _spawnPeriodsByFrame[i] == 0)
             {
-                if (spawnPeriodsByFrame[i] != 0 && Time.frameCount % spawnPeriodsByFrame[i] == 0)
-                {
-                    SpawnMob(GetCurrentStageMonsters()[i].name);
-                }
+                SpawnMob(GetCurrentStageMonsters()[i].name);
             }
         }
     }
 
+    private static bool IsMaxAmountMonstersReached() // TODO enhance this algorithm on performance issue
+    {
+        return FindObjectsOfType(typeof(AbstractMonster)).Length < Game.GameManager.Data.maxAmountMonsters;
+    }
+
     private void InitializeSpawnPeriodByFrame()
     {
-        spawnPeriodsByFrame = new int[Game.gameManager.gameData.stages[Game.GetCurrentStage()].monsters.Length];
-        for (int i = 0; i < Game.gameManager.gameData.stages[Game.GetCurrentStage()].monsters.Length; i++)
+        _spawnPeriodsByFrame = new int[Game.GameManager.Data.stages[Game.GetCurrentStage()].monsters.Length];
+        for (var i = 0; i < Game.GameManager.Data.stages[Game.GetCurrentStage()].monsters.Length; i++)
         {
-            spawnPeriodsByFrame[i] = ConvertToFramePeriod(GetCurrentStageMonsters()[i].spawnPeriod);
+            _spawnPeriodsByFrame[i] = ConvertToFramePeriod(GetCurrentStageMonsters()[i].spawnPeriod);
         }
     }
 
-    private int ConvertToFramePeriod(float period)
+    private static int ConvertToFramePeriod(float period)
     {
         return Mathf.RoundToInt(period * 30);
     }
 
     private GameManager.GameData.Stage.MonsterData[] GetCurrentStageMonsters()
     {
-        return Game.gameManager.gameData.stages[Game.GetCurrentStage()].monsters;
+        return Game.GameManager.Data.stages[Game.GetCurrentStage()].monsters;
     }
 
     /// <summary>
     /// Spawn a random mob in front of the player (distance and magnitude of spawn are customizable)
     /// </summary>
     private void SpawnMob(string monsterName) {
-        if (!Game.started) {
+        if (!Game.Started) {
             return;
         }
         
-        float random = Random.Range(angleMin, angleMax);
-        float magnitude = Random.Range(magnitudeMin, magnitudeMax);
-        Vector3 pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * random) * magnitude, 0, Mathf.Sin(Mathf.Deg2Rad * random) * magnitude);
-        GameObject monster = GetComponent<GameManager>().GetMonsterGenerator().GetMonsterFromName(monsterName);
+        float random = Random.Range(AngleMin, AngleMax);
+        float magnitude = Random.Range(MagnitudeMin, MagnitudeMax);
+        var pos = new Vector3(Mathf.Cos(Mathf.Deg2Rad * random) * magnitude, 0, Mathf.Sin(Mathf.Deg2Rad * random) * magnitude);
+        var monster = GetComponent<GameManager>().GetMonsterGenerator().GetMonsterFromName(monsterName);
         monster.transform.position += pos;
 	}
 }

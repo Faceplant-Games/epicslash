@@ -16,7 +16,7 @@ public class Attack3B : MonoBehaviour
 
 	private void FireBullet(GameObject target)
 	{
-		GameObject bullet = Game.gameManager.GetBulletGenerator().PoolEnemyBullet.GetObject();
+		GameObject bullet = Game.GameManager.GetBulletGenerator().PoolEnemyBullet.GetObject();
 		bullet.transform.position = FireInitialPos.position;
 		bullet.transform.LookAt(target.transform.position);
         bullet.GetComponent<Ennemi3BulletB>().damage = damage;

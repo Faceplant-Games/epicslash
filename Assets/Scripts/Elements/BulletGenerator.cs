@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
-
 
 public class BulletGenerator : MonoBehaviour
 {
-    public const string ENEMY_BULLET = "BulletPrefabM3";
-    public const string HELLFIRE_BULLET = "HellFireBullet";
+    private const string EnemyBullet = "BulletPrefabM3";
+    private const string HellfireBullet = "HellFireBullet";
 
     public ObjectPool PoolEnemyBullet { get; set; }
     public ObjectPool PoolHellFireBullet { get; set; }
@@ -13,12 +11,12 @@ public class BulletGenerator : MonoBehaviour
     void Start()
     {
         PoolEnemyBullet = gameObject.AddComponent<ObjectPool>();
-        PoolEnemyBullet.Initialize(30, Resources.Load<GameObject>(ENEMY_BULLET));
+        PoolEnemyBullet.Initialize(30, Resources.Load<GameObject>(EnemyBullet));
     }
 
     public void InitializeHellFireBullet()
     {
         PoolHellFireBullet = gameObject.AddComponent<ObjectPool>();
-        PoolHellFireBullet.Initialize(100, Resources.Load<GameObject>(HELLFIRE_BULLET));
+        PoolHellFireBullet.Initialize(100, Resources.Load<GameObject>(HellfireBullet));
     }
 }

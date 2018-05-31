@@ -29,7 +29,7 @@ public class WeaponB : MonoBehaviour {
     {
         for (float i = 0; i < length; i += Time.deltaTime)
         {
-            if (Game.gameManager.gameData.hasController)
+            if (Game.GameManager.Data.hasController)
             {
                 SteamVR_Controller.Input((int)trackedController.controllerIndex).TriggerHapticPulse(strength);
             }
@@ -44,7 +44,7 @@ public class WeaponB : MonoBehaviour {
             if (collider.gameObject.GetComponent<AbstractMonster>() != null)
             {
                 audioSource.PlayOneShot(slash);
-                if (Game.gameManager.gameData.hasController)
+                if (Game.GameManager.Data.hasController)
                 {
                     StartCoroutine(LongVibration(0.7f, 1500));
                 }
@@ -88,7 +88,7 @@ public class WeaponB : MonoBehaviour {
 
         GameObject current = Instantiate<GameObject>(Resources.Load<GameObject>(weapon), parent);
         current.name = "CurrentWeapon";
-        current.GetComponent<WeaponB>().isShotEnabled = Game.gameManager.gameData.stages[Game.GetCurrentStage()].isShotEnabled;
+        current.GetComponent<WeaponB>().isShotEnabled = Game.GameManager.Data.stages[Game.GetCurrentStage()].isShotEnabled;
         current.GetComponent<WeaponB>().trackedController = parent.GetComponent<SteamVR_TrackedController>();
         current.GetComponent<WeaponB>().audioSource = audioSource;
         return current;

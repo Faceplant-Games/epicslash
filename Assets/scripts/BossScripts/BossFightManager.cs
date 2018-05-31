@@ -52,7 +52,7 @@ public class BossFightManager : MonoBehaviour
 	void Start () 
 	{
 		Boss.transform.position = BossPositions[0].position;
-        Game.gameManager.GetBulletGenerator().InitializeHellFireBullet();
+        Game.GameManager.GetBulletGenerator().InitializeHellFireBullet();
 		StartCoroutine(StartBossFight());
 	}
 
