@@ -1,36 +1,29 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 //[RequireComponent(typeof(GameManager)]
 public class GoldBag : MonoBehaviour 
 {
 	public float GoldValue;
-    private GameManager gameManager;
 
-	private float timeEllapsed = 0;
+	private float _timeEllapsed;
 
-	void Start() {
-        gameManager = Game.GameManager;
-    }
+    private void FixedUpdate() {
+		_timeEllapsed += Time.fixedDeltaTime;
 
-    void FixedUpdate() {
-		timeEllapsed += Time.fixedDeltaTime;
-
-		if (timeEllapsed >= 5f)
+		if (_timeEllapsed >= 5f)
         {
             ObjectPool pool = null;
 
             switch (gameObject.tag)
             {
                 case CoinGenerator.SmallCoin:
-                    pool = gameManager.GetCoinGenerator().PoolSmallCoin;
+                    pool = Game.GameManager.GetCoinGenerator().PoolSmallCoin;
                     break;
                 case CoinGenerator.BiggerCoin:
-                    pool = gameManager.GetCoinGenerator().PoolBiggerCoin;
+                    pool = Game.GameManager.GetCoinGenerator().PoolBiggerCoin;
                     break;
-
                 case CoinGenerator.BigCoin:
-                    pool = gameManager.GetCoinGenerator().PoolBigCoin;
+                    pool = Game.GameManager.GetCoinGenerator().PoolBigCoin;
                     break;
             }
             if (pool != null)

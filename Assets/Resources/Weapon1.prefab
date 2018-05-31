@@ -272,11 +272,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797dfe53fbc405a48909e8bf82411cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 114000013174679328, guid: 7557b54e4326f7845a09bda18fb63e47,
-    type: 2}
-  barrelEndTransform: {fileID: 4000010138465936}
-  trackedController: {fileID: 0}
-  slash: {fileID: 8300000, guid: bf01569e231f21647b1656bc8f232bac, type: 3}
-  shoot: []
-  audioSource: {fileID: 0}
-  isShotEnabled: 0
+  BulletPrefab: {fileID: 0}
+  BarrelEndTransform: {fileID: 0}
+  TrackedController: {fileID: 0}
+  Slash:
+  - {fileID: 8300000, guid: 5513b22d93e64b442bc78604b3ff7507, type: 3}
+  - {fileID: 8300000, guid: bf01569e231f21647b1656bc8f232bac, type: 3}
+  - {fileID: 8300000, guid: d6bc9a63f0f9fde498aeb07d15a86cda, type: 3}
+  - {fileID: 8300000, guid: f5b1124ac518c5b43b7e97b76039a359, type: 3}
+  - {fileID: 8300000, guid: d89f6fd587ab5c241906cfcc59bac3df, type: 3}
+  - {fileID: 8300000, guid: 5d783e1c7cd2b3143a653f1c019f3fb1, type: 3}
+  Shoot: []
+  AudioSource: {fileID: 0}
+  IsShotEnabled: 0

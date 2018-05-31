@@ -416,12 +416,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 797dfe53fbc405a48909e8bf82411cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 114000013174679328, guid: 7557b54e4326f7845a09bda18fb63e47,
+  BulletPrefab: {fileID: 114000013174679328, guid: 7557b54e4326f7845a09bda18fb63e47,
     type: 2}
-  barrelEndTransform: {fileID: 4000010956390714}
-  trackedController: {fileID: 0}
-  slash: {fileID: 8300000, guid: bf01569e231f21647b1656bc8f232bac, type: 3}
-  shoot:
+  BarrelEndTransform: {fileID: 4000010956390714}
+  TrackedController: {fileID: 0}
+  Slash:
+  - {fileID: 8300000, guid: 5513b22d93e64b442bc78604b3ff7507, type: 3}
+  - {fileID: 8300000, guid: bf01569e231f21647b1656bc8f232bac, type: 3}
+  - {fileID: 8300000, guid: d6bc9a63f0f9fde498aeb07d15a86cda, type: 3}
+  - {fileID: 8300000, guid: f5b1124ac518c5b43b7e97b76039a359, type: 3}
+  - {fileID: 8300000, guid: d89f6fd587ab5c241906cfcc59bac3df, type: 3}
+  - {fileID: 8300000, guid: 5d783e1c7cd2b3143a653f1c019f3fb1, type: 3}
+  Shoot:
   - {fileID: 8300000, guid: 1d56a9089ee32e447a8cb7d46a3b270b, type: 3}
   - {fileID: 8300000, guid: e30827e8c0e87254d887297ff009c3bf, type: 3}
   - {fileID: 8300000, guid: 10b6016a090700541b6f220a9fe5054d, type: 3}
@@ -447,5 +453,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1bcc919a88705d14a94fec58b9d5573e, type: 3}
   - {fileID: 8300000, guid: 53da361a2ce08484cb0ff1a1e8f24c49, type: 3}
   - {fileID: 8300000, guid: 879472174081693489773bd9eab80f0e, type: 3}
-  audioSource: {fileID: 0}
-  isShotEnabled: 0
+  AudioSource: {fileID: 0}
+  IsShotEnabled: 0

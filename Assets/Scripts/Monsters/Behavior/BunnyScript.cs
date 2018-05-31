@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
+
 /**
  * lapin
  * */
@@ -10,7 +11,7 @@ public class BunnyScript : AbstractMonster
 {
 	private GroundMovingB _groundMovingB;
 	public Vector3 EscapePosition;
-	Animator animator;
+	private Animator _animator;
 
     public override string Name { get { return "Bunny"; } }
 
@@ -19,63 +20,63 @@ public class BunnyScript : AbstractMonster
 		LookingForGold,
 		Escaping
 	}
-	public Monster2State myState;
+	public Monster2State MyState;
 
+	private float _timer;
+
+	
 	// Use this for initialization
-	void Start ()
+	private void Start ()
 	{
 		_groundMovingB = GetComponent<GroundMovingB>();
 		EscapePosition = transform.position;
-		myState = Monster2State.LookingForGold;
-		animator = this.GetComponentInChildren<Animator>();
-        base.hp = 2;
-        base.experience = 612;
-        base.malus = 15;
+		MyState = Monster2State.LookingForGold;
+		_animator = GetComponentInChildren<Animator>();
+        Hp = 2;
+        Experience = 612;
+        Malus = 15;
 	}
 
 	private GameObject NearestGoldBag()
 	{
-		GoldBag[] Bags = GameObject.FindObjectsOfType<GoldBag>();
-		GameObject NearestBag = null;
-		foreach (GoldBag i in Bags)
+		var bags = FindObjectsOfType<GoldBag>();
+		GameObject nearestBag = null;
+		foreach (var i in bags)
 		{
-			if (NearestBag == null)
+			if (nearestBag == null)
 			{
-				NearestBag = i.gameObject;
+				nearestBag = i.gameObject;
 			}
-			else if (Vector3.Distance(transform.position, i.gameObject.transform.position) < Vector3.Distance(NearestBag.transform.position, transform.position))
+			else if (Vector3.Distance(transform.position, i.gameObject.transform.position) < Vector3.Distance(nearestBag.transform.position, transform.position))
 			{
-				NearestBag = i.gameObject;
+				nearestBag = i.gameObject;
 			}
 		}
-		return NearestBag;
+		return nearestBag;
 	}
 
 
-	float timer = 0;
-
 	// Update is called once per frame
-	void Update () 
+	private void Update () 
 	{
 		
-		timer += Time.deltaTime;
-		if (timer > 1)
+		_timer += Time.deltaTime;
+		if (!(_timer > 1)) return;
+		
+		_timer = 0;
+		if (MyState == Monster2State.LookingForGold)
 		{
-			timer = 0;
-			if (myState == Monster2State.LookingForGold)
+			if (NearestGoldBag() == null)
 			{
-				if (NearestGoldBag() == null)
-				{
-					return;
-				}
-				_groundMovingB.Move(NearestGoldBag().transform.position);
+				return;
 			}
-			else
-			{
-				_groundMovingB.Move(EscapePosition);
-                if (transform.position == EscapePosition && myState == Monster2State.Escaping)
-                    myState = Monster2State.LookingForGold;
-			}
+			_groundMovingB.Move(NearestGoldBag().transform.position);
+		}
+		else
+		{
+			_groundMovingB.Move(EscapePosition);
+			if (transform.position == EscapePosition && MyState == Monster2State.Escaping)
+				MyState = Monster2State.LookingForGold;
 		}
 
 	}
@@ -83,31 +84,22 @@ public class BunnyScript : AbstractMonster
     public override void OnTriggerEnter(Collider collision) 
 	{
         base.OnTriggerEnter(collision);
-		if (collision.gameObject.GetComponent<GoldBag>() != null && myState == Monster2State.LookingForGold)
+		if (collision.gameObject.GetComponent<GoldBag>() != null && MyState == Monster2State.LookingForGold)
 		{
-            animator.SetTrigger ("steal");
+            _animator.SetTrigger ("steal");
             StartCoroutine(Steal(collision));
 		}
 	}
 
-    IEnumerator Steal(Collider collision)
+	private IEnumerator Steal(Collider collision)
     {
-        AnimatorStateInfo asi = animator.GetCurrentAnimatorStateInfo(0);
+        var asi = _animator.GetCurrentAnimatorStateInfo(0);
         yield return new WaitForSeconds(asi.length + asi.normalizedTime);
-        StealGold();
-        GameManager player = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
-        player.LoseExperience(base.malus);
+	    Game.GameManager.LoseExperience(Malus);
+	    MyState = Monster2State.Escaping;
         if (collision != null)
         {
             Destroy(collision.gameObject);
         }
-    }
-
-    public void StealGold()
-    {
-        myState = Monster2State.Escaping;
-        //StealGold
-        
-    }
-    
+    }    
 }

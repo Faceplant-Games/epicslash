@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.AI;
 
-[RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class GroundMovingB : MovingB 
 {
     //[HideInInspector]
-    public UnityEngine.AI.NavMeshAgent MyNavMeshAgent;
+    public NavMeshAgent MyNavMeshAgent;
 
 
-    private Animator animator;
+    private Animator _animator;
 
     // Use this for initialization
-    void Start () 
+	private void Start () 
 	{
-		MyNavMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+		MyNavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
 	public override void Move (Vector3 position)
