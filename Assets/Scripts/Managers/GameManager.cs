@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
-using System;
+﻿using System;
 using System.IO;
+using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This class manages the game rules. It includes:
@@ -22,7 +21,6 @@ using UnityEngine.Playables;
 ///     - Instructions: Diegetic screen that disappears on start
 /// </summary>
 /// <seealso cref="MonsterManager"/>
-/// <seealso cref="Fading"/>
 public class GameManager : MonoBehaviour {
     public GameObject Instructions;
 
