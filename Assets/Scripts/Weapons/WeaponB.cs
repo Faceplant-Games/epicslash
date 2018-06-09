@@ -3,94 +3,85 @@ using System.Collections;
 
 
 public class WeaponB : MonoBehaviour {
-	public BulletB bulletPrefab;
-	public Transform barrelEndTransform;
-    public SteamVR_TrackedController trackedController;
-    public SteamVR_Controller.Device device;
+	public BulletB BulletPrefab;
+	public Transform BarrelEndTransform;
+    public SteamVR_TrackedController TrackedController;
+    public SteamVR_Controller.Device Device;
 
-	public AudioClip slash;
-    public AudioClip[] shoot;
-	public AudioSource audioSource;
-    public bool isShotEnabled;
+	public AudioClip[] Slash;
+    public AudioClip[] Shoot;
+	public AudioSource AudioSource;
+    public bool IsShotEnabled;
 
     // Use this for initialization
-    void Start () {
-        trackedController.TriggerClicked += new ClickedEventHandler(RangeHit);
+    private void Start () {
+        TrackedController.TriggerClicked += RangeHit;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        int index = (int)trackedController.controllerIndex;
+        var index = (int)TrackedController.controllerIndex;
         if (index >= 0)
-            device = SteamVR_Controller.Input(index);
+            Device = SteamVR_Controller.Input(index);
     }
 
-    IEnumerator LongVibration(float length, ushort strength)
+    private void LongVibration(ushort length)
     {
-        for (float i = 0; i < length; i += Time.deltaTime)
+        if (Game.GameManager.Data.hasController)
         {
-            if (Game.gameManager.gameData.hasController)
-            {
-                SteamVR_Controller.Input((int)trackedController.controllerIndex).TriggerHapticPulse(strength);
-            }
-            yield return null; //every single frame for the duration of "length" you will vibrate at "strength" amount
+            SteamVR_Controller.Input((int)TrackedController.controllerIndex).TriggerHapticPulse(length);
         }
     }
 
-    void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider enteredCollider)
     {
-        if (device.velocity.magnitude > 1.5)
-        { 
-            if (collider.gameObject.GetComponent<AbstractMonster>() != null)
-            {
-                audioSource.PlayOneShot(slash);
-                if (Game.gameManager.gameData.hasController)
-                {
-                    StartCoroutine(LongVibration(0.7f, 1500));
-                }
-                collider.gameObject.GetComponent<AbstractMonster>().BeingHit();
-            }
-		}
+        if (Device.velocity.magnitude <= 1.5) return;
+        if (enteredCollider.gameObject.GetComponent<AbstractMonster>() == null) return;
+        if (Slash.Length > 0)
+            AudioSource.PlayOneShot(Slash[(int)(Random.Range(0, Slash.Length) % Slash.Length)], .5f);
+        if (Game.GameManager.Data.hasController)
+        {
+            LongVibration(700);
+        }
+        enteredCollider.gameObject.GetComponent<AbstractMonster>().BeingHit();
     }
 
-    void RangeHit(object sender, ClickedEventArgs e)
+    private void RangeHit(object sender, ClickedEventArgs e)
     {
-        if (!isShotEnabled)
+        if (!IsShotEnabled)
             return;
-        if (shoot.Length > 0)
-            audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)], .5f);
-        StartCoroutine(LongVibration(0.7f, 1500));
-        BulletB bullet = Instantiate(bulletPrefab) as BulletB;
-        bullet.audioSource = audioSource;
-        bullet.transform.rotation = barrelEndTransform.rotation;
-        bullet.transform.position = barrelEndTransform.position + bullet.transform.forward * -0.1f;
+        if (Shoot.Length > 0)
+            AudioSource.PlayOneShot(Shoot[(int)(Random.Range(0, Shoot.Length) % Shoot.Length)], .5f);
+        LongVibration(700);
+        var bullet = Instantiate(BulletPrefab);
+        bullet.AudioSource = AudioSource;
+        bullet.transform.rotation = BarrelEndTransform.rotation;
+        bullet.transform.position = BarrelEndTransform.position + bullet.transform.forward * -0.1f;
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * -20;
         bullet.transform.Rotate(-180, 0, 0);
     }
 
     public void RangeHitTest()
     {
-        if (!isShotEnabled)
-            return;
-        if (shoot.Length > 0)
-            audioSource.PlayOneShot(shoot[(int)(Random.Range(0, shoot.Length) % shoot.Length)], .75f);
-        StartCoroutine(LongVibration(0.85f, 3000));
-        BulletB bullet = Instantiate(bulletPrefab) as BulletB;
-        bullet.audioSource = audioSource;
-        bullet.transform.rotation = barrelEndTransform.rotation;
-        bullet.transform.position = barrelEndTransform.position + bullet.transform.forward * -0.1f;
+        if (!IsShotEnabled) return;
+        if (Shoot.Length > 0)
+            AudioSource.PlayOneShot(Shoot[(int)(Random.Range(0, Shoot.Length) % Shoot.Length)], .75f);
+        LongVibration(850);
+        var bullet = Instantiate(BulletPrefab);
+        bullet.AudioSource = AudioSource;
+        bullet.transform.rotation = BarrelEndTransform.rotation;
+        bullet.transform.position = BarrelEndTransform.position + bullet.transform.forward * -0.1f;
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * 20 * -1;
         bullet.transform.Rotate(-180, 0, 0);
     }
 
     public static GameObject CreateWeapon(string weapon, Transform parent, AudioSource audioSource)
     {
-
-        GameObject current = Instantiate<GameObject>(Resources.Load<GameObject>(weapon), parent);
+        var current = Instantiate(Resources.Load<GameObject>(weapon), parent);
         current.name = "CurrentWeapon";
-        current.GetComponent<WeaponB>().isShotEnabled = Game.gameManager.gameData.stages[Game.GetCurrentStage()].isShotEnabled;
-        current.GetComponent<WeaponB>().trackedController = parent.GetComponent<SteamVR_TrackedController>();
-        current.GetComponent<WeaponB>().audioSource = audioSource;
+        current.GetComponent<WeaponB>().IsShotEnabled = Game.GameManager.Data.stages[Game.GetCurrentStage()].isShotEnabled;
+        current.GetComponent<WeaponB>().TrackedController = parent.GetComponent<SteamVR_TrackedController>();
+        current.GetComponent<WeaponB>().AudioSource = audioSource;
         return current;
     }
 }

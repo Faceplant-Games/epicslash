@@ -1,28 +1,27 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 public class HellFireManager : MonoBehaviour 
 {
 	public ExplosiveWings[] Wings;
 	public float RateOfSpawn = 0.1f;
 	public float RateOfFire = 5f;
-	private Transform[] SpawnPoints;
-	public GameObject HellFireBulletPrefab;
+	private Transform[] _spawnPoints;
 
 	public bool Unleash = false;
 	public AudioClip[] Explosions;
 
-	public void PLayRandomSFXExplosion(Vector3 position)
+	public static void PlayRandomSfxExplosion(Vector3 position) // TODO Dead code: keep it or delete it
 	{
 		//AudioSource.PlayClipAtPoint(Explosions[Random.Range(0, Explosions.Length)], position);
 	}
 
-	void Start()
+	private void Start()
 	{
-		SpawnPoints = transform.GetComponentsInChildren<Transform>();
+		_spawnPoints = transform.GetComponentsInChildren<Transform>();
 	}
 
-	void Update()
+	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Z))
 		{
@@ -37,23 +36,22 @@ public class HellFireManager : MonoBehaviour
 		{
 			yield break;
 		}
-		foreach (ExplosiveWings i in Wings)
+		foreach (var i in Wings)
 		{
 			if (i != null)
 			{
 				i.ExplosionEnabled = true;
 			}
 		}
-		for (int i = 1; i < SpawnPoints.Length; i++)
+		for (var i = 1; i < _spawnPoints.Length; i++)
 		{
-//			GameObject bullet =  Instantiate(HellFireBulletPrefab, SpawnPoints[i].position, Quaternion.identity) as GameObject;
-            GameObject bullet = Game.gameManager.GetBulletGenerator().PoolHellFireBullet.GetObject();
-            bullet.transform.position = SpawnPoints[i].position;
+            var bullet = Game.GameManager.GetBulletGenerator().PoolHellFireBullet.GetObject();
+            bullet.transform.position = _spawnPoints[i].position;
             bullet.transform.LookAt(Camera.main.transform.position);
             bullet.SetActive(true);
 			yield return new WaitForSeconds(RateOfSpawn);
 		}
-		foreach (ExplosiveWings i in Wings)
+		foreach (var i in Wings)
 		{
 			if (i != null)
 			{

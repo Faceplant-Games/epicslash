@@ -1,42 +1,38 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Ennemi3BulletB : MonoBehaviour 
 {
-	private float timer = 0;
-	private float lifeTime = 60;
-	public float speed = 2f;
-    public int damage = 5;
+	private float _timer;
+	private const float LifeTime = 60;
+	public float Speed = 2f;
+    public int Damage = 5;
 
     // Update is called once per frame
-    void FixedUpdate () {
-		float distanceThisFrame = speed * Time.fixedDeltaTime;
-		RaycastHit hit = new RaycastHit ();
+	private void FixedUpdate () {
+		var distanceThisFrame = Speed * Time.fixedDeltaTime;
+		var hit = new RaycastHit ();
 
 		// At each frame, we cast a ray forward from where we are to where we will be next frame
 		if (Physics.Raycast (transform.position, transform.forward, out hit, distanceThisFrame)) 
 		{
-			if (hit.transform.gameObject.tag == "MainCamera") 
+			if (hit.transform.gameObject.CompareTag("MainCamera")) 
 			{
-                Game.gameManager.LoseExperience(damage);
+                Game.GameManager.LoseExperience(Damage);
             }
             DestroyBullet();
             return;
-        } 
-		else 
-		{
-			transform.position += transform.forward * distanceThisFrame;
-		}
+        }
 
-		timer += Time.fixedDeltaTime;
-		if (timer > lifeTime) {
+		transform.position += transform.forward * distanceThisFrame;
+
+		_timer += Time.fixedDeltaTime;
+		if (_timer > LifeTime) {
             DestroyBullet();
-            return;
 		}
 	}
 
-    void DestroyBullet()
+	private void DestroyBullet()
     {
-        Game.gameManager.GetBulletGenerator().PoolEnemyBullet.DestroyObjectPool(gameObject);
+        Game.GameManager.GetBulletGenerator().PoolEnemyBullet.DestroyObjectPool(gameObject);
     }
 }

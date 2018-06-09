@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 /**
  * Bearbot and Dragon attack
@@ -7,7 +6,7 @@ using System.Collections;
 public class Attack3B : MonoBehaviour 
 {
 	public Transform FireInitialPos;
-    public int damage = 5;
+    public int Damage = 5;
 
 	public void Attack(GameObject target)
 	{
@@ -16,10 +15,10 @@ public class Attack3B : MonoBehaviour
 
 	private void FireBullet(GameObject target)
 	{
-		GameObject bullet = Game.gameManager.GetBulletGenerator().PoolEnemyBullet.GetObject();
+		var bullet = Game.GameManager.GetBulletGenerator().PoolEnemyBullet.GetObject();
 		bullet.transform.position = FireInitialPos.position;
 		bullet.transform.LookAt(target.transform.position);
-        bullet.GetComponent<Ennemi3BulletB>().damage = damage;
+        bullet.GetComponent<Ennemi3BulletB>().Damage = Damage;
         bullet.SetActive(true);
 	}
 }

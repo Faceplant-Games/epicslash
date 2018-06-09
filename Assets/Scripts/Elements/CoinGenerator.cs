@@ -1,46 +1,44 @@
-﻿using UnityEngine;
-using System.Collections;
-
+﻿using System.Collections;
+using UnityEngine;
 
 public class CoinGenerator : MonoBehaviour
 {
-    public const string SMALLCOIN = "SmallCoin";
-    public const string BIGGERCOIN = "BiggerCoin";
-    public const string BIGCOIN = "BigCoin";
+    public const string SmallCoin = "SmallCoin";
+    public const string BiggerCoin = "BiggerCoin";
+    public const string BigCoin = "BigCoin";
 
+    public ObjectPool PoolSmallCoin { get; private set; }
+    public ObjectPool PoolBiggerCoin { get; private set; }
+    public ObjectPool PoolBigCoin { get; private set; }
 
-    public ObjectPool PoolSmallCoin { get; set; }
-    public ObjectPool PoolBiggerCoin { get; set; }
-    public ObjectPool PoolBigCoin { get; set; }
-    
-    void Start()
+    private void Start()
     {
         PoolSmallCoin = gameObject.AddComponent<ObjectPool>();
         PoolBiggerCoin = gameObject.AddComponent<ObjectPool>();
         PoolBigCoin = gameObject.AddComponent<ObjectPool>();
-        PoolSmallCoin.Initialize(20, Resources.Load<GameObject>(SMALLCOIN));
-        PoolBiggerCoin.Initialize(20, Resources.Load<GameObject>(BIGGERCOIN));
-        PoolBigCoin.Initialize(20, Resources.Load<GameObject>(BIGCOIN));
+        PoolSmallCoin.Initialize(20, Resources.Load<GameObject>(SmallCoin));
+        PoolBiggerCoin.Initialize(20, Resources.Load<GameObject>(BiggerCoin));
+        PoolBigCoin.Initialize(20, Resources.Load<GameObject>(BigCoin));
     }
 
 
-    private ArrayList GenerateCoins(int experience)
+    private static ArrayList GenerateCoins(int experience)
     {
-        ArrayList coins = new ArrayList();
-        int compteur = 1;
+        var coins = new ArrayList();
+        var compteur = 1;
         do
         {
             if (compteur > 10000)
             {
-                coins.Add(BIGCOIN);
+                coins.Add(BigCoin);
             }
             else if (compteur > 100)
             {
-                coins.Add(BIGGERCOIN);
+                coins.Add(BiggerCoin);
             }
             else
             {
-                coins.Add(SMALLCOIN);
+                coins.Add(SmallCoin);
             }
             compteur = compteur * 10;
         } while (compteur < experience);
@@ -50,15 +48,15 @@ public class CoinGenerator : MonoBehaviour
 
     public void SpawnGold(int experience, Vector3 position, Quaternion rotation)
     {
-        ArrayList coinsToSpawn = GenerateCoins(experience);
+        var coinsToSpawn = GenerateCoins(experience);
         foreach (string coin in coinsToSpawn)
         {
-            GameObject objectToSpawn = getCoinObjectFromName(coin);
-            Vector3 random1 = new Vector3(UnityEngine.Random.Range(-2f, 2f), UnityEngine.Random.Range(2.5f, 5f), UnityEngine.Random.Range(-2f, 2f));
-            Vector3 pos = position + random1;
+            var objectToSpawn = GetCoinObjectFromName(coin);
+            var random1 = new Vector3(Random.Range(-2f, 2f), Random.Range(2.5f, 5f), Random.Range(-2f, 2f));
+            var pos = position + random1;
             objectToSpawn.transform.position = pos;
             objectToSpawn.transform.rotation = rotation;
-            Rigidbody rbd = objectToSpawn.GetComponent<Rigidbody>();
+            var rbd = objectToSpawn.GetComponent<Rigidbody>();
             rbd.velocity = new Vector3(Random.Range(-2, 2), Random.Range(1, 2), Random.Range(-2, 2));
             rbd.angularVelocity = new Vector3(Random.Range(-20, 20), Random.Range(-20, 20), Random.Range(-20, 20));
             objectToSpawn.SetActive(true);
@@ -66,20 +64,18 @@ public class CoinGenerator : MonoBehaviour
     }
 
 
-    private GameObject getCoinObjectFromName(string name)
+    private GameObject GetCoinObjectFromName(string coinName)
     {
-        switch (name)
+        switch (coinName)
         {
-            case SMALLCOIN:
+            case SmallCoin:
                 return PoolSmallCoin.GetObject();
-            case BIGGERCOIN:
+            case BiggerCoin:
                 return PoolBigCoin.GetObject();
-            case BIGCOIN:
+            case BigCoin:
                 return PoolBigCoin.GetObject();
             default:
                 return PoolSmallCoin.GetObject();
         }
-
     }
-
 }

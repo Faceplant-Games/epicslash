@@ -64579,13 +64579,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d130e28c69c999e429f0b8d8d2c94000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructions: {fileID: 1684181233}
-  track: {fileID: 8300000, guid: 5560b410a8e91a44f973167ad974b2b1, type: 3}
-  loopTrack: {fileID: 0}
-  ups: {fileID: 8300000, guid: 4d31e1aed7ebabd40bc0b0415531de12, type: 3}
-  downs: {fileID: 8300000, guid: 02dcda9b881fac348a34a183c3f9eb97, type: 3}
-  audioSource: {fileID: 1139865374}
-  gameData:
+  Instructions: {fileID: 1684181233}
+  AudioSource: {fileID: 1139865374}
+  StageUpSound: {fileID: 8300000, guid: 4d31e1aed7ebabd40bc0b0415531de12, type: 3}
+  StageDownSound: {fileID: 8300000, guid: 02dcda9b881fac348a34a183c3f9eb97, type: 3}
+  Data:
     stageThresholds: 
     levelDownThresholdFactor: 0
     numberOfStages: 0
@@ -64605,10 +64603,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc40f2af0e648ca4d8aa02e2f2a6dd55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angleMin: -45
-  angleMax: 135
-  magnitudeMin: 50
-  magnitudeMax: 80
+  AngleMin: -45
+  AngleMax: 135
+  MagnitudeMin: 50
+  MagnitudeMax: 80
 --- !u!4 &1552812143
 Transform:
   m_ObjectHideFlags: 0

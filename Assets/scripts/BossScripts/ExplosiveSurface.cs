@@ -6,7 +6,7 @@ public class ExplosiveSurface : MonoBehaviour
 	public GameObject ExplosionFX;
 	public bool ExplosionEnabled;
 
-	private int HP = 10;
+	private int _hp = 10;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,20 +16,18 @@ public class ExplosiveSurface : MonoBehaviour
         }
     }
 
-    public void TriggerExplosion(Vector3 position)
+	private void TriggerExplosion(Vector3 position)
 	{
-		if (ExplosionEnabled)
-		{
-            GameObject FX = Instantiate<GameObject>(ExplosionFX);
-            FX.transform.position = position;
+		if (!ExplosionEnabled) return;
+		var fx = Instantiate(ExplosionFX);
+		fx.transform.position = position;
             
-            HP--;
-			if (HP < 0)
-			{
-				ExplosionEnabled = false;
-				GetComponent<MeshRenderer>().material = GameObject.FindObjectOfType<BossFightManager>().RedEyeMaterial;
-				GameObject.FindObjectOfType<BossFightManager>().EyesBrokenStage1 ++;
-			}
+		_hp--;
+		if (_hp < 0)
+		{
+			ExplosionEnabled = false;
+			GetComponent<MeshRenderer>().material = FindObjectOfType<BossFightManager>().RedEyeMaterial;
+			FindObjectOfType<BossFightManager>().EyesBrokenStage1 ++;
 		}
 	}
 }

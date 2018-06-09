@@ -2,12 +2,11 @@
 using System.Collections;
 
 public class BulletB : MonoBehaviour {
+	private float _timer;
+	private const float LifeTime = 10;
 
-	float timer = 0;
-	float lifeTime = 10;
-
-    public AudioSource audioSource;
-    public AudioClip[] impact;
+	public AudioSource AudioSource;
+    public AudioClip[] Impact;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,14 +16,14 @@ public class BulletB : MonoBehaviour {
         {
             return;
         }
-        audioSource.PlayOneShot(impact[Random.Range(0, impact.Length) % impact.Length], .5f);
+        AudioSource.PlayOneShot(Impact[Random.Range(0, Impact.Length) % Impact.Length], .5f);
         Destroy(gameObject);
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-		timer += Time.fixedDeltaTime;
-		if (timer > lifeTime) {
+	private void FixedUpdate () {
+		_timer += Time.fixedDeltaTime;
+		if (_timer > LifeTime) {
 			Destroy(gameObject);
 		}
 	}

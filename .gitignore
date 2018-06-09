@@ -44,3 +44,6 @@ Assets/scenes/[Do Not Commit]*.unity.meta
 Build.zip
 Build_Data/
 ProjectSettings/GraphicsSettings.asset
+.idea/
+Assets/Plugins/
+Assets/Plugins.meta

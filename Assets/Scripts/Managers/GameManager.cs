@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
-using System;
+﻿using System;
 using System.IO;
+using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// This class manages the game rules. It includes:
@@ -15,79 +14,71 @@ using UnityEngine.Playables;
 /// Link this script to an Empty Game Object in each stage.
 /// 
 /// Mandatory fields:
-///     - stage: the stage id, from 0 to the last stage.
-///     - fading: a Fading Game object, used as a transition screen during stage transitions.
-///     - track: original sound track of the stage. If there's no loopTrack specified, it will loop. Otherwise, it will be played once.
-///     - ups: stage up sound.
-///     - downs: stage down sound.
+///     - StageUpSound: The audio clip to play on changing to next stage
+///     - StageDownSound: The audio clip to play on changing to previous stage
+///     - AudioSource
 /// Optional fields:
-///     - loopTrack: original sound track of the stage, played in loop after "track" is played once.
+///     - Instructions: Diegetic screen that disappears on start
 /// </summary>
 /// <seealso cref="MonsterManager"/>
-/// <seealso cref="Fading"/>
-/// <seealso cref="Damage"/>
-/// <seealso cref="GoldSpawnerB"/>
 public class GameManager : MonoBehaviour {
-    public GameObject instructions;
+    public GameObject Instructions;
 
-    public AudioClip track;
-    public AudioClip loopTrack;
-    public AudioClip ups;
-	public AudioClip downs;
-	public AudioSource audioSource;
+    public AudioSource AudioSource;
+    public AudioClip StageUpSound;
+	public AudioClip StageDownSound;
 
-    public GameData gameData;
-    private CoinGenerator coinGenerator;
-    private BulletGenerator bulletGenerator;
-    private MonsterGenerator monsterGenerator;
-    private string gameDataFileName = "data.json";
+    public GameData Data;
+    private CoinGenerator _coinGenerator;
+    private BulletGenerator _bulletGenerator;
+    private MonsterGenerator _monsterGenerator;
+    private const string GameDataFileName = "data.json";
 
-    private Fading fading;
-    private DamageScript damage;
-    private GameObject player;
-    private Transform leftController;
-    private Transform rightController;
-    private GameObject rightWeapon;
-    private ProgressBar gameInfoHUD;
+    private GameObject _player;
+    private Transform _leftController;
+    private Transform _rightController;
+    private GameObject _rightWeapon;
+    private ProgressBar _gameInfoHud;
 
-
-    void Start ()
+    private void Start ()
     {
         LoadGameData();
-        Game.isTransitioning = false;
-        Game.gameManager = this;
+        Game.IsTransitioning = false;
+        Game.GameManager = this;
         InitializeTrack();
         InitializePlayer();
-        InitializeScreen();
         InitializeIntroduction();
-        coinGenerator = gameObject.AddComponent<CoinGenerator>();
-        bulletGenerator = gameObject.AddComponent<BulletGenerator>();
-        monsterGenerator = gameObject.AddComponent<MonsterGenerator>();
+        _coinGenerator = gameObject.AddComponent<CoinGenerator>();
+        _bulletGenerator = gameObject.AddComponent<BulletGenerator>();
+        _monsterGenerator = gameObject.AddComponent<MonsterGenerator>();
     }
 
-    void Update ()
+    private void Update ()
     {
         ManageButtons();
     }
 
     private void InitializeTrack()
     {
-        audioSource.mute = gameData.muteAudio;
-        audioSource.clip = track;
-        if (loopTrack == null)
+        var bgm = Resources.Load<AudioClip>("SFX/"+Data.stages[Game.GetCurrentStage()].audioTrack);
+        var loopBgm = Resources.Load<AudioClip>("SFX/"+Data.stages[Game.GetCurrentStage()].audioTrackLoop);
+
+        AudioSource.mute = Data.muteAudio;
+        AudioSource.clip = bgm;
+        if (loopBgm == null)
         {
-            audioSource.loop = true;
-            audioSource.Play();
+            AudioSource.loop = true;
+            AudioSource.Play();
             return;
         }
-        audioSource.loop = false;
+        AudioSource.loop = false;
 
-        AudioSource loopAudio = gameObject.AddComponent<AudioSource>();
+        var loopAudio = gameObject.AddComponent<AudioSource>();
         loopAudio.loop = true;
-        loopAudio.clip = loopTrack;
-        audioSource.Play();
-        loopAudio.PlayDelayed(track.length);
-        loopAudio.mute = gameData.muteAudio;
+        loopAudio.clip = loopBgm;
+        AudioSource.Play();
+        loopAudio.PlayDelayed(bgm.length);
+        loopAudio.mute = Data.muteAudio;
     }
 
     private void InitializeIntroduction()
@@ -96,74 +87,65 @@ public class GameManager : MonoBehaviour {
         {
             return;
         }
-        if (Game.started)
+        if (Game.Started)
         {
-            instructions.SetActive(false);
+            Instructions.SetActive(false);
         }
         else {
-            GameObject movableMap = GameObject.FindGameObjectWithTag("MovableMap");
+            var movableMap = GameObject.FindGameObjectWithTag("MovableMap");
             movableMap.transform.position = new Vector3(0, 300, 0);
         }
     }
 
-    private void InitializeScreen()
-    {
-        print("Initializing screens (Fading, Damage...)");
-        Vector3 pos = new Vector3(0, 0, 0);
-        Quaternion rotation = Quaternion.Euler(0, 45, 0);
-        fading = Instantiate(Resources.Load<GameObject>("FadingScreen"), pos, rotation).GetComponent<Fading>();
-        damage = Instantiate(Resources.Load<GameObject>("DamageScreen"), pos, rotation).GetComponent<DamageScript>();
-    }
-
     private void InitializePlayer()
     {
-        if (player != null)
+        if (_player != null)
         {
             print("Player found");
             return;
         }
         print("Initializing player");
-        player = Instantiate<GameObject>(Resources.Load<GameObject>("Player"));
-        player.name = "Player";
+        _player = Instantiate(Resources.Load<GameObject>("Player"));
+        _player.name = "Player";
         // Get controllers
-        foreach (Transform childTransform in player.transform) {
+        foreach (Transform childTransform in _player.transform) {
             switch (childTransform.tag) {
                 case "LeftController":
-                    leftController = childTransform;
+                    _leftController = childTransform;
                     break;
                 case "RightController":
-                    rightController = childTransform;
+                    _rightController = childTransform;
                     break;
             }
         }
         
-        WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].leftWeapon, leftController, audioSource);
-        rightWeapon = WeaponB.CreateWeapon(gameData.stages[Game.GetCurrentStage()].rightWeapon, rightController, audioSource);
+        WeaponB.CreateWeapon(Data.stages[Game.GetCurrentStage()].leftWeapon, _leftController, AudioSource);
+        _rightWeapon = WeaponB.CreateWeapon(Data.stages[Game.GetCurrentStage()].rightWeapon, _rightController, AudioSource);
 
 
         // Debug
-        if (gameData.profile == "Test" && Game.GetCurrentStage() != 0 && Game.level == 0)
+        if (Data.profile == "Test" && Game.GetCurrentStage() != 0 && Game.Level == 0)
         {
-            Game.level = gameData.stageThresholds[Game.GetCurrentStage()-1];
+            Game.Level = Data.stageThresholds[Game.GetCurrentStage()-1];
         }
-        GameObject gameInfoUI = Instantiate<GameObject>(Resources.Load<GameObject>("GameInfoUI"), rightWeapon.transform);
+        var gameInfoUI = Instantiate(Resources.Load<GameObject>("GameInfoUI"), _rightWeapon.transform);
         gameInfoUI.transform.localPosition = new Vector3(0.037f, 0, 0.07f);
-        Vector3 gameInfoUIRotation = new Vector3(0, 180, 90);
+        var gameInfoUIRotation = new Vector3(0, 180, 90);
         gameInfoUI.transform.Rotate(gameInfoUIRotation);
-        gameInfoHUD = gameInfoUI.GetComponentInChildren<ProgressBar>();
-        gameInfoHUD.currentExperience = Game.level;
-        gameInfoHUD.experienceGoal = gameData.stageThresholds[Game.GetCurrentStage()];
-        leftController.gameObject.SetActive(true);
-        rightController.gameObject.SetActive(true);
+        _gameInfoHud = gameInfoUI.GetComponentInChildren<ProgressBar>();
+        _gameInfoHud.CurrentExperience = Game.Level;
+        _gameInfoHud.ExperienceGoal = Data.stageThresholds[Game.GetCurrentStage()];
+        _leftController.gameObject.SetActive(true);
+        _rightController.gameObject.SetActive(true);
 
         // Debug
-        if (gameData.profile == "Test" && !gameData.hasController)
+        if (Data.profile == "Test" && !Data.hasController)
         {
-            leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
-            rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
-            leftController.transform.Rotate(new Vector3(-60f, 5, 10));
-            rightController.transform.Rotate(new Vector3(-20f, 0, 0));
-            player.transform.position += new Vector3(0, 1.8f, 0);
+            _leftController.transform.localPosition += new Vector3(-0.15f, 0, 0.2f);
+            _rightController.transform.localPosition += new Vector3(0.15f, 0, 0.2f);
+            _leftController.transform.Rotate(new Vector3(-60f, 5, 10));
+            _rightController.transform.Rotate(new Vector3(-20f, 0, 0));
+            _player.transform.position += new Vector3(0, 1.8f, 0);
         }
     }
 
@@ -176,17 +158,17 @@ public class GameManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape)) // Exit or return main menu game
         {
-            if (Game.started)
+            if (Game.Started)
             {
                 Game.InitializeDefaultValues();
-                StartCoroutine(ChangeStage(0));
+                ChangeStage(0);
             } else
             {
                 Application.Quit();
             }
         }
 
-        if (gameData.profile == "Test")
+        if (Data.profile == "Test")
         {
             ManageCheatCodes();
         }
@@ -196,14 +178,14 @@ public class GameManager : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.B)) // Hit each monsters once
         {
-            AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
+            var monsters = FindObjectsOfType<AbstractMonster>();
 
             print("Current monsters amount: " + monsters.Length);
             Array.ForEach(monsters, m => m.BeingHit());
         }
         if (Input.GetKeyDown(KeyCode.A)) // Hit one monster
         {
-            AbstractMonster[] monsters = GameObject.FindObjectsOfType<AbstractMonster>();
+            var monsters = FindObjectsOfType<AbstractMonster>();
             print("Current monsters amount: " + monsters.Length);
             if (monsters.Length == 0)
             {
@@ -217,156 +199,150 @@ public class GameManager : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.I)) // Debug Game Info
         {
-            Debug.Log("Started: " + Game.started);
+            Debug.Log("Started: " + Game.Started);
             Debug.Log("CurrentStage: " + Game.GetCurrentStage());
-            Debug.Log("Level: " + Game.level);
+            Debug.Log("Level: " + Game.Level);
         }
         if (Input.GetKey(KeyCode.H))
         {
-            player.transform.Rotate(new Vector3(0, -1, 0));
+            _player.transform.Rotate(new Vector3(0, -1, 0));
         }
         if (Input.GetKey(KeyCode.J))
         {
-            player.transform.Rotate(new Vector3(1, 0, 0));
+            _player.transform.Rotate(new Vector3(1, 0, 0));
         }
         if (Input.GetKey(KeyCode.K))
         {
-            player.transform.Rotate(new Vector3(-1, 0, 0));
+            _player.transform.Rotate(new Vector3(-1, 0, 0));
         }
         if (Input.GetKey(KeyCode.L))
         {
-            player.transform.Rotate(new Vector3(0, 1, 0));
+            _player.transform.Rotate(new Vector3(0, 1, 0));
         }
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            rightWeapon.GetComponent<WeaponB>().RangeHitTest();
+            _rightWeapon.GetComponent<WeaponB>().RangeHitTest();
         }
     }
 
     private void StartGame()
     {
-        if (Game.started)
+        if (Game.Started)
         {
             return;
         }
-        Game.started = true;
-        if (instructions != null) // Hide instructions
+        Game.Started = true;
+        if (Instructions != null) // Hide instructions
         {
-            instructions.SetActive(false);
+            Instructions.SetActive(false);
         }
         // Start introduction timeline
-        GameObject movableMap = GameObject.FindGameObjectWithTag("MovableMap");
+        var movableMap = GameObject.FindGameObjectWithTag("MovableMap");
         movableMap.GetComponent<PlayableDirector>().Play();
     }
 
     public void EarnExperience(int experience)
     {
-        if (Game.isTransitioning)
+        if (Game.IsTransitioning)
         {
             return;
         }
 
-        Game.level += experience;
-        gameInfoHUD.currentExperience = Game.level;
+        Game.Level += experience;
+        _gameInfoHud.CurrentExperience = Game.Level;
 
-        coinGenerator.SpawnGold(experience, this.gameObject.transform.position, this.gameObject.transform.rotation);
+        _coinGenerator.SpawnGold(experience, gameObject.transform.position, gameObject.transform.rotation);
 
-        if (Game.level >= gameData.stageThresholds[Game.GetCurrentStage()])
+        if (Game.Level >= Data.stageThresholds[Game.GetCurrentStage()])
         {
-            StartCoroutine(StageUp());
+            StageUp();
         }
     }
 
     public void LoseExperience(int experience)
     {
-        if (Game.isTransitioning)
+        if (Game.IsTransitioning)
         {
             return;
         }
-        if (Game.level < experience)
+        if (Game.Level < experience)
         {
-            Game.level = 0;
+            Game.Level = 0;
         } else
         {
-            Game.level -= experience;
+            Game.Level -= experience;
         }
-        damage.TakeDamage(experience);
-        gameInfoHUD.currentExperience = Game.level;
+        _gameInfoHud.CurrentExperience = Game.Level;
 
         if (Game.GetCurrentStage() == 0)
         {
             return;
         }
 
-        if (Game.level <= gameData.stageThresholds[Game.GetCurrentStage() - 1] * gameData.levelDownThresholdFactor)
+        if (Game.Level <= Data.stageThresholds[Game.GetCurrentStage() - 1] * Data.levelDownThresholdFactor)
         {
-            StartCoroutine(StageDown());
+            StageDown();
         }
     }
 
-    private IEnumerator StageUp()
+    private void StageUp()
     {
         PlayStageUpSound();
-        return ChangeStage(Game.GetCurrentStage()+1);
+        ChangeStage(Game.GetCurrentStage()+1);
     }
 
-    private IEnumerator StageDown()
+    private void StageDown()
     {
         PlayStageDownSound();
-        return ChangeStage(Game.GetCurrentStage()-1);
+        ChangeStage(Game.GetCurrentStage()-1);
     }
 
-    private IEnumerator ChangeStage(int targetStage)
+    private static void ChangeStage(int targetStage)
     {
-        Game.isTransitioning = true;
-        if (fading != null)
-        {
-            float fadeTime = fading.BeginFade(1);
-            yield return new WaitForSeconds(1 + fadeTime);
-        }
-        AsyncOperation Loading = SceneManager.LoadSceneAsync(targetStage);
-        Loading.allowSceneActivation = true;
+        Game.IsTransitioning = true;
+        var loading = SceneManager.LoadSceneAsync(targetStage);
+        loading.allowSceneActivation = true;
     }
 
-    public void PlayStageUpSound()
+    private void PlayStageUpSound()
     {
-        audioSource.PlayOneShot(ups);
+        AudioSource.PlayOneShot(StageUpSound);
     }
 
-    public void PlayStageDownSound()
+    private void PlayStageDownSound()
     {
-        audioSource.PlayOneShot(downs);
+        AudioSource.PlayOneShot(StageDownSound);
     }
 
     private void LoadGameData()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, gameDataFileName);
+        var filePath = Path.Combine(Application.streamingAssetsPath, GameDataFileName);
         if (!File.Exists(filePath))
         {
             Debug.LogError("Cannot load game data!");
             return;
         }
 
-        string dataAsJson = File.ReadAllText(filePath);
-        gameData = JsonUtility.FromJson<GameData>(dataAsJson);
+        var dataAsJson = File.ReadAllText(filePath);
+        Data = JsonUtility.FromJson<GameData>(dataAsJson);
     }
 
     public CoinGenerator GetCoinGenerator()
     {
-        return coinGenerator;
+        return _coinGenerator;
     }
 
     public BulletGenerator GetBulletGenerator()
     {
-        return bulletGenerator;
+        return _bulletGenerator;
     }
 
     public MonsterGenerator GetMonsterGenerator()
     {
-        return monsterGenerator;
+        return _monsterGenerator;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class GameData
     {
         public long[] stageThresholds;
@@ -378,7 +354,7 @@ public class GameManager : MonoBehaviour {
         public bool hasController;
         public bool muteAudio;
 
-        [System.Serializable]
+        [Serializable]
         public class Stage
         {
             public string name;
@@ -386,8 +362,10 @@ public class GameManager : MonoBehaviour {
             public string leftWeapon;
             public string rightWeapon;
             public bool isShotEnabled;
+            public string audioTrack;
+            public string audioTrackLoop;
 
-            [System.Serializable]
+            [Serializable]
             public class MonsterData
             {
                 public string name;

@@ -1,43 +1,39 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class HellFireBullet : MonoBehaviour 
 {
-    private float timer = 0;
-    private float lifeTime = 60;
+    private float _timer;
+    private const float LifeTime = 60;
     public float speed = 2f;
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        float distanceThisFrame = speed * Time.fixedDeltaTime;
-        RaycastHit hit = new RaycastHit();
+        var distanceThisFrame = speed * Time.fixedDeltaTime;
+        RaycastHit hit;
 
         // At each frame, we cast a ray forward from where we are to where we will be next frame
         if (Physics.Raycast(transform.position, transform.forward, out hit, distanceThisFrame))
         {
-            if (hit.transform.gameObject.tag == "MainCamera")
+            if (hit.transform.gameObject.CompareTag("MainCamera"))
             {
-                Game.gameManager.LoseExperience(5000);
+                Game.GameManager.LoseExperience(5000);
             }
             DestroyBullet();
             return;
         }
-        else
-        {
-            transform.position += transform.forward * distanceThisFrame;
-        }
 
-        timer += Time.fixedDeltaTime;
-        if (timer > lifeTime)
+        transform.position += transform.forward * distanceThisFrame;
+
+        _timer += Time.fixedDeltaTime;
+        if (_timer > LifeTime)
         {
             DestroyBullet();
-            return;
         }
     }
 
-    void DestroyBullet()
+    private void DestroyBullet()
     {
-        Game.gameManager.GetBulletGenerator().PoolHellFireBullet.DestroyObjectPool(gameObject);
+        Game.GameManager.GetBulletGenerator().PoolHellFireBullet.DestroyObjectPool(gameObject);
     }
 }

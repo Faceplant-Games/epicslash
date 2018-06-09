@@ -3,22 +3,19 @@ using System.Collections;
 
 public class UltimateExplodingSurface : MonoBehaviour 
 {
-	public GameObject ExplosionFX;
-	private int HP = 15;
+	private int _hp = 15;
 
-	public void TriggerExplosion(Vector3 position)
+	private void TriggerExplosion(Vector3 position)
 	{
-		//GameObject FX = Instantiate(ExplosionFX, position, Quaternion.identity) as GameObject;
-		HP --;
-        FindObjectOfType<HellFireManager>().PLayRandomSFXExplosion(position);
-        if (HP < 0)
+		_hp--;
+        HellFireManager.PlayRandomSfxExplosion(position);
+        if (_hp < 0)
 		{
-			FindObjectOfType<BossFightManager>().EndGame();
-            Debug.Log("End Of The Game");
+			FindObjectOfType<BossFightManager>().EndGame(); // TODO Better use GameManager
 		}
 	}
 
-    void OnTriggerEnter(Collider col)
+	private void OnTriggerEnter(Collider col)
     {
         if (col.GetComponent<WeaponB>() != null || col.GetComponent(typeof(BulletB)) as BulletB)
         {

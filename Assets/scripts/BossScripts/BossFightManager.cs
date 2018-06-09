@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BossFightManager : MonoBehaviour 
 {
 	public GameObject Boss;
-	private WaitForEndOfFrame waitForEndOfFrame =  new WaitForEndOfFrame();
+	private readonly WaitForEndOfFrame _waitForEndOfFrame =  new WaitForEndOfFrame();
 
 	public Transform[] BossPositions;
 	public MeshRenderer[] BossEyes;
@@ -49,19 +49,19 @@ public class BossFightManager : MonoBehaviour
 	}
 
 	// Use this for initialization
-	void Start () 
+	private void Start () 
 	{
 		Boss.transform.position = BossPositions[0].position;
-        Game.gameManager.GetBulletGenerator().InitializeHellFireBullet();
+        Game.GameManager.GetBulletGenerator().InitializeHellFireBullet();
 		StartCoroutine(StartBossFight());
 	}
 
-	IEnumerator StartBossFight()
+	private IEnumerator StartBossFight()
 	{
 		yield return new WaitForSeconds(3);
 		StartCoroutine(MoveBoss(BossPositions[1].position, 15));
 		yield return new WaitForSeconds(16);
-		TurnOnEyesRED();
+		TurnOnEyesRed();
 		yield return new WaitForSeconds(1);
 		StartCoroutine(MoveBoss(BossPositions[2].position, 8));
 		yield return new WaitForSeconds(8.5f);
@@ -69,7 +69,7 @@ public class BossFightManager : MonoBehaviour
 		StartCoroutine(RotateBoss(BossPositions[3].rotation, 5));
 	}
 
-	void Update()
+	private void Update()
 	{
         if (Input.GetKey(KeyCode.A))
         {
@@ -94,7 +94,7 @@ public class BossFightManager : MonoBehaviour
 		//LoadCredits
 	}
 
-	public IEnumerator BossPhase2()
+	private IEnumerator BossPhase2()
 	{
 		StartCoroutine(RotateBoss(BossPositions[2].rotation, 4));
 		yield return new WaitForSeconds(5f);
@@ -104,7 +104,7 @@ public class BossFightManager : MonoBehaviour
 		StartCoroutine(FindObjectOfType<HellFireManager>().UnleashHellFire());
 	}
 
-	public IEnumerator BossPhase3()
+	private IEnumerator BossPhase3()
 	{
         FindObjectOfType<HellFireManager>().Unleash = false;
         StartCoroutine(RotateBoss(BossPositions[5].rotation, 6));
@@ -112,17 +112,17 @@ public class BossFightManager : MonoBehaviour
 		yield return null;
 	}
 
-	private void TurnWingsWhite()
+	private void TurnWingsWhite() // TODO dead code: keep it or delete it
 	{
-		foreach (MeshRenderer i in BossWings)
+		foreach (var i in BossWings)
 		{
 			i.material = RedEyeMaterial;
 		}
 	}
 
-	private void TurnOnEyesRED()
+	private void TurnOnEyesRed()
 	{
-		foreach (MeshRenderer i in BossEyes)
+		foreach (var i in BossEyes)
 		{
 			i.material = RedEyeMaterial;
 		}
@@ -130,36 +130,36 @@ public class BossFightManager : MonoBehaviour
 
 	private void TurnOnEyesWhite()
 	{
-		foreach (MeshRenderer i in BossEyes)
+		foreach (var i in BossEyes)
 		{
 			i.material = WhiteEyeMaterial;
 			i.GetComponent<ExplosiveSurface>().ExplosionEnabled = true;
 		}
 	}
 
-	public IEnumerator MoveBoss(Vector3 position, float duration)
+	private IEnumerator MoveBoss(Vector3 position, float duration)
 	{
 		float timer = 0;
-		Vector3 InitialPos = Boss.transform.position;
+		var initialPos = Boss.transform.position;
 		while (timer < duration)
 		{
-			yield return waitForEndOfFrame;
+			yield return _waitForEndOfFrame;
 			timer += Time.deltaTime;
-			Boss.transform.position = InitialPos + (position - InitialPos) * (timer/duration);
+			Boss.transform.position = initialPos + (position - initialPos) * (timer/duration);
 		}
 		Boss.transform.position = position;
 		yield return null;
 	}
 
-	public IEnumerator RotateBoss(Quaternion rotation, float duration)
+	private IEnumerator RotateBoss(Quaternion rotation, float duration)
 	{
 		float timer = 0;
-		Quaternion InitialRot = Boss.transform.rotation;
+		var initialRot = Boss.transform.rotation;
 		while (timer < duration)
 		{
-			yield return waitForEndOfFrame;
+			yield return _waitForEndOfFrame;
 			timer += Time.deltaTime;
-			Boss.transform.rotation = Quaternion.Lerp(InitialRot, rotation, timer/duration);
+			Boss.transform.rotation = Quaternion.Lerp(initialRot, rotation, timer/duration);
 		}
 		Boss.transform.rotation = rotation;
 		yield return null;

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 
 /**
@@ -8,65 +7,64 @@ using System.Collections;
 [RequireComponent(typeof(FlyingMovingB), typeof(Attack3B))]
 public class BearbotScript : AbstractMonster 
 {
-	private GameObject player;
+	private GameObject _player;
 	public float AttackRange = 2;
 	private FlyingMovingB _flyingMovingB;
 	private Attack3B _attack3B;
 	public float RateOfFire = 4;
-	private float t = 0;
+	private float _t;
     
     public override string Name { get { return "Bearbot"; } }
-    
-	void Start()
+
+	private void Start()
 	{
-		player = Camera.main.gameObject;
+		_player = Camera.main.gameObject;
 		_flyingMovingB = GetComponent<FlyingMovingB>();
 		_attack3B = GetComponent<Attack3B>();
-        base.hp = 5;
-        base.experience = 2539;
-        base.malus = 0;
+        Hp = 5;
+        Experience = 2539;
+        Malus = 0;
 	}
 
-	public void Move(Vector3 position)
+	private void Move(Vector3 position)
 	{
 		_flyingMovingB.Move(position);
 	}
 
-	void Update()
+	private void Update()
 	{
 		if (_flyingMovingB.MyNavMeshAgent.isStopped)
 		{
-			if (Vector3.Distance(player.transform.position, transform.position) < AttackRange)
+			if (Vector3.Distance(_player.transform.position, transform.position) < AttackRange)
 			{
-                t += Time.deltaTime;
-				if (t > RateOfFire)
+                _t += Time.deltaTime;
+				if (_t > RateOfFire)
 				{
-					t = 0;
+					_t = 0;
 					//_flyingMovingB.FaceObject(player.transform, 0.5f);
-					Attack(player);
+					Attack(_player);
 				}
-
 			}
 			else
 			{
-				Move(player.transform.position - (player.transform.position - transform.position) * 0.2f);
+				Move(_player.transform.position - (_player.transform.position - transform.position) * 0.2f);
 			}
 		}
         else
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < AttackRange)
+            if (Vector3.Distance(_player.transform.position, transform.position) < AttackRange)
             {
                 _flyingMovingB.MyNavMeshAgent.isStopped = true;
             }
             else
             {
-                Move(player.transform.position - (player.transform.position - transform.position) * 0.2f);
+                Move(_player.transform.position - (_player.transform.position - transform.position) * 0.2f);
             }
         }
 
 	}
 
-	public void Attack(GameObject target)
+	private void Attack(GameObject target)
 	{
 
 		_attack3B.Attack(target);

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.AI;
 
 public class FlyingMovingB : MovingB 
 {
-    public UnityEngine.AI.NavMeshAgent MyNavMeshAgent;
+    public NavMeshAgent MyNavMeshAgent;
 
-    void Start()
+    private void Start()
     {
-        MyNavMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        MyNavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     public override void Move(Vector3 position)
