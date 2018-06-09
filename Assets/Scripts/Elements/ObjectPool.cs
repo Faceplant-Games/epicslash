@@ -12,6 +12,7 @@ public class ObjectPool : MonoBehaviour
         for (var i = 0; i < size; i++)
         {
             var obj = Instantiate(_prefabGen);
+            obj.name = prefab.name;
             obj.SetActive(false);
             _pooledStuff.Add(obj);
             obj.transform.SetParent(gameObject.transform);

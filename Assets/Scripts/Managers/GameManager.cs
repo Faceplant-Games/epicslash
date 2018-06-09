@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Managers.StageBoss;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
@@ -21,6 +22,7 @@ using UnityEngine.SceneManagement;
 ///     - Instructions: Diegetic screen that disappears on start
 /// </summary>
 /// <seealso cref="MonsterManager"/>
+
 public class GameManager : MonoBehaviour {
     public GameObject Instructions;
 
@@ -29,16 +31,19 @@ public class GameManager : MonoBehaviour {
 	public AudioClip StageDownSound;
 
     public GameData Data;
+        
     private CoinGenerator _coinGenerator;
     private BulletGenerator _bulletGenerator;
     private MonsterGenerator _monsterGenerator;
     private const string GameDataFileName = "data.json";
+    private bool _stageBossActive;
 
     private GameObject _player;
     private Transform _leftController;
     private Transform _rightController;
     private GameObject _rightWeapon;
     private ProgressBar _gameInfoHud;
+    private bool _isLoadingStage;
 
     private void Start ()
     {
@@ -183,6 +188,14 @@ public class GameManager : MonoBehaviour {
             print("Current monsters amount: " + monsters.Length);
             Array.ForEach(monsters, m => m.BeingHit());
         }
+        if (Input.GetKeyDown(KeyCode.N)) // Heavy Damage on each monsters
+        {
+            var monsters = FindObjectsOfType<AbstractMonster>();
+
+            print("Current monsters amount: " + monsters.Length);
+            Array.ForEach(monsters, m => m.BeingHit(100));
+        }
+        
         if (Input.GetKeyDown(KeyCode.A)) // Hit one monster
         {
             var monsters = FindObjectsOfType<AbstractMonster>();
@@ -253,9 +266,10 @@ public class GameManager : MonoBehaviour {
 
         _coinGenerator.SpawnGold(experience, gameObject.transform.position, gameObject.transform.rotation);
 
-        if (Game.Level >= Data.stageThresholds[Game.GetCurrentStage()])
+        if (Game.Level >= Data.stageThresholds[Game.GetCurrentStage()] && !_stageBossActive)
         {
-            StageUp();
+            _stageBossActive = true;
+            Game.StageBossManager.StartBossFight();
         }
     }
 
@@ -285,14 +299,16 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void StageUp()
+    public void StageUp()
     {
+        if (Game.IsTransitioning) return;
         PlayStageUpSound();
         ChangeStage(Game.GetCurrentStage()+1);
     }
 
     private void StageDown()
     {
+        if (Game.IsTransitioning) return;
         PlayStageDownSound();
         ChangeStage(Game.GetCurrentStage()-1);
     }

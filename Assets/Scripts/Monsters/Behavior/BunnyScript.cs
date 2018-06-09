@@ -13,8 +13,6 @@ public class BunnyScript : AbstractMonster
 	public Vector3 EscapePosition;
 	private Animator _animator;
 
-    public override string Name { get { return "Bunny"; } }
-
 	public enum Monster2State
 	{
 		LookingForGold,

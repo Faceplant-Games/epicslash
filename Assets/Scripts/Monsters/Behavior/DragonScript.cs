@@ -14,16 +14,18 @@ public class DragonScript : AbstractMonster
     public float RateOfFire = 4;
     private float _t;
 
-    public override string Name { get { return "Dragon"; } }
+    public DragonScript()
+    {
+        Hp = 10;
+        Experience = 11357;
+        Malus = 0;
+    }
 
     private void Start()
     {
         _player = Camera.main.gameObject;
         _flyingMovingB = GetComponent<FlyingMovingB>();
         _attack3B = GetComponent<Attack3B>();
-        Hp = 10;
-        Experience = 11357;
-        Malus = 0;
     }
 
     private void Move(Vector3 position)
