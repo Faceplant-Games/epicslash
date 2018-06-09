@@ -4,7 +4,7 @@ public class Ennemi3BulletB : MonoBehaviour
 {
 	private float _timer;
 	private const float LifeTime = 60;
-	public float Speed = 2f;
+	private float Speed = 3.5f;
     public int Damage = 5;
 
     // Update is called once per frame
