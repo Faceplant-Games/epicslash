@@ -59,6 +59,6 @@
 		"isShotEnabled": true
 	}],
 	"profile": "Test",
-	"hasController": false,
-	"muteAudio": false
+	"hasController": true,
+	"muteAudio": true
 }
