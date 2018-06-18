@@ -13,7 +13,12 @@ public class SpiderScript : AbstractMonster
 
     private IEnumerator _attackCoroutine;
 
-    public override string Name { get { return "Spider"; } }
+    public SpiderScript()
+    {
+        Hp = 1;
+        Experience = 31;
+        Malus = 1;
+    }
 
     // Use this for initialization
     private void Start()
@@ -21,9 +26,7 @@ public class SpiderScript : AbstractMonster
         _groundMovingB = GetComponent<GroundMovingB>();
         _animator = GetComponent<Animator>();
         _player = GameObject.FindGameObjectWithTag("MainCamera");
-        Hp = 1;
-        Experience = 31;
-        Malus = 1;
+
     }
 
 

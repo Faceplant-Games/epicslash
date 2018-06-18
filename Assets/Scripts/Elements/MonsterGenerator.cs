@@ -35,8 +35,13 @@ public class MonsterGenerator : MonoBehaviour
     internal void DestroyObjectPool(GameObject objectToDestroy)
     {
         ObjectPool pool;
-        if (_monstersPools.TryGetValue(((AbstractMonster) objectToDestroy.GetComponent(typeof(AbstractMonster))).Name, out pool)) {
+        if (_monstersPools.TryGetValue(objectToDestroy.name, out pool)) {
             pool.DestroyObjectPool(objectToDestroy);
+        }
+        else
+        {
+            objectToDestroy.SetActive(false);
+            Destroy(objectToDestroy);
         }
     }
 

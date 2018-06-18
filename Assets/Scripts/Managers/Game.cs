@@ -1,10 +1,12 @@
-﻿using UnityEngine.SceneManagement;
+﻿using Managers.StageBoss;
+using UnityEngine.SceneManagement;
 
 public class Game {
     public static bool Started = GetCurrentStage() != 0;
     public static long Level = 0;
     public static bool IsTransitioning = false;
     public static GameManager GameManager;
+    public static StageBossManager StageBossManager;
 
     public static void InitializeDefaultValues()
     {

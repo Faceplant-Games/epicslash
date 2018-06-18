@@ -13,8 +13,6 @@ public class BearbotScript : AbstractMonster
 	private Attack3B _attack3B;
 	public float RateOfFire = 4;
 	private float _t;
-    
-    public override string Name { get { return "Bearbot"; } }
 
 	private void Start()
 	{
