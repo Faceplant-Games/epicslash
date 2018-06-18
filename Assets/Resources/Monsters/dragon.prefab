@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 136017609777998628}
   - component: {fileID: 195638318655922956}
   m_Layer: 0
-  m_Name: Dragon
+  m_Name: dragon
   m_TagString: DRAGON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
