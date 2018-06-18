@@ -5,6 +5,7 @@ public class Game {
     public static long Level = 0;
     public static bool IsTransitioning = false;
     public static GameManager GameManager;
+    public static BonusManager BonusManager;
 
     public static void InitializeDefaultValues()
     {

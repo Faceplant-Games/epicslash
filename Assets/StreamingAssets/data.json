@@ -69,5 +69,5 @@
 	}],
 	"profile": "Test",
 	"hasController": false,
-	"muteAudio": false
+	"muteAudio": true
 }
