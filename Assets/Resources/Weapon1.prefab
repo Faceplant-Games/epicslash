@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4000013976410880}
   - component: {fileID: 33000011623640456}
   - component: {fileID: 23000013974746686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_1_pommeau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4000010089538480}
   - component: {fileID: 33000012877351170}
   - component: {fileID: 23000013278145622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_1_lame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4000010138465936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 114000014165979824}
   - component: {fileID: 65000013328870326}
   - component: {fileID: 54505858930687698}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,6 +147,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 58097fcfa64817b40bec64458e2aa253, type: 2}
   - {fileID: 2100000, guid: 9db0af539ee1caa42a11c9d04d044d03, type: 2}
@@ -182,6 +183,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9091a7352f8dc9a4d98c7d6d3d094b54, type: 2}
   m_StaticBatchInfo:
@@ -261,6 +263,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114000014165979824
 MonoBehaviour:
   m_ObjectHideFlags: 1

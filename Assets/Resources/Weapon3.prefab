@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4000012504860252}
   - component: {fileID: 33000013414131104}
   - component: {fileID: 23000012705081426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_3_lame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4000010118468388}
   - component: {fileID: 33000011887704134}
   - component: {fileID: 23000010343696784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_3_pommeau_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4000012339567708}
   - component: {fileID: 33000012285024506}
   - component: {fileID: 23000010824274728}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_3_canon_g
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4000010920350948}
   - component: {fileID: 33000013440263120}
   - component: {fileID: 23000012508512624}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_3_canon_d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4000013563073208}
   - component: {fileID: 33000012967763694}
   - component: {fileID: 23000013656886008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_3_pommeau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 114000012124855676}
   - component: {fileID: 65000011338334212}
   - component: {fileID: 54628933574814074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 4000012139362092}
   - component: {fileID: 33000013197294012}
   - component: {fileID: 23000011225575308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_3_gachette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4000010217224332}
   - component: {fileID: 33000013971500514}
   - component: {fileID: 23000010764298342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_3_pommeau_lame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 4000013760905094}
   - component: {fileID: 33000011861867144}
   - component: {fileID: 23000012883915018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_3_pommeau_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 4000010520308246}
   - component: {fileID: 33000010297359794}
   - component: {fileID: 23000010434262318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sword_3_pommeau_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4000013630691550}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BarrelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,6 +364,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 355eac14a9e90db43814bd5d9db70bc7, type: 2}
   m_StaticBatchInfo:
@@ -398,6 +399,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9db0af539ee1caa42a11c9d04d044d03, type: 2}
   m_StaticBatchInfo:
@@ -432,6 +434,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9db0af539ee1caa42a11c9d04d044d03, type: 2}
   m_StaticBatchInfo:
@@ -466,6 +469,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: eb82485a4abebc848ae01a4623a6605b, type: 2}
   m_StaticBatchInfo:
@@ -500,6 +504,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: eb82485a4abebc848ae01a4623a6605b, type: 2}
   m_StaticBatchInfo:
@@ -534,6 +539,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: eb82485a4abebc848ae01a4623a6605b, type: 2}
   m_StaticBatchInfo:
@@ -568,6 +574,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9db0af539ee1caa42a11c9d04d044d03, type: 2}
   - {fileID: 2100000, guid: 58097fcfa64817b40bec64458e2aa253, type: 2}
@@ -603,6 +610,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9db0af539ee1caa42a11c9d04d044d03, type: 2}
   m_StaticBatchInfo:
@@ -637,6 +645,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 9091a7352f8dc9a4d98c7d6d3d094b54, type: 2}
   m_StaticBatchInfo:
@@ -765,6 +774,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114000012124855676
 MonoBehaviour:
   m_ObjectHideFlags: 1

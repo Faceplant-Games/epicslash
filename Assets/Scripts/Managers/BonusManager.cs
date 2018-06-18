@@ -7,7 +7,7 @@ public class BonusManager : MonoBehaviour {
     public List<AbstractPickup> Bonuses = new List<AbstractPickup>();
     private List<AbstractPickup> BonusesInstances = new List<AbstractPickup>();
 
-    public List<GameObject> BonusSpots = new List<GameObject>();
+    public Stack<GameObject> BonusSpots = new Stack<GameObject>();
 
     public void Start()
     {
@@ -16,21 +16,16 @@ public class BonusManager : MonoBehaviour {
 
     public void CreateBonus(Vector3 position)
     {
-        if (Random.Range(0, 1) < 0.05f)
+        if (BonusSpots.Peek())
         {
-            AbstractPickup Bonus = Instantiate<AbstractPickup>(Bonuses[(int) Random.Range(0, Bonuses.Count - 1)]);
-            BonusesInstances.Add(Bonus);
-            Bonus.transform.localPosition = position + new Vector3(0, 1f, 0);
-            Bonus.transform.localScale = Bonus.transform.localScale / 4;
-            Bonus.CurrentState = AbstractPickup.State.TRANSITIONING;
-        }
-    }
-
-    public void Update()
-    {
-        foreach (var Bonus in BonusesInstances)
-        {
-            Bonus.transform.Rotate(new Vector3(0, Time.deltaTime * 50f, 0));
+            if (Random.Range(0, 1) < 0.05f)
+            {
+                AbstractPickup Bonus = Instantiate<AbstractPickup>(Bonuses[(int) Random.Range(0, Bonuses.Count - 1)]);
+                BonusesInstances.Add(Bonus);
+                Bonus.transform.position += new Vector3(0, 1f, 0);
+                Bonus.CurrentState = AbstractPickup.State.TRANSITIONING;
+                Bonus.BonusSpot = BonusSpots.Pop();
+            }
         }
     }
 }
