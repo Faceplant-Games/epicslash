@@ -238,7 +238,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void StartGame()
+    public void StartGame()
     {
         if (Game.Started)
         {
