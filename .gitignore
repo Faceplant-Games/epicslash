@@ -36,10 +36,6 @@ Thumbs.db
 
 # Custom
 ProjectSettings/ProjectVersion.txt
-Assets/scenes/scene_*.unity
-Assets/scenes/scene_*.unity.meta
-Assets/scenes/[Do Not Commit]*.unity
-Assets/scenes/[Do Not Commit]*.unity.meta
 *.exe
 Build.zip
 Build_Data/
