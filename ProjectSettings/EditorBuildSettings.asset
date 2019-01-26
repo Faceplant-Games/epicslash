@@ -6,12 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/scenes/stage_one.unity
+    path: Assets/Scenes/stage_one.unity
+    guid: fdc1f23c35c432a438dab8828530a08f
   - enabled: 1
-    path: Assets/scenes/stage_two.unity
+    path: Assets/Scenes/stage_two.unity
+    guid: 0d2736ca333cc4044b69ee1a3ee72483
   - enabled: 1
-    path: Assets/scenes/stage_three.unity
+    path: Assets/Scenes/stage_three.unity
+    guid: 1f0fa2b7696dbec439d296c23cc16721
   - enabled: 1
-    path: Assets/scenes/BossFight.unity
+    path: Assets/Scenes/BossFight.unity
+    guid: 924b0cf3072706e40bcc14a5ceb389f6
   - enabled: 1
-    path: Assets/scenes/Credits.unity
+    path: Assets/Scenes/Credits.unity
+    guid: 4598287ee13e3074aabcf8e551ef540c

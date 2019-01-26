@@ -166,8 +166,9 @@ public class GameManager : MonoBehaviour {
             if (Game.Started)
             {
                 Game.InitializeDefaultValues();
-                ChangeStage(0);
-            } else
+                ChangeStage(Data.stages[0].name);
+            }
+            else
             {
                 Application.Quit();
             }
@@ -303,21 +304,20 @@ public class GameManager : MonoBehaviour {
     {
         if (Game.IsTransitioning) return;
         PlayStageUpSound();
-        ChangeStage(Game.GetCurrentStage()+1);
+        ChangeStage(Data.stages[Game.GetCurrentStage() + 1].name);
     }
 
     private void StageDown()
     {
         if (Game.IsTransitioning) return;
         PlayStageDownSound();
-        ChangeStage(Game.GetCurrentStage()-1);
+        ChangeStage(Data.stages[Game.GetCurrentStage() - 1].name);
     }
 
-    private static void ChangeStage(int targetStage)
+    private static void ChangeStage(string targetStage)
     {
         Game.IsTransitioning = true;
-        var loading = SceneManager.LoadSceneAsync(targetStage);
-        loading.allowSceneActivation = true;
+        SteamVR_LoadLevel.Begin(targetStage);
     }
 
     private void PlayStageUpSound()
