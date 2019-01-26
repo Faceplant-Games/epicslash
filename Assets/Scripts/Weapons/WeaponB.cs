@@ -16,6 +16,7 @@ public class WeaponB : MonoBehaviour {
     // Use this for initialization
     private void Start () {
         TrackedController.TriggerClicked += RangeHit;
+        TrackedController.TriggerClicked += StartGame;
     }
 
     private void FixedUpdate()
@@ -44,6 +45,11 @@ public class WeaponB : MonoBehaviour {
             LongVibration(700);
         }
         enteredCollider.gameObject.GetComponent<AbstractMonster>().BeingHit();
+    }
+
+    private void StartGame(object sender, ClickedEventArgs e)
+    {
+        Game.GameManager.StartGame();
     }
 
     private void RangeHit(object sender, ClickedEventArgs e)
