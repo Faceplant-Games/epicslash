@@ -1,35 +1,39 @@
 {
-    "title": "Epic Slash Website",
-    "name": "epicslash-website",
-    "version": "0.0.1",
-    "description": "Epic slash presentation website, based on Creative, HTML theme for Bootstrap.",
-    "homepage": "https://faceplant-games.github.io/epicslash/",
-    "bugs": {
-        "url": "https://github.com/Faceplant-Games/epicslash/issues"
-    },
-    "license": "GPL3",
-    "author": "Faceplant Games",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Faceplant-Games/epicslash"
-    },
-    "dependencies": {
-        "bootstrap": "4.1.1",
-        "font-awesome": "4.7.0",
-        "jquery": "3.3.1",
-        "jquery.easing": "^1.4.1",
-        "magnific-popup": "^1.1.0",
-        "scrollreveal": "3.4.0"
-    },
-    "devDependencies": {
-        "browser-sync": "2.24.3",
-        "gulp": "^3.9.1",
-        "gulp-clean-css": "3.9.4",
-        "gulp-dev": "^0.3.0",
-        "gulp-header": "2.0.5",
-        "gulp-rename": "^1.2.2",
-        "gulp-sass": "^4.0.1",
-        "gulp-uglify": "3.0.0",
-        "popper.js": "^1.14.3"
-    }
+  "title": "Epic Slash Website",
+  "name": "epicslash-website",
+  "version": "0.0.1",
+  "description": "Epic slash presentation website, based on Creative, HTML theme for Bootstrap.",
+  "homepage": "https://faceplant-games.github.io/epicslash/",
+  "bugs": {
+    "url": "https://github.com/Faceplant-Games/epicslash/issues"
+  },
+  "license": "GPL-3.0",
+  "author": "Faceplant Games",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Faceplant-Games/epicslash.git"
+  },
+  "dependencies": {
+    "bootstrap": "4.1.2",
+    "font-awesome": "4.7.0",
+    "jquery": "3.3.1",
+    "jquery.easing": "^1.4.1",
+    "magnific-popup": "^1.1.0",
+    "scrollreveal": "3.4.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "3.9.4",
+    "gulp-dev": "^0.3.0",
+    "gulp-header": "2.0.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "3.0.0",
+    "popper.js": "^1.14.3"
+  },
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
